@@ -30,10 +30,10 @@ void conv_naive(const float* in, float* out, const float* ker,
 // This was necessary as the main.cpp has a lot of overhead such as running naive
 // This messes up the readings given by the perf command. 
 // The command used to run this 
-//g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Iinclude -Wall src/conv_naive.cpp -o bin/conv_prof_naive
+//g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Iinclude -Wall -DSTANDALONE_TEST src/conv_naive.cpp -o bin/conv_prof_naive
 // We will offset the bias introduced by the random generation by having a run in which no conv function is called
 // This can be used to offset the random generation misses.
-
+#ifdef STANDALONE_TEST
 int main(int argc, char** argv) {
     std::printf("PROFILING NAIVE.\n");
     int H = 2048, W = 2048, K = 3;
@@ -55,3 +55,4 @@ int main(int argc, char** argv) {
     conv_naive(in,out,ker,H,W,K);
     return 0;
 }
+#endif

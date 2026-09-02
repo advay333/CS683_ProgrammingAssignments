@@ -12,15 +12,15 @@ void conv_tile(const float* in, float* out, const float* ker,
     const int p = K / 2;
     const int in_stride = W + 2 * p;  // padded row stride
     
-    const int tile_x=64;
+    const int tile_x=4096;
     const int tile_y=tile_x;
 
     for (int oy = 0; oy < H; oy+=tile_y) {
         for (int ox = 0; ox < W; ox+=tile_x) {
-            int bound_y = std::min(tile_y, H - oy);
-            int bound_x = std::min(tile_x, W - ox);
-            for (int ty = 0; ty < bound_y; ty++) {
-                for (int tx = 0; tx < bound_x; tx++) {         
+            //int bound_y = std::min(tile_y, H - oy);
+            //int bound_x = std::min(tile_x, W - ox);
+            for (int ty = 0; ty < tile_y; ty++) {
+                for (int tx = 0; tx < tile_x; tx++) {         
                     float acc = 0.0f;
                     for (int ky = 0; ky < K; ++ky) {
                         for (int kx = 0; kx < K; ++kx) {
@@ -39,10 +39,10 @@ void conv_tile(const float* in, float* out, const float* ker,
 // This was necessary as the main.cpp has a lot of overhead such as running naive
 // This messes up the readings given by the perf command. 
 // The command used to run this 
-//g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Iinclude -Wall src/conv_tile.cpp -o bin/conv_prof_tile
+//g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Iinclude -Wall -DSTANDALONE_TEST src/conv_tile.cpp -o bin/conv_prof_tile
 // We will offset the bias introduced by the random generation by having a run in which no conv function is called
 // This can be used to offset the random generation misses.
-
+#ifdef STANDALONE_TEST
 int main(int argc, char** argv) {
     std::printf("PROFILING TILING.\n");
     int H = 2048, W = 2048, K = 3;
@@ -64,3 +64,4 @@ int main(int argc, char** argv) {
     conv_tile(in,out,ker,H,W,K);
     return 0;
 }
+#endif
