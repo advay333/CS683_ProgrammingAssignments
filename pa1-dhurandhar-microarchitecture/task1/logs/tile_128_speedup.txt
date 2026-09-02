@@ -1,0 +1,150 @@
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.910        3.84      1.00x
+tile            yes           4.323        4.37      1.14x
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 1024 1024 3 1234':
+
+       415,916,245      cpu_core/L1-dcache-loads/                                             
+         1,867,573      cpu_core/L1-dcache-load-misses/  #    0.45% of all L1-dcache accesses 
+       322,976,765      cpu_core/branch-instructions/                                         
+           659,108      cpu_core/branch-misses/                                               
+         1,665,725      cpu_core/cache-misses/                                                
+       427,425,764      cpu_core/cpu-cycles/                                                  
+     1,849,666,843      cpu_core/instructions/                                                
+                 3      context-switches                                                      
+
+       0.127050029 seconds time elapsed
+
+       0.115084000 seconds user
+       0.010913000 seconds sys
+
+
+\n Done with 1024
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.223        3.93      1.00x
+tile            yes          18.867        4.00      1.02x
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 2048 2048 3 1234':
+
+     1,660,918,753      cpu_core/L1-dcache-loads/                                               (99.90%)
+         7,967,583      cpu_core/L1-dcache-load-misses/  #    0.48% of all L1-dcache accesses   (99.90%)
+     1,290,065,783      cpu_core/branch-instructions/                                           (99.90%)
+         2,517,745      cpu_core/branch-misses/                                                 (99.90%)
+        12,954,411      cpu_core/cache-misses/                                                  (99.90%)
+     1,726,478,595      cpu_core/cpu-cycles/                                                    (99.90%)
+     7,387,947,241      cpu_core/instructions/                                                  (99.90%)
+                 4      context-switches                                                      
+
+       0.457487724 seconds time elapsed
+
+       0.427463000 seconds user
+       0.029962000 seconds sys
+
+
+\n Done with 2048
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.379        4.17      1.00x
+tile            yes          72.205        4.18      1.00x
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 4096 4096 3 1234':
+
+     6,635,261,084      cpu_core/L1-dcache-loads/                                             
+        50,961,899      cpu_core/L1-dcache-load-misses/  #    0.77% of all L1-dcache accesses 
+     5,153,980,037      cpu_core/branch-instructions/                                         
+         9,939,778      cpu_core/branch-misses/                                               
+        55,913,329      cpu_core/cache-misses/                                                
+     6,641,250,514      cpu_core/cpu-cycles/                                                  
+    29,517,357,919      cpu_core/instructions/                                                
+                17      context-switches                                                      
+
+       1.755885306 seconds time elapsed
+
+       1.663630000 seconds user
+       0.092034000 seconds sys
+
+
+\n Done with 4096
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         312.834        3.86      1.00x
+tile            yes         284.389        4.25      1.10x
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 8192 8192 3 1234':
+
+    26,539,517,678      cpu_core/L1-dcache-loads/                                             
+       204,380,592      cpu_core/L1-dcache-load-misses/  #    0.77% of all L1-dcache accesses 
+    20,614,799,828      cpu_core/branch-instructions/                                         
+        39,566,459      cpu_core/branch-misses/                                               
+       223,972,732      cpu_core/cache-misses/                                                
+    27,190,325,888      cpu_core/cpu-cycles/                                                  
+   118,067,584,576      cpu_core/instructions/                                                
+                38      context-switches                                                      
+
+       7.193437578 seconds time elapsed
+
+       6.843092000 seconds user
+       0.350004000 seconds sys
+
+
+\n Done with 8192
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1154.499        4.19      1.00x
+tile            yes        1152.083        4.19      1.00x
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 16384 16384 3 1234':
+
+   106,155,392,673      cpu_core/L1-dcache-loads/                                               (100.00%)
+       814,306,045      cpu_core/L1-dcache-load-misses/  #    0.77% of all L1-dcache accesses   (100.00%)
+    82,457,187,363      cpu_core/branch-instructions/                                           (100.00%)
+       157,952,842      cpu_core/branch-misses/                                                 (100.00%)
+       969,563,750      cpu_core/cache-misses/                                                  (100.00%)
+   105,171,595,292      cpu_core/cpu-cycles/                                                    (100.00%)
+   472,271,345,524      cpu_core/instructions/                                                  (100.00%)
+               141      context-switches                                                      
+
+      27.799817440 seconds time elapsed
+
+      26.473933000 seconds user
+       1.324946000 seconds sys
+
+
+\n Done with 16384
+taskset: Killed
+
+ Performance counter stats for 'taskset -c 0 bin/conv tile 32768 32768 3 1234':
+
+    20,317,543,537      cpu_core/L1-dcache-loads/                                             
+       154,234,869      cpu_core/L1-dcache-load-misses/  #    0.76% of all L1-dcache accesses 
+    18,890,013,196      cpu_core/branch-instructions/                                         
+       545,074,626      cpu_core/branch-misses/                                               
+       359,769,699      cpu_core/cache-misses/                                                
+    48,909,538,042      cpu_core/cpu-cycles/                                                  
+   119,984,545,501      cpu_core/instructions/                                                
+               109      context-switches                                                      
+
+      13.235022121 seconds time elapsed
+
+       9.704968000 seconds user
+       3.420989000 seconds sys
+
+
+\n Done with 32768

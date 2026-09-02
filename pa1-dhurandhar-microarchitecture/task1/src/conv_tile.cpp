@@ -12,15 +12,15 @@ void conv_tile(const float* in, float* out, const float* ker,
     const int p = K / 2;
     const int in_stride = W + 2 * p;  // padded row stride
     
-    const int tile_x=4096;
+    const int tile_x=1024;
     const int tile_y=tile_x;
 
     for (int oy = 0; oy < H; oy+=tile_y) {
         for (int ox = 0; ox < W; ox+=tile_x) {
-            //int bound_y = std::min(tile_y, H - oy);
-            //int bound_x = std::min(tile_x, W - ox);
-            for (int ty = 0; ty < tile_y; ty++) {
-                for (int tx = 0; tx < tile_x; tx++) {         
+            int bound_y = ox+1024;
+            int bound_x = oy+1024;
+            for (int ty = 0; ty < bound_y; ty++) {
+                for (int tx = 0; tx < bound_x; tx++) {         
                     float acc = 0.0f;
                     for (int ky = 0; ky < K; ++ky) {
                         for (int kx = 0; kx < K; ++kx) {
