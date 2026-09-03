@@ -74,7 +74,7 @@ void conv_simd128_v3(const float* in, float* out, const float* ker,
         }
     }
 }
-void conv_simd256(const float* in, float* out, const float* ker,
+void conv_simd256_v1(const float* in, float* out, const float* ker,
                int H, int W, int K) {
     // TODO(student): replace this placeholder with your AVX2 implementation.
     const int p = K / 2;
@@ -95,9 +95,62 @@ void conv_simd256(const float* in, float* out, const float* ker,
     }
 }
 
+void conv_simd256_v2(const float* in, float* out, const float* ker,
+               int H, int W, int K) {
+    // TODO(student): replace this placeholder with your AVX2 implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int par = 6;
+    const int tail = W % (8*par);
+    for (int oy = 0; oy < H; ++oy) {
+        for (int ox = 0; ox < W; ox+=8*par) {
+            __m256 acc0 = _mm256_setzero_ps();
+            __m256 acc1 = _mm256_setzero_ps();
+            __m256 acc2 = _mm256_setzero_ps();
+            __m256 acc3 = _mm256_setzero_ps();
+            __m256 acc4 = _mm256_setzero_ps();
+            __m256 acc5 = _mm256_setzero_ps();
+
+            for (int ky = 0; ky < K; ++ky) {
+                int in_offset = (oy + ky) * in_stride + ox;
+                int ker_offset = ky * K;
+                for (int kx = 0; kx < K; ++kx) {
+                    __m256 ker_val = _mm256_set1_ps(ker[ker_offset + kx]);
+                    __m256 in_val0 = _mm256_loadu_ps(&in[in_offset + kx]);
+                    __m256 in_val1 = _mm256_loadu_ps(&in[in_offset + kx + 8]);
+                    __m256 in_val2 = _mm256_loadu_ps(&in[in_offset + kx + 16]);
+                    __m256 in_val3 = _mm256_loadu_ps(&in[in_offset + kx + 24]);
+                    __m256 in_val4 = _mm256_loadu_ps(&in[in_offset + kx + 32]);
+                    __m256 in_val5 = _mm256_loadu_ps(&in[in_offset + kx + 40]);
+                    acc0 = _mm256_fmadd_ps(ker_val, in_val0, acc0);
+                    acc1 = _mm256_fmadd_ps(ker_val, in_val1, acc1);
+                    acc2 = _mm256_fmadd_ps(ker_val, in_val2, acc2);
+                    acc3 = _mm256_fmadd_ps(ker_val, in_val3, acc3);
+                    acc4 = _mm256_fmadd_ps(ker_val, in_val4, acc4);
+                    acc5 = _mm256_fmadd_ps(ker_val, in_val5, acc5);
+                }
+            }
+            _mm256_storeu_ps(&out[oy * W + ox], acc0);
+            _mm256_storeu_ps(&out[oy * W + ox + 8], acc1);
+            _mm256_storeu_ps(&out[oy * W + ox + 16], acc2);
+            _mm256_storeu_ps(&out[oy * W + ox + 24], acc3);
+            _mm256_storeu_ps(&out[oy * W + ox + 32], acc4);
+            _mm256_storeu_ps(&out[oy * W + ox + 40], acc5);
+        }
+        for(int ox = W - tail; ox < W; ++ox){
+            float acc = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                for (int kx = 0; kx < K; ++kx) {
+                    acc += ker[ky * K + kx] * in[(oy + ky) * in_stride + (ox + kx)];
+                }
+            }
+            out[oy * W + ox] = acc;
+        }
+    }
+}
 void conv_simd(const float* in, float* out, const float* ker,
                int H, int W, int K) {
     // TODO(student): replace this placeholder with your AVX2 implementation.
-    conv_simd256(in, out, ker, H, W, K);
+    conv_simd256_v2(in, out, ker, H, W, K);
     // conv_naive(in, out, ker, H, W, K);
 }
