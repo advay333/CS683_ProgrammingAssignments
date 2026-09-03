@@ -11,7 +11,7 @@ void conv_simd128(const float* in, float* out, const float* ker,
     const int in_stride = W + 2 * p;  // padded row stride
 
     for (int oy = 0; oy < H; ++oy) {
-        for (int ox = 0; ox < W; ox+=8) {
+        for (int ox = 0; ox < W; ox+=4) {
             __m128 acc = _mm_setzero_ps();
             for (int ky = 0; ky < K; ++ky) {
                 for (int kx = 0; kx < K; ++kx) {
