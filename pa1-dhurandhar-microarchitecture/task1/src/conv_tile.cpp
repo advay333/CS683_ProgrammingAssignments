@@ -12,7 +12,7 @@ void conv_tile(const float* in, float* out, const float* ker,
     const int p = K / 2;
     const int in_stride = W + 2 * p;  // padded row stride
     
-    const int tile_x=32;
+    const int tile_x=1024;
     const int tile_y=tile_x;
 
     for (int oy = 0; oy < H; oy+=tile_y) {
