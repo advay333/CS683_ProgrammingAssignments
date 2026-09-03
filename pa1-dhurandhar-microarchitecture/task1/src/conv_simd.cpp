@@ -264,6 +264,6 @@ void conv_simd256_v3(const float* in, float* out, const float* ker,
 void conv_simd(const float* in, float* out, const float* ker,
                int H, int W, int K) {
     // TODO(student): replace this placeholder with your AVX2 implementation.
-    conv_simd256_v2(in, out, ker, H, W, K);
+    conv_simd256_v3(in, out, ker, H, W, K);
     // conv_naive(in, out, ker, H, W, K);
 }
