@@ -8,19 +8,19 @@ void conv_reorder(const float* in, float* out, const float* ker,
     // TODO(student): replace this placeholder with your reordered implementation.
     const int p = K / 2;
     const int in_stride = W + 2 * p;
-    // for(int oy = 0; oy < H; ++oy){
-    //     for(int ox = 0; ox < W; ++ox){
-    //         out[oy*W  + ox] = 0.0f;
-    //     }
-    // }
+    for(int oy = 0; oy < H; ++oy){
+        for(int ox = 0; ox < W; ++ox){
+            out[oy*W  + ox] = 0.0f;
+        }
+    }
     for(int ky = 0; ky < K; ++ky){
         for(int kx = 0; kx < K; ++kx){
             const float ker_val = ker[ky*K + kx];
             for(int oy = 0; oy < H; ++oy){
                 for(int ox = 0; ox < W; ++ox){
-                    if(kx == 0 && ky == 0){
-                        out[(oy)*W + (ox)] = 0.0f;
-                    }
+                    // if(kx == 0 && ky == 0){
+                    //     out[(oy)*W + (ox)] = 0.0f;
+                    // }
                     out[(oy)*W + (ox)] += in[(oy + ky)*in_stride + (ox + kx)] * ker_val; 
                 }
             }
