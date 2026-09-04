@@ -266,8 +266,59 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
     // conv_naive(in, out, ker, H, W, K);
 }
 
+
+void conv_unroll_v5(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int W_tail = W % 8; 
+    const int W_unrolled = W - W_tail;
+    const int W_deg = 8;
+    for (int oy = 0; oy < H; ++oy) {
+        
+        for (int ox = 0; ox < W_unrolled; ox+=W_deg) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            float acc2 = 0.0f;
+            float acc3 = 0.0f;
+            float acc4 = 0.0f;
+            float acc5 = 0.0f;
+            float acc6 = 0.0f;
+            float acc7 = 0.0f;
+
+
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (oy + ky) * in_stride;
+                const int ker_row = ky * K;
+                
+                for (int kx = 0; kx < K; ++kx) {
+                    acc0 += in[in_row + (ox + kx)] * ker[ker_row + kx];
+                    acc1 += in[in_row + (ox + 1 + kx)] * ker[ker_row + kx];
+                    acc2 += in[in_row + (ox + 2 + kx)] * ker[ker_row + kx];
+                    acc3 += in[in_row + (ox + 3 + kx)] * ker[ker_row + kx];
+                    acc4 += in[in_row + (ox + 4 + kx)] * ker[ker_row + kx];
+                    acc5 += in[in_row + (ox + 5 + kx)] * ker[ker_row + kx];
+                    acc6 += in[in_row + (ox + 6 + kx)] * ker[ker_row + kx];
+                    acc7 += in[in_row + (ox + 7 + kx)] * ker[ker_row + kx]; 
+                }
+            }
+            out[oy * W + ox] = acc0;
+            out[oy * W + ox + 1] = acc1;
+            out[oy * W + ox + 2] = acc2;
+            out[oy * W + ox + 3] = acc3;
+            out[oy * W + ox + 4] = acc4;
+            out[oy * W + ox + 5] = acc5;
+            out[oy * W + ox + 6] = acc6;
+            out[oy * W + ox + 7] = acc7;
+        }
+        // we dont have the tail here because W is guaranteed to be a multiple of 8
+        
+    }
+}
+
 void conv_unroll(const float* in, float* out, const float* ker,
                  int H, int W, int K) {
     // TODO(student): replace this placeholder with your unrolled implementation.
-    conv_unroll_v3(in, out, ker, H, W, K);
+    conv_unroll_v5(in, out, ker, H, W, K);
 }
