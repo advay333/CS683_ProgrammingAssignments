@@ -184,22 +184,26 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
                 
                 for (int kx = 0; kx < K-1; kx += 2) {
-                    acc00 += in[in_row + (ox + kx)] * ker[ker_row + kx];
-                    acc00 += in[in_row + (ox + kx + 1)] * ker[ker_row + kx + 1];
+                    const int ker_val = ker[ker_row + kx];
+                    const int ker_val_next = ker[ker_row + kx + 1];
+                    acc00 += in[in_row + (ox + kx)] * ker_val;
+                    acc00 += in[in_row + (ox + kx)] * ker_val;
+                    acc00 += in[in_row + (ox + kx + 1)] * ker_val_next;
 
-                    acc01 += in[in_row + (ox + 1 + kx)] * ker[ker_row + kx];
-                    acc01 += in[in_row + (ox + 1 + kx + 1)] * ker[ker_row + kx + 1];
+                    acc01 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc01 += in[in_row + (ox + 1 + kx + 1)] * ker_val_next;
 
-                    acc10 += in[in_row_next + (ox + kx)] * ker[ker_row + kx];
-                    acc10 += in[in_row_next + (ox + kx + 1)] * ker[ker_row + kx + 1];
-                    acc11 += in[in_row_next + (ox + 1 + kx)] * ker[ker_row + kx];
-                    acc11 += in[in_row_next + (ox + 1 + kx + 1)] * ker[ker_row + kx + 1];
+                    acc10 += in[in_row_next + (ox + kx)] * ker_val;
+                    acc10 += in[in_row_next + (ox + kx + 1)] * ker_val_next;
+                    acc11 += in[in_row_next + (ox + 1 + kx)] * ker_val;
+                    acc11 += in[in_row_next + (ox + 1 + kx + 1)] * ker_val_next;
 
                 }
-                acc00 += in[in_row + (ox + K - 1)] * ker[ker_row + (K - 1)];
-                acc01 += in[in_row + (ox + 1 + K - 1)] * ker[ker_row + (K - 1)];
-                acc10 += in[in_row_next + (ox + K - 1)] * ker[ker_row + (K - 1)];
-                acc11 += in[in_row_next + (ox + 1 + K - 1)] * ker[ker_row + (K - 1)];
+                const int ker_val_last = ker[ker_row + (K - 1)];
+                acc00 += in[in_row + (ox + K - 1)] * ker_val_last;
+                acc01 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
+                acc10 += in[in_row_next + (ox + K - 1)] * ker_val_last;
+                acc11 += in[in_row_next + (ox + 1 + K - 1)] * ker_val_last;
             }
             out[oy * W + ox] = acc00;
             out[oy * W + ox + 1] = acc01;
@@ -216,13 +220,16 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
 
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    acc0 += in[in_row + (W - 1 + kx)] * ker[ker_row + kx];
-                    acc0 += in[in_row + (W - 1 + kx + 1)] * ker[ker_row + kx + 1];
-                    acc1 += in[in_row_next + (W - 1 + kx)] * ker[ker_row + kx];
-                    acc1 += in[in_row_next + (W - 1 + kx + 1)] * ker[ker_row + kx + 1];
+                    const int ker_val = ker[ker_row + kx];
+                    const int ker_val_next = ker[ker_row + kx + 1];
+                    acc0 += in[in_row + (W - 1 + kx)] * ker_val;
+                    acc0 += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
+                    acc1 += in[in_row_next + (W - 1 + kx)] * ker_val;
+                    acc1 += in[in_row_next + (W - 1 + kx + 1)] * ker_val_next;
                 }
-                acc0 += in[in_row + (W - 1 + K - 1)] * ker[ker_row + (K - 1)];
-                acc1 += in[in_row_next + (W - 1 + K - 1)] * ker[ker_row + (K - 1)];
+                const int ker_val_last = ker[ker_row + (K - 1)];
+                acc0 += in[in_row + (W - 1 + K - 1)] * ker_val_last;
+                acc1 += in[in_row_next + (W - 1 + K - 1)] * ker_val_last;
             }
             out[oy * W + (W - 1)] = acc0;
             out[(oy + 1) * W + (W - 1)] = acc1;
@@ -238,13 +245,16 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
 
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    acc0 += in[in_row + (ox + kx)] * ker[ker_row + kx];
-                    acc0 += in[in_row + (ox + kx + 1)] * ker[ker_row + kx + 1];
-                    acc1 += in[in_row + (ox + 1 + kx)] * ker[ker_row + kx];
-                    acc1 += in[in_row + (ox + 1 + kx + 1)] * ker[ker_row + kx + 1];
+                    const int ker_val = ker[ker_row + kx];
+                    const int ker_val_next = ker[ker_row + kx + 1];
+                    acc0 += in[in_row + (ox + kx)] * ker_val;
+                    acc0 += in[in_row + (ox + kx + 1)] * ker_val_next;
+                    acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc1 += in[in_row + (ox + 1 + kx + 1)] * ker_val_next;
                 }
-                acc0 += in[in_row + (ox + K - 1)] * ker[ker_row + (K - 1)];
-                acc1 += in[in_row + (ox + 1 + K - 1)] * ker[ker_row + (K - 1)];
+                const int ker_val_last = ker[ker_row + (K - 1)];
+                acc0 += in[in_row + (ox + K - 1)] * ker_val_last;
+                acc1 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
             }
             out[(H - 1) * W + ox] = acc0;
             out[(H - 1) * W + ox + 1] = acc1;
@@ -255,16 +265,17 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int in_row = (H - 1 + ky) * in_stride;
                 const int ker_row = ky * K;
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    acc += in[in_row + (W - 1 + kx)] * ker[ker_row + kx];
-                    acc += in[in_row + (W - 1 + kx + 1)] * ker[ker_row + kx + 1];
+                    const int ker_val = ker[ker_row + kx];
+                    const int ker_val_next = ker[ker_row + kx + 1];
+                    acc += in[in_row + (W - 1 + kx)] * ker_val;
+                    acc += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
                 }
-                acc += in[in_row + (W - 1 + K - 1)] * ker[ker_row + (K - 1)];
+                const int ker_val_last = ker[ker_row + (K - 1)];
+                acc += in[in_row + (W - 1 + K - 1)] * ker_val_last;
             }
             out[(H - 1) * W + (W - 1)] = acc;
         }
-
     }
-    // conv_naive(in, out, ker, H, W, K);
 }
 
 
