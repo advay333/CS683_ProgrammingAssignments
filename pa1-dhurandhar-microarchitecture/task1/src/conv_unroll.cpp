@@ -294,14 +294,15 @@ void conv_unroll_v5(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
                 
                 for (int kx = 0; kx < K; ++kx) {
-                    acc0 += in[in_row + (ox + kx)] * ker[ker_row + kx];
-                    acc1 += in[in_row + (ox + 1 + kx)] * ker[ker_row + kx];
-                    acc2 += in[in_row + (ox + 2 + kx)] * ker[ker_row + kx];
-                    acc3 += in[in_row + (ox + 3 + kx)] * ker[ker_row + kx];
-                    acc4 += in[in_row + (ox + 4 + kx)] * ker[ker_row + kx];
-                    acc5 += in[in_row + (ox + 5 + kx)] * ker[ker_row + kx];
-                    acc6 += in[in_row + (ox + 6 + kx)] * ker[ker_row + kx];
-                    acc7 += in[in_row + (ox + 7 + kx)] * ker[ker_row + kx]; 
+                    const int ker_val = ker[ker_row + kx];
+                    acc0 += in[in_row + (ox + kx)] * ker_val;
+                    acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc2 += in[in_row + (ox + 2 + kx)] * ker_val;
+                    acc3 += in[in_row + (ox + 3 + kx)] * ker_val;
+                    acc4 += in[in_row + (ox + 4 + kx)] * ker_val;
+                    acc5 += in[in_row + (ox + 5 + kx)] * ker_val;
+                    acc6 += in[in_row + (ox + 6 + kx)] * ker_val;
+                    acc7 += in[in_row + (ox + 7 + kx)] * ker_val; 
                 }
             }
             out[oy * W + ox] = acc0;
