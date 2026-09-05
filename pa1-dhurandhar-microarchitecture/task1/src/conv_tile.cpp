@@ -14,20 +14,24 @@ void conv_tile(const float* in, float* out, const float* ker,
     
     const int tile_x=1024;
     const int tile_y=tile_x;
-
+    //std::printf("Using tile size %d", tile_x);
     for (int oy = 0; oy < H; oy+=tile_y) {
         for (int ox = 0; ox < W; ox+=tile_x) {
-            //int bound_y = ox+1024;
-            //int bound_x = oy+1024;
-            for (int ty = 0; ty < tile_y; ty++) {
-                for (int tx = 0; tx < tile_x; tx++) {         
+            const int bound_y = std::min(tile_y+oy,H);
+            const int bound_x = std::min(tile_x+ox,W);
+            for (int ty = oy; ty < bound_y; ty++) {
+                for (int tx = ox; tx < bound_x; tx++) {         
                     float acc = 0.0f;
+                    const float* in_point= &in[ty*in_stride + tx];
+                    float* out_point=&out[ty*W+tx];
                     for (int ky = 0; ky < K; ++ky) {
+                        const int in_row=ky*in_stride;
+                        const int k_row=ky*K;
                         for (int kx = 0; kx < K; ++kx) {
-                            acc += in[(oy + ty + ky) * in_stride + (ox + tx + kx)] * ker[ky * K + kx];
+                            acc += in_point[in_row + kx] * ker[k_row + kx];
                         }
                     }
-                    out[(oy + ty) * W + ox + tx] = acc;
+                    *out_point = acc;
                 }
             }
         }

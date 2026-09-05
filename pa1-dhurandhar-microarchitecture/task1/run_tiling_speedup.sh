@@ -19,9 +19,6 @@ make all
 echo "Compilation done"
 }
 {
-sudo wrmsr -p 0 0x1a4 15 && sudo rdmsr -p 0 0x1a4
-}
-{
 echo "Starting with 1024"
 sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
 sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
