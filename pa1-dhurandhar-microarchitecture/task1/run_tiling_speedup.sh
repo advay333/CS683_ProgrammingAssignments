@@ -1,84 +1,43 @@
 #!/bin/bash
 
 # Define constants for the output location
-OUTPUT_DIR="./logs_repeat5"
+OUTPUT_DIR="./logs_final_tile"
 OUTPUT_FILE="tile_1024_speedup.txt"
 FULL_LOG_PATH="$OUTPUT_DIR/$OUTPUT_FILE"
+
+# Hardware events to track
+PERF_EVENTS="cpu_core/L1-dcache-load-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches"
+
+# Fixed benchmark parameters
+KERNEL_SIZE=3
+SEED=1234
+REPETITIONS=20
+START_SIZE=64
+END_SIZE=16384
 
 # Ensure the target directory exists before running commands
 mkdir -p "$OUTPUT_DIR"
 
 # Notify the user on the terminal (this does NOT go into the file)
 echo "Running tiling speed up and saving output to $FULL_LOG_PATH..."
-
-# Group all commands inside { } to redirect their output at once
 {
-echo "Cleaning bin and compiling again"
-make clean
-make all
-echo "Compilation done"
+    echo "Cleaning bin and compiling again"
+    make clean
+    make all
+    echo "Compilation done"
 }
+# Group all commands inside { } to redirect stdout and stderr at once
 {
-echo "Starting with 1024"
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 1024 1024 3 1234
-echo "Done with 1024"
-echo "Starting with 2048"
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 2048 2048 3 1234
-echo "Done with 2048"
-echo "Starting with 4096"
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 4096 4096 3 1234
-echo "Done with 4096"
-echo "Starting with 8192"
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 8192 8192 3 1234
-echo "Done with 8192"
-echo "Starting with 16384"
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-sudo perf stat -e cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/cache-misses/,cpu_core/cpu-cycles/,cpu_core/instructions/,context-switches taskset -c 0 bin/conv tile 16384 16384 3 1234
-echo "Done with 16384"
+    # Iterate over powers of 2 from 64 to 16384
+    for ((size = START_SIZE; size <= END_SIZE; size *= 2)); do
+        echo "Starting with $size"
+        
+        for ((rep = 1; rep <= REPETITIONS; rep++)); do
+            sudo perf stat -e "$PERF_EVENTS" taskset -c 0 bin/conv tile "$size" "$size" "$KERNEL_SIZE" "$SEED"
+        done
+        
+        echo "Done with $size"
+    done
 } > "$FULL_LOG_PATH" 2>&1
 
 echo "Done!"
