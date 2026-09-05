@@ -6,7 +6,11 @@
 #ifndef CS683_PA1_UTILS_H
 #define CS683_PA1_UTILS_H
 
-#include <immintrin.h>  // _mm_malloc / _mm_free (64-byte aligned allocation)
+#if defined(__ARM_NEON) || defined(__aarch64__)
+    #include "sse2neon.h"  // On ARM64 (MacBook), load the translation header
+#else
+    #include <immintrin.h> // On x86 (autograder/Linux), load native AVX2 headers
+#endif
 
 #include <cmath>
 #include <cstddef>

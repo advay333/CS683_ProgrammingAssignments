@@ -22,6 +22,12 @@
 #ifndef CS683_PA1_MATMUL_H
 #define CS683_PA1_MATMUL_H
 
+#if defined(__ARM_NEON) || defined(__aarch64__)
+    #include "sse2neon.h"  // On ARM64 (MacBook), load the translation header
+#else
+    #include <immintrin.h> // On x86 (autograder/Linux), load native AVX2 headers
+#endif
+
 // Function-pointer type used by the harness to iterate over the stages.
 using MatMulFn = void (*)(const float* A, const float* B, float* C,
                           int M, int N, int K, int lda, int ldb, int ldc);
