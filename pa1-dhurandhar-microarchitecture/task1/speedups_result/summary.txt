@@ -1,0 +1,18 @@
+CS683 PA-1 Task 1  speedup summary
+config : ./scripts/config.txt
+host   : advay-Victus
+started: 2026-09-05 22:46:11     finished: 2026-09-06 00:07:49
+
+run \ workload                     64x64 K=3     128x128 K=3     256x256 K=3     512x512 K=3   1024x1024 K=3   2048x2048 K=3   4096x4096 K=3   8192x8192 K=3 16384x16384 K=3
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+reorder/base                          1.45x           1.45x           1.49x           1.50x           1.52x           1.02x           0.88x           0.89x           0.89x 
+unroll/v4                             2.12x           2.20x           2.06x           2.06x           1.93x           1.88x           1.96x           2.10x           2.09x 
+unroll/v5                             3.04x           3.13x           2.95x           3.13x           3.03x           2.95x           2.92x           2.92x           2.79x 
+simd/simd128_v2                       3.83x           4.13x           4.18x           4.33x           4.46x           4.27x           4.25x           4.19x           4.08x 
+simd/simd128_v3                       6.70x           7.98x           8.40x           8.98x           8.84x           7.76x           7.29x           6.99x           6.78x 
+simd/simd128_v4                      10.11x          11.32x          11.12x          11.39x          11.48x           9.44x           8.36x           8.14x           7.73x 
+simd/simd256_v1                       5.31x           6.37x           7.88x           8.40x           8.44x           7.41x           7.02x           5.41x           5.17x 
+simd/simd256_v2                       7.81x           9.18x          13.10x          13.37x          13.88x          10.43x           8.94x           7.68x           7.17x 
+simd/simd256_v3                      10.25x          10.98x          13.98x          14.48x          14.52x          10.98x           9.13x           7.75x           7.16x 
+
+mean speedup vs naive over the repeats;  ! = a run reported incorrect output

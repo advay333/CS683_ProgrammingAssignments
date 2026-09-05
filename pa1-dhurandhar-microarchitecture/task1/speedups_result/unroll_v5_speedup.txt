@@ -1,0 +1,1648 @@
+########################################################################
+# CS683 PA-1 Task 1  speedup analysis
+# stage        : unroll        (src/conv_unroll.cpp)
+# version      : conv_unroll_v5
+# label        : v5
+# sizes        : 64x64, 128x128, 256x256, 512x512, 1024x1024, 2048x2048, 4096x4096, 8192x8192, 16384x16384
+# kernel sizes : 3
+# seed         : 1234
+# repeats      : 20
+# pinned to cpu: 0
+# host / date  : advay-Victus / 2026-09-05 22:46:11
+# build dir    : /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/speedups_result/.build/unroll_v5  (Makefile copied verbatim, dispatcher patched)
+########################################################################
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.022        3.41      1.00x
+unroll          yes           0.006       11.43      3.35x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.019        3.87      1.00x
+unroll          yes           0.007       10.83      2.80x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.022        3.41      1.00x
+unroll          yes           0.007       10.19      2.99x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.023        3.19      1.00x
+unroll          yes           0.008        8.92      2.80x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.026        2.84      1.00x
+unroll          yes           0.010        7.50      2.64x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.031        2.40      1.00x
+unroll          yes           0.011        6.68      2.79x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.041        1.80      1.00x
+unroll          yes           0.012        6.01      3.34x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.040        1.84      1.00x
+unroll          yes           0.013        5.70      3.10x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.62      1.00x
+unroll          yes           0.014        5.33      3.30x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.95      1.00x
+unroll          yes           0.014        5.39      2.76x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.036        2.04      1.00x
+unroll          yes           0.012        6.33      3.10x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.036        2.05      1.00x
+unroll          yes           0.012        6.03      2.94x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+unroll          yes           0.011        6.64      3.43x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.039        1.90      1.00x
+unroll          yes           0.012        6.33      3.33x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.041        1.81      1.00x
+unroll          yes           0.012        6.03      3.34x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+unroll          yes           0.012        6.01      3.09x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+unroll          yes           0.014        5.38      2.77x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.041        1.82      1.00x
+unroll          yes           0.014        5.09      2.80x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.040        1.82      1.00x
+unroll          yes           0.015        5.06      2.78x
+
+----- [unroll/v5] H=64 W=64 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.049        1.52      1.00x
+unroll          yes           0.015        5.08      3.34x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.219        1.34      1.00x
+unroll          yes           0.061        4.81      3.58x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.192        1.54      1.00x
+unroll          yes           0.051        5.75      3.74x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.172        1.71      1.00x
+unroll          yes           0.048        6.10      3.56x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.167        1.77      1.00x
+unroll          yes           0.049        6.07      3.44x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.126        2.35      1.00x
+unroll          yes           0.042        7.05      3.01x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.120        2.45      1.00x
+unroll          yes           0.040        7.38      3.01x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.087        3.40      1.00x
+unroll          yes           0.030        9.92      2.91x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.084        3.52      1.00x
+unroll          yes           0.030        9.94      2.83x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.076        3.86      1.00x
+unroll          yes           0.027       10.91      2.83x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.070        4.22      1.00x
+unroll          yes           0.026       11.51      2.72x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.093        3.16      1.00x
+unroll          yes           0.026       11.23      3.55x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.086        3.42      1.00x
+unroll          yes           0.026       11.19      3.27x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.096        3.07      1.00x
+unroll          yes           0.027       10.88      3.54x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.096        3.09      1.00x
+unroll          yes           0.027       10.91      3.53x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.084        3.51      1.00x
+unroll          yes           0.029       10.23      2.92x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.096        3.08      1.00x
+unroll          yes           0.029       10.26      3.33x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.066        4.44      1.00x
+unroll          yes           0.024       12.16      2.74x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.067        4.43      1.00x
+unroll          yes           0.024       12.19      2.75x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.066        4.44      1.00x
+unroll          yes           0.025       11.67      2.63x
+
+----- [unroll/v5] H=128 W=128 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.066        4.45      1.00x
+unroll          yes           0.024       12.17      2.73x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.279        4.22      1.00x
+unroll          yes           0.098       12.08      2.86x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.298        3.96      1.00x
+unroll          yes           0.097       12.14      3.07x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.263        4.49      1.00x
+unroll          yes           0.097       12.14      2.71x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.320        3.69      1.00x
+unroll          yes           0.097       12.15      3.29x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.320        3.69      1.00x
+unroll          yes           0.097       12.14      3.29x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.320        3.69      1.00x
+unroll          yes           0.097       12.14      3.29x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.262        4.50      1.00x
+unroll          yes           0.097       12.11      2.69x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+unroll          yes           0.097       12.14      3.31x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.283        4.16      1.00x
+unroll          yes           0.097       12.13      2.91x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.293        4.03      1.00x
+unroll          yes           0.097       12.14      3.01x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.263        4.49      1.00x
+unroll          yes           0.098       12.09      2.69x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.268        4.40      1.00x
+unroll          yes           0.098       12.05      2.74x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.269        4.38      1.00x
+unroll          yes           0.100       11.80      2.69x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+unroll          yes           0.097       12.14      3.30x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.276        4.28      1.00x
+unroll          yes           0.097       12.14      2.84x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.263        4.49      1.00x
+unroll          yes           0.097       12.11      2.70x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.296        3.99      1.00x
+unroll          yes           0.097       12.14      3.05x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.319        3.69      1.00x
+unroll          yes           0.100       11.77      3.19x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.268        4.40      1.00x
+unroll          yes           0.097       12.11      2.75x
+
+----- [unroll/v5] H=256 W=256 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.262        4.50      1.00x
+unroll          yes           0.097       12.11      2.69x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.160        4.07      1.00x
+unroll          yes           0.389       12.14      2.99x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.172        4.03      1.00x
+unroll          yes           0.387       12.20      3.03x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.263        3.74      1.00x
+unroll          yes           0.387       12.20      3.27x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.129        4.18      1.00x
+unroll          yes           0.387       12.20      2.92x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.227        3.85      1.00x
+unroll          yes           0.386       12.21      3.18x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.200        3.93      1.00x
+unroll          yes           0.389       12.12      3.08x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.162        4.06      1.00x
+unroll          yes           0.385       12.24      3.01x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.259        3.75      1.00x
+unroll          yes           0.387       12.18      3.25x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.134        4.16      1.00x
+unroll          yes           0.386       12.22      2.94x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.216        3.88      1.00x
+unroll          yes           0.385       12.24      3.15x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.186        3.98      1.00x
+unroll          yes           0.385       12.24      3.08x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.177        4.01      1.00x
+unroll          yes           0.387       12.20      3.04x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.279        3.69      1.00x
+unroll          yes           0.386       12.21      3.31x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.237        3.81      1.00x
+unroll          yes           0.387       12.20      3.20x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.234        3.83      1.00x
+unroll          yes           0.387       12.19      3.19x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.171        4.03      1.00x
+unroll          yes           0.386       12.22      3.03x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.289        3.66      1.00x
+unroll          yes           0.387       12.20      3.33x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.261        3.74      1.00x
+unroll          yes           0.386       12.21      3.26x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.205        3.91      1.00x
+unroll          yes           0.386       12.24      3.13x
+
+----- [unroll/v5] H=512 W=512 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.283        3.68      1.00x
+unroll          yes           0.391       12.08      3.29x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.711        4.01      1.00x
+unroll          yes           1.544       12.22      3.05x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.914        3.84      1.00x
+unroll          yes           1.545       12.22      3.18x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.452        4.24      1.00x
+unroll          yes           1.545       12.22      2.88x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.963        3.80      1.00x
+unroll          yes           1.544       12.22      3.21x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.912        3.84      1.00x
+unroll          yes           1.546       12.21      3.18x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.538        4.16      1.00x
+unroll          yes           1.547       12.20      2.93x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.683        4.03      1.00x
+unroll          yes           1.547       12.20      3.03x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.966        3.80      1.00x
+unroll          yes           1.546       12.21      3.21x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.431        4.26      1.00x
+unroll          yes           1.548       12.19      2.86x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.662        4.05      1.00x
+unroll          yes           1.546       12.21      3.01x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.523        4.17      1.00x
+unroll          yes           1.544       12.22      2.93x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           5.038        3.75      1.00x
+unroll          yes           1.545       12.22      3.26x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.440        4.25      1.00x
+unroll          yes           1.545       12.21      2.87x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.673        4.04      1.00x
+unroll          yes           1.551       12.17      3.01x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.803        3.93      1.00x
+unroll          yes           1.559       12.11      3.08x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.682        4.03      1.00x
+unroll          yes           1.554       12.15      3.01x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.533        4.16      1.00x
+unroll          yes           1.552       12.16      2.92x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.351        4.34      1.00x
+unroll          yes           1.559       12.10      2.79x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.867        3.88      1.00x
+unroll          yes           1.543       12.23      3.15x
+
+----- [unroll/v5] H=1024 W=1024 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.657        4.05      1.00x
+unroll          yes           1.545       12.22      3.01x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.745        4.25      1.00x
+unroll          yes           6.381       11.83      2.78x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.124        4.17      1.00x
+unroll          yes           6.289       12.01      2.88x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.292        4.13      1.00x
+unroll          yes           6.401       11.79      2.86x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.017        3.97      1.00x
+unroll          yes           6.280       12.02      3.03x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.817        4.24      1.00x
+unroll          yes           6.370       11.85      2.80x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.376        3.90      1.00x
+unroll          yes           6.317       11.95      3.07x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.652        4.05      1.00x
+unroll          yes           6.290       12.00      2.97x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.220        3.93      1.00x
+unroll          yes           6.294       11.99      3.05x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.154        4.16      1.00x
+unroll          yes           6.282       12.02      2.89x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.912        3.99      1.00x
+unroll          yes           6.400       11.80      2.96x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.153        3.94      1.00x
+unroll          yes           6.405       11.79      2.99x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.181        3.94      1.00x
+unroll          yes           6.374       11.84      3.01x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.219        3.93      1.00x
+unroll          yes           6.290       12.00      3.06x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.728        4.26      1.00x
+unroll          yes           6.284       12.01      2.82x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.247        3.92      1.00x
+unroll          yes           6.292       12.00      3.06x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.899        4.22      1.00x
+unroll          yes           6.342       11.90      2.82x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.243        3.92      1.00x
+unroll          yes           6.390       11.81      3.01x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.957        3.98      1.00x
+unroll          yes           6.282       12.02      3.02x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.791        4.24      1.00x
+unroll          yes           6.280       12.02      2.83x
+
+----- [unroll/v5] H=2048 W=2048 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.166        3.94      1.00x
+unroll          yes           6.287       12.01      3.05x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          74.466        4.06      1.00x
+unroll          yes          25.785       11.71      2.89x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.226        4.01      1.00x
+unroll          yes          25.395       11.89      2.96x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.458        3.90      1.00x
+unroll          yes          25.301       11.94      3.06x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.735        4.21      1.00x
+unroll          yes          25.255       11.96      2.84x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.848        3.98      1.00x
+unroll          yes          25.536       11.83      2.97x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.469        3.95      1.00x
+unroll          yes          25.313       11.93      3.02x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.514        4.22      1.00x
+unroll          yes          25.290       11.94      2.83x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.073        3.92      1.00x
+unroll          yes          25.673       11.76      3.00x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.065        3.97      1.00x
+unroll          yes          25.479       11.85      2.99x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.545        3.89      1.00x
+unroll          yes          25.257       11.96      3.07x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.031        4.19      1.00x
+unroll          yes          25.260       11.96      2.85x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.537        4.22      1.00x
+unroll          yes          25.264       11.95      2.83x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.239        4.18      1.00x
+unroll          yes          25.510       11.84      2.83x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.715        3.99      1.00x
+unroll          yes          25.270       11.95      3.00x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.125        4.19      1.00x
+unroll          yes          25.258       11.96      2.86x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          73.130        4.13      1.00x
+unroll          yes          25.807       11.70      2.83x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.422        4.17      1.00x
+unroll          yes          25.215       11.98      2.87x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          72.538        4.16      1.00x
+unroll          yes          25.297       11.94      2.87x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.417        4.23      1.00x
+unroll          yes          25.261       11.95      2.83x
+
+----- [unroll/v5] H=4096 W=4096 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.106        3.97      1.00x
+unroll          yes          25.210       11.98      3.02x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         285.301        4.23      1.00x
+unroll          yes         103.200       11.71      2.76x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         299.901        4.03      1.00x
+unroll          yes         103.326       11.69      2.90x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         306.881        3.94      1.00x
+unroll          yes         102.868       11.74      2.98x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         298.821        4.04      1.00x
+unroll          yes         103.220       11.70      2.89x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         294.596        4.10      1.00x
+unroll          yes         103.001       11.73      2.86x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         302.991        3.99      1.00x
+unroll          yes         102.810       11.75      2.95x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         292.147        4.13      1.00x
+unroll          yes         103.503       11.67      2.82x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         304.454        3.97      1.00x
+unroll          yes         103.329       11.69      2.95x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         301.926        4.00      1.00x
+unroll          yes         102.277       11.81      2.95x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         306.939        3.94      1.00x
+unroll          yes         102.374       11.80      3.00x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         287.782        4.20      1.00x
+unroll          yes         102.340       11.80      2.81x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         306.729        3.94      1.00x
+unroll          yes         102.001       11.84      3.01x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         306.424        3.94      1.00x
+unroll          yes         102.903       11.74      2.98x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         305.366        3.96      1.00x
+unroll          yes         102.249       11.81      2.99x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         307.066        3.93      1.00x
+unroll          yes         103.072       11.72      2.98x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         300.871        4.01      1.00x
+unroll          yes         102.348       11.80      2.94x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         292.641        4.13      1.00x
+unroll          yes         102.294       11.81      2.86x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         310.278        3.89      1.00x
+unroll          yes         102.241       11.81      3.03x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         291.924        4.14      1.00x
+unroll          yes         102.093       11.83      2.86x
+
+----- [unroll/v5] H=8192 W=8192 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         296.766        4.07      1.00x
+unroll          yes         102.201       11.82      2.90x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1245.214        3.88      1.00x
+unroll          yes         426.734       11.32      2.92x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1140.720        4.24      1.00x
+unroll          yes         428.367       11.28      2.66x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1210.473        3.99      1.00x
+unroll          yes         426.351       11.33      2.84x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1149.384        4.20      1.00x
+unroll          yes         427.401       11.31      2.69x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1182.078        4.09      1.00x
+unroll          yes         428.713       11.27      2.76x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1219.781        3.96      1.00x
+unroll          yes         428.611       11.27      2.85x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1161.789        4.16      1.00x
+unroll          yes         429.956       11.24      2.70x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1225.728        3.94      1.00x
+unroll          yes         432.062       11.18      2.84x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1226.835        3.94      1.00x
+unroll          yes         431.550       11.20      2.84x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1150.693        4.20      1.00x
+unroll          yes         425.746       11.35      2.70x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1231.631        3.92      1.00x
+unroll          yes         429.376       11.25      2.87x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1146.456        4.21      1.00x
+unroll          yes         431.142       11.21      2.66x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1191.888        4.05      1.00x
+unroll          yes         428.361       11.28      2.78x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1188.782        4.06      1.00x
+unroll          yes         426.427       11.33      2.79x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1242.522        3.89      1.00x
+unroll          yes         426.429       11.33      2.91x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1140.771        4.24      1.00x
+unroll          yes         426.237       11.34      2.68x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1233.391        3.92      1.00x
+unroll          yes         426.165       11.34      2.89x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1243.278        3.89      1.00x
+unroll          yes         426.006       11.34      2.92x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1160.963        4.16      1.00x
+unroll          yes         425.990       11.34      2.73x
+
+----- [unroll/v5] H=16384 W=16384 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1210.220        3.99      1.00x
+unroll          yes         425.977       11.34      2.84x
+
+========================= SUMMARY (unroll / v5) =========================
+workload               runs    naive(ms)    stage(ms)     speedup       std
+-----------------------------------------------------------------------------
+64x64 K=3                20        0.035        0.012     3.04x     0.262
+128x128 K=3              20        0.106        0.033     3.13x     0.370
+256x256 K=3              20        0.288        0.097     2.95x     0.249
+512x512 K=3              20        1.212        0.387     3.13x     0.127
+1024x1024 K=3            20        4.690        1.548     3.03x     0.135
+2048x2048 K=3            20       18.645        6.327     2.95x     0.101
+4096x4096 K=3            20       74.133       25.382     2.92x     0.087
+8192x8192 K=3            20      299.990      102.683     2.92x     0.075
+16384x16384 K=3          20     1195.130      427.880     2.79x     0.090
+
+(naive/stage/speedup columns are means over the runs; std is the sample std-dev of speedup.)

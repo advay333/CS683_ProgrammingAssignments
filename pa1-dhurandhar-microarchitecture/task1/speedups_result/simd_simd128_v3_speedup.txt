@@ -1,0 +1,1648 @@
+########################################################################
+# CS683 PA-1 Task 1  speedup analysis
+# stage        : simd        (src/conv_simd.cpp)
+# version      : conv_simd128_v3
+# label        : simd128_v3
+# sizes        : 64x64, 128x128, 256x256, 512x512, 1024x1024, 2048x2048, 4096x4096, 8192x8192, 16384x16384
+# kernel sizes : 3
+# seed         : 1234
+# repeats      : 20
+# pinned to cpu: 0
+# host / date  : advay-Victus / 2026-09-05 22:46:11
+# build dir    : /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/speedups_result/.build/simd_simd128_v3  (Makefile copied verbatim, dispatcher patched)
+########################################################################
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.019        3.90      1.00x
+simd            yes           0.003       23.50      6.02x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.030        2.45      1.00x
+simd            yes           0.004       16.53      6.74x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.61      1.00x
+simd            yes           0.006       11.80      7.32x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.93      1.00x
+simd            yes           0.006       11.57      5.99x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.61      1.00x
+simd            yes           0.006       11.99      7.44x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.042        1.74      1.00x
+simd            yes           0.006       12.01      6.92x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.61      1.00x
+simd            yes           0.006       11.69      7.26x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+simd            yes           0.006       11.68      6.04x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.93      1.00x
+simd            yes           0.007       11.31      5.86x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+simd            yes           0.006       11.58      5.97x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.62      1.00x
+simd            yes           0.006       12.33      7.63x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.94      1.00x
+simd            yes           0.006       11.57      5.97x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.92      1.00x
+simd            yes           0.006       11.62      6.05x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.62      1.00x
+simd            yes           0.006       12.05      7.46x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.62      1.00x
+simd            yes           0.006       11.88      7.36x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.046        1.61      1.00x
+simd            yes           0.006       11.73      7.27x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.045        1.62      1.00x
+simd            yes           0.006       11.65      7.18x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.038        1.93      1.00x
+simd            yes           0.006       11.68      6.04x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.042        1.74      1.00x
+simd            yes           0.006       11.64      6.69x
+
+----- [simd/simd128_v3] H=64 W=64 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=64 W=64 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.042        1.74      1.00x
+simd            yes           0.006       11.64      6.70x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.181        1.63      1.00x
+simd            yes           0.022       13.43      8.22x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.171        1.73      1.00x
+simd            yes           0.019       15.13      8.76x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.175        1.68      1.00x
+simd            yes           0.019       15.13      8.98x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.158        1.87      1.00x
+simd            yes           0.018       16.77      8.98x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.141        2.09      1.00x
+simd            yes           0.017       17.52      8.40x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.140        2.10      1.00x
+simd            yes           0.018       15.95      7.59x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.120        2.46      1.00x
+simd            yes           0.016       18.15      7.37x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.109        2.70      1.00x
+simd            yes           0.015       19.14      7.09x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.110        2.69      1.00x
+simd            yes           0.015       20.06      7.47x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.105        2.81      1.00x
+simd            yes           0.014       20.72      7.39x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.081        3.62      1.00x
+simd            yes           0.011       26.33      7.27x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.099        2.98      1.00x
+simd            yes           0.011       26.69      8.97x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.075        3.95      1.00x
+simd            yes           0.010       30.32      7.68x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.066        4.44      1.00x
+simd            yes           0.010       30.20      6.80x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.075        3.95      1.00x
+simd            yes           0.009       31.34      7.93x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.080        3.67      1.00x
+simd            yes           0.010       30.31      8.26x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.081        3.65      1.00x
+simd            yes           0.010       29.53      8.10x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.081        3.66      1.00x
+simd            yes           0.010       30.18      8.25x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.075        3.95      1.00x
+simd            yes           0.010       30.26      7.66x
+
+----- [simd/simd128_v3] H=128 W=128 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=128 W=128 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.083        3.55      1.00x
+simd            yes           0.010       30.28      8.52x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.319        3.69      1.00x
+simd            yes           0.036       32.85      8.89x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.262        4.50      1.00x
+simd            yes           0.036       32.96      7.32x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.263        4.49      1.00x
+simd            yes           0.036       33.01      7.35x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.319        3.70      1.00x
+simd            yes           0.036       33.15      8.97x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.273        4.32      1.00x
+simd            yes           0.036       32.87      7.61x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+simd            yes           0.036       33.03      8.99x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.320        3.68      1.00x
+simd            yes           0.036       32.90      8.93x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.262        4.50      1.00x
+simd            yes           0.036       33.02      7.33x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.324        3.64      1.00x
+simd            yes           0.036       32.83      9.01x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.296        3.98      1.00x
+simd            yes           0.036       32.99      8.28x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.263        4.49      1.00x
+simd            yes           0.036       32.87      7.32x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+simd            yes           0.036       33.03      8.99x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.313        3.77      1.00x
+simd            yes           0.036       32.96      8.75x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.68      1.00x
+simd            yes           0.036       33.02      8.97x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.303        3.90      1.00x
+simd            yes           0.035       33.48      8.59x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+simd            yes           0.036       33.08      9.01x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.320        3.69      1.00x
+simd            yes           0.036       32.88      8.92x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.321        3.67      1.00x
+simd            yes           0.036       32.86      8.95x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.262        4.50      1.00x
+simd            yes           0.036       32.99      7.33x
+
+----- [simd/simd128_v3] H=256 W=256 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=256 W=256 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           0.307        3.84      1.00x
+simd            yes           0.036       32.94      8.58x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.083        4.36      1.00x
+simd            yes           0.137       34.35      7.88x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.165        4.05      1.00x
+simd            yes           0.137       34.34      8.48x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.193        3.96      1.00x
+simd            yes           0.137       34.40      8.70x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.253        3.77      1.00x
+simd            yes           0.137       34.38      9.13x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.075        4.39      1.00x
+simd            yes           0.137       34.39      7.83x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.169        4.04      1.00x
+simd            yes           0.136       34.59      8.57x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.764        2.68      1.00x
+simd            yes           0.138       34.15     12.77x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.284        3.68      1.00x
+simd            yes           0.136       34.63      9.42x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.155        4.09      1.00x
+simd            yes           0.138       34.29      8.39x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.073        4.40      1.00x
+simd            yes           0.137       34.40      7.82x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.280        3.69      1.00x
+simd            yes           0.138       34.29      9.30x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.276        3.70      1.00x
+simd            yes           0.137       34.39      9.30x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.190        3.97      1.00x
+simd            yes           0.138       34.30      8.65x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.286        3.67      1.00x
+simd            yes           0.137       34.41      9.38x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.156        4.08      1.00x
+simd            yes           0.137       34.37      8.42x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.251        3.77      1.00x
+simd            yes           0.137       34.34      9.11x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.261        3.74      1.00x
+simd            yes           0.137       34.38      9.19x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.266        3.73      1.00x
+simd            yes           0.137       34.40      9.23x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.284        3.68      1.00x
+simd            yes           0.137       34.40      9.36x
+
+----- [simd/simd128_v3] H=512 W=512 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=512 W=512 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           1.178        4.01      1.00x
+simd            yes           0.137       34.37      8.58x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.685        4.03      1.00x
+simd            yes           0.542       34.84      8.65x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.907        3.85      1.00x
+simd            yes           0.546       34.54      8.98x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           5.119        3.69      1.00x
+simd            yes           0.539       35.02      9.50x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.602        4.10      1.00x
+simd            yes           0.546       34.56      8.43x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.717        4.00      1.00x
+simd            yes           0.541       34.91      8.73x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.979        3.79      1.00x
+simd            yes           0.546       34.58      9.12x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.681        4.03      1.00x
+simd            yes           0.543       34.73      8.61x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.900        3.85      1.00x
+simd            yes           0.547       34.53      8.96x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.675        4.04      1.00x
+simd            yes           0.545       34.60      8.57x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.670        4.04      1.00x
+simd            yes           0.547       34.51      8.54x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.868        3.88      1.00x
+simd            yes           0.546       34.57      8.92x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.758        3.97      1.00x
+simd            yes           0.544       34.73      8.75x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.902        3.85      1.00x
+simd            yes           0.545       34.61      8.99x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.679        4.03      1.00x
+simd            yes           0.544       34.67      8.59x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.862        3.88      1.00x
+simd            yes           0.542       34.83      8.97x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.742        3.98      1.00x
+simd            yes           0.546       34.56      8.68x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.729        3.99      1.00x
+simd            yes           0.544       34.67      8.68x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.859        3.88      1.00x
+simd            yes           0.546       34.59      8.90x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           5.019        3.76      1.00x
+simd            yes           0.545       34.63      9.21x
+
+----- [simd/simd128_v3] H=1024 W=1024 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=1024 W=1024 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes           4.885        3.86      1.00x
+simd            yes           0.547       34.52      8.94x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.487        4.32      1.00x
+simd            yes           2.377       31.76      7.36x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.374        3.90      1.00x
+simd            yes           2.435       31.00      7.96x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.309        3.91      1.00x
+simd            yes           2.523       29.93      7.65x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.674        4.27      1.00x
+simd            yes           2.480       30.45      7.13x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.632        3.85      1.00x
+simd            yes           2.424       31.14      8.10x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.729        4.26      1.00x
+simd            yes           2.421       31.19      7.32x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.676        4.04      1.00x
+simd            yes           2.365       31.92      7.90x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.265        3.92      1.00x
+simd            yes           2.461       30.68      7.83x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.366        3.90      1.00x
+simd            yes           2.447       30.85      7.91x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.132        3.95      1.00x
+simd            yes           2.365       31.93      8.09x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.171        3.94      1.00x
+simd            yes           2.417       31.23      7.93x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.998        3.97      1.00x
+simd            yes           2.370       31.86      8.02x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.414        3.89      1.00x
+simd            yes           2.428       31.10      8.00x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.141        3.94      1.00x
+simd            yes           2.424       31.15      7.90x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.050        4.18      1.00x
+simd            yes           2.455       30.75      7.35x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.783        4.25      1.00x
+simd            yes           2.435       31.00      7.30x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          17.857        4.23      1.00x
+simd            yes           2.376       31.77      7.52x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          18.990        3.98      1.00x
+simd            yes           2.433       31.03      7.81x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.617        3.85      1.00x
+simd            yes           2.427       31.11      8.08x
+
+----- [simd/simd128_v3] H=2048 W=2048 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=2048 W=2048 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          19.443        3.88      1.00x
+simd            yes           2.422       31.18      8.03x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          78.593        3.84      1.00x
+simd            yes          10.372       29.12      7.58x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.136        3.97      1.00x
+simd            yes          10.397       29.05      7.32x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.567        4.22      1.00x
+simd            yes          10.432       28.95      6.86x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          78.067        3.87      1.00x
+simd            yes          10.418       28.99      7.49x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.238        3.91      1.00x
+simd            yes          10.387       29.08      7.44x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.165        3.91      1.00x
+simd            yes          10.399       29.04      7.42x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.793        4.21      1.00x
+simd            yes          10.390       29.07      6.91x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.360        3.90      1.00x
+simd            yes          10.386       29.08      7.45x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.916        3.98      1.00x
+simd            yes          10.394       29.06      7.30x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.215        3.96      1.00x
+simd            yes          10.402       29.03      7.33x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.971        3.92      1.00x
+simd            yes          10.404       29.03      7.40x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.734        3.88      1.00x
+simd            yes          10.397       29.05      7.48x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.750        3.88      1.00x
+simd            yes          10.452       28.89      7.44x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          74.656        4.05      1.00x
+simd            yes          10.389       29.07      7.19x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.247        3.91      1.00x
+simd            yes          10.447       28.91      7.39x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.594        3.99      1.00x
+simd            yes          10.863       27.80      6.96x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          77.178        3.91      1.00x
+simd            yes          10.422       28.98      7.41x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          71.525        4.22      1.00x
+simd            yes          10.419       28.98      6.86x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          76.409        3.95      1.00x
+simd            yes          10.591       28.51      7.21x
+
+----- [simd/simd128_v3] H=4096 W=4096 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=4096 W=4096 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes          75.858        3.98      1.00x
+simd            yes          10.412       29.00      7.29x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         287.500        4.20      1.00x
+simd            yes          42.417       28.48      6.78x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         309.114        3.91      1.00x
+simd            yes          42.283       28.57      7.31x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         295.456        4.09      1.00x
+simd            yes          43.130       28.01      6.85x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         300.315        4.02      1.00x
+simd            yes          43.873       27.53      6.85x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         288.433        4.19      1.00x
+simd            yes          42.326       28.54      6.81x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         285.497        4.23      1.00x
+simd            yes          42.254       28.59      6.76x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         286.878        4.21      1.00x
+simd            yes          41.849       28.86      6.86x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         285.668        4.23      1.00x
+simd            yes          42.188       28.63      6.77x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         303.733        3.98      1.00x
+simd            yes          42.140       28.67      7.21x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         300.884        4.01      1.00x
+simd            yes          42.920       28.14      7.01x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         311.747        3.87      1.00x
+simd            yes          42.251       28.59      7.38x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         312.338        3.87      1.00x
+simd            yes          42.405       28.49      7.37x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         307.708        3.93      1.00x
+simd            yes          42.826       28.21      7.19x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         309.660        3.90      1.00x
+simd            yes          42.737       28.27      7.25x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         286.571        4.22      1.00x
+simd            yes          42.352       28.52      6.77x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         284.796        4.24      1.00x
+simd            yes          42.300       28.56      6.73x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         285.961        4.22      1.00x
+simd            yes          44.434       27.19      6.44x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         307.954        3.92      1.00x
+simd            yes          44.299       27.27      6.95x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         309.361        3.90      1.00x
+simd            yes          42.313       28.55      7.31x
+
+----- [simd/simd128_v3] H=8192 W=8192 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=8192 W=8192 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes         305.140        3.96      1.00x
+simd            yes          42.383       28.50      7.20x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=1/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1235.330        3.91      1.00x
+simd            yes         176.493       27.38      7.00x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=2/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1146.772        4.21      1.00x
+simd            yes         176.864       27.32      6.48x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=3/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1208.507        4.00      1.00x
+simd            yes         178.495       27.07      6.77x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=4/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1144.239        4.22      1.00x
+simd            yes         175.461       27.54      6.52x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=5/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1237.924        3.90      1.00x
+simd            yes         177.090       27.28      6.99x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=6/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1234.033        3.92      1.00x
+simd            yes         175.803       27.48      7.02x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=7/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1144.405        4.22      1.00x
+simd            yes         177.141       27.28      6.46x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=8/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1235.985        3.91      1.00x
+simd            yes         174.723       27.65      7.07x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=9/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1152.011        4.19      1.00x
+simd            yes         175.447       27.54      6.57x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=10/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1221.251        3.96      1.00x
+simd            yes         179.371       26.94      6.81x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=11/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1142.122        4.23      1.00x
+simd            yes         176.009       27.45      6.49x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=12/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1197.964        4.03      1.00x
+simd            yes         175.858       27.48      6.81x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=13/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1246.579        3.88      1.00x
+simd            yes         176.887       27.32      7.05x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=14/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1145.595        4.22      1.00x
+simd            yes         175.894       27.47      6.51x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=15/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1215.016        3.98      1.00x
+simd            yes         175.986       27.46      6.90x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=16/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1238.840        3.90      1.00x
+simd            yes         175.804       27.48      7.05x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=17/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1240.903        3.89      1.00x
+simd            yes         181.495       26.62      6.84x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=18/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1151.036        4.20      1.00x
+simd            yes         174.429       27.70      6.60x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=19/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1190.387        4.06      1.00x
+simd            yes         175.538       27.53      6.78x
+
+----- [simd/simd128_v3] H=16384 W=16384 K=3 seed=1234 rep=20/20 -----
+CS683 PA-1 Task 1  2D convolution optimization harness
+
+=== Workload  H=16384 W=16384 K=3 seed=1234 (not graded) ===
+stage           correct    time(ms)     GFLOP/s    speedup
+--------------------------------------------------------------
+naive (ref)     yes        1225.330        3.94      1.00x
+simd            yes         175.957       27.46      6.96x
+
+========================= SUMMARY (simd / simd128_v3) =========================
+workload               runs    naive(ms)    stage(ms)     speedup       std
+-----------------------------------------------------------------------------
+64x64 K=3                20        0.040        0.006     6.70x     0.639
+128x128 K=3              20        0.110        0.014     7.98x     0.661
+256x256 K=3              20        0.301        0.036     8.40x     0.716
+512x512 K=3              20        1.232        0.137     8.98x     1.039
+1024x1024 K=3            20        4.812        0.545     8.84x     0.261
+2048x2048 K=3            20       18.805        2.424     7.76x     0.313
+4096x4096 K=3            20       76.049       10.439     7.29x     0.221
+8192x8192 K=3            20      298.236       42.684     6.99x     0.267
+16384x16384 K=3          20     1197.711      176.537     6.78x     0.221
+
+(naive/stage/speedup columns are means over the runs; std is the sample std-dev of speedup.)
