@@ -5,6 +5,8 @@
 #include <cstdio> // For profiling purposes explained below
 #include "utils.h" // For profiling purposes explained below
 
+int tile_size=1024;
+
 void conv_tile(const float* in, float* out, const float* ker,
                int H, int W, int K) {
     // TODO(student): replace this placeholder with your tiled/blocked implementation.
@@ -12,7 +14,7 @@ void conv_tile(const float* in, float* out, const float* ker,
     const int p = K / 2;
     const int in_stride = W + 2 * p;  // padded row stride
     
-    const int tile_x=1024;
+    const int tile_x=tile_size;
     const int tile_y=tile_x;
     //std::printf("Using tile size %d", tile_x);
     for (int oy = 0; oy < H; oy+=tile_y) {
@@ -56,8 +58,9 @@ int main(int argc, char** argv) {
         W = std::atoi(argv[2]);
         K = std::atoi(argv[3]);
         std::printf("Setting H=%d, W=%d, K=%d\n",H,W,K);
+        seed = static_cast<unsigned>(std::strtoul(argv[4], nullptr, 10));
+        tile_size = std::atoi(argv[5]);
     }
-    if (argc >= 6) seed = static_cast<unsigned>(std::strtoul(argv[5], nullptr, 10));
     float* img = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
     float* ker = pa1::alloc_floats(static_cast<std::size_t>(K) * K);
     float* out = pa1::alloc_floats(static_cast<std::size_t>(H) * W);

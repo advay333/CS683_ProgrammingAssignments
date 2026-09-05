@@ -17,8 +17,8 @@ int main(int argc, char** argv) {
         W = std::atoi(argv[2]);
         K = std::atoi(argv[3]);
         std::printf("Setting H=%d, W=%d, K=%d\n",H,W,K);
+        seed = static_cast<unsigned>(std::strtoul(argv[4], nullptr, 10));
     }
-    if (argc >= 6) seed = static_cast<unsigned>(std::strtoul(argv[5], nullptr, 10));
     float* img = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
     float* ker = pa1::alloc_floats(static_cast<std::size_t>(K) * K);
     float* out = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
