@@ -4,7 +4,7 @@ import os
 # Matrix sizes (X-axis)
 matrix_sizes = [64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384]
 
-# Updated speedup values mapped by Tile Size
+# Mean speedup values mapped by Tile Size
 speedups = {
     8:    [0.72, 0.72, 1.17, 0.72, 0.72, 0.71, 0.72, 0.72, 0.72],
     16:   [0.90, 0.93, 1.17, 0.95, 0.92, 0.92, 0.93, 0.94, 0.92],
@@ -16,16 +16,36 @@ speedups = {
     1024: [1.05, 1.23, 1.22, 1.32, 1.31, 1.27, 1.26, 1.25, 1.23]
 }
 
+# Standard deviation values mapped by Tile Size
+std_devs = {
+    8:    [0.11, 0.13, 0.14, 0.08, 0.07, 0.06, 0.05, 0.04, 0.05],
+    16:   [0.14, 0.19, 0.20, 0.09, 0.04, 0.04, 0.03, 0.04, 0.03],
+    32:   [0.15, 0.09, 0.17, 0.05, 0.03, 0.05, 0.03, 0.03, 0.04],
+    64:   [0.15, 0.09, 0.12, 0.06, 0.04, 0.02, 0.02, 0.02, 0.03],
+    128:  [0.07, 0.09, 0.11, 0.05, 0.03, 0.03, 0.02, 0.03, 0.02],
+    256:  [0.22, 0.09, 0.06, 0.09, 0.03, 0.03, 0.02, 0.01, 0.03],
+    512:  [0.07, 0.07, 0.07, 0.05, 0.03, 0.02, 0.03, 0.03, 0.03],
+    1024: [0.43, 0.11, 0.25, 0.05, 0.03, 0.04, 0.02, 0.03, 0.03]
+}
+
 plt.figure(figsize=(11, 6))
 
-# Plot a line for each tile size
-for tile_size, values in speedups.items():
-    plt.plot(matrix_sizes, values, marker='o', label=f'{tile_size}')
+# Plot each tile size series with error bars
+for tile_size in speedups:
+    plt.errorbar(
+        matrix_sizes,
+        speedups[tile_size],
+        yerr=std_devs[tile_size],
+        marker='o',
+        capsize=3,
+        elinewidth=1,
+        label=f'{tile_size}'
+    )
 
 # Axis labels and title
 plt.xlabel('Matrix Size')
 plt.ylabel('Speedup')
-plt.title('Speedup vs. Matrix Size by Tile Size')
+plt.title('Speedup vs. Matrix Size by Tile Size (with Standard Deviation)')
 
 # Set x-axis to log base 2 for visual distribution
 plt.xscale('log', base=2)

@@ -2,7 +2,7 @@ import os
 import re
 import glob
 from collections import defaultdict
-
+import numpy as np
 def parse_speedup_files(directory="."):
     # Nested dictionary: data[tile_size][matrix_size] = {'naive': [], 'tile': []}
     data = defaultdict(lambda: defaultdict(lambda: {'naive': [], 'tile': []}))
@@ -66,11 +66,12 @@ def calculate_averages_and_speedup(data):
             
             # Speedup = Average Naive Time / Average Tile Time
             avg_speedup = avg_naive / avg_tile
-            
+            speed_std=np.std(np.array(tile_times)/np.array(naive_times))
             results[tile_size][matrix_size] = {
                 'avg_naive_ms': avg_naive,
                 'avg_tile_ms': avg_tile,
-                'speedup': round(avg_speedup, 2)
+                'speedup': round(avg_speedup, 2),
+                'std_dev': round(speed_std,2)
             }
             
     return results
@@ -98,6 +99,17 @@ def print_speedup_table(results):
         row_str = f"{ms:<12}"
         for ts in tile_sizes:
             val = results[ts].get(ms, {}).get('speedup', '-')
+            row_str += f"{val:>10}"
+        print(row_str)
+
+    header = f"{'STD_DEV':<12}" + "".join([f"{ts:>10}" for ts in tile_sizes])
+    print(header)
+    
+    # Print the table rows corresponding to matrix sizes
+    for ms in matrix_sizes:
+        row_str = f"{ms:<12}"
+        for ts in tile_sizes:
+            val = results[ts].get(ms, {}).get('std_dev', '-')
             row_str += f"{val:>10}"
         print(row_str)
 
