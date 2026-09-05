@@ -187,7 +187,6 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                     const float ker_val = ker[ker_row + kx];
                     const float ker_val_next = ker[ker_row + kx + 1];
                     acc00 += in[in_row + (ox + kx)] * ker_val;
-                    // acc00 += in[in_row + (ox + kx)] * ker_val;
                     acc00 += in[in_row + (ox + kx + 1)] * ker_val_next;
 
                     acc01 += in[in_row + (ox + 1 + kx)] * ker_val;
@@ -199,7 +198,7 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                     acc11 += in[in_row_next + (ox + 1 + kx + 1)] * ker_val_next;
 
                 }
-                const int ker_val_last = ker[ker_row + (K - 1)];
+                const float ker_val_last = ker[ker_row + (K - 1)];
                 acc00 += in[in_row + (ox + K - 1)] * ker_val_last;
                 acc01 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
                 acc10 += in[in_row_next + (ox + K - 1)] * ker_val_last;
@@ -220,14 +219,14 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
 
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    const int ker_val = ker[ker_row + kx];
-                    const int ker_val_next = ker[ker_row + kx + 1];
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
                     acc0 += in[in_row + (W - 1 + kx)] * ker_val;
                     acc0 += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
                     acc1 += in[in_row_next + (W - 1 + kx)] * ker_val;
                     acc1 += in[in_row_next + (W - 1 + kx + 1)] * ker_val_next;
                 }
-                const int ker_val_last = ker[ker_row + (K - 1)];
+                const float ker_val_last = ker[ker_row + (K - 1)];
                 acc0 += in[in_row + (W - 1 + K - 1)] * ker_val_last;
                 acc1 += in[in_row_next + (W - 1 + K - 1)] * ker_val_last;
             }
@@ -245,14 +244,14 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
 
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    const int ker_val = ker[ker_row + kx];
-                    const int ker_val_next = ker[ker_row + kx + 1];
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
                     acc0 += in[in_row + (ox + kx)] * ker_val;
                     acc0 += in[in_row + (ox + kx + 1)] * ker_val_next;
                     acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
                     acc1 += in[in_row + (ox + 1 + kx + 1)] * ker_val_next;
                 }
-                const int ker_val_last = ker[ker_row + (K - 1)];
+                const float ker_val_last = ker[ker_row + (K - 1)];
                 acc0 += in[in_row + (ox + K - 1)] * ker_val_last;
                 acc1 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
             }
@@ -265,12 +264,12 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int in_row = (H - 1 + ky) * in_stride;
                 const int ker_row = ky * K;
                 for(int kx = 0; kx < K-1; kx += 2) {
-                    const int ker_val = ker[ker_row + kx];
-                    const int ker_val_next = ker[ker_row + kx + 1];
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
                     acc += in[in_row + (W - 1 + kx)] * ker_val;
                     acc += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
                 }
-                const int ker_val_last = ker[ker_row + (K - 1)];
+                const float ker_val_last = ker[ker_row + (K - 1)];
                 acc += in[in_row + (W - 1 + K - 1)] * ker_val_last;
             }
             out[(H - 1) * W + (W - 1)] = acc;
@@ -333,7 +332,7 @@ void conv_unroll_v5(const float* in, float* out, const float* ker,
 void conv_unroll(const float* in, float* out, const float* ker,
                  int H, int W, int K) {
     // TODO(student): replace this placeholder with your unrolled implementation.
-    conv_unroll_v3(in, out, ker, H, W, K);
+    conv_unroll_v4(in, out, ker, H, W, K);
 }
 
 // This main function is only used for profiling and is done so with the same 

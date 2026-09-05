@@ -15,11 +15,11 @@
 #            reports the median speedup over the repeats.
 #   pin_cpu  core id for `taskset -c <id>` (leave empty, or "off", to not pin).
 
-outdir  = results
+outdir  = speedups_result
 seed    = 1234
-sizes   = 512x512, 1024x1024, 2048x2048
-kernels = 3, 5
-repeat  = 3
+sizes   = 32x32
+kernels = 3
+repeat  = 5
 pin_cpu = 0
 
 # ------------------------------------------------------------------- runs ---
@@ -45,24 +45,20 @@ pin_cpu = 0
 
 # ---- reorder: single implementation, nothing to select -----------------------
 run reorder : default as base
-
 # ---- unroll: compare the five unrolling strategies ---------------------------
-run unroll : conv_unroll_v1
-run unroll : conv_unroll_v2
-run unroll : conv_unroll_v3
 run unroll : conv_unroll_v4
 run unroll : conv_unroll_v5
 
 # ---- simd: 128-bit vs 256-bit lanes, varying accumulator counts --------------
 # conv_simd128_v4 / conv_simd256_v3 consume 32 / 64 floats per x-step, so the
 # small 512-wide workload is dropped for those two.
-run simd : conv_simd128_v1
 run simd : conv_simd128_v2
 run simd : conv_simd128_v3
-run simd : conv_simd128_v4  | sizes=1024x1024, 2048x2048
+run simd : conv_simd128_v4
 run simd : conv_simd256_v1
 run simd : conv_simd256_v2
-run simd : conv_simd256_v3  | sizes=1024x1024, 2048x2048
+run simd : conv_simd256_v3
+
 
 # ---- whatever the committed dispatchers currently pick -----------------------
 # run unroll    : default as current

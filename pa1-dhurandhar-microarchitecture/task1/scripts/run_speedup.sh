@@ -377,7 +377,7 @@ for spec in "${RUN_SPECS[@]}"; do
         done < <(split_list "$r_kernels")
     done < <(split_list "$r_sizes")
 
-    # per-file footer: median speedup per (size, K) over the repeats
+    # per-file footer: mean +/- std speedup per (size, K) over the repeats
     {
         echo ""
         echo "========================= SUMMARY ($stage / $label) ========================="
@@ -387,21 +387,23 @@ for spec in "${RUN_SPECS[@]}"; do
                 key = $4 "x" $5 " K=" $6
                 if (!(key in seen)) { order[++n] = key; seen[key] = 1 }
                 cnt[key]++; sp[key, cnt[key]] = $13 + 0
+                spsum[key] += $13 + 0
                 nv[key] += $10; st[key] += $11
                 if ($9 != "yes") bad[key] = 1
             }
             END {
-                printf("%-18s %8s %12s %12s %10s\n", "workload", "runs", "naive(ms)", "stage(ms)", "speedup")
-                printf("---------------------------------------------------------------------\n")
+                printf("%-18s %8s %12s %12s %11s %9s\n", "workload", "runs", "naive(ms)", "stage(ms)", "speedup", "std")
+                printf("-----------------------------------------------------------------------------\n")
                 for (i = 1; i <= n; i++) {
                     k = order[i]; c = cnt[k]
-                    for (a = 1; a <= c; a++) for (b = a + 1; b <= c; b++)
-                        if (sp[k, b] < sp[k, a]) { t = sp[k, a]; sp[k, a] = sp[k, b]; sp[k, b] = t }
-                    med = (c % 2) ? sp[k, (c + 1) / 2] : (sp[k, c / 2] + sp[k, c / 2 + 1]) / 2
-                    printf("%-18s %8d %12.3f %12.3f %9.2fx%s\n",
-                           k, c, nv[k] / c, st[k] / c, med, (bad[k] ? "  [INCORRECT]" : ""))
+                    mean = spsum[k] / c
+                    ss = 0
+                    for (a = 1; a <= c; a++) { d = sp[k, a] - mean; ss += d * d }
+                    sd = (c > 1) ? sqrt(ss / (c - 1)) : 0
+                    printf("%-18s %8d %12.3f %12.3f %8.2fx %9.3f%s\n",
+                           k, c, nv[k] / c, st[k] / c, mean, sd, (bad[k] ? "  [INCORRECT]" : ""))
                 }
-                printf("\n(naive/stage columns are means over the runs; speedup is the median.)\n")
+                printf("\n(naive/stage/speedup columns are means over the runs; std is the sample std-dev of speedup.)\n")
             }' "$CSV"
     } >> "$outfile"
 
@@ -423,7 +425,7 @@ if [ "$DRY_RUN" -eq 0 ]; then
                 run = $1 "/" $2; key = $4 "x" $5 " K=" $6
                 if (!(run in rseen))  { rorder[++rn] = run; rseen[run] = 1 }
                 if (!(key in kseen))  { korder[++kn] = key; kseen[key] = 1 }
-                c = ++cnt[run, key]; sp[run, key, c] = $13 + 0
+                c = ++cnt[run, key]; spsum[run, key] += $13 + 0
                 if ($9 != "yes") bad[run, key] = 1
             }
             END {
@@ -438,14 +440,12 @@ if [ "$DRY_RUN" -eq 0 ]; then
                     for (j = 1; j <= kn; j++) {
                         r = rorder[i]; k = korder[j]; c = cnt[r, k]
                         if (!c) { printf("%16s", "-"); continue }
-                        for (a = 1; a <= c; a++) for (b = a + 1; b <= c; b++)
-                            if (sp[r, k, b] < sp[r, k, a]) { t = sp[r, k, a]; sp[r, k, a] = sp[r, k, b]; sp[r, k, b] = t }
-                        med = (c % 2) ? sp[r, k, (c + 1) / 2] : (sp[r, k, c / 2] + sp[r, k, c / 2 + 1]) / 2
-                        printf("%15s%s", sprintf("%.2fx", med), (bad[r, k] ? "!" : " "))
+                        mean = spsum[r, k] / c
+                        printf("%15s%s", sprintf("%.2fx", mean), (bad[r, k] ? "!" : " "))
                     }
                     printf("\n")
                 }
-                printf("\nmedian speedup vs naive over the repeats;  ! = a run reported incorrect output\n")
+                printf("\nmean speedup vs naive over the repeats;  ! = a run reported incorrect output\n")
             }' "$CSV"
     } > "$SUMMARY"
 
