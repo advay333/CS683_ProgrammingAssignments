@@ -1,40 +1,368 @@
 // conv_unroll.cpp  STAGE 2: LOOP UNROLLING
 #include "convolution.h"
+#include <cstdio> // For profiling purposes explained below
+#include "utils.h" // For profiling purposes explained below
 
-void conv_unroll(const float* in, float* out, const float* ker,
+
+
+void conv_unroll_v1(const float* in, float* out, const float* ker,
                  int H, int W, int K) {
     // TODO(student): replace this placeholder with your unrolled implementation.
-    //conv_naive(in, out, ker, H, W, K);
     const int p = K / 2;
     const int in_stride = W + 2 * p;  // padded row stride
 
     for (int oy = 0; oy < H; ++oy) {
         for (int ox = 0; ox < W; ++ox) {
-            out[oy * W + ox] = 0.0f;// Initialisation run 
-        }
-    } 
-
-    for (int ky = 0; ky < K; ++ky) {
-        for (int kx = 0; kx < K; ++kx) {
-            float ker_val=ker[ky*K+kx];
-            for (int oy = 0; oy < H; ++oy) {
-                const float* in_index= in + (oy + ky) * in_stride + kx;
-                float* out_index= out + oy * W;
-                int ox = 0;
-                for (; ox < W-8; ox+=8) {
-                    out_index[ox] += in_index[ox] * ker_val;
-                    out_index[ox+1] += in_index[ox+1] * ker_val;
-                    out_index[ox+2] += in_index[ox+2] * ker_val;
-                    out_index[ox+3] += in_index[ox+3] * ker_val;                    
-                    out_index[ox+4] += in_index[ox+4] * ker_val;
-                    out_index[ox+5] += in_index[ox+5] * ker_val;
-                    out_index[ox+6] += in_index[ox+6] * ker_val;
-                    out_index[ox+7] += in_index[ox+7] * ker_val; 
+            float acc = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                for (int kx = 0; kx < K-1; kx += 2) {
+                    acc += in[(oy + ky) * in_stride + (ox + kx)] * ker[ky * K + kx];
+                    acc += in[(oy + ky) * in_stride + (ox + kx + 1)] * ker[ky * K + kx + 1];
                 }
-                for(; ox < W ; ox++){
-                    out_index[ox] += in_index[ox] * ker_val;
-                }
+                acc += in[(oy + ky) * in_stride + (ox + K - 1)] * ker[ky * K + (K - 1)];
             }
+            out[oy * W + ox] = acc;
+        }
+    }
+    // conv_naive(in, out, ker, H, W, K);
+}
+void conv_unroll_v2(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int W_tail = W % 2; 
+    const int W_unrolled = W - W_tail;
+    for (int oy = 0; oy < H; ++oy) {
+        for (int ox = 0; ox < W_unrolled; ox+=2) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+
+            for (int ky = 0; ky < K; ++ky) {
+                for (int kx = 0; kx < K-1; kx += 2) {
+                    acc0 += in[(oy + ky) * in_stride + (ox + kx)] * ker[ky * K + kx];
+                    acc0 += in[(oy + ky) * in_stride + (ox + kx + 1)] * ker[ky * K + kx + 1];
+
+                    acc1 += in[(oy + ky) * in_stride + (ox + 1 + kx)] * ker[ky * K + kx];
+                    acc1 += in[(oy + ky) * in_stride + (ox + 1 + kx + 1)] * ker[ky * K + kx + 1];
+                }
+                acc0 += in[(oy + ky) * in_stride + (ox + K - 1)] * ker[ky * K + (K - 1)];
+                acc1 += in[(oy + ky) * in_stride + (ox + 1 + K - 1)] * ker[ky * K + (K - 1)];
+            }
+            out[oy * W + ox] = acc0;
+            out[oy * W + ox + 1] = acc1;
+        }
+        // Handle the tail elements if W is odd
+        if (W_tail == 1) {
+            float acc = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                for(int kx = 0; kx < K-1; kx += 2) {
+                    acc += in[(oy + ky) * in_stride + (W - 1 + kx)] * ker[ky * K + kx];
+                    acc += in[(oy + ky) * in_stride + (W - 1 + kx + 1)] * ker[ky * K + kx + 1];
+                }
+                acc += in[(oy + ky) * in_stride + (W - 1 + K - 1)] * ker[ky * K + (K - 1)];
+            }
+            out[oy * W + (W - 1)] = acc;
+        }
+    }
+    // conv_naive(in, out, ker, H, W, K);
+}
+void conv_unroll_v3(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int W_tail = W % 2; 
+    const int W_unrolled = W - W_tail;
+    const int H_tail = H % 2;
+    const int H_unrolled = H - H_tail;
+
+    for (int oy = 0; oy < H_unrolled; oy+=2) {
+        
+        for (int ox = 0; ox < W_unrolled; ox+=2) {
+            float acc00 = 0.0f;
+            float acc01 = 0.0f;
+            float acc10 = 0.0f;
+            float acc11 = 0.0f;
+
+            for (int ky = 0; ky < K; ++ky) {
+                for (int kx = 0; kx < K-1; kx += 2) {
+                    acc00 += in[(oy + ky) * in_stride + (ox + kx)] * ker[ky * K + kx];
+                    acc00 += in[(oy + ky) * in_stride + (ox + kx + 1)] * ker[ky * K + kx + 1];
+
+                    acc01 += in[(oy + ky) * in_stride + (ox + 1 + kx)] * ker[ky * K + kx];
+                    acc01 += in[(oy + ky) * in_stride + (ox + 1 + kx + 1)] * ker[ky * K + kx + 1];
+
+                    acc10 += in[(oy + 1 + ky) * in_stride + (ox + kx)] * ker[ky * K + kx];
+                    acc10 += in[(oy + 1 + ky) * in_stride + (ox + kx + 1)] * ker[ky * K + kx + 1];
+                    acc11 += in[(oy + 1 + ky) * in_stride + (ox + 1 + kx)] * ker[ky * K + kx];
+                    acc11 += in[(oy + 1 + ky) * in_stride + (ox + 1 + kx + 1)] * ker[ky * K + kx + 1];
+
+                }
+                acc00 += in[(oy + ky) * in_stride + (ox + K - 1)] * ker[ky * K + (K - 1)];
+                acc01 += in[(oy + ky) * in_stride + (ox + 1 + K - 1)] * ker[ky * K + (K - 1)];
+                acc10 += in[(oy + 1 + ky) * in_stride + (ox + K - 1)] * ker[ky * K + (K - 1)];
+                acc11 += in[(oy + 1 + ky) * in_stride + (ox + 1 + K - 1)] * ker[ky * K + (K - 1)];
+            }
+            out[oy * W + ox] = acc00;
+            out[oy * W + ox + 1] = acc01;
+            out[(oy + 1) * W + ox] = acc10;
+            out[(oy + 1) * W + ox + 1] = acc11;
+        }
+        // Handle the tail elements if W is odd
+        // if (W_tail == 1) {
+        //     float acc0 = 0.0f;
+        //     float acc1 = 0.0f;
+        //     for (int ky = 0; ky < K; ++ky) {
+        //         for(int kx = 0; kx < K-1; kx += 2) {
+        //             acc0 += in[(oy + ky) * in_stride + (W - 1 + kx)] * ker[ky * K + kx];
+        //             acc0 += in[(oy + ky) * in_stride + (W - 1 + kx + 1)] * ker[ky * K + kx + 1];
+        //             acc1 += in[(oy + 1 + ky) * in_stride + (W - 1 + kx)] * ker[ky * K + kx];
+        //             acc1 += in[(oy + 1 + ky) * in_stride + (W - 1 + kx + 1)] * ker[ky * K + kx + 1];
+        //         }
+        //         acc0 += in[(oy + ky) * in_stride + (W - 1 + K - 1)] * ker[ky * K + (K - 1)];
+        //         acc1 += in[(oy + 1 + ky) * in_stride + (W - 1 + K - 1)] * ker[ky * K + (K - 1)];
+        //     }
+        //     out[oy * W + (W - 1)] = acc0;
+        //     out[(oy + 1) * W + (W - 1)] = acc1;
+        // }
+    }
+        // Handle the tail elements if H is odd
+    if (H_tail == 1) {
+        for(int ox = 0; ox < W_unrolled; ox+=2) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                for(int kx = 0; kx < K-1; kx += 2) {
+                    acc0 += in[(H - 1 + ky) * in_stride + (ox + kx)] * ker[ky * K + kx];
+                    acc0 += in[(H - 1 + ky) * in_stride + (ox + kx + 1)] * ker[ky * K + kx + 1];
+                    acc1 += in[(H - 1 + ky) * in_stride + (ox + 1 + kx)] * ker[ky * K + kx];
+                    acc1 += in[(H - 1 + ky) * in_stride + (ox + 1 + kx + 1)] * ker[ky * K + kx + 1];
+                }
+                acc0 += in[(H - 1 + ky) * in_stride + (ox + K - 1)] * ker[ky * K + (K - 1)];
+                acc1 += in[(H - 1 + ky) * in_stride + (ox + 1 + K - 1)] * ker[ky * K + (K - 1)];
+            }
+            out[(H - 1) * W + ox] = acc0;
+            out[(H - 1) * W + ox + 1] = acc1;
+        }
+        // if(W_tail == 1) {
+        //     float acc = 0.0f;
+        //     for (int ky = 0; ky < K; ++ky) {
+        //         for(int kx = 0; kx < K-1; kx += 2) {
+        //             acc += in[(H - 1 + ky) * in_stride + (W - 1 + kx)] * ker[ky * K + kx];
+        //             acc += in[(H - 1 + ky) * in_stride + (W - 1 + kx + 1)] * ker[ky * K + kx + 1];
+        //         }
+        //         acc += in[(H - 1 + ky) * in_stride + (W - 1 + K - 1)] * ker[ky * K + (K - 1)];
+        //     }
+        //     out[(H - 1) * W + (W - 1)] = acc;
+        // }
+
+    }
+    // conv_naive(in, out, ker, H, W, K);
+}
+void conv_unroll_v4(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int W_tail = W % 2; 
+    const int W_unrolled = W - W_tail;
+    const int H_tail = H % 2;
+    const int H_unrolled = H - H_tail;
+
+    for (int oy = 0; oy < H_unrolled; oy+=2) {
+        
+        for (int ox = 0; ox < W_unrolled; ox+=2) {
+            float acc00 = 0.0f;
+            float acc01 = 0.0f;
+            float acc10 = 0.0f;
+            float acc11 = 0.0f;
+
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (oy + ky) * in_stride;
+                const int in_row_next = (oy + 1 + ky) * in_stride;
+                const int ker_row = ky * K;
+                
+                for (int kx = 0; kx < K-1; kx += 2) {
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
+                    acc00 += in[in_row + (ox + kx)] * ker_val;
+                    acc00 += in[in_row + (ox + kx + 1)] * ker_val_next;
+
+                    acc01 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc01 += in[in_row + (ox + 1 + kx + 1)] * ker_val_next;
+
+                    acc10 += in[in_row_next + (ox + kx)] * ker_val;
+                    acc10 += in[in_row_next + (ox + kx + 1)] * ker_val_next;
+                    acc11 += in[in_row_next + (ox + 1 + kx)] * ker_val;
+                    acc11 += in[in_row_next + (ox + 1 + kx + 1)] * ker_val_next;
+
+                }
+                const float ker_val_last = ker[ker_row + (K - 1)];
+                acc00 += in[in_row + (ox + K - 1)] * ker_val_last;
+                acc01 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
+                acc10 += in[in_row_next + (ox + K - 1)] * ker_val_last;
+                acc11 += in[in_row_next + (ox + 1 + K - 1)] * ker_val_last;
+            }
+            out[oy * W + ox] = acc00;
+            out[oy * W + ox + 1] = acc01;
+            out[(oy + 1) * W + ox] = acc10;
+            out[(oy + 1) * W + ox + 1] = acc11;
+        }
+        // Handle the tail elements if W is odd
+        if (W_tail == 1) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (oy + ky) * in_stride;
+                const int in_row_next = (oy + 1 + ky) * in_stride;
+                const int ker_row = ky * K;
+
+                for(int kx = 0; kx < K-1; kx += 2) {
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
+                    acc0 += in[in_row + (W - 1 + kx)] * ker_val;
+                    acc0 += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
+                    acc1 += in[in_row_next + (W - 1 + kx)] * ker_val;
+                    acc1 += in[in_row_next + (W - 1 + kx + 1)] * ker_val_next;
+                }
+                const float ker_val_last = ker[ker_row + (K - 1)];
+                acc0 += in[in_row + (W - 1 + K - 1)] * ker_val_last;
+                acc1 += in[in_row_next + (W - 1 + K - 1)] * ker_val_last;
+            }
+            out[oy * W + (W - 1)] = acc0;
+            out[(oy + 1) * W + (W - 1)] = acc1;
+        }
+    }
+        // Handle the tail elements if H is odd
+    if (H_tail == 1) {
+        for(int ox = 0; ox < W_unrolled; ox+=2) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (H - 1 + ky) * in_stride;
+                const int ker_row = ky * K;
+
+                for(int kx = 0; kx < K-1; kx += 2) {
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
+                    acc0 += in[in_row + (ox + kx)] * ker_val;
+                    acc0 += in[in_row + (ox + kx + 1)] * ker_val_next;
+                    acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc1 += in[in_row + (ox + 1 + kx + 1)] * ker_val_next;
+                }
+                const float ker_val_last = ker[ker_row + (K - 1)];
+                acc0 += in[in_row + (ox + K - 1)] * ker_val_last;
+                acc1 += in[in_row + (ox + 1 + K - 1)] * ker_val_last;
+            }
+            out[(H - 1) * W + ox] = acc0;
+            out[(H - 1) * W + ox + 1] = acc1;
+        }
+        if(W_tail == 1) {
+            float acc = 0.0f;
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (H - 1 + ky) * in_stride;
+                const int ker_row = ky * K;
+                for(int kx = 0; kx < K-1; kx += 2) {
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
+                    acc += in[in_row + (W - 1 + kx)] * ker_val;
+                    acc += in[in_row + (W - 1 + kx + 1)] * ker_val_next;
+                }
+                const float ker_val_last = ker[ker_row + (K - 1)];
+                acc += in[in_row + (W - 1 + K - 1)] * ker_val_last;
+            }
+            out[(H - 1) * W + (W - 1)] = acc;
         }
     }
 }
+
+
+void conv_unroll_v5(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    const int p = K / 2;
+    const int in_stride = W + 2 * p;  // padded row stride
+    const int W_tail = W % 8; 
+    const int W_unrolled = W - W_tail;
+    const int W_deg = 8;
+    for (int oy = 0; oy < H; ++oy) {
+        
+        for (int ox = 0; ox < W_unrolled; ox+=W_deg) {
+            float acc0 = 0.0f;
+            float acc1 = 0.0f;
+            float acc2 = 0.0f;
+            float acc3 = 0.0f;
+            float acc4 = 0.0f;
+            float acc5 = 0.0f;
+            float acc6 = 0.0f;
+            float acc7 = 0.0f;
+
+
+            for (int ky = 0; ky < K; ++ky) {
+                const int in_row = (oy + ky) * in_stride;
+                const int ker_row = ky * K;
+                
+                for (int kx = 0; kx < K; ++kx) {
+                    const float ker_val = ker[ker_row + kx];
+                    acc0 += in[in_row + (ox + kx)] * ker_val;
+                    acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
+                    acc2 += in[in_row + (ox + 2 + kx)] * ker_val;
+                    acc3 += in[in_row + (ox + 3 + kx)] * ker_val;
+                    acc4 += in[in_row + (ox + 4 + kx)] * ker_val;
+                    acc5 += in[in_row + (ox + 5 + kx)] * ker_val;
+                    acc6 += in[in_row + (ox + 6 + kx)] * ker_val;
+                    acc7 += in[in_row + (ox + 7 + kx)] * ker_val; 
+                }
+            }
+            out[oy * W + ox] = acc0;
+            out[oy * W + ox + 1] = acc1;
+            out[oy * W + ox + 2] = acc2;
+            out[oy * W + ox + 3] = acc3;
+            out[oy * W + ox + 4] = acc4;
+            out[oy * W + ox + 5] = acc5;
+            out[oy * W + ox + 6] = acc6;
+            out[oy * W + ox + 7] = acc7;
+        }
+        // we dont have the tail here because W is guaranteed to be a multiple of 8
+        
+    }
+}
+
+void conv_unroll(const float* in, float* out, const float* ker,
+                 int H, int W, int K) {
+    // TODO(student): replace this placeholder with your unrolled implementation.
+    conv_unroll_v4(in, out, ker, H, W, K);
+}
+
+// This main function is only used for profiling and is done so with the same 
+// compiler optimizations as were there in the makefile. 
+// This was necessary as the main.cpp has a lot of overhead such as running naive
+// This messes up the readings given by the perf command. 
+// The command used to run this 
+//g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Iinclude -Wall -DSTANDALONE_TEST src/conv_unroll.cpp -o bin/conv_prof_unroll
+// We will offset the bias introduced by the random generation by having a run in which no conv function is called
+// This can be used to offset the random generation misses.
+#ifdef STANDALONE_TEST
+int main(int argc, char** argv) {
+    std::printf("PROFILING TILING.\n");
+    int H = 2048, W = 2048, K = 3;
+    unsigned seed = 1234;
+    if (argc >= 4) {
+        H = std::atoi(argv[1]);
+        W = std::atoi(argv[2]);
+        K = std::atoi(argv[3]);
+        std::printf("Setting H=%d, W=%d, K=%d\n",H,W,K);
+    }
+    if (argc >= 6) seed = static_cast<unsigned>(std::strtoul(argv[5], nullptr, 10));
+    float* img = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
+    float* ker = pa1::alloc_floats(static_cast<std::size_t>(K) * K);
+    float* out = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
+
+    pa1::fill_random(img, static_cast<std::size_t>(H) * W, seed);
+    pa1::fill_random(ker, static_cast<std::size_t>(K) * K, seed + 1u);
+    float* in = pa1::make_padded(img, H, W, K);  // zero-padded halo buffer, stride W+2p
+    conv_unroll(in,out,ker,H,W,K);
+    return 0;
+}
+#endif
