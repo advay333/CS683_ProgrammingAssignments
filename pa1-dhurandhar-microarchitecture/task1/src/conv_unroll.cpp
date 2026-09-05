@@ -184,10 +184,10 @@ void conv_unroll_v4(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
                 
                 for (int kx = 0; kx < K-1; kx += 2) {
-                    const int ker_val = ker[ker_row + kx];
-                    const int ker_val_next = ker[ker_row + kx + 1];
+                    const float ker_val = ker[ker_row + kx];
+                    const float ker_val_next = ker[ker_row + kx + 1];
                     acc00 += in[in_row + (ox + kx)] * ker_val;
-                    acc00 += in[in_row + (ox + kx)] * ker_val;
+                    // acc00 += in[in_row + (ox + kx)] * ker_val;
                     acc00 += in[in_row + (ox + kx + 1)] * ker_val_next;
 
                     acc01 += in[in_row + (ox + 1 + kx)] * ker_val;
@@ -305,7 +305,7 @@ void conv_unroll_v5(const float* in, float* out, const float* ker,
                 const int ker_row = ky * K;
                 
                 for (int kx = 0; kx < K; ++kx) {
-                    const int ker_val = ker[ker_row + kx];
+                    const float ker_val = ker[ker_row + kx];
                     acc0 += in[in_row + (ox + kx)] * ker_val;
                     acc1 += in[in_row + (ox + 1 + kx)] * ker_val;
                     acc2 += in[in_row + (ox + 2 + kx)] * ker_val;

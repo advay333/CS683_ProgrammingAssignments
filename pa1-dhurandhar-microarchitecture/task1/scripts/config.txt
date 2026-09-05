@@ -1,0 +1,71 @@
+# config.txt  input for scripts/run_speedup.sh
+#
+# Everything after a '#' is a comment.  Two kinds of lines:
+#
+#   key = value                 global setting
+#   run <stage> : <version>     one benchmark sweep (one output .txt file)
+#
+# ---------------------------------------------------------------- globals ---
+#   outdir   output directory (relative paths are relative to task1/).
+#            The -o/--outdir command-line flag overrides this.
+#   seed     RNG seed handed to bin/conv (fixed at 1234 for now).
+#   sizes    comma-separated HxW list.  W must be a multiple of 8.
+#   kernels  comma-separated kernel sizes.  Each must be odd.
+#   repeat   how many times to run each (version, size, K) point.  The summary
+#            reports the median speedup over the repeats.
+#   pin_cpu  core id for `taskset -c <id>` (leave empty, or "off", to not pin).
+
+outdir  = results
+seed    = 1234
+sizes   = 512x512, 1024x1024, 2048x2048
+kernels = 3, 5
+repeat  = 3
+pin_cpu = 0
+
+# ------------------------------------------------------------------- runs ---
+# Syntax:
+#
+#   run <stage> : <version> [as <label>] [| sizes=...] [| kernels=...]
+#                                        [| repeat=N] [| seed=N]
+#
+#   <stage>    the harness stage name = the src/conv_<stage>.cpp file:
+#              naive | reorder | unroll | tile | simd | optimized
+#   <version>  the exact function name inside that file, e.g. conv_unroll_v3,
+#              or the word `default` to benchmark whatever the master
+#              conv_<stage>() currently dispatches to (unpatched build).
+#              `scripts/run_speedup.sh --list simd` prints what is available.
+#   as <label> optional short name used in the output filename
+#              (<stage>_<label>_speedup.txt).  Without it the label is the
+#              version name with the leading "conv_"/"conv_<stage>_" stripped,
+#              e.g. conv_unroll_v3 -> unroll_v3_speedup.txt.
+#   | key=...  per-run overrides of the globals above.
+#
+# Each run line produces exactly one output file, so two lines writing the same
+# <stage>_<label>_speedup.txt is an error -- disambiguate with `as <label>`.
+
+# ---- reorder: single implementation, nothing to select -----------------------
+run reorder : default as base
+
+# ---- unroll: compare the five unrolling strategies ---------------------------
+run unroll : conv_unroll_v1
+run unroll : conv_unroll_v2
+run unroll : conv_unroll_v3
+run unroll : conv_unroll_v4
+run unroll : conv_unroll_v5
+
+# ---- simd: 128-bit vs 256-bit lanes, varying accumulator counts --------------
+# conv_simd128_v4 / conv_simd256_v3 consume 32 / 64 floats per x-step, so the
+# small 512-wide workload is dropped for those two.
+run simd : conv_simd128_v1
+run simd : conv_simd128_v2
+run simd : conv_simd128_v3
+run simd : conv_simd128_v4  | sizes=1024x1024, 2048x2048
+run simd : conv_simd256_v1
+run simd : conv_simd256_v2
+run simd : conv_simd256_v3  | sizes=1024x1024, 2048x2048
+
+# ---- whatever the committed dispatchers currently pick -----------------------
+# run unroll    : default as current
+# run simd      : default as current
+# run tile      : default as base
+# run optimized : default as base
