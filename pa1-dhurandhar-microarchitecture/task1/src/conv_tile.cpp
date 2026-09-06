@@ -49,18 +49,42 @@ void conv_tile(const float* in, float* out, const float* ker,
 // We will offset the bias introduced by the random generation by having a run in which no conv function is called
 // This can be used to offset the random generation misses.
 #ifdef STANDALONE_TEST
+#include <cstdlib>
+#include <cstring>
+
+// Standalone profiling driver.
+//
+//   usage: <prog> [H [W [K [seed [variant]]]]]
+//
+// The final checksum print keeps the optimiser from deleting the convolution
+// call: `out` is otherwise never read, so at -O2 the whole kernel is dead code.
+
 int main(int argc, char** argv) {
-    std::printf("PROFILING TILING.\n");
     int H = 2048, W = 2048, K = 3;
     unsigned seed = 1234;
-    if (argc >= 4) {
-        H = std::atoi(argv[1]);
-        W = std::atoi(argv[2]);
-        K = std::atoi(argv[3]);
-        std::printf("Setting H=%d, W=%d, K=%d\n",H,W,K);
-        seed = static_cast<unsigned>(std::strtoul(argv[4], nullptr, 10));
-        tile_size = std::atoi(argv[5]);
+    const char* variant = "default";
+
+    if (argc >= 2) H = std::atoi(argv[1]);
+    if (argc >= 3) W = std::atoi(argv[2]);
+    if (argc >= 4) K = std::atoi(argv[3]);
+    if (argc >= 5) seed = static_cast<unsigned>(std::strtoul(argv[4], nullptr, 10));
+    if (argc >= 6) variant = argv[5];
+
+    std::printf("PROFILING %s variant=%s H=%d W=%d K=%d seed=%u\n",
+                "tile", variant, H, W, K, seed);
+
+    // For this stage the variant string is the tile size in elements;
+    // "default" leaves the value compiled into the file untouched.
+    if (std::strcmp(variant, "default") != 0) {
+        int t = std::atoi(variant);
+        if (t <= 0) {
+            std::fprintf(stderr, "bad tile size '%s'\n", variant);
+            return 2;
+        }
+        tile_size = t;
     }
+    std::printf("tile_size=%d\n", tile_size);
+
     float* img = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
     float* ker = pa1::alloc_floats(static_cast<std::size_t>(K) * K);
     float* out = pa1::alloc_floats(static_cast<std::size_t>(H) * W);
@@ -68,7 +92,13 @@ int main(int argc, char** argv) {
     pa1::fill_random(img, static_cast<std::size_t>(H) * W, seed);
     pa1::fill_random(ker, static_cast<std::size_t>(K) * K, seed + 1u);
     float* in = pa1::make_padded(img, H, W, K);  // zero-padded halo buffer, stride W+2p
-    conv_tile(in,out,ker,H,W,K);
+
+    conv_tile(in, out, ker, H, W, K);
+
+    std::printf("checksum %.6f\n",
+                static_cast<double>(out[0])
+                    + static_cast<double>(out[static_cast<std::size_t>(H) * W - 1])
+                    + static_cast<double>(in[0]));
     return 0;
 }
 #endif
