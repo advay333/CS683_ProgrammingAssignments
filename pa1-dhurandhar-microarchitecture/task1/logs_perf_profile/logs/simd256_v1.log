@@ -1,0 +1,2348 @@
+############################################################
+# label   : simd256_v1
+# stage   : simd      (/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_simd.cpp)
+# variant : conv_simd256_v1
+# events  : cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/instructions/,cpu_core/cpu-cycles/,context-switches,page-faults
+# started : 2026-09-06T17:38:27+05:30
+############################################################
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+611942,,cpu_core/L1-dcache-loads/,850571,56.00,,
+17320,,cpu_core/L1-dcache-load-misses/,850571,56.00,2.83,of all L1-dcache accesses
+483136,,cpu_core/branch-instructions/,850571,56.00,,
+17888,,cpu_core/branch-misses/,850571,56.00,,
+2767804,,cpu_core/instructions/,850571,56.00,,
+2471730,,cpu_core/cpu-cycles/,850571,56.00,,
+2,,context-switches,1500115,100.00,,
+141,,page-faults,1500115,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+609766,,cpu_core/L1-dcache-loads/,892369,57.00,,
+17539,,cpu_core/L1-dcache-load-misses/,892369,57.00,2.88,of all L1-dcache accesses
+481531,,cpu_core/branch-instructions/,892369,57.00,,
+17770,,cpu_core/branch-misses/,892369,57.00,,
+2754075,,cpu_core/instructions/,892369,57.00,,
+2405460,,cpu_core/cpu-cycles/,892369,57.00,,
+1,,context-switches,1561900,100.00,,
+140,,page-faults,1561900,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+614233,,cpu_core/L1-dcache-loads/,960144,56.00,,
+16155,,cpu_core/L1-dcache-load-misses/,960144,56.00,2.63,of all L1-dcache accesses
+484267,,cpu_core/branch-instructions/,960144,56.00,,
+18008,,cpu_core/branch-misses/,960144,56.00,,
+2775073,,cpu_core/instructions/,960144,56.00,,
+2597097,,cpu_core/cpu-cycles/,960144,56.00,,
+1,,context-switches,1684739,100.00,,
+140,,page-faults,1684739,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+610034,,cpu_core/L1-dcache-loads/,902934,57.00,,
+15012,,cpu_core/L1-dcache-load-misses/,902934,57.00,2.46,of all L1-dcache accesses
+481886,,cpu_core/branch-instructions/,902934,57.00,,
+17537,,cpu_core/branch-misses/,902934,57.00,,
+2754880,,cpu_core/instructions/,902934,57.00,,
+2424729,,cpu_core/cpu-cycles/,902934,57.00,,
+1,,context-switches,1578011,100.00,,
+142,,page-faults,1578011,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+587256,,cpu_core/L1-dcache-loads/,1442433,100.00,,
+16896,,cpu_core/L1-dcache-load-misses/,1442433,100.00,2.88,of all L1-dcache accesses
+447519,,cpu_core/branch-instructions/,1442433,100.00,,
+16592,,cpu_core/branch-misses/,1442433,100.00,,
+2549090,,cpu_core/instructions/,1442433,100.00,,
+2383125,,cpu_core/cpu-cycles/,1442433,100.00,,
+1,,context-switches,1442433,100.00,,
+141,,page-faults,1442433,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+610066,,cpu_core/L1-dcache-loads/,846083,57.00,,
+17054,,cpu_core/L1-dcache-load-misses/,846083,57.00,2.80,of all L1-dcache accesses
+481461,,cpu_core/branch-instructions/,846083,57.00,,
+17909,,cpu_core/branch-misses/,846083,57.00,,
+2753471,,cpu_core/instructions/,846083,57.00,,
+2424886,,cpu_core/cpu-cycles/,846083,57.00,,
+1,,context-switches,1475441,100.00,,
+142,,page-faults,1475441,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+602697,,cpu_core/L1-dcache-loads/,831152,58.00,,
+16455,,cpu_core/L1-dcache-load-misses/,831152,58.00,2.73,of all L1-dcache accesses
+475871,,cpu_core/branch-instructions/,831152,58.00,,
+17781,,cpu_core/branch-misses/,831152,58.00,,
+2720804,,cpu_core/instructions/,831152,58.00,,
+2422820,,cpu_core/cpu-cycles/,831152,58.00,,
+1,,context-switches,1428728,100.00,,
+144,,page-faults,1428728,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+608035,,cpu_core/L1-dcache-loads/,848309,57.00,,
+17090,,cpu_core/L1-dcache-load-misses/,848309,57.00,2.81,of all L1-dcache accesses
+479659,,cpu_core/branch-instructions/,848309,57.00,,
+17774,,cpu_core/branch-misses/,848309,57.00,,
+2746292,,cpu_core/instructions/,848309,57.00,,
+2427223,,cpu_core/cpu-cycles/,848309,57.00,,
+1,,context-switches,1476998,100.00,,
+141,,page-faults,1476998,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+604518,,cpu_core/L1-dcache-loads/,968226,58.00,,
+17483,,cpu_core/L1-dcache-load-misses/,968226,58.00,2.89,of all L1-dcache accesses
+477676,,cpu_core/branch-instructions/,968226,58.00,,
+17307,,cpu_core/branch-misses/,968226,58.00,,
+2728190,,cpu_core/instructions/,968226,58.00,,
+2692928,,cpu_core/cpu-cycles/,968226,58.00,,
+1,,context-switches,1668592,100.00,,
+144,,page-faults,1668592,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+589241,,cpu_core/L1-dcache-loads/,1015114,59.00,,
+16685,,cpu_core/L1-dcache-load-misses/,1015114,59.00,2.83,of all L1-dcache accesses
+464423,,cpu_core/branch-instructions/,1015114,59.00,,
+17198,,cpu_core/branch-misses/,1015114,59.00,,
+2658928,,cpu_core/instructions/,1015114,59.00,,
+2652963,,cpu_core/cpu-cycles/,1015114,59.00,,
+1,,context-switches,1712574,100.00,,
+140,,page-faults,1712574,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+602726,,cpu_core/L1-dcache-loads/,857246,58.00,,
+17423,,cpu_core/L1-dcache-load-misses/,857246,58.00,2.89,of all L1-dcache accesses
+475504,,cpu_core/branch-instructions/,857246,58.00,,
+17473,,cpu_core/branch-misses/,857246,58.00,,
+2718616,,cpu_core/instructions/,857246,58.00,,
+2398653,,cpu_core/cpu-cycles/,857246,58.00,,
+1,,context-switches,1472264,100.00,,
+144,,page-faults,1472264,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+581386,,cpu_core/L1-dcache-loads/,1214249,66.00,,
+15964,,cpu_core/L1-dcache-load-misses/,1214249,66.00,2.75,of all L1-dcache accesses
+459124,,cpu_core/branch-instructions/,1214249,66.00,,
+17439,,cpu_core/branch-misses/,1214249,66.00,,
+2608266,,cpu_core/instructions/,1214249,66.00,,
+2763089,,cpu_core/cpu-cycles/,1214249,66.00,,
+2,,context-switches,1820214,100.00,,
+141,,page-faults,1820214,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+579046,,cpu_core/L1-dcache-loads/,1349900,100.00,,
+16387,,cpu_core/L1-dcache-load-misses/,1349900,100.00,2.83,of all L1-dcache accesses
+441703,,cpu_core/branch-instructions/,1349900,100.00,,
+14458,,cpu_core/branch-misses/,1349900,100.00,,
+2512658,,cpu_core/instructions/,1349900,100.00,,
+2110517,,cpu_core/cpu-cycles/,1349900,100.00,,
+0,,context-switches,1349900,100.00,,
+140,,page-faults,1349900,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+616434,,cpu_core/L1-dcache-loads/,838184,56.00,,
+16451,,cpu_core/L1-dcache-load-misses/,838184,56.00,2.67,of all L1-dcache accesses
+486133,,cpu_core/branch-instructions/,838184,56.00,,
+17902,,cpu_core/branch-misses/,838184,56.00,,
+2782852,,cpu_core/instructions/,838184,56.00,,
+2400799,,cpu_core/cpu-cycles/,838184,56.00,,
+1,,context-switches,1471849,100.00,,
+144,,page-faults,1471849,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+615147,,cpu_core/L1-dcache-loads/,847920,56.00,,
+17395,,cpu_core/L1-dcache-load-misses/,847920,56.00,2.83,of all L1-dcache accesses
+485008,,cpu_core/branch-instructions/,847920,56.00,,
+17880,,cpu_core/branch-misses/,847920,56.00,,
+2772826,,cpu_core/instructions/,847920,56.00,,
+2438834,,cpu_core/cpu-cycles/,847920,56.00,,
+1,,context-switches,1488730,100.00,,
+144,,page-faults,1488730,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+598585,,cpu_core/L1-dcache-loads/,1085656,68.00,,
+16769,,cpu_core/L1-dcache-load-misses/,1085656,68.00,2.80,of all L1-dcache accesses
+468297,,cpu_core/branch-instructions/,1085656,68.00,,
+16544,,cpu_core/branch-misses/,1085656,68.00,,
+2678142,,cpu_core/instructions/,1085656,68.00,,
+2566365,,cpu_core/cpu-cycles/,1085656,68.00,,
+1,,context-switches,1589656,100.00,,
+142,,page-faults,1589656,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+623745,,cpu_core/L1-dcache-loads/,815882,56.00,,
+15262,,cpu_core/L1-dcache-load-misses/,815882,56.00,2.45,of all L1-dcache accesses
+491416,,cpu_core/branch-instructions/,815882,56.00,,
+18044,,cpu_core/branch-misses/,815882,56.00,,
+2817236,,cpu_core/instructions/,815882,56.00,,
+2500121,,cpu_core/cpu-cycles/,815882,56.00,,
+1,,context-switches,1442909,100.00,,
+142,,page-faults,1442909,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+581663,,cpu_core/L1-dcache-loads/,1391381,100.00,,
+14308,,cpu_core/L1-dcache-load-misses/,1391381,100.00,2.46,of all L1-dcache accesses
+443146,,cpu_core/branch-instructions/,1391381,100.00,,
+16145,,cpu_core/branch-misses/,1391381,100.00,,
+2525434,,cpu_core/instructions/,1391381,100.00,,
+2292796,,cpu_core/cpu-cycles/,1391381,100.00,,
+1,,context-switches,1391381,100.00,,
+140,,page-faults,1391381,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+621264,,cpu_core/L1-dcache-loads/,1086020,85.00,,
+15673,,cpu_core/L1-dcache-load-misses/,1086020,85.00,2.52,of all L1-dcache accesses
+474749,,cpu_core/branch-instructions/,1086020,85.00,,
+15384,,cpu_core/branch-misses/,1086020,85.00,,
+2705854,,cpu_core/instructions/,1086020,85.00,,
+2268714,,cpu_core/cpu-cycles/,1086020,85.00,,
+2,,context-switches,1276389,100.00,,
+142,,page-faults,1276389,100.00,,
+
+----- [simd256_v1] H=64 W=64 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+628075,,cpu_core/L1-dcache-loads/,936584,85.00,,
+15279,,cpu_core/L1-dcache-load-misses/,936584,85.00,2.43,of all L1-dcache accesses
+479455,,cpu_core/branch-instructions/,936584,85.00,,
+13066,,cpu_core/branch-misses/,936584,85.00,,
+2736610,,cpu_core/instructions/,936584,85.00,,
+2034695,,cpu_core/cpu-cycles/,936584,85.00,,
+1,,context-switches,1100246,100.00,,
+142,,page-faults,1100246,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+764457,,cpu_core/L1-dcache-loads/,996455,62.00,,
+13519,,cpu_core/L1-dcache-load-misses/,996455,62.00,1.77,of all L1-dcache accesses
+658871,,cpu_core/branch-instructions/,996455,62.00,,
+21901,,cpu_core/branch-misses/,996455,62.00,,
+3984468,,cpu_core/instructions/,996455,62.00,,
+2659352,,cpu_core/cpu-cycles/,996455,62.00,,
+1,,context-switches,1586729,100.00,,
+179,,page-faults,1586729,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+767615,,cpu_core/L1-dcache-loads/,1063015,62.00,,
+13562,,cpu_core/L1-dcache-load-misses/,1063015,62.00,1.77,of all L1-dcache accesses
+661430,,cpu_core/branch-instructions/,1063015,62.00,,
+24125,,cpu_core/branch-misses/,1063015,62.00,,
+4000156,,cpu_core/instructions/,1063015,62.00,,
+2776922,,cpu_core/cpu-cycles/,1063015,62.00,,
+1,,context-switches,1702352,100.00,,
+180,,page-faults,1702352,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+827611,,cpu_core/L1-dcache-loads/,571962,57.00,,
+14579,,cpu_core/L1-dcache-load-misses/,571962,57.00,1.76,of all L1-dcache accesses
+712801,,cpu_core/branch-instructions/,571962,57.00,,
+24614,,cpu_core/branch-misses/,571962,57.00,,
+4314935,,cpu_core/instructions/,571962,57.00,,
+3003898,,cpu_core/cpu-cycles/,571962,57.00,,
+1,,context-switches,988371,100.00,,
+179,,page-faults,988371,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+753166,,cpu_core/L1-dcache-loads/,1014390,63.00,,
+13598,,cpu_core/L1-dcache-load-misses/,1014390,63.00,1.81,of all L1-dcache accesses
+648847,,cpu_core/branch-instructions/,1014390,63.00,,
+24123,,cpu_core/branch-misses/,1014390,63.00,,
+3923956,,cpu_core/instructions/,1014390,63.00,,
+2748319,,cpu_core/cpu-cycles/,1014390,63.00,,
+1,,context-switches,1593232,100.00,,
+177,,page-faults,1593232,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+755620,,cpu_core/L1-dcache-loads/,1081562,63.00,,
+13530,,cpu_core/L1-dcache-load-misses/,1081562,63.00,1.79,of all L1-dcache accesses
+650721,,cpu_core/branch-instructions/,1081562,63.00,,
+24450,,cpu_core/branch-misses/,1081562,63.00,,
+3940202,,cpu_core/instructions/,1081562,63.00,,
+2790483,,cpu_core/cpu-cycles/,1081562,63.00,,
+1,,context-switches,1709195,100.00,,
+178,,page-faults,1709195,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+774625,,cpu_core/L1-dcache-loads/,1008571,62.00,,
+13705,,cpu_core/L1-dcache-load-misses/,1008571,62.00,1.77,of all L1-dcache accesses
+666230,,cpu_core/branch-instructions/,1008571,62.00,,
+24650,,cpu_core/branch-misses/,1008571,62.00,,
+4030685,,cpu_core/instructions/,1008571,62.00,,
+2790792,,cpu_core/cpu-cycles/,1008571,62.00,,
+1,,context-switches,1621237,100.00,,
+179,,page-faults,1621237,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+751688,,cpu_core/L1-dcache-loads/,938353,63.00,,
+13340,,cpu_core/L1-dcache-load-misses/,938353,63.00,1.77,of all L1-dcache accesses
+647726,,cpu_core/branch-instructions/,938353,63.00,,
+22390,,cpu_core/branch-misses/,938353,63.00,,
+3919684,,cpu_core/instructions/,938353,63.00,,
+2618558,,cpu_core/cpu-cycles/,938353,63.00,,
+1,,context-switches,1476917,100.00,,
+178,,page-faults,1476917,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+743397,,cpu_core/L1-dcache-loads/,1152084,93.00,,
+15094,,cpu_core/L1-dcache-load-misses/,1152084,93.00,2.03,of all L1-dcache accesses
+609886,,cpu_core/branch-instructions/,1152084,93.00,,
+21522,,cpu_core/branch-misses/,1152084,93.00,,
+3618295,,cpu_core/instructions/,1152084,93.00,,
+2732513,,cpu_core/cpu-cycles/,1152084,93.00,,
+1,,context-switches,1235595,100.00,,
+179,,page-faults,1235595,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+776739,,cpu_core/L1-dcache-loads/,1410044,61.00,,
+14481,,cpu_core/L1-dcache-load-misses/,1410044,61.00,1.86,of all L1-dcache accesses
+669586,,cpu_core/branch-instructions/,1410044,61.00,,
+26900,,cpu_core/branch-misses/,1410044,61.00,,
+4050804,,cpu_core/instructions/,1410044,61.00,,
+3154643,,cpu_core/cpu-cycles/,1410044,61.00,,
+1,,context-switches,2297133,100.00,,
+177,,page-faults,2297133,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+837604,,cpu_core/L1-dcache-loads/,513127,57.00,,
+14822,,cpu_core/L1-dcache-load-misses/,513127,57.00,1.77,of all L1-dcache accesses
+721445,,cpu_core/branch-instructions/,513127,57.00,,
+26097,,cpu_core/branch-misses/,513127,57.00,,
+4368194,,cpu_core/instructions/,513127,57.00,,
+3066903,,cpu_core/cpu-cycles/,513127,57.00,,
+1,,context-switches,898913,100.00,,
+179,,page-faults,898913,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+739770,,cpu_core/L1-dcache-loads/,1100079,64.00,,
+13290,,cpu_core/L1-dcache-load-misses/,1100079,64.00,1.80,of all L1-dcache accesses
+637788,,cpu_core/branch-instructions/,1100079,64.00,,
+23977,,cpu_core/branch-misses/,1100079,64.00,,
+3858667,,cpu_core/instructions/,1100079,64.00,,
+2733292,,cpu_core/cpu-cycles/,1100079,64.00,,
+1,,context-switches,1707789,100.00,,
+179,,page-faults,1707789,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+742292,,cpu_core/L1-dcache-loads/,1309054,93.00,,
+14822,,cpu_core/L1-dcache-load-misses/,1309054,93.00,2.00,of all L1-dcache accesses
+607983,,cpu_core/branch-instructions/,1309054,93.00,,
+20894,,cpu_core/branch-misses/,1309054,93.00,,
+3613419,,cpu_core/instructions/,1309054,93.00,,
+2822366,,cpu_core/cpu-cycles/,1309054,93.00,,
+2,,context-switches,1394386,100.00,,
+179,,page-faults,1394386,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+747195,,cpu_core/L1-dcache-loads/,1180110,71.00,,
+13645,,cpu_core/L1-dcache-load-misses/,1180110,71.00,1.83,of all L1-dcache accesses
+636839,,cpu_core/branch-instructions/,1180110,71.00,,
+22562,,cpu_core/branch-misses/,1180110,71.00,,
+3821166,,cpu_core/instructions/,1180110,71.00,,
+2807265,,cpu_core/cpu-cycles/,1180110,71.00,,
+2,,context-switches,1658228,100.00,,
+178,,page-faults,1658228,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+760581,,cpu_core/L1-dcache-loads/,1054975,62.00,,
+13487,,cpu_core/L1-dcache-load-misses/,1054975,62.00,1.77,of all L1-dcache accesses
+655136,,cpu_core/branch-instructions/,1054975,62.00,,
+22687,,cpu_core/branch-misses/,1054975,62.00,,
+3963217,,cpu_core/instructions/,1054975,62.00,,
+2732987,,cpu_core/cpu-cycles/,1054975,62.00,,
+1,,context-switches,1675761,100.00,,
+178,,page-faults,1675761,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+776483,,cpu_core/L1-dcache-loads/,995387,61.00,,
+13961,,cpu_core/L1-dcache-load-misses/,995387,61.00,1.80,of all L1-dcache accesses
+668961,,cpu_core/branch-instructions/,995387,61.00,,
+24365,,cpu_core/branch-misses/,995387,61.00,,
+4051926,,cpu_core/instructions/,995387,61.00,,
+2788050,,cpu_core/cpu-cycles/,995387,61.00,,
+1,,context-switches,1615152,100.00,,
+177,,page-faults,1615152,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+743737,,cpu_core/L1-dcache-loads/,979089,64.00,,
+13667,,cpu_core/L1-dcache-load-misses/,979089,64.00,1.84,of all L1-dcache accesses
+639367,,cpu_core/branch-instructions/,979089,64.00,,
+23545,,cpu_core/branch-misses/,979089,64.00,,
+3873181,,cpu_core/instructions/,979089,64.00,,
+2681783,,cpu_core/cpu-cycles/,979089,64.00,,
+1,,context-switches,1513581,100.00,,
+180,,page-faults,1513581,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+784803,,cpu_core/L1-dcache-loads/,722643,61.00,,
+13896,,cpu_core/L1-dcache-load-misses/,722643,61.00,1.77,of all L1-dcache accesses
+674536,,cpu_core/branch-instructions/,722643,61.00,,
+22848,,cpu_core/branch-misses/,722643,61.00,,
+4089347,,cpu_core/instructions/,722643,61.00,,
+2788702,,cpu_core/cpu-cycles/,722643,61.00,,
+1,,context-switches,1175916,100.00,,
+181,,page-faults,1175916,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+715384,,cpu_core/L1-dcache-loads/,1612338,100.00,,
+14165,,cpu_core/L1-dcache-load-misses/,1612338,100.00,1.98,of all L1-dcache accesses
+583602,,cpu_core/branch-instructions/,1612338,100.00,,
+20769,,cpu_core/branch-misses/,1612338,100.00,,
+3460849,,cpu_core/instructions/,1612338,100.00,,
+2614135,,cpu_core/cpu-cycles/,1612338,100.00,,
+1,,context-switches,1612338,100.00,,
+179,,page-faults,1612338,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+760764,,cpu_core/L1-dcache-loads/,919263,63.00,,
+13644,,cpu_core/L1-dcache-load-misses/,919263,63.00,1.79,of all L1-dcache accesses
+653231,,cpu_core/branch-instructions/,919263,63.00,,
+22451,,cpu_core/branch-misses/,919263,63.00,,
+3964337,,cpu_core/instructions/,919263,63.00,,
+2640181,,cpu_core/cpu-cycles/,919263,63.00,,
+1,,context-switches,1456320,100.00,,
+180,,page-faults,1456320,100.00,,
+
+----- [simd256_v1] H=128 W=128 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+745815,,cpu_core/L1-dcache-loads/,943438,64.00,,
+13488,,cpu_core/L1-dcache-load-misses/,943438,64.00,1.81,of all L1-dcache accesses
+642863,,cpu_core/branch-instructions/,943438,64.00,,
+23947,,cpu_core/branch-misses/,943438,64.00,,
+3888821,,cpu_core/instructions/,943438,64.00,,
+2631271,,cpu_core/cpu-cycles/,943438,64.00,,
+1,,context-switches,1473880,100.00,,
+178,,page-faults,1473880,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1299234,,cpu_core/L1-dcache-loads/,2349182,86.00,,
+16894,,cpu_core/L1-dcache-load-misses/,2349182,86.00,1.30,of all L1-dcache accesses
+1215967,,cpu_core/branch-instructions/,2349182,86.00,,
+48975,,cpu_core/branch-misses/,2349182,86.00,,
+7750246,,cpu_core/instructions/,2349182,86.00,,
+4585095,,cpu_core/cpu-cycles/,2349182,86.00,,
+2,,context-switches,2728638,100.00,,
+328,,page-faults,2728638,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1287670,,cpu_core/L1-dcache-loads/,2176915,77.00,,
+15134,,cpu_core/L1-dcache-load-misses/,2176915,77.00,1.18,of all L1-dcache accesses
+1237791,,cpu_core/branch-instructions/,2176915,77.00,,
+50771,,cpu_core/branch-misses/,2176915,77.00,,
+7963944,,cpu_core/instructions/,2176915,77.00,,
+4467221,,cpu_core/cpu-cycles/,2176915,77.00,,
+1,,context-switches,2795417,100.00,,
+328,,page-faults,2795417,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1277392,,cpu_core/L1-dcache-loads/,1555425,78.00,,
+13998,,cpu_core/L1-dcache-load-misses/,1555425,78.00,1.10,of all L1-dcache accesses
+1228042,,cpu_core/branch-instructions/,1555425,78.00,,
+51415,,cpu_core/branch-misses/,1555425,78.00,,
+7898010,,cpu_core/instructions/,1555425,78.00,,
+4559275,,cpu_core/cpu-cycles/,1555425,78.00,,
+1,,context-switches,1980329,100.00,,
+328,,page-faults,1980329,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1291311,,cpu_core/L1-dcache-loads/,2282471,77.00,,
+15876,,cpu_core/L1-dcache-load-misses/,2282471,77.00,1.23,of all L1-dcache accesses
+1239556,,cpu_core/branch-instructions/,2282471,77.00,,
+53720,,cpu_core/branch-misses/,2282471,77.00,,
+7977948,,cpu_core/instructions/,2282471,77.00,,
+4701822,,cpu_core/cpu-cycles/,2282471,77.00,,
+1,,context-switches,2926408,100.00,,
+325,,page-faults,2926408,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1246320,,cpu_core/L1-dcache-loads/,2937133,100.00,,
+16799,,cpu_core/L1-dcache-load-misses/,2937133,100.00,1.35,of all L1-dcache accesses
+1140504,,cpu_core/branch-instructions/,2937133,100.00,,
+48045,,cpu_core/branch-misses/,2937133,100.00,,
+7199166,,cpu_core/instructions/,2937133,100.00,,
+4640497,,cpu_core/cpu-cycles/,2937133,100.00,,
+1,,context-switches,2937133,100.00,,
+329,,page-faults,2937133,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1276865,,cpu_core/L1-dcache-loads/,1966622,78.00,,
+14476,,cpu_core/L1-dcache-load-misses/,1966622,78.00,1.13,of all L1-dcache accesses
+1227283,,cpu_core/branch-instructions/,1966622,78.00,,
+52544,,cpu_core/branch-misses/,1966622,78.00,,
+7892603,,cpu_core/instructions/,1966622,78.00,,
+4440861,,cpu_core/cpu-cycles/,1966622,78.00,,
+1,,context-switches,2497111,100.00,,
+325,,page-faults,2497111,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1273377,,cpu_core/L1-dcache-loads/,1947727,78.00,,
+14080,,cpu_core/L1-dcache-load-misses/,1947727,78.00,1.11,of all L1-dcache accesses
+1224301,,cpu_core/branch-instructions/,1947727,78.00,,
+51387,,cpu_core/branch-misses/,1947727,78.00,,
+7872199,,cpu_core/instructions/,1947727,78.00,,
+4390478,,cpu_core/cpu-cycles/,1947727,78.00,,
+1,,context-switches,2471884,100.00,,
+326,,page-faults,2471884,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1268468,,cpu_core/L1-dcache-loads/,2169712,78.00,,
+14626,,cpu_core/L1-dcache-load-misses/,2169712,78.00,1.15,of all L1-dcache accesses
+1220205,,cpu_core/branch-instructions/,2169712,78.00,,
+53256,,cpu_core/branch-misses/,2169712,78.00,,
+7850240,,cpu_core/instructions/,2169712,78.00,,
+4544371,,cpu_core/cpu-cycles/,2169712,78.00,,
+1,,context-switches,2750495,100.00,,
+326,,page-faults,2750495,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1281050,,cpu_core/L1-dcache-loads/,2317832,78.00,,
+14425,,cpu_core/L1-dcache-load-misses/,2317832,78.00,1.13,of all L1-dcache accesses
+1231466,,cpu_core/branch-instructions/,2317832,78.00,,
+54214,,cpu_core/branch-misses/,2317832,78.00,,
+7921170,,cpu_core/instructions/,2317832,78.00,,
+4740963,,cpu_core/cpu-cycles/,2317832,78.00,,
+1,,context-switches,2954120,100.00,,
+324,,page-faults,2954120,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1324384,,cpu_core/L1-dcache-loads/,2065847,75.00,,
+16239,,cpu_core/L1-dcache-load-misses/,2065847,75.00,1.23,of all L1-dcache accesses
+1273375,,cpu_core/branch-instructions/,2065847,75.00,,
+55944,,cpu_core/branch-misses/,2065847,75.00,,
+8185954,,cpu_core/instructions/,2065847,75.00,,
+4862928,,cpu_core/cpu-cycles/,2065847,75.00,,
+1,,context-switches,2722705,100.00,,
+327,,page-faults,2722705,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1236722,,cpu_core/L1-dcache-loads/,2800900,100.00,,
+17455,,cpu_core/L1-dcache-load-misses/,2800900,100.00,1.41,of all L1-dcache accesses
+1133140,,cpu_core/branch-instructions/,2800900,100.00,,
+46717,,cpu_core/branch-misses/,2800900,100.00,,
+7155603,,cpu_core/instructions/,2800900,100.00,,
+4519159,,cpu_core/cpu-cycles/,2800900,100.00,,
+1,,context-switches,2800900,100.00,,
+325,,page-faults,2800900,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1285427,,cpu_core/L1-dcache-loads/,1919865,77.00,,
+14546,,cpu_core/L1-dcache-load-misses/,1919865,77.00,1.13,of all L1-dcache accesses
+1236286,,cpu_core/branch-instructions/,1919865,77.00,,
+51885,,cpu_core/branch-misses/,1919865,77.00,,
+7952596,,cpu_core/instructions/,1919865,77.00,,
+4428857,,cpu_core/cpu-cycles/,1919865,77.00,,
+1,,context-switches,2464705,100.00,,
+327,,page-faults,2464705,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1277943,,cpu_core/L1-dcache-loads/,1932675,78.00,,
+14221,,cpu_core/L1-dcache-load-misses/,1932675,78.00,1.11,of all L1-dcache accesses
+1228691,,cpu_core/branch-instructions/,1932675,78.00,,
+51366,,cpu_core/branch-misses/,1932675,78.00,,
+7907446,,cpu_core/instructions/,1932675,78.00,,
+4418625,,cpu_core/cpu-cycles/,1932675,78.00,,
+1,,context-switches,2463899,100.00,,
+324,,page-faults,2463899,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1240737,,cpu_core/L1-dcache-loads/,2071470,100.00,,
+17119,,cpu_core/L1-dcache-load-misses/,2071470,100.00,1.38,of all L1-dcache accesses
+1137533,,cpu_core/branch-instructions/,2071470,100.00,,
+46050,,cpu_core/branch-misses/,2071470,100.00,,
+7173159,,cpu_core/instructions/,2071470,100.00,,
+4342688,,cpu_core/cpu-cycles/,2071470,100.00,,
+0,,context-switches,2071470,100.00,,
+328,,page-faults,2071470,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1292908,,cpu_core/L1-dcache-loads/,2055699,77.00,,
+15373,,cpu_core/L1-dcache-load-misses/,2055699,77.00,1.19,of all L1-dcache accesses
+1242386,,cpu_core/branch-instructions/,2055699,77.00,,
+51193,,cpu_core/branch-misses/,2055699,77.00,,
+7996704,,cpu_core/instructions/,2055699,77.00,,
+4505317,,cpu_core/cpu-cycles/,2055699,77.00,,
+1,,context-switches,2650119,100.00,,
+326,,page-faults,2650119,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1298624,,cpu_core/L1-dcache-loads/,1953437,77.00,,
+14497,,cpu_core/L1-dcache-load-misses/,1953437,77.00,1.12,of all L1-dcache accesses
+1248763,,cpu_core/branch-instructions/,1953437,77.00,,
+51817,,cpu_core/branch-misses/,1953437,77.00,,
+8030133,,cpu_core/instructions/,1953437,77.00,,
+4477430,,cpu_core/cpu-cycles/,1953437,77.00,,
+2,,context-switches,2530342,100.00,,
+327,,page-faults,2530342,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1363443,,cpu_core/L1-dcache-loads/,1199382,77.00,,
+16001,,cpu_core/L1-dcache-load-misses/,1199382,77.00,1.17,of all L1-dcache accesses
+1298433,,cpu_core/branch-instructions/,1199382,77.00,,
+53662,,cpu_core/branch-misses/,1199382,77.00,,
+8305306,,cpu_core/instructions/,1199382,77.00,,
+4927995,,cpu_core/cpu-cycles/,1199382,77.00,,
+2,,context-switches,1551034,100.00,,
+328,,page-faults,1551034,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1247797,,cpu_core/L1-dcache-loads/,4377367,100.00,,
+18674,,cpu_core/L1-dcache-load-misses/,4377367,100.00,1.50,of all L1-dcache accesses
+1140975,,cpu_core/branch-instructions/,4377367,100.00,,
+48021,,cpu_core/branch-misses/,4377367,100.00,,
+7201446,,cpu_core/instructions/,4377367,100.00,,
+4853722,,cpu_core/cpu-cycles/,4377367,100.00,,
+1,,context-switches,4377367,100.00,,
+326,,page-faults,4377367,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1283007,,cpu_core/L1-dcache-loads/,2097517,78.00,,
+13385,,cpu_core/L1-dcache-load-misses/,2097517,78.00,1.04,of all L1-dcache accesses
+1233301,,cpu_core/branch-instructions/,2097517,78.00,,
+54064,,cpu_core/branch-misses/,2097517,78.00,,
+7926683,,cpu_core/instructions/,2097517,78.00,,
+4537233,,cpu_core/cpu-cycles/,2097517,78.00,,
+1,,context-switches,2674723,100.00,,
+329,,page-faults,2674723,100.00,,
+
+----- [simd256_v1] H=256 W=256 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+1266538,,cpu_core/L1-dcache-loads/,2333787,94.00,,
+17918,,cpu_core/L1-dcache-load-misses/,2333787,94.00,1.41,of all L1-dcache accesses
+1168234,,cpu_core/branch-instructions/,2333787,94.00,,
+47419,,cpu_core/branch-misses/,2333787,94.00,,
+7401746,,cpu_core/instructions/,2333787,94.00,,
+4414460,,cpu_core/cpu-cycles/,2333787,94.00,,
+2,,context-switches,2475884,100.00,,
+325,,page-faults,2475884,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3360838,,cpu_core/L1-dcache-loads/,6198152,91.00,,
+25869,,cpu_core/L1-dcache-load-misses/,6198152,91.00,0.77,of all L1-dcache accesses
+3451303,,cpu_core/branch-instructions/,6198152,91.00,,
+153410,,cpu_core/branch-misses/,6198152,91.00,,
+22893766,,cpu_core/instructions/,6198152,91.00,,
+11546531,,cpu_core/cpu-cycles/,6198152,91.00,,
+1,,context-switches,6783763,100.00,,
+903,,page-faults,6783763,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3361229,,cpu_core/L1-dcache-loads/,5974976,91.00,,
+27288,,cpu_core/L1-dcache-load-misses/,5974976,91.00,0.81,of all L1-dcache accesses
+3453129,,cpu_core/branch-instructions/,5974976,91.00,,
+153863,,cpu_core/branch-misses/,5974976,91.00,,
+22902927,,cpu_core/instructions/,5974976,91.00,,
+11610035,,cpu_core/cpu-cycles/,5974976,91.00,,
+1,,context-switches,6544384,100.00,,
+902,,page-faults,6544384,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3332396,,cpu_core/L1-dcache-loads/,5546751,92.00,,
+26337,,cpu_core/L1-dcache-load-misses/,5546751,92.00,0.79,of all L1-dcache accesses
+3422564,,cpu_core/branch-instructions/,5546751,92.00,,
+152348,,cpu_core/branch-misses/,5546751,92.00,,
+22703160,,cpu_core/instructions/,5546751,92.00,,
+11640517,,cpu_core/cpu-cycles/,5546751,92.00,,
+1,,context-switches,6021088,100.00,,
+905,,page-faults,6021088,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3304322,,cpu_core/L1-dcache-loads/,6343347,100.00,,
+30143,,cpu_core/L1-dcache-load-misses/,6343347,100.00,0.91,of all L1-dcache accesses
+3322837,,cpu_core/branch-instructions/,6343347,100.00,,
+145123,,cpu_core/branch-misses/,6343347,100.00,,
+21869367,,cpu_core/instructions/,6343347,100.00,,
+11379127,,cpu_core/cpu-cycles/,6343347,100.00,,
+0,,context-switches,6343347,100.00,,
+903,,page-faults,6343347,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3369079,,cpu_core/L1-dcache-loads/,5743699,91.00,,
+26745,,cpu_core/L1-dcache-load-misses/,5743699,91.00,0.79,of all L1-dcache accesses
+3458834,,cpu_core/branch-instructions/,5743699,91.00,,
+155008,,cpu_core/branch-misses/,5743699,91.00,,
+22941873,,cpu_core/instructions/,5743699,91.00,,
+11608257,,cpu_core/cpu-cycles/,5743699,91.00,,
+1,,context-switches,6297085,100.00,,
+904,,page-faults,6297085,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3341733,,cpu_core/L1-dcache-loads/,5745085,91.00,,
+26116,,cpu_core/L1-dcache-load-misses/,5745085,91.00,0.78,of all L1-dcache accesses
+3431445,,cpu_core/branch-instructions/,5745085,91.00,,
+153763,,cpu_core/branch-misses/,5745085,91.00,,
+22762197,,cpu_core/instructions/,5745085,91.00,,
+11588817,,cpu_core/cpu-cycles/,5745085,91.00,,
+1,,context-switches,6250050,100.00,,
+904,,page-faults,6250050,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3309617,,cpu_core/L1-dcache-loads/,6718746,100.00,,
+29124,,cpu_core/L1-dcache-load-misses/,6718746,100.00,0.88,of all L1-dcache accesses
+3326802,,cpu_core/branch-instructions/,6718746,100.00,,
+146783,,cpu_core/branch-misses/,6718746,100.00,,
+21894097,,cpu_core/instructions/,6718746,100.00,,
+11977378,,cpu_core/cpu-cycles/,6718746,100.00,,
+1,,context-switches,6718746,100.00,,
+904,,page-faults,6718746,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3386470,,cpu_core/L1-dcache-loads/,5582585,91.00,,
+27503,,cpu_core/L1-dcache-load-misses/,5582585,91.00,0.81,of all L1-dcache accesses
+3472076,,cpu_core/branch-instructions/,5582585,91.00,,
+157626,,cpu_core/branch-misses/,5582585,91.00,,
+23023663,,cpu_core/instructions/,5582585,91.00,,
+11791487,,cpu_core/cpu-cycles/,5582585,91.00,,
+2,,context-switches,6126213,100.00,,
+903,,page-faults,6126213,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3349225,,cpu_core/L1-dcache-loads/,5428864,100.00,,
+30927,,cpu_core/L1-dcache-load-misses/,5428864,100.00,0.92,of all L1-dcache accesses
+3349351,,cpu_core/branch-instructions/,5428864,100.00,,
+147329,,cpu_core/branch-misses/,5428864,100.00,,
+22081447,,cpu_core/instructions/,5428864,100.00,,
+11686102,,cpu_core/cpu-cycles/,5428864,100.00,,
+1,,context-switches,5428864,100.00,,
+906,,page-faults,5428864,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3383583,,cpu_core/L1-dcache-loads/,6144739,90.00,,
+27096,,cpu_core/L1-dcache-load-misses/,6144739,90.00,0.80,of all L1-dcache accesses
+3475258,,cpu_core/branch-instructions/,6144739,90.00,,
+156696,,cpu_core/branch-misses/,6144739,90.00,,
+23053348,,cpu_core/instructions/,6144739,90.00,,
+11751837,,cpu_core/cpu-cycles/,6144739,90.00,,
+1,,context-switches,6772781,100.00,,
+903,,page-faults,6772781,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3306194,,cpu_core/L1-dcache-loads/,6898180,100.00,,
+30265,,cpu_core/L1-dcache-load-misses/,6898180,100.00,0.92,of all L1-dcache accesses
+3324036,,cpu_core/branch-instructions/,6898180,100.00,,
+148989,,cpu_core/branch-misses/,6898180,100.00,,
+21881009,,cpu_core/instructions/,6898180,100.00,,
+11676245,,cpu_core/cpu-cycles/,6898180,100.00,,
+1,,context-switches,6898180,100.00,,
+900,,page-faults,6898180,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3369194,,cpu_core/L1-dcache-loads/,6321964,91.00,,
+27320,,cpu_core/L1-dcache-load-misses/,6321964,91.00,0.81,of all L1-dcache accesses
+3460471,,cpu_core/branch-instructions/,6321964,91.00,,
+156520,,cpu_core/branch-misses/,6321964,91.00,,
+22955679,,cpu_core/instructions/,6321964,91.00,,
+11750688,,cpu_core/cpu-cycles/,6321964,91.00,,
+1,,context-switches,6941209,100.00,,
+900,,page-faults,6941209,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3377105,,cpu_core/L1-dcache-loads/,6384405,90.00,,
+28119,,cpu_core/L1-dcache-load-misses/,6384405,90.00,0.83,of all L1-dcache accesses
+3468157,,cpu_core/branch-instructions/,6384405,90.00,,
+156592,,cpu_core/branch-misses/,6384405,90.00,,
+23006166,,cpu_core/instructions/,6384405,90.00,,
+11785973,,cpu_core/cpu-cycles/,6384405,90.00,,
+1,,context-switches,7021020,100.00,,
+904,,page-faults,7021020,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3431082,,cpu_core/L1-dcache-loads/,5750351,89.00,,
+27407,,cpu_core/L1-dcache-load-misses/,5750351,89.00,0.80,of all L1-dcache accesses
+3523516,,cpu_core/branch-instructions/,5750351,89.00,,
+159358,,cpu_core/branch-misses/,5750351,89.00,,
+23374144,,cpu_core/instructions/,5750351,89.00,,
+12025045,,cpu_core/cpu-cycles/,5750351,89.00,,
+2,,context-switches,6424529,100.00,,
+902,,page-faults,6424529,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3365536,,cpu_core/L1-dcache-loads/,6380418,91.00,,
+27082,,cpu_core/L1-dcache-load-misses/,6380418,91.00,0.80,of all L1-dcache accesses
+3456144,,cpu_core/branch-instructions/,6380418,91.00,,
+156106,,cpu_core/branch-misses/,6380418,91.00,,
+22919758,,cpu_core/instructions/,6380418,91.00,,
+11666831,,cpu_core/cpu-cycles/,6380418,91.00,,
+1,,context-switches,6987298,100.00,,
+905,,page-faults,6987298,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3386121,,cpu_core/L1-dcache-loads/,6499164,91.00,,
+27355,,cpu_core/L1-dcache-load-misses/,6499164,91.00,0.81,of all L1-dcache accesses
+3470857,,cpu_core/branch-instructions/,6499164,91.00,,
+157135,,cpu_core/branch-misses/,6499164,91.00,,
+23016187,,cpu_core/instructions/,6499164,91.00,,
+12029005,,cpu_core/cpu-cycles/,6499164,91.00,,
+2,,context-switches,7130005,100.00,,
+903,,page-faults,7130005,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3377717,,cpu_core/L1-dcache-loads/,6386950,90.00,,
+27707,,cpu_core/L1-dcache-load-misses/,6386950,90.00,0.82,of all L1-dcache accesses
+3467952,,cpu_core/branch-instructions/,6386950,90.00,,
+158384,,cpu_core/branch-misses/,6386950,90.00,,
+22999298,,cpu_core/instructions/,6386950,90.00,,
+11818693,,cpu_core/cpu-cycles/,6386950,90.00,,
+1,,context-switches,7018686,100.00,,
+903,,page-faults,7018686,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3393360,,cpu_core/L1-dcache-loads/,6771267,90.00,,
+27520,,cpu_core/L1-dcache-load-misses/,6771267,90.00,0.81,of all L1-dcache accesses
+3485115,,cpu_core/branch-instructions/,6771267,90.00,,
+157223,,cpu_core/branch-misses/,6771267,90.00,,
+23115057,,cpu_core/instructions/,6771267,90.00,,
+11937053,,cpu_core/cpu-cycles/,6771267,90.00,,
+1,,context-switches,7481978,100.00,,
+902,,page-faults,7481978,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3344268,,cpu_core/L1-dcache-loads/,6752860,97.00,,
+32858,,cpu_core/L1-dcache-load-misses/,6752860,97.00,0.98,of all L1-dcache accesses
+3373143,,cpu_core/branch-instructions/,6752860,97.00,,
+151621,,cpu_core/branch-misses/,6752860,97.00,,
+22234453,,cpu_core/instructions/,6752860,97.00,,
+12103818,,cpu_core/cpu-cycles/,6752860,97.00,,
+2,,context-switches,6918791,100.00,,
+904,,page-faults,6918791,100.00,,
+
+----- [simd256_v1] H=512 W=512 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+3308644,,cpu_core/L1-dcache-loads/,6660368,100.00,,
+30548,,cpu_core/L1-dcache-load-misses/,6660368,100.00,0.92,of all L1-dcache accesses
+3325821,,cpu_core/branch-instructions/,6660368,100.00,,
+148473,,cpu_core/branch-misses/,6660368,100.00,,
+21889854,,cpu_core/instructions/,6660368,100.00,,
+11808372,,cpu_core/cpu-cycles/,6660368,100.00,,
+1,,context-switches,6660368,100.00,,
+903,,page-faults,6660368,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11688941,,cpu_core/L1-dcache-loads/,19880803,96.00,,
+65931,,cpu_core/L1-dcache-load-misses/,19880803,96.00,0.56,of all L1-dcache accesses
+12277616,,cpu_core/branch-instructions/,19880803,96.00,,
+558876,,cpu_core/branch-misses/,19880803,96.00,,
+82241820,,cpu_core/instructions/,19880803,96.00,,
+41245801,,cpu_core/cpu-cycles/,19880803,96.00,,
+1,,context-switches,20498771,100.00,,
+3207,,page-faults,20498771,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11701566,,cpu_core/L1-dcache-loads/,19018891,96.00,,
+57999,,cpu_core/L1-dcache-load-misses/,19018891,96.00,0.50,of all L1-dcache accesses
+12294170,,cpu_core/branch-instructions/,19018891,96.00,,
+563065,,cpu_core/branch-misses/,19018891,96.00,,
+82353305,,cpu_core/instructions/,19018891,96.00,,
+42993925,,cpu_core/cpu-cycles/,19018891,96.00,,
+1,,context-switches,19643667,100.00,,
+3209,,page-faults,19643667,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11800939,,cpu_core/L1-dcache-loads/,20439732,96.00,,
+60264,,cpu_core/L1-dcache-load-misses/,20439732,96.00,0.51,of all L1-dcache accesses
+12397269,,cpu_core/branch-instructions/,20439732,96.00,,
+564556,,cpu_core/branch-misses/,20439732,96.00,,
+83041192,,cpu_core/instructions/,20439732,96.00,,
+42964963,,cpu_core/cpu-cycles/,20439732,96.00,,
+1,,context-switches,21282787,100.00,,
+3212,,page-faults,21282787,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11892160,,cpu_core/L1-dcache-loads/,12682599,95.00,,
+64809,,cpu_core/L1-dcache-load-misses/,12682599,95.00,0.54,of all L1-dcache accesses
+12491598,,cpu_core/branch-instructions/,12682599,95.00,,
+568166,,cpu_core/branch-misses/,12682599,95.00,,
+83678322,,cpu_core/instructions/,12682599,95.00,,
+43472445,,cpu_core/cpu-cycles/,12682599,95.00,,
+2,,context-switches,13306056,100.00,,
+3208,,page-faults,13306056,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11763260,,cpu_core/L1-dcache-loads/,18217032,96.00,,
+63014,,cpu_core/L1-dcache-load-misses/,18217032,96.00,0.54,of all L1-dcache accesses
+12361236,,cpu_core/branch-instructions/,18217032,96.00,,
+562654,,cpu_core/branch-misses/,18217032,96.00,,
+82809113,,cpu_core/instructions/,18217032,96.00,,
+42259682,,cpu_core/cpu-cycles/,18217032,96.00,,
+1,,context-switches,18924940,100.00,,
+3208,,page-faults,18924940,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11593372,,cpu_core/L1-dcache-loads/,18083887,97.00,,
+64581,,cpu_core/L1-dcache-load-misses/,18083887,97.00,0.56,of all L1-dcache accesses
+12180567,,cpu_core/branch-instructions/,18083887,97.00,,
+555745,,cpu_core/branch-misses/,18083887,97.00,,
+81591402,,cpu_core/instructions/,18083887,97.00,,
+41627464,,cpu_core/cpu-cycles/,18083887,97.00,,
+1,,context-switches,18505441,100.00,,
+3211,,page-faults,18505441,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11741225,,cpu_core/L1-dcache-loads/,17131723,96.00,,
+66694,,cpu_core/L1-dcache-load-misses/,17131723,96.00,0.57,of all L1-dcache accesses
+12337534,,cpu_core/branch-instructions/,17131723,96.00,,
+560920,,cpu_core/branch-misses/,17131723,96.00,,
+82648979,,cpu_core/instructions/,17131723,96.00,,
+41514440,,cpu_core/cpu-cycles/,17131723,96.00,,
+1,,context-switches,17761884,100.00,,
+3208,,page-faults,17761884,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11733540,,cpu_core/L1-dcache-loads/,18859039,96.00,,
+62551,,cpu_core/L1-dcache-load-misses/,18859039,96.00,0.53,of all L1-dcache accesses
+12328712,,cpu_core/branch-instructions/,18859039,96.00,,
+561113,,cpu_core/branch-misses/,18859039,96.00,,
+82583032,,cpu_core/instructions/,18859039,96.00,,
+41524154,,cpu_core/cpu-cycles/,18859039,96.00,,
+2,,context-switches,19533969,100.00,,
+3209,,page-faults,19533969,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11566546,,cpu_core/L1-dcache-loads/,18862469,100.00,,
+70484,,cpu_core/L1-dcache-load-misses/,18862469,100.00,0.61,of all L1-dcache accesses
+12074772,,cpu_core/branch-instructions/,18862469,100.00,,
+547819,,cpu_core/branch-misses/,18862469,100.00,,
+80701301,,cpu_core/instructions/,18862469,100.00,,
+41139071,,cpu_core/cpu-cycles/,18862469,100.00,,
+1,,context-switches,18862469,100.00,,
+3209,,page-faults,18862469,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11574039,,cpu_core/L1-dcache-loads/,18444726,100.00,,
+63896,,cpu_core/L1-dcache-load-misses/,18444726,100.00,0.55,of all L1-dcache accesses
+12079347,,cpu_core/branch-instructions/,18444726,100.00,,
+547413,,cpu_core/branch-misses/,18444726,100.00,,
+80734861,,cpu_core/instructions/,18444726,100.00,,
+41986458,,cpu_core/cpu-cycles/,18444726,100.00,,
+1,,context-switches,18444726,100.00,,
+3210,,page-faults,18444726,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11761124,,cpu_core/L1-dcache-loads/,15222009,96.00,,
+62343,,cpu_core/L1-dcache-load-misses/,15222009,96.00,0.53,of all L1-dcache accesses
+12356633,,cpu_core/branch-instructions/,15222009,96.00,,
+562979,,cpu_core/branch-misses/,15222009,96.00,,
+82775170,,cpu_core/instructions/,15222009,96.00,,
+42217501,,cpu_core/cpu-cycles/,15222009,96.00,,
+1,,context-switches,15803407,100.00,,
+3206,,page-faults,15803407,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11580185,,cpu_core/L1-dcache-loads/,18044050,99.00,,
+66449,,cpu_core/L1-dcache-load-misses/,18044050,99.00,0.57,of all L1-dcache accesses
+12093369,,cpu_core/branch-instructions/,18044050,99.00,,
+548917,,cpu_core/branch-misses/,18044050,99.00,,
+80831948,,cpu_core/instructions/,18044050,99.00,,
+41470313,,cpu_core/cpu-cycles/,18044050,99.00,,
+2,,context-switches,18083182,100.00,,
+3211,,page-faults,18083182,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11765151,,cpu_core/L1-dcache-loads/,18224240,96.00,,
+62875,,cpu_core/L1-dcache-load-misses/,18224240,96.00,0.53,of all L1-dcache accesses
+12358449,,cpu_core/branch-instructions/,18224240,96.00,,
+561767,,cpu_core/branch-misses/,18224240,96.00,,
+82779962,,cpu_core/instructions/,18224240,96.00,,
+41916719,,cpu_core/cpu-cycles/,18224240,96.00,,
+1,,context-switches,18922651,100.00,,
+3211,,page-faults,18922651,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11565739,,cpu_core/L1-dcache-loads/,19021371,100.00,,
+67002,,cpu_core/L1-dcache-load-misses/,19021371,100.00,0.58,of all L1-dcache accesses
+12074206,,cpu_core/branch-instructions/,19021371,100.00,,
+548945,,cpu_core/branch-misses/,19021371,100.00,,
+80699547,,cpu_core/instructions/,19021371,100.00,,
+40898057,,cpu_core/cpu-cycles/,19021371,100.00,,
+1,,context-switches,19021371,100.00,,
+3209,,page-faults,19021371,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11734696,,cpu_core/L1-dcache-loads/,17714765,96.00,,
+52385,,cpu_core/L1-dcache-load-misses/,17714765,96.00,0.45,of all L1-dcache accesses
+12332476,,cpu_core/branch-instructions/,17714765,96.00,,
+561233,,cpu_core/branch-misses/,17714765,96.00,,
+82613763,,cpu_core/instructions/,17714765,96.00,,
+42272618,,cpu_core/cpu-cycles/,17714765,96.00,,
+1,,context-switches,18363073,100.00,,
+3209,,page-faults,18363073,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11706401,,cpu_core/L1-dcache-loads/,18676973,96.00,,
+59878,,cpu_core/L1-dcache-load-misses/,18676973,96.00,0.51,of all L1-dcache accesses
+12301083,,cpu_core/branch-instructions/,18676973,96.00,,
+559835,,cpu_core/branch-misses/,18676973,96.00,,
+82402167,,cpu_core/instructions/,18676973,96.00,,
+43099978,,cpu_core/cpu-cycles/,18676973,96.00,,
+1,,context-switches,19305691,100.00,,
+3211,,page-faults,19305691,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11745929,,cpu_core/L1-dcache-loads/,18983538,96.00,,
+63208,,cpu_core/L1-dcache-load-misses/,18983538,96.00,0.54,of all L1-dcache accesses
+12340854,,cpu_core/branch-instructions/,18983538,96.00,,
+561405,,cpu_core/branch-misses/,18983538,96.00,,
+82663846,,cpu_core/instructions/,18983538,96.00,,
+41534877,,cpu_core/cpu-cycles/,18983538,96.00,,
+1,,context-switches,19680189,100.00,,
+3209,,page-faults,19680189,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11701149,,cpu_core/L1-dcache-loads/,18573051,96.00,,
+60893,,cpu_core/L1-dcache-load-misses/,18573051,96.00,0.52,of all L1-dcache accesses
+12296829,,cpu_core/branch-instructions/,18573051,96.00,,
+559351,,cpu_core/branch-misses/,18573051,96.00,,
+82374620,,cpu_core/instructions/,18573051,96.00,,
+41511886,,cpu_core/cpu-cycles/,18573051,96.00,,
+1,,context-switches,19195362,100.00,,
+3209,,page-faults,19195362,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11705373,,cpu_core/L1-dcache-loads/,19159651,97.00,,
+66124,,cpu_core/L1-dcache-load-misses/,19159651,97.00,0.56,of all L1-dcache accesses
+12268264,,cpu_core/branch-instructions/,19159651,97.00,,
+560405,,cpu_core/branch-misses/,19159651,97.00,,
+82108391,,cpu_core/instructions/,19159651,97.00,,
+41870696,,cpu_core/cpu-cycles/,19159651,97.00,,
+2,,context-switches,19637884,100.00,,
+3206,,page-faults,19637884,100.00,,
+
+----- [simd256_v1] H=1024 W=1024 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+11772272,,cpu_core/L1-dcache-loads/,16092064,96.00,,
+62889,,cpu_core/L1-dcache-load-misses/,16092064,96.00,0.53,of all L1-dcache accesses
+12363195,,cpu_core/branch-instructions/,16092064,96.00,,
+563528,,cpu_core/branch-misses/,16092064,96.00,,
+82809963,,cpu_core/instructions/,16092064,96.00,,
+41897940,,cpu_core/cpu-cycles/,16092064,96.00,,
+2,,context-switches,16702589,100.00,,
+3211,,page-faults,16702589,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44860612,,cpu_core/L1-dcache-loads/,48941558,98.00,,
+250597,,cpu_core/L1-dcache-load-misses/,48941558,98.00,0.56,of all L1-dcache accesses
+47446475,,cpu_core/branch-instructions/,48941558,98.00,,
+2170118,,cpu_core/branch-misses/,48941558,98.00,,
+318694046,,cpu_core/instructions/,48941558,98.00,,
+162956075,,cpu_core/cpu-cycles/,48941558,98.00,,
+2,,context-switches,49542971,100.00,,
+12427,,page-faults,49542971,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44900490,,cpu_core/L1-dcache-loads/,47150367,98.00,,
+260762,,cpu_core/L1-dcache-load-misses/,47150367,98.00,0.58,of all L1-dcache accesses
+47494208,,cpu_core/branch-instructions/,47150367,98.00,,
+2168253,,cpu_core/branch-misses/,47150367,98.00,,
+319016082,,cpu_core/instructions/,47150367,98.00,,
+163173528,,cpu_core/cpu-cycles/,47150367,98.00,,
+1,,context-switches,47784492,100.00,,
+12429,,page-faults,47784492,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44860885,,cpu_core/L1-dcache-loads/,48569283,98.00,,
+253728,,cpu_core/L1-dcache-load-misses/,48569283,98.00,0.57,of all L1-dcache accesses
+47451632,,cpu_core/branch-instructions/,48569283,98.00,,
+2166987,,cpu_core/branch-misses/,48569283,98.00,,
+318731041,,cpu_core/instructions/,48569283,98.00,,
+163128828,,cpu_core/cpu-cycles/,48569283,98.00,,
+1,,context-switches,49177546,100.00,,
+12429,,page-faults,49177546,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44864120,,cpu_core/L1-dcache-loads/,48170260,98.00,,
+253500,,cpu_core/L1-dcache-load-misses/,48170260,98.00,0.57,of all L1-dcache accesses
+47454829,,cpu_core/branch-instructions/,48170260,98.00,,
+2165323,,cpu_core/branch-misses/,48170260,98.00,,
+318747738,,cpu_core/instructions/,48170260,98.00,,
+163030590,,cpu_core/cpu-cycles/,48170260,98.00,,
+1,,context-switches,48774985,100.00,,
+12428,,page-faults,48774985,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44876080,,cpu_core/L1-dcache-loads/,47897564,98.00,,
+254319,,cpu_core/L1-dcache-load-misses/,47897564,98.00,0.57,of all L1-dcache accesses
+47470859,,cpu_core/branch-instructions/,47897564,98.00,,
+2167169,,cpu_core/branch-misses/,47897564,98.00,,
+318858413,,cpu_core/instructions/,47897564,98.00,,
+163521407,,cpu_core/cpu-cycles/,47897564,98.00,,
+1,,context-switches,48520090,100.00,,
+12429,,page-faults,48520090,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44883615,,cpu_core/L1-dcache-loads/,47108591,98.00,,
+251410,,cpu_core/L1-dcache-load-misses/,47108591,98.00,0.56,of all L1-dcache accesses
+47474090,,cpu_core/branch-instructions/,47108591,98.00,,
+2166824,,cpu_core/branch-misses/,47108591,98.00,,
+318877912,,cpu_core/instructions/,47108591,98.00,,
+163145812,,cpu_core/cpu-cycles/,47108591,98.00,,
+2,,context-switches,47717908,100.00,,
+12429,,page-faults,47717908,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44701462,,cpu_core/L1-dcache-loads/,46525514,99.00,,
+239585,,cpu_core/L1-dcache-load-misses/,46525514,99.00,0.54,of all L1-dcache accesses
+47282291,,cpu_core/branch-instructions/,46525514,99.00,,
+2157049,,cpu_core/branch-misses/,46525514,99.00,,
+317594041,,cpu_core/instructions/,46525514,99.00,,
+162089358,,cpu_core/cpu-cycles/,46525514,99.00,,
+1,,context-switches,46940334,100.00,,
+12431,,page-faults,46940334,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44892455,,cpu_core/L1-dcache-loads/,47323384,98.00,,
+255251,,cpu_core/L1-dcache-load-misses/,47323384,98.00,0.57,of all L1-dcache accesses
+47485586,,cpu_core/branch-instructions/,47323384,98.00,,
+2165762,,cpu_core/branch-misses/,47323384,98.00,,
+318959027,,cpu_core/instructions/,47323384,98.00,,
+162902727,,cpu_core/cpu-cycles/,47323384,98.00,,
+2,,context-switches,47951396,100.00,,
+12430,,page-faults,47951396,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44709225,,cpu_core/L1-dcache-loads/,45667012,99.00,,
+245971,,cpu_core/L1-dcache-load-misses/,45667012,99.00,0.55,of all L1-dcache accesses
+47289792,,cpu_core/branch-instructions/,45667012,99.00,,
+2161188,,cpu_core/branch-misses/,45667012,99.00,,
+317639918,,cpu_core/instructions/,45667012,99.00,,
+162481631,,cpu_core/cpu-cycles/,45667012,99.00,,
+1,,context-switches,46079081,100.00,,
+12431,,page-faults,46079081,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44688670,,cpu_core/L1-dcache-loads/,46528389,99.00,,
+257997,,cpu_core/L1-dcache-load-misses/,46528389,99.00,0.58,of all L1-dcache accesses
+47269974,,cpu_core/branch-instructions/,46528389,99.00,,
+2157496,,cpu_core/branch-misses/,46528389,99.00,,
+317510766,,cpu_core/instructions/,46528389,99.00,,
+162254042,,cpu_core/cpu-cycles/,46528389,99.00,,
+1,,context-switches,46931213,100.00,,
+12428,,page-faults,46931213,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44880303,,cpu_core/L1-dcache-loads/,47413443,98.00,,
+240268,,cpu_core/L1-dcache-load-misses/,47413443,98.00,0.54,of all L1-dcache accesses
+47477724,,cpu_core/branch-instructions/,47413443,98.00,,
+2167751,,cpu_core/branch-misses/,47413443,98.00,,
+318906921,,cpu_core/instructions/,47413443,98.00,,
+163508588,,cpu_core/cpu-cycles/,47413443,98.00,,
+1,,context-switches,48041420,100.00,,
+12428,,page-faults,48041420,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44864988,,cpu_core/L1-dcache-loads/,47016959,98.00,,
+253823,,cpu_core/L1-dcache-load-misses/,47016959,98.00,0.57,of all L1-dcache accesses
+47460240,,cpu_core/branch-instructions/,47016959,98.00,,
+2166205,,cpu_core/branch-misses/,47016959,98.00,,
+318788232,,cpu_core/instructions/,47016959,98.00,,
+162958988,,cpu_core/cpu-cycles/,47016959,98.00,,
+1,,context-switches,47619459,100.00,,
+12430,,page-faults,47619459,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44694106,,cpu_core/L1-dcache-loads/,45059442,99.00,,
+248532,,cpu_core/L1-dcache-load-misses/,45059442,99.00,0.56,of all L1-dcache accesses
+47282122,,cpu_core/branch-instructions/,45059442,99.00,,
+2155961,,cpu_core/branch-misses/,45059442,99.00,,
+317589712,,cpu_core/instructions/,45059442,99.00,,
+162633965,,cpu_core/cpu-cycles/,45059442,99.00,,
+1,,context-switches,45468307,100.00,,
+12431,,page-faults,45468307,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44685924,,cpu_core/L1-dcache-loads/,46769726,99.00,,
+272758,,cpu_core/L1-dcache-load-misses/,46769726,99.00,0.61,of all L1-dcache accesses
+47269209,,cpu_core/branch-instructions/,46769726,99.00,,
+2158704,,cpu_core/branch-misses/,46769726,99.00,,
+317505373,,cpu_core/instructions/,46769726,99.00,,
+162638315,,cpu_core/cpu-cycles/,46769726,99.00,,
+1,,context-switches,47177640,100.00,,
+12429,,page-faults,47177640,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44853936,,cpu_core/L1-dcache-loads/,47884931,98.00,,
+250000,,cpu_core/L1-dcache-load-misses/,47884931,98.00,0.56,of all L1-dcache accesses
+47443049,,cpu_core/branch-instructions/,47884931,98.00,,
+2163241,,cpu_core/branch-misses/,47884931,98.00,,
+318674649,,cpu_core/instructions/,47884931,98.00,,
+163334542,,cpu_core/cpu-cycles/,47884931,98.00,,
+1,,context-switches,48476051,100.00,,
+12429,,page-faults,48476051,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44551186,,cpu_core/L1-dcache-loads/,46498995,99.00,,
+257776,,cpu_core/L1-dcache-load-misses/,46498995,99.00,0.58,of all L1-dcache accesses
+47050864,,cpu_core/branch-instructions/,46498995,99.00,,
+2148812,,cpu_core/branch-misses/,46498995,99.00,,
+315859961,,cpu_core/instructions/,46498995,99.00,,
+162461034,,cpu_core/cpu-cycles/,46498995,99.00,,
+2,,context-switches,46524091,100.00,,
+12428,,page-faults,46524091,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44697434,,cpu_core/L1-dcache-loads/,47495373,99.00,,
+252802,,cpu_core/L1-dcache-load-misses/,47495373,99.00,0.57,of all L1-dcache accesses
+47280606,,cpu_core/branch-instructions/,47495373,99.00,,
+2160419,,cpu_core/branch-misses/,47495373,99.00,,
+317585932,,cpu_core/instructions/,47495373,99.00,,
+162501318,,cpu_core/cpu-cycles/,47495373,99.00,,
+1,,context-switches,47921352,100.00,,
+12430,,page-faults,47921352,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44691743,,cpu_core/L1-dcache-loads/,47503494,99.00,,
+262856,,cpu_core/L1-dcache-load-misses/,47503494,99.00,0.59,of all L1-dcache accesses
+47237355,,cpu_core/branch-instructions/,47503494,99.00,,
+2160128,,cpu_core/branch-misses/,47503494,99.00,,
+317207641,,cpu_core/instructions/,47503494,99.00,,
+162568929,,cpu_core/cpu-cycles/,47503494,99.00,,
+2,,context-switches,47805159,100.00,,
+12431,,page-faults,47805159,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44913889,,cpu_core/L1-dcache-loads/,47928127,98.00,,
+244158,,cpu_core/L1-dcache-load-misses/,47928127,98.00,0.54,of all L1-dcache accesses
+47510690,,cpu_core/branch-instructions/,47928127,98.00,,
+2169390,,cpu_core/branch-misses/,47928127,98.00,,
+319126753,,cpu_core/instructions/,47928127,98.00,,
+163265952,,cpu_core/cpu-cycles/,47928127,98.00,,
+2,,context-switches,48593448,100.00,,
+12429,,page-faults,48593448,100.00,,
+
+----- [simd256_v1] H=2048 W=2048 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+44872201,,cpu_core/L1-dcache-loads/,48237975,98.00,,
+259805,,cpu_core/L1-dcache-load-misses/,48237975,98.00,0.58,of all L1-dcache accesses
+47466065,,cpu_core/branch-instructions/,48237975,98.00,,
+2166889,,cpu_core/branch-misses/,48237975,98.00,,
+318829145,,cpu_core/instructions/,48237975,98.00,,
+163225453,,cpu_core/cpu-cycles/,48237975,98.00,,
+1,,context-switches,48861182,100.00,,
+12430,,page-faults,48861182,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177163108,,cpu_core/L1-dcache-loads/,178300343,99.00,,
+1102480,,cpu_core/L1-dcache-load-misses/,178300343,99.00,0.62,of all L1-dcache accesses
+187627378,,cpu_core/branch-instructions/,178300343,99.00,,
+8552672,,cpu_core/branch-misses/,178300343,99.00,,
+1261105702,,cpu_core/instructions/,178300343,99.00,,
+656483243,,cpu_core/cpu-cycles/,178300343,99.00,,
+5,,context-switches,178871541,100.00,,
+49299,,page-faults,178871541,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177052911,,cpu_core/L1-dcache-loads/,176215033,99.00,,
+1113771,,cpu_core/L1-dcache-load-misses/,176215033,99.00,0.63,of all L1-dcache accesses
+187557516,,cpu_core/branch-instructions/,176215033,99.00,,
+8546959,,cpu_core/branch-misses/,176215033,99.00,,
+1260685166,,cpu_core/instructions/,176215033,99.00,,
+654146935,,cpu_core/cpu-cycles/,176215033,99.00,,
+2,,context-switches,176847474,100.00,,
+49301,,page-faults,176847474,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177057206,,cpu_core/L1-dcache-loads/,176382842,99.00,,
+1137361,,cpu_core/L1-dcache-load-misses/,176382842,99.00,0.64,of all L1-dcache accesses
+187558905,,cpu_core/branch-instructions/,176382842,99.00,,
+8544468,,cpu_core/branch-misses/,176382842,99.00,,
+1260683909,,cpu_core/instructions/,176382842,99.00,,
+652167325,,cpu_core/cpu-cycles/,176382842,99.00,,
+2,,context-switches,177008607,100.00,,
+49302,,page-faults,177008607,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177060137,,cpu_core/L1-dcache-loads/,176950506,99.00,,
+1108918,,cpu_core/L1-dcache-load-misses/,176950506,99.00,0.63,of all L1-dcache accesses
+187560269,,cpu_core/branch-instructions/,176950506,99.00,,
+8554370,,cpu_core/branch-misses/,176950506,99.00,,
+1260697620,,cpu_core/instructions/,176950506,99.00,,
+654248413,,cpu_core/cpu-cycles/,176950506,99.00,,
+1,,context-switches,177579977,100.00,,
+49302,,page-faults,177579977,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177064240,,cpu_core/L1-dcache-loads/,175544611,99.00,,
+1117200,,cpu_core/L1-dcache-load-misses/,175544611,99.00,0.63,of all L1-dcache accesses
+187564623,,cpu_core/branch-instructions/,175544611,99.00,,
+8554971,,cpu_core/branch-misses/,175544611,99.00,,
+1260722677,,cpu_core/instructions/,175544611,99.00,,
+652684098,,cpu_core/cpu-cycles/,175544611,99.00,,
+3,,context-switches,176170464,100.00,,
+49302,,page-faults,176170464,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177054326,,cpu_core/L1-dcache-loads/,175505893,99.00,,
+1057234,,cpu_core/L1-dcache-load-misses/,175505893,99.00,0.60,of all L1-dcache accesses
+187559436,,cpu_core/branch-instructions/,175505893,99.00,,
+8553535,,cpu_core/branch-misses/,175505893,99.00,,
+1260689874,,cpu_core/instructions/,175505893,99.00,,
+651983336,,cpu_core/cpu-cycles/,175505893,99.00,,
+2,,context-switches,176134334,100.00,,
+49303,,page-faults,176134334,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+176859014,,cpu_core/L1-dcache-loads/,175557478,99.00,,
+1092523,,cpu_core/L1-dcache-load-misses/,175557478,99.00,0.62,of all L1-dcache accesses
+187354479,,cpu_core/branch-instructions/,175557478,99.00,,
+8538381,,cpu_core/branch-misses/,175557478,99.00,,
+1259322465,,cpu_core/instructions/,175557478,99.00,,
+652686319,,cpu_core/cpu-cycles/,175557478,99.00,,
+1,,context-switches,175999414,100.00,,
+49300,,page-faults,175999414,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177075713,,cpu_core/L1-dcache-loads/,175959201,99.00,,
+1167720,,cpu_core/L1-dcache-load-misses/,175959201,99.00,0.66,of all L1-dcache accesses
+187581235,,cpu_core/branch-instructions/,175959201,99.00,,
+8554097,,cpu_core/branch-misses/,175959201,99.00,,
+1260841688,,cpu_core/instructions/,175959201,99.00,,
+651508743,,cpu_core/cpu-cycles/,175959201,99.00,,
+1,,context-switches,176611512,100.00,,
+49300,,page-faults,176611512,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177023335,,cpu_core/L1-dcache-loads/,175270287,99.00,,
+1091625,,cpu_core/L1-dcache-load-misses/,175270287,99.00,0.62,of all L1-dcache accesses
+187521816,,cpu_core/branch-instructions/,175270287,99.00,,
+8548888,,cpu_core/branch-misses/,175270287,99.00,,
+1260436903,,cpu_core/instructions/,175270287,99.00,,
+653512911,,cpu_core/cpu-cycles/,175270287,99.00,,
+2,,context-switches,175856969,100.00,,
+49301,,page-faults,175856969,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177082329,,cpu_core/L1-dcache-loads/,175429622,99.00,,
+1184346,,cpu_core/L1-dcache-load-misses/,175429622,99.00,0.67,of all L1-dcache accesses
+187579151,,cpu_core/branch-instructions/,175429622,99.00,,
+8553019,,cpu_core/branch-misses/,175429622,99.00,,
+1260828612,,cpu_core/instructions/,175429622,99.00,,
+651532092,,cpu_core/cpu-cycles/,175429622,99.00,,
+2,,context-switches,176050988,100.00,,
+49301,,page-faults,176050988,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177065388,,cpu_core/L1-dcache-loads/,175261755,99.00,,
+1096931,,cpu_core/L1-dcache-load-misses/,175261755,99.00,0.62,of all L1-dcache accesses
+187571555,,cpu_core/branch-instructions/,175261755,99.00,,
+8547901,,cpu_core/branch-misses/,175261755,99.00,,
+1260774100,,cpu_core/instructions/,175261755,99.00,,
+652586232,,cpu_core/cpu-cycles/,175261755,99.00,,
+2,,context-switches,175900714,100.00,,
+49302,,page-faults,175900714,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177023208,,cpu_core/L1-dcache-loads/,175649689,99.00,,
+1093938,,cpu_core/L1-dcache-load-misses/,175649689,99.00,0.62,of all L1-dcache accesses
+187527897,,cpu_core/branch-instructions/,175649689,99.00,,
+8542148,,cpu_core/branch-misses/,175649689,99.00,,
+1260489232,,cpu_core/instructions/,175649689,99.00,,
+651384173,,cpu_core/cpu-cycles/,175649689,99.00,,
+3,,context-switches,176255249,100.00,,
+49298,,page-faults,176255249,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+176835251,,cpu_core/L1-dcache-loads/,174820845,99.00,,
+1134816,,cpu_core/L1-dcache-load-misses/,174820845,99.00,0.64,of all L1-dcache accesses
+187327015,,cpu_core/branch-instructions/,174820845,99.00,,
+8545299,,cpu_core/branch-misses/,174820845,99.00,,
+1259130392,,cpu_core/instructions/,174820845,99.00,,
+652416234,,cpu_core/cpu-cycles/,174820845,99.00,,
+1,,context-switches,175230162,100.00,,
+49300,,page-faults,175230162,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177049543,,cpu_core/L1-dcache-loads/,175536184,99.00,,
+1171102,,cpu_core/L1-dcache-load-misses/,175536184,99.00,0.66,of all L1-dcache accesses
+187554231,,cpu_core/branch-instructions/,175536184,99.00,,
+8550191,,cpu_core/branch-misses/,175536184,99.00,,
+1260659158,,cpu_core/instructions/,175536184,99.00,,
+651466403,,cpu_core/cpu-cycles/,175536184,99.00,,
+2,,context-switches,176160931,100.00,,
+49300,,page-faults,176160931,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177059234,,cpu_core/L1-dcache-loads/,176081241,99.00,,
+1131955,,cpu_core/L1-dcache-load-misses/,176081241,99.00,0.64,of all L1-dcache accesses
+187563878,,cpu_core/branch-instructions/,176081241,99.00,,
+8550881,,cpu_core/branch-misses/,176081241,99.00,,
+1260718962,,cpu_core/instructions/,176081241,99.00,,
+652770878,,cpu_core/cpu-cycles/,176081241,99.00,,
+4,,context-switches,176715307,100.00,,
+49301,,page-faults,176715307,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177073692,,cpu_core/L1-dcache-loads/,174804937,99.00,,
+1114401,,cpu_core/L1-dcache-load-misses/,174804937,99.00,0.63,of all L1-dcache accesses
+187573194,,cpu_core/branch-instructions/,174804937,99.00,,
+8562843,,cpu_core/branch-misses/,174804937,99.00,,
+1260780030,,cpu_core/instructions/,174804937,99.00,,
+652380677,,cpu_core/cpu-cycles/,174804937,99.00,,
+1,,context-switches,175434427,100.00,,
+49303,,page-faults,175434427,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177045956,,cpu_core/L1-dcache-loads/,176148949,99.00,,
+1095367,,cpu_core/L1-dcache-load-misses/,176148949,99.00,0.62,of all L1-dcache accesses
+187542971,,cpu_core/branch-instructions/,176148949,99.00,,
+8551224,,cpu_core/branch-misses/,176148949,99.00,,
+1260575238,,cpu_core/instructions/,176148949,99.00,,
+651739245,,cpu_core/cpu-cycles/,176148949,99.00,,
+1,,context-switches,176754030,100.00,,
+49303,,page-faults,176754030,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+176821502,,cpu_core/L1-dcache-loads/,174507457,99.00,,
+1103747,,cpu_core/L1-dcache-load-misses/,174507457,99.00,0.62,of all L1-dcache accesses
+187309616,,cpu_core/branch-instructions/,174507457,99.00,,
+8536322,,cpu_core/branch-misses/,174507457,99.00,,
+1259011422,,cpu_core/instructions/,174507457,99.00,,
+651136844,,cpu_core/cpu-cycles/,174507457,99.00,,
+1,,context-switches,174895965,100.00,,
+49300,,page-faults,174895965,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177022325,,cpu_core/L1-dcache-loads/,176569191,99.00,,
+1228966,,cpu_core/L1-dcache-load-misses/,176569191,99.00,0.69,of all L1-dcache accesses
+187519409,,cpu_core/branch-instructions/,176569191,99.00,,
+8544242,,cpu_core/branch-misses/,176569191,99.00,,
+1260423960,,cpu_core/instructions/,176569191,99.00,,
+652874321,,cpu_core/cpu-cycles/,176569191,99.00,,
+2,,context-switches,177158094,100.00,,
+49303,,page-faults,177158094,100.00,,
+
+----- [simd256_v1] H=4096 W=4096 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+177094764,,cpu_core/L1-dcache-loads/,179854544,99.00,,
+1087580,,cpu_core/L1-dcache-load-misses/,179854544,99.00,0.61,of all L1-dcache accesses
+187594852,,cpu_core/branch-instructions/,179854544,99.00,,
+8559645,,cpu_core/branch-misses/,179854544,99.00,,
+1260918191,,cpu_core/instructions/,179854544,99.00,,
+653609846,,cpu_core/cpu-cycles/,179854544,99.00,,
+3,,context-switches,180519742,100.00,,
+49301,,page-faults,180519742,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706264858,,cpu_core/L1-dcache-loads/,688100914,99.00,,
+5191413,,cpu_core/L1-dcache-load-misses/,688100914,99.00,0.74,of all L1-dcache accesses
+748448117,,cpu_core/branch-instructions/,688100914,99.00,,
+34085156,,cpu_core/branch-misses/,688100914,99.00,,
+5031431568,,cpu_core/instructions/,688100914,99.00,,
+2589105498,,cpu_core/cpu-cycles/,688100914,99.00,,
+4,,context-switches,688684402,100.00,,
+196773,,page-faults,688684402,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706140958,,cpu_core/L1-dcache-loads/,689002281,99.00,,
+5214671,,cpu_core/L1-dcache-load-misses/,689002281,99.00,0.74,of all L1-dcache accesses
+748334111,,cpu_core/branch-instructions/,689002281,99.00,,
+34054233,,cpu_core/branch-misses/,689002281,99.00,,
+5030648111,,cpu_core/instructions/,689002281,99.00,,
+2604355801,,cpu_core/cpu-cycles/,689002281,99.00,,
+3,,context-switches,689431591,100.00,,
+196773,,page-faults,689431591,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706195046,,cpu_core/L1-dcache-loads/,692853456,99.00,,
+5203453,,cpu_core/L1-dcache-load-misses/,692853456,99.00,0.74,of all L1-dcache accesses
+748394187,,cpu_core/branch-instructions/,692853456,99.00,,
+34042432,,cpu_core/branch-misses/,692853456,99.00,,
+5031065415,,cpu_core/instructions/,692853456,99.00,,
+2606167005,,cpu_core/cpu-cycles/,692853456,99.00,,
+5,,context-switches,693349709,100.00,,
+196774,,page-faults,693349709,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706108810,,cpu_core/L1-dcache-loads/,692041740,99.00,,
+5171434,,cpu_core/L1-dcache-load-misses/,692041740,99.00,0.73,of all L1-dcache accesses
+748304836,,cpu_core/branch-instructions/,692041740,99.00,,
+34057468,,cpu_core/branch-misses/,692041740,99.00,,
+5030478744,,cpu_core/instructions/,692041740,99.00,,
+2605115326,,cpu_core/cpu-cycles/,692041740,99.00,,
+6,,context-switches,692462734,100.00,,
+196776,,page-faults,692462734,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706355907,,cpu_core/L1-dcache-loads/,689892309,99.00,,
+5160138,,cpu_core/L1-dcache-load-misses/,689892309,99.00,0.73,of all L1-dcache accesses
+748561839,,cpu_core/branch-instructions/,689892309,99.00,,
+34065312,,cpu_core/branch-misses/,689892309,99.00,,
+5032172011,,cpu_core/instructions/,689892309,99.00,,
+2596452089,,cpu_core/cpu-cycles/,689892309,99.00,,
+4,,context-switches,690524901,100.00,,
+196772,,page-faults,690524901,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706120905,,cpu_core/L1-dcache-loads/,687321185,99.00,,
+5454547,,cpu_core/L1-dcache-load-misses/,687321185,99.00,0.77,of all L1-dcache accesses
+748311536,,cpu_core/branch-instructions/,687321185,99.00,,
+34053981,,cpu_core/branch-misses/,687321185,99.00,,
+5030482297,,cpu_core/instructions/,687321185,99.00,,
+2597714819,,cpu_core/cpu-cycles/,687321185,99.00,,
+6,,context-switches,687700263,100.00,,
+196773,,page-faults,687700263,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+705937657,,cpu_core/L1-dcache-loads/,692959124,100.00,,
+5386579,,cpu_core/L1-dcache-load-misses/,692959124,100.00,0.76,of all L1-dcache accesses
+748042514,,cpu_core/branch-instructions/,692959124,100.00,,
+34032369,,cpu_core/branch-misses/,692959124,100.00,,
+5028525635,,cpu_core/instructions/,692959124,100.00,,
+2608339244,,cpu_core/cpu-cycles/,692959124,100.00,,
+7,,context-switches,692959124,100.00,,
+196773,,page-faults,692959124,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706287291,,cpu_core/L1-dcache-loads/,691811209,99.00,,
+5348012,,cpu_core/L1-dcache-load-misses/,691811209,99.00,0.76,of all L1-dcache accesses
+748487193,,cpu_core/branch-instructions/,691811209,99.00,,
+34084979,,cpu_core/branch-misses/,691811209,99.00,,
+5031669862,,cpu_core/instructions/,691811209,99.00,,
+2603010801,,cpu_core/cpu-cycles/,691811209,99.00,,
+6,,context-switches,692372796,100.00,,
+196774,,page-faults,692372796,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706104280,,cpu_core/L1-dcache-loads/,686654590,99.00,,
+5367202,,cpu_core/L1-dcache-load-misses/,686654590,99.00,0.76,of all L1-dcache accesses
+748293604,,cpu_core/branch-instructions/,686654590,99.00,,
+34068442,,cpu_core/branch-misses/,686654590,99.00,,
+5030363621,,cpu_core/instructions/,686654590,99.00,,
+2588703621,,cpu_core/cpu-cycles/,686654590,99.00,,
+4,,context-switches,687037180,100.00,,
+196774,,page-faults,687037180,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706209839,,cpu_core/L1-dcache-loads/,692499238,99.00,,
+5250100,,cpu_core/L1-dcache-load-misses/,692499238,99.00,0.74,of all L1-dcache accesses
+748360298,,cpu_core/branch-instructions/,692499238,99.00,,
+34065976,,cpu_core/branch-misses/,692499238,99.00,,
+5030730507,,cpu_core/instructions/,692499238,99.00,,
+2603346759,,cpu_core/cpu-cycles/,692499238,99.00,,
+6,,context-switches,692861505,100.00,,
+196774,,page-faults,692861505,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+705983798,,cpu_core/L1-dcache-loads/,690811388,100.00,,
+5145700,,cpu_core/L1-dcache-load-misses/,690811388,100.00,0.73,of all L1-dcache accesses
+748079781,,cpu_core/branch-instructions/,690811388,100.00,,
+34066305,,cpu_core/branch-misses/,690811388,100.00,,
+5028733325,,cpu_core/instructions/,690811388,100.00,,
+2599920618,,cpu_core/cpu-cycles/,690811388,100.00,,
+6,,context-switches,690811388,100.00,,
+196773,,page-faults,690811388,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706120956,,cpu_core/L1-dcache-loads/,694474294,99.00,,
+5302058,,cpu_core/L1-dcache-load-misses/,694474294,99.00,0.75,of all L1-dcache accesses
+748309676,,cpu_core/branch-instructions/,694474294,99.00,,
+34057165,,cpu_core/branch-misses/,694474294,99.00,,
+5030494715,,cpu_core/instructions/,694474294,99.00,,
+2616096144,,cpu_core/cpu-cycles/,694474294,99.00,,
+6,,context-switches,694873340,100.00,,
+196771,,page-faults,694873340,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706182321,,cpu_core/L1-dcache-loads/,688670166,99.00,,
+5337348,,cpu_core/L1-dcache-load-misses/,688670166,99.00,0.76,of all L1-dcache accesses
+748376654,,cpu_core/branch-instructions/,688670166,99.00,,
+34071065,,cpu_core/branch-misses/,688670166,99.00,,
+5030949347,,cpu_core/instructions/,688670166,99.00,,
+2591378412,,cpu_core/cpu-cycles/,688670166,99.00,,
+1,,context-switches,689128271,100.00,,
+196774,,page-faults,689128271,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706433178,,cpu_core/L1-dcache-loads/,691475080,99.00,,
+5712563,,cpu_core/L1-dcache-load-misses/,691475080,99.00,0.81,of all L1-dcache accesses
+748623587,,cpu_core/branch-instructions/,691475080,99.00,,
+34077932,,cpu_core/branch-misses/,691475080,99.00,,
+5032554251,,cpu_core/instructions/,691475080,99.00,,
+2599541044,,cpu_core/cpu-cycles/,691475080,99.00,,
+6,,context-switches,692098017,100.00,,
+196775,,page-faults,692098017,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706398085,,cpu_core/L1-dcache-loads/,691950348,99.00,,
+5653578,,cpu_core/L1-dcache-load-misses/,691950348,99.00,0.80,of all L1-dcache accesses
+748600265,,cpu_core/branch-instructions/,691950348,99.00,,
+34086439,,cpu_core/branch-misses/,691950348,99.00,,
+5032434415,,cpu_core/instructions/,691950348,99.00,,
+2601193590,,cpu_core/cpu-cycles/,691950348,99.00,,
+5,,context-switches,692603013,100.00,,
+196775,,page-faults,692603013,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706377640,,cpu_core/L1-dcache-loads/,690556179,99.00,,
+5336167,,cpu_core/L1-dcache-load-misses/,690556179,99.00,0.76,of all L1-dcache accesses
+748579245,,cpu_core/branch-instructions/,690556179,99.00,,
+34090341,,cpu_core/branch-misses/,690556179,99.00,,
+5032285111,,cpu_core/instructions/,690556179,99.00,,
+2596614375,,cpu_core/cpu-cycles/,690556179,99.00,,
+4,,context-switches,691186231,100.00,,
+196772,,page-faults,691186231,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+705982038,,cpu_core/L1-dcache-loads/,690098818,100.00,,
+5386992,,cpu_core/L1-dcache-load-misses/,690098818,100.00,0.76,of all L1-dcache accesses
+748074767,,cpu_core/branch-instructions/,690098818,100.00,,
+34052202,,cpu_core/branch-misses/,690098818,100.00,,
+5028699365,,cpu_core/instructions/,690098818,100.00,,
+2588476113,,cpu_core/cpu-cycles/,690098818,100.00,,
+4,,context-switches,690098818,100.00,,
+196775,,page-faults,690098818,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706113844,,cpu_core/L1-dcache-loads/,691571258,99.00,,
+5333376,,cpu_core/L1-dcache-load-misses/,691571258,99.00,0.76,of all L1-dcache accesses
+748295560,,cpu_core/branch-instructions/,691571258,99.00,,
+34081086,,cpu_core/branch-misses/,691571258,99.00,,
+5030385700,,cpu_core/instructions/,691571258,99.00,,
+2605326258,,cpu_core/cpu-cycles/,691571258,99.00,,
+5,,context-switches,691943290,100.00,,
+196772,,page-faults,691943290,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706148532,,cpu_core/L1-dcache-loads/,690310544,99.00,,
+5547834,,cpu_core/L1-dcache-load-misses/,690310544,99.00,0.79,of all L1-dcache accesses
+748333903,,cpu_core/branch-instructions/,690310544,99.00,,
+34055337,,cpu_core/branch-misses/,690310544,99.00,,
+5030615328,,cpu_core/instructions/,690310544,99.00,,
+2599798169,,cpu_core/cpu-cycles/,690310544,99.00,,
+6,,context-switches,690713643,100.00,,
+196772,,page-faults,690713643,100.00,,
+
+----- [simd256_v1] H=8192 W=8192 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+706087080,,cpu_core/L1-dcache-loads/,690884768,99.00,,
+5218899,,cpu_core/L1-dcache-load-misses/,690884768,99.00,0.74,of all L1-dcache accesses
+748282065,,cpu_core/branch-instructions/,690884768,99.00,,
+34046400,,cpu_core/branch-misses/,690884768,99.00,,
+5030321068,,cpu_core/instructions/,690884768,99.00,,
+2603096360,,cpu_core/cpu-cycles/,690884768,99.00,,
+7,,context-switches,691279372,100.00,,
+196772,,page-faults,691279372,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824367291,,cpu_core/L1-dcache-loads/,2732507500,99.00,,
+37550631,,cpu_core/L1-dcache-load-misses/,2732507500,99.00,1.33,of all L1-dcache accesses
+2994196808,,cpu_core/branch-instructions/,2732507500,99.00,,
+136066887,,cpu_core/branch-misses/,2732507500,99.00,,
+20128215222,,cpu_core/instructions/,2732507500,99.00,,
+10327612903,,cpu_core/cpu-cycles/,2732507500,99.00,,
+16,,context-switches,2733187173,100.00,,
+786630,,page-faults,2733187173,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824129764,,cpu_core/L1-dcache-loads/,2728146416,99.00,,
+36697661,,cpu_core/L1-dcache-load-misses/,2728146416,99.00,1.30,of all L1-dcache accesses
+2993925929,,cpu_core/branch-instructions/,2728146416,99.00,,
+136102233,,cpu_core/branch-misses/,2728146416,99.00,,
+20126525281,,cpu_core/instructions/,2728146416,99.00,,
+10313838864,,cpu_core/cpu-cycles/,2728146416,99.00,,
+16,,context-switches,2728767920,100.00,,
+786631,,page-faults,2728767920,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823922307,,cpu_core/L1-dcache-loads/,2730360593,99.00,,
+37381135,,cpu_core/L1-dcache-load-misses/,2730360593,99.00,1.32,of all L1-dcache accesses
+2993690648,,cpu_core/branch-instructions/,2730360593,99.00,,
+136094657,,cpu_core/branch-misses/,2730360593,99.00,,
+20124972135,,cpu_core/instructions/,2730360593,99.00,,
+10327362336,,cpu_core/cpu-cycles/,2730360593,99.00,,
+18,,context-switches,2730781749,100.00,,
+786627,,page-faults,2730781749,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824215220,,cpu_core/L1-dcache-loads/,2731795079,99.00,,
+36275899,,cpu_core/L1-dcache-load-misses/,2731795079,99.00,1.28,of all L1-dcache accesses
+2993973854,,cpu_core/branch-instructions/,2731795079,99.00,,
+136184102,,cpu_core/branch-misses/,2731795079,99.00,,
+20126701227,,cpu_core/instructions/,2731795079,99.00,,
+10340157162,,cpu_core/cpu-cycles/,2731795079,99.00,,
+17,,context-switches,2732356455,100.00,,
+786628,,page-faults,2732356455,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824025961,,cpu_core/L1-dcache-loads/,2726449405,99.00,,
+36610698,,cpu_core/L1-dcache-load-misses/,2726449405,99.00,1.30,of all L1-dcache accesses
+2993776722,,cpu_core/branch-instructions/,2726449405,99.00,,
+136098966,,cpu_core/branch-misses/,2726449405,99.00,,
+20125439247,,cpu_core/instructions/,2726449405,99.00,,
+10325270352,,cpu_core/cpu-cycles/,2726449405,99.00,,
+18,,context-switches,2726875847,100.00,,
+786629,,page-faults,2726875847,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823937562,,cpu_core/L1-dcache-loads/,2725051951,99.00,,
+36052142,,cpu_core/L1-dcache-load-misses/,2725051951,99.00,1.28,of all L1-dcache accesses
+2993655496,,cpu_core/branch-instructions/,2725051951,99.00,,
+136103784,,cpu_core/branch-misses/,2725051951,99.00,,
+20124592700,,cpu_core/instructions/,2725051951,99.00,,
+10318946396,,cpu_core/cpu-cycles/,2725051951,99.00,,
+17,,context-switches,2725319064,100.00,,
+786629,,page-faults,2725319064,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824266746,,cpu_core/L1-dcache-loads/,2737572964,99.00,,
+36406971,,cpu_core/L1-dcache-load-misses/,2737572964,99.00,1.29,of all L1-dcache accesses
+2994022264,,cpu_core/branch-instructions/,2737572964,99.00,,
+136077591,,cpu_core/branch-misses/,2737572964,99.00,,
+20127087509,,cpu_core/instructions/,2737572964,99.00,,
+10349895126,,cpu_core/cpu-cycles/,2737572964,99.00,,
+23,,context-switches,2738209456,100.00,,
+786628,,page-faults,2738209456,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824183700,,cpu_core/L1-dcache-loads/,2731242836,99.00,,
+36742966,,cpu_core/L1-dcache-load-misses/,2731242836,99.00,1.30,of all L1-dcache accesses
+2993958998,,cpu_core/branch-instructions/,2731242836,99.00,,
+136074528,,cpu_core/branch-misses/,2731242836,99.00,,
+20126743445,,cpu_core/instructions/,2731242836,99.00,,
+10324918064,,cpu_core/cpu-cycles/,2731242836,99.00,,
+19,,context-switches,2731884216,100.00,,
+786629,,page-faults,2731884216,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824031151,,cpu_core/L1-dcache-loads/,2728128878,99.00,,
+36071314,,cpu_core/L1-dcache-load-misses/,2728128878,99.00,1.28,of all L1-dcache accesses
+2993787602,,cpu_core/branch-instructions/,2728128878,99.00,,
+136084048,,cpu_core/branch-misses/,2728128878,99.00,,
+20125528578,,cpu_core/instructions/,2728128878,99.00,,
+10312960820,,cpu_core/cpu-cycles/,2728128878,99.00,,
+18,,context-switches,2728553388,100.00,,
+786630,,page-faults,2728553388,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823829976,,cpu_core/L1-dcache-loads/,2725593345,99.00,,
+35966252,,cpu_core/L1-dcache-load-misses/,2725593345,99.00,1.27,of all L1-dcache accesses
+2993523079,,cpu_core/branch-instructions/,2725593345,99.00,,
+136101198,,cpu_core/branch-misses/,2725593345,99.00,,
+20123676835,,cpu_core/instructions/,2725593345,99.00,,
+10313676865,,cpu_core/cpu-cycles/,2725593345,99.00,,
+17,,context-switches,2725724601,100.00,,
+786628,,page-faults,2725724601,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824251198,,cpu_core/L1-dcache-loads/,2730783859,99.00,,
+35941431,,cpu_core/L1-dcache-load-misses/,2730783859,99.00,1.27,of all L1-dcache accesses
+2994022730,,cpu_core/branch-instructions/,2730783859,99.00,,
+136148870,,cpu_core/branch-misses/,2730783859,99.00,,
+20127077563,,cpu_core/instructions/,2730783859,99.00,,
+10333646443,,cpu_core/cpu-cycles/,2730783859,99.00,,
+16,,context-switches,2731425282,100.00,,
+786629,,page-faults,2731425282,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823956420,,cpu_core/L1-dcache-loads/,2732716676,99.00,,
+36094143,,cpu_core/L1-dcache-load-misses/,2732716676,99.00,1.28,of all L1-dcache accesses
+2993725303,,cpu_core/branch-instructions/,2732716676,99.00,,
+136114872,,cpu_core/branch-misses/,2732716676,99.00,,
+20125196603,,cpu_core/instructions/,2732716676,99.00,,
+10335632866,,cpu_core/cpu-cycles/,2732716676,99.00,,
+19,,context-switches,2733158222,100.00,,
+786630,,page-faults,2733158222,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823963875,,cpu_core/L1-dcache-loads/,2732048251,99.00,,
+39586318,,cpu_core/L1-dcache-load-misses/,2732048251,99.00,1.40,of all L1-dcache accesses
+2993728381,,cpu_core/branch-instructions/,2732048251,99.00,,
+136113878,,cpu_core/branch-misses/,2732048251,99.00,,
+20125152835,,cpu_core/instructions/,2732048251,99.00,,
+10335380355,,cpu_core/cpu-cycles/,2732048251,99.00,,
+15,,context-switches,2732457576,100.00,,
+786630,,page-faults,2732457576,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824249067,,cpu_core/L1-dcache-loads/,2727269312,99.00,,
+37171424,,cpu_core/L1-dcache-load-misses/,2727269312,99.00,1.32,of all L1-dcache accesses
+2994020224,,cpu_core/branch-instructions/,2727269312,99.00,,
+136109769,,cpu_core/branch-misses/,2727269312,99.00,,
+20127059692,,cpu_core/instructions/,2727269312,99.00,,
+10318592831,,cpu_core/cpu-cycles/,2727269312,99.00,,
+17,,context-switches,2727907589,100.00,,
+786631,,page-faults,2727907589,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823943625,,cpu_core/L1-dcache-loads/,2728002291,99.00,,
+35901739,,cpu_core/L1-dcache-load-misses/,2728002291,99.00,1.27,of all L1-dcache accesses
+2993738600,,cpu_core/branch-instructions/,2728002291,99.00,,
+136090548,,cpu_core/branch-misses/,2728002291,99.00,,
+20125412778,,cpu_core/instructions/,2728002291,99.00,,
+10326048823,,cpu_core/cpu-cycles/,2728002291,99.00,,
+15,,context-switches,2728548314,100.00,,
+786629,,page-faults,2728548314,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824186342,,cpu_core/L1-dcache-loads/,2730482494,99.00,,
+36036910,,cpu_core/L1-dcache-load-misses/,2730482494,99.00,1.28,of all L1-dcache accesses
+2993968342,,cpu_core/branch-instructions/,2730482494,99.00,,
+136192920,,cpu_core/branch-misses/,2730482494,99.00,,
+20126770689,,cpu_core/instructions/,2730482494,99.00,,
+10320558933,,cpu_core/cpu-cycles/,2730482494,99.00,,
+15,,context-switches,2731102871,100.00,,
+786627,,page-faults,2731102871,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823968388,,cpu_core/L1-dcache-loads/,2729246100,99.00,,
+36147986,,cpu_core/L1-dcache-load-misses/,2729246100,99.00,1.28,of all L1-dcache accesses
+2993731562,,cpu_core/branch-instructions/,2729246100,99.00,,
+136071299,,cpu_core/branch-misses/,2729246100,99.00,,
+20125162586,,cpu_core/instructions/,2729246100,99.00,,
+10318053754,,cpu_core/cpu-cycles/,2729246100,99.00,,
+19,,context-switches,2729656052,100.00,,
+786630,,page-faults,2729656052,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2824019370,,cpu_core/L1-dcache-loads/,2728677542,99.00,,
+35905336,,cpu_core/L1-dcache-load-misses/,2728677542,99.00,1.27,of all L1-dcache accesses
+2993801307,,cpu_core/branch-instructions/,2728677542,99.00,,
+136087008,,cpu_core/branch-misses/,2728677542,99.00,,
+20125727016,,cpu_core/instructions/,2728677542,99.00,,
+10316595603,,cpu_core/cpu-cycles/,2728677542,99.00,,
+18,,context-switches,2729216323,100.00,,
+786628,,page-faults,2729216323,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823913822,,cpu_core/L1-dcache-loads/,2729683445,99.00,,
+36207579,,cpu_core/L1-dcache-load-misses/,2729683445,99.00,1.28,of all L1-dcache accesses
+2993683346,,cpu_core/branch-instructions/,2729683445,99.00,,
+136090504,,cpu_core/branch-misses/,2729683445,99.00,,
+20124900170,,cpu_core/instructions/,2729683445,99.00,,
+10323075907,,cpu_core/cpu-cycles/,2729683445,99.00,,
+19,,context-switches,2730089930,100.00,,
+786629,,page-faults,2730089930,100.00,,
+
+----- [simd256_v1] H=16384 W=16384 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING simd variant=conv_simd256_v1 H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+2823880315,,cpu_core/L1-dcache-loads/,2736931403,99.00,,
+35976401,,cpu_core/L1-dcache-load-misses/,2736931403,99.00,1.27,of all L1-dcache accesses
+2993658799,,cpu_core/branch-instructions/,2736931403,99.00,,
+136155199,,cpu_core/branch-misses/,2736931403,99.00,,
+20124798100,,cpu_core/instructions/,2736931403,99.00,,
+10338413193,,cpu_core/cpu-cycles/,2736931403,99.00,,
+13,,context-switches,2737360242,100.00,,
+786631,,page-faults,2737360242,100.00,,
+# finished : 2026-09-06T17:39:49+05:30

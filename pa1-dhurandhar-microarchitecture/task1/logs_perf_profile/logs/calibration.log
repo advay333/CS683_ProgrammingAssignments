@@ -1,0 +1,2348 @@
+############################################################
+# label   : calibration
+# stage   : calibration      (/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/perf_caliberation.cpp)
+# variant : default
+# events  : cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/instructions/,cpu_core/cpu-cycles/,context-switches,page-faults
+# started : 2026-09-06T17:26:32+05:30
+############################################################
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+591749,,cpu_core/L1-dcache-loads/,939816,56.00,,
+16542,,cpu_core/L1-dcache-load-misses/,939816,56.00,2.80,of all L1-dcache accesses
+468327,,cpu_core/branch-instructions/,939816,56.00,,
+18118,,cpu_core/branch-misses/,939816,56.00,,
+2682218,,cpu_core/instructions/,939816,56.00,,
+2768517,,cpu_core/cpu-cycles/,939816,56.00,,
+1,,context-switches,1651971,100.00,,
+139,,page-faults,1651971,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+584885,,cpu_core/L1-dcache-loads/,1097507,100.00,,
+14723,,cpu_core/L1-dcache-load-misses/,1097507,100.00,2.52,of all L1-dcache accesses
+445244,,cpu_core/branch-instructions/,1097507,100.00,,
+15241,,cpu_core/branch-misses/,1097507,100.00,,
+2535589,,cpu_core/instructions/,1097507,100.00,,
+2278099,,cpu_core/cpu-cycles/,1097507,100.00,,
+2,,context-switches,1097507,100.00,,
+141,,page-faults,1097507,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+618738,,cpu_core/L1-dcache-loads/,633607,53.00,,
+14848,,cpu_core/L1-dcache-load-misses/,633607,53.00,2.40,of all L1-dcache accesses
+490936,,cpu_core/branch-instructions/,633607,53.00,,
+15640,,cpu_core/branch-misses/,633607,53.00,,
+2805846,,cpu_core/instructions/,633607,53.00,,
+2221547,,cpu_core/cpu-cycles/,633607,53.00,,
+1,,context-switches,1189234,100.00,,
+139,,page-faults,1189234,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+599677,,cpu_core/L1-dcache-loads/,663459,55.00,,
+14918,,cpu_core/L1-dcache-load-misses/,663459,55.00,2.49,of all L1-dcache accesses
+474883,,cpu_core/branch-instructions/,663459,55.00,,
+14644,,cpu_core/branch-misses/,663459,55.00,,
+2718516,,cpu_core/instructions/,663459,55.00,,
+2152208,,cpu_core/cpu-cycles/,663459,55.00,,
+1,,context-switches,1195243,100.00,,
+141,,page-faults,1195243,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+564542,,cpu_core/L1-dcache-loads/,1107651,100.00,,
+13701,,cpu_core/L1-dcache-load-misses/,1107651,100.00,2.43,of all L1-dcache accesses
+431396,,cpu_core/branch-instructions/,1107651,100.00,,
+13014,,cpu_core/branch-misses/,1107651,100.00,,
+2451565,,cpu_core/instructions/,1107651,100.00,,
+2064048,,cpu_core/cpu-cycles/,1107651,100.00,,
+1,,context-switches,1107651,100.00,,
+139,,page-faults,1107651,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+615916,,cpu_core/L1-dcache-loads/,673713,54.00,,
+15078,,cpu_core/L1-dcache-load-misses/,673713,54.00,2.45,of all L1-dcache accesses
+487785,,cpu_core/branch-instructions/,673713,54.00,,
+15893,,cpu_core/branch-misses/,673713,54.00,,
+2791945,,cpu_core/instructions/,673713,54.00,,
+2264218,,cpu_core/cpu-cycles/,673713,54.00,,
+1,,context-switches,1245085,100.00,,
+139,,page-faults,1245085,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+564798,,cpu_core/L1-dcache-loads/,1081830,100.00,,
+14142,,cpu_core/L1-dcache-load-misses/,1081830,100.00,2.50,of all L1-dcache accesses
+431466,,cpu_core/branch-instructions/,1081830,100.00,,
+12759,,cpu_core/branch-misses/,1081830,100.00,,
+2455172,,cpu_core/instructions/,1081830,100.00,,
+1988604,,cpu_core/cpu-cycles/,1081830,100.00,,
+1,,context-switches,1081830,100.00,,
+136,,page-faults,1081830,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+568415,,cpu_core/L1-dcache-loads/,1368000,100.00,,
+13758,,cpu_core/L1-dcache-load-misses/,1368000,100.00,2.42,of all L1-dcache accesses
+434462,,cpu_core/branch-instructions/,1368000,100.00,,
+13573,,cpu_core/branch-misses/,1368000,100.00,,
+2468311,,cpu_core/instructions/,1368000,100.00,,
+2147060,,cpu_core/cpu-cycles/,1368000,100.00,,
+1,,context-switches,1368000,100.00,,
+141,,page-faults,1368000,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+619253,,cpu_core/L1-dcache-loads/,636266,53.00,,
+14992,,cpu_core/L1-dcache-load-misses/,636266,53.00,2.42,of all L1-dcache accesses
+490838,,cpu_core/branch-instructions/,636266,53.00,,
+15254,,cpu_core/branch-misses/,636266,53.00,,
+2809910,,cpu_core/instructions/,636266,53.00,,
+2224261,,cpu_core/cpu-cycles/,636266,53.00,,
+1,,context-switches,1191500,100.00,,
+140,,page-faults,1191500,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+566799,,cpu_core/L1-dcache-loads/,1120294,100.00,,
+14021,,cpu_core/L1-dcache-load-misses/,1120294,100.00,2.47,of all L1-dcache accesses
+432788,,cpu_core/branch-instructions/,1120294,100.00,,
+14734,,cpu_core/branch-misses/,1120294,100.00,,
+2462629,,cpu_core/instructions/,1120294,100.00,,
+2089216,,cpu_core/cpu-cycles/,1120294,100.00,,
+1,,context-switches,1120294,100.00,,
+138,,page-faults,1120294,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+566396,,cpu_core/L1-dcache-loads/,1090266,100.00,,
+13704,,cpu_core/L1-dcache-load-misses/,1090266,100.00,2.42,of all L1-dcache accesses
+432549,,cpu_core/branch-instructions/,1090266,100.00,,
+12738,,cpu_core/branch-misses/,1090266,100.00,,
+2462535,,cpu_core/instructions/,1090266,100.00,,
+2031603,,cpu_core/cpu-cycles/,1090266,100.00,,
+1,,context-switches,1090266,100.00,,
+138,,page-faults,1090266,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+630248,,cpu_core/L1-dcache-loads/,627664,52.00,,
+15218,,cpu_core/L1-dcache-load-misses/,627664,52.00,2.41,of all L1-dcache accesses
+500109,,cpu_core/branch-instructions/,627664,52.00,,
+14852,,cpu_core/branch-misses/,627664,52.00,,
+2855929,,cpu_core/instructions/,627664,52.00,,
+2229146,,cpu_core/cpu-cycles/,627664,52.00,,
+1,,context-switches,1191667,100.00,,
+141,,page-faults,1191667,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+568092,,cpu_core/L1-dcache-loads/,1104277,100.00,,
+13664,,cpu_core/L1-dcache-load-misses/,1104277,100.00,2.41,of all L1-dcache accesses
+433456,,cpu_core/branch-instructions/,1104277,100.00,,
+13116,,cpu_core/branch-misses/,1104277,100.00,,
+2470899,,cpu_core/instructions/,1104277,100.00,,
+2057407,,cpu_core/cpu-cycles/,1104277,100.00,,
+1,,context-switches,1104277,100.00,,
+139,,page-faults,1104277,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+568583,,cpu_core/L1-dcache-loads/,1213362,100.00,,
+13802,,cpu_core/L1-dcache-load-misses/,1213362,100.00,2.43,of all L1-dcache accesses
+434466,,cpu_core/branch-instructions/,1213362,100.00,,
+13074,,cpu_core/branch-misses/,1213362,100.00,,
+2468903,,cpu_core/instructions/,1213362,100.00,,
+2106513,,cpu_core/cpu-cycles/,1213362,100.00,,
+1,,context-switches,1213362,100.00,,
+140,,page-faults,1213362,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+569603,,cpu_core/L1-dcache-loads/,1132120,100.00,,
+14067,,cpu_core/L1-dcache-load-misses/,1132120,100.00,2.47,of all L1-dcache accesses
+435015,,cpu_core/branch-instructions/,1132120,100.00,,
+13694,,cpu_core/branch-misses/,1132120,100.00,,
+2474523,,cpu_core/instructions/,1132120,100.00,,
+2066734,,cpu_core/cpu-cycles/,1132120,100.00,,
+1,,context-switches,1132120,100.00,,
+139,,page-faults,1132120,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+570779,,cpu_core/L1-dcache-loads/,1091985,100.00,,
+14150,,cpu_core/L1-dcache-load-misses/,1091985,100.00,2.48,of all L1-dcache accesses
+435675,,cpu_core/branch-instructions/,1091985,100.00,,
+15727,,cpu_core/branch-misses/,1091985,100.00,,
+2479791,,cpu_core/instructions/,1091985,100.00,,
+2143500,,cpu_core/cpu-cycles/,1091985,100.00,,
+1,,context-switches,1091985,100.00,,
+139,,page-faults,1091985,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+569778,,cpu_core/L1-dcache-loads/,1190538,100.00,,
+14080,,cpu_core/L1-dcache-load-misses/,1190538,100.00,2.47,of all L1-dcache accesses
+435351,,cpu_core/branch-instructions/,1190538,100.00,,
+13929,,cpu_core/branch-misses/,1190538,100.00,,
+2474073,,cpu_core/instructions/,1190538,100.00,,
+2078703,,cpu_core/cpu-cycles/,1190538,100.00,,
+1,,context-switches,1190538,100.00,,
+140,,page-faults,1190538,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+567648,,cpu_core/L1-dcache-loads/,1097751,100.00,,
+13905,,cpu_core/L1-dcache-load-misses/,1097751,100.00,2.45,of all L1-dcache accesses
+433667,,cpu_core/branch-instructions/,1097751,100.00,,
+12915,,cpu_core/branch-misses/,1097751,100.00,,
+2466644,,cpu_core/instructions/,1097751,100.00,,
+2006589,,cpu_core/cpu-cycles/,1097751,100.00,,
+1,,context-switches,1097751,100.00,,
+139,,page-faults,1097751,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+566622,,cpu_core/L1-dcache-loads/,1030646,100.00,,
+13874,,cpu_core/L1-dcache-load-misses/,1030646,100.00,2.45,of all L1-dcache accesses
+432773,,cpu_core/branch-instructions/,1030646,100.00,,
+13874,,cpu_core/branch-misses/,1030646,100.00,,
+2462503,,cpu_core/instructions/,1030646,100.00,,
+2022509,,cpu_core/cpu-cycles/,1030646,100.00,,
+1,,context-switches,1030646,100.00,,
+138,,page-faults,1030646,100.00,,
+
+----- [calibration] H=64 W=64 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=64 W=64 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+718092,,cpu_core/L1-dcache-loads/,330397,46.00,,
+17530,,cpu_core/L1-dcache-load-misses/,330397,46.00,2.44,of all L1-dcache accesses
+569273,,cpu_core/branch-instructions/,330397,46.00,,
+17846,,cpu_core/branch-misses/,330397,46.00,,
+3256782,,cpu_core/instructions/,330397,46.00,,
+2673063,,cpu_core/cpu-cycles/,330397,46.00,,
+1,,context-switches,716817,100.00,,
+139,,page-faults,716817,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+696601,,cpu_core/L1-dcache-loads/,810596,60.00,,
+13616,,cpu_core/L1-dcache-load-misses/,810596,60.00,1.95,of all L1-dcache accesses
+611687,,cpu_core/branch-instructions/,810596,60.00,,
+25259,,cpu_core/branch-misses/,810596,60.00,,
+3728254,,cpu_core/instructions/,810596,60.00,,
+2648191,,cpu_core/cpu-cycles/,810596,60.00,,
+1,,context-switches,1343721,100.00,,
+160,,page-faults,1343721,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+690948,,cpu_core/L1-dcache-loads/,884982,61.00,,
+13736,,cpu_core/L1-dcache-load-misses/,884982,61.00,1.99,of all L1-dcache accesses
+605289,,cpu_core/branch-instructions/,884982,61.00,,
+24166,,cpu_core/branch-misses/,884982,61.00,,
+3691444,,cpu_core/instructions/,884982,61.00,,
+2703963,,cpu_core/cpu-cycles/,884982,61.00,,
+1,,context-switches,1442441,100.00,,
+164,,page-faults,1442441,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+668928,,cpu_core/L1-dcache-loads/,969574,63.00,,
+13679,,cpu_core/L1-dcache-load-misses/,969574,63.00,2.04,of all L1-dcache accesses
+586482,,cpu_core/branch-instructions/,969574,63.00,,
+23796,,cpu_core/branch-misses/,969574,63.00,,
+3579038,,cpu_core/instructions/,969574,63.00,,
+2565191,,cpu_core/cpu-cycles/,969574,63.00,,
+1,,context-switches,1533478,100.00,,
+161,,page-faults,1533478,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+657561,,cpu_core/L1-dcache-loads/,1548358,100.00,,
+14215,,cpu_core/L1-dcache-load-misses/,1548358,100.00,2.16,of all L1-dcache accesses
+540527,,cpu_core/branch-instructions/,1548358,100.00,,
+21614,,cpu_core/branch-misses/,1548358,100.00,,
+3216687,,cpu_core/instructions/,1548358,100.00,,
+2565514,,cpu_core/cpu-cycles/,1548358,100.00,,
+1,,context-switches,1548358,100.00,,
+162,,page-faults,1548358,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+657204,,cpu_core/L1-dcache-loads/,1366342,100.00,,
+14353,,cpu_core/L1-dcache-load-misses/,1366342,100.00,2.18,of all L1-dcache accesses
+540154,,cpu_core/branch-instructions/,1366342,100.00,,
+20061,,cpu_core/branch-misses/,1366342,100.00,,
+3216304,,cpu_core/instructions/,1366342,100.00,,
+2513948,,cpu_core/cpu-cycles/,1366342,100.00,,
+1,,context-switches,1366342,100.00,,
+162,,page-faults,1366342,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+688001,,cpu_core/L1-dcache-loads/,858741,61.00,,
+13746,,cpu_core/L1-dcache-load-misses/,858741,61.00,2.00,of all L1-dcache accesses
+603453,,cpu_core/branch-instructions/,858741,61.00,,
+26659,,cpu_core/branch-misses/,858741,61.00,,
+3678491,,cpu_core/instructions/,858741,61.00,,
+2669168,,cpu_core/cpu-cycles/,858741,61.00,,
+1,,context-switches,1399962,100.00,,
+164,,page-faults,1399962,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+671167,,cpu_core/L1-dcache-loads/,1346293,98.00,,
+15262,,cpu_core/L1-dcache-load-misses/,1346293,98.00,2.27,of all L1-dcache accesses
+551368,,cpu_core/branch-instructions/,1346293,98.00,,
+22395,,cpu_core/branch-misses/,1346293,98.00,,
+3282183,,cpu_core/instructions/,1346293,98.00,,
+2597570,,cpu_core/cpu-cycles/,1346293,98.00,,
+2,,context-switches,1369489,100.00,,
+164,,page-faults,1369489,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+659461,,cpu_core/L1-dcache-loads/,1482389,100.00,,
+14459,,cpu_core/L1-dcache-load-misses/,1482389,100.00,2.19,of all L1-dcache accesses
+542247,,cpu_core/branch-instructions/,1482389,100.00,,
+20652,,cpu_core/branch-misses/,1482389,100.00,,
+3225070,,cpu_core/instructions/,1482389,100.00,,
+2516503,,cpu_core/cpu-cycles/,1482389,100.00,,
+1,,context-switches,1482389,100.00,,
+164,,page-faults,1482389,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+681351,,cpu_core/L1-dcache-loads/,1317113,90.00,,
+14951,,cpu_core/L1-dcache-load-misses/,1317113,90.00,2.19,of all L1-dcache accesses
+563896,,cpu_core/branch-instructions/,1317113,90.00,,
+21669,,cpu_core/branch-misses/,1317113,90.00,,
+3368123,,cpu_core/instructions/,1317113,90.00,,
+2643276,,cpu_core/cpu-cycles/,1317113,90.00,,
+2,,context-switches,1457880,100.00,,
+163,,page-faults,1457880,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+676452,,cpu_core/L1-dcache-loads/,892522,62.00,,
+13333,,cpu_core/L1-dcache-load-misses/,892522,62.00,1.97,of all L1-dcache accesses
+592819,,cpu_core/branch-instructions/,892522,62.00,,
+25209,,cpu_core/branch-misses/,892522,62.00,,
+3615791,,cpu_core/instructions/,892522,62.00,,
+2606249,,cpu_core/cpu-cycles/,892522,62.00,,
+1,,context-switches,1426880,100.00,,
+162,,page-faults,1426880,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+668336,,cpu_core/L1-dcache-loads/,887223,63.00,,
+13145,,cpu_core/L1-dcache-load-misses/,887223,63.00,1.97,of all L1-dcache accesses
+586018,,cpu_core/branch-instructions/,887223,63.00,,
+23692,,cpu_core/branch-misses/,887223,63.00,,
+3576610,,cpu_core/instructions/,887223,63.00,,
+2567859,,cpu_core/cpu-cycles/,887223,63.00,,
+1,,context-switches,1407562,100.00,,
+161,,page-faults,1407562,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+680346,,cpu_core/L1-dcache-loads/,975364,62.00,,
+13657,,cpu_core/L1-dcache-load-misses/,975364,62.00,2.01,of all L1-dcache accesses
+595804,,cpu_core/branch-instructions/,975364,62.00,,
+25182,,cpu_core/branch-misses/,975364,62.00,,
+3634906,,cpu_core/instructions/,975364,62.00,,
+2704180,,cpu_core/cpu-cycles/,975364,62.00,,
+1,,context-switches,1564395,100.00,,
+163,,page-faults,1564395,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+674054,,cpu_core/L1-dcache-loads/,1497775,62.00,,
+13647,,cpu_core/L1-dcache-load-misses/,1497775,62.00,2.02,of all L1-dcache accesses
+591399,,cpu_core/branch-instructions/,1497775,62.00,,
+22855,,cpu_core/branch-misses/,1497775,62.00,,
+3604415,,cpu_core/instructions/,1497775,62.00,,
+2886687,,cpu_core/cpu-cycles/,1497775,62.00,,
+1,,context-switches,2394928,100.00,,
+162,,page-faults,2394928,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+658978,,cpu_core/L1-dcache-loads/,1604210,100.00,,
+14067,,cpu_core/L1-dcache-load-misses/,1604210,100.00,2.13,of all L1-dcache accesses
+541870,,cpu_core/branch-instructions/,1604210,100.00,,
+19584,,cpu_core/branch-misses/,1604210,100.00,,
+3222499,,cpu_core/instructions/,1604210,100.00,,
+2546217,,cpu_core/cpu-cycles/,1604210,100.00,,
+1,,context-switches,1604210,100.00,,
+164,,page-faults,1604210,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+659247,,cpu_core/L1-dcache-loads/,1473806,100.00,,
+14234,,cpu_core/L1-dcache-load-misses/,1473806,100.00,2.16,of all L1-dcache accesses
+541823,,cpu_core/branch-instructions/,1473806,100.00,,
+19906,,cpu_core/branch-misses/,1473806,100.00,,
+3224851,,cpu_core/instructions/,1473806,100.00,,
+2471750,,cpu_core/cpu-cycles/,1473806,100.00,,
+1,,context-switches,1473806,100.00,,
+165,,page-faults,1473806,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+660247,,cpu_core/L1-dcache-loads/,1327649,100.00,,
+14434,,cpu_core/L1-dcache-load-misses/,1327649,100.00,2.19,of all L1-dcache accesses
+542227,,cpu_core/branch-instructions/,1327649,100.00,,
+20339,,cpu_core/branch-misses/,1327649,100.00,,
+3231021,,cpu_core/instructions/,1327649,100.00,,
+2440570,,cpu_core/cpu-cycles/,1327649,100.00,,
+1,,context-switches,1327649,100.00,,
+162,,page-faults,1327649,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+657254,,cpu_core/L1-dcache-loads/,1223965,100.00,,
+14051,,cpu_core/L1-dcache-load-misses/,1223965,100.00,2.14,of all L1-dcache accesses
+540232,,cpu_core/branch-instructions/,1223965,100.00,,
+18895,,cpu_core/branch-misses/,1223965,100.00,,
+3216754,,cpu_core/instructions/,1223965,100.00,,
+2407102,,cpu_core/cpu-cycles/,1223965,100.00,,
+1,,context-switches,1223965,100.00,,
+162,,page-faults,1223965,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+656250,,cpu_core/L1-dcache-loads/,1299872,100.00,,
+14716,,cpu_core/L1-dcache-load-misses/,1299872,100.00,2.24,of all L1-dcache accesses
+539792,,cpu_core/branch-instructions/,1299872,100.00,,
+20606,,cpu_core/branch-misses/,1299872,100.00,,
+3212036,,cpu_core/instructions/,1299872,100.00,,
+2491301,,cpu_core/cpu-cycles/,1299872,100.00,,
+1,,context-switches,1299872,100.00,,
+162,,page-faults,1299872,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+655697,,cpu_core/L1-dcache-loads/,1276694,100.00,,
+13979,,cpu_core/L1-dcache-load-misses/,1276694,100.00,2.13,of all L1-dcache accesses
+539201,,cpu_core/branch-instructions/,1276694,100.00,,
+20970,,cpu_core/branch-misses/,1276694,100.00,,
+3210380,,cpu_core/instructions/,1276694,100.00,,
+2450644,,cpu_core/cpu-cycles/,1276694,100.00,,
+1,,context-switches,1276694,100.00,,
+162,,page-faults,1276694,100.00,,
+
+----- [calibration] H=128 W=128 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=128 W=128 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+680912,,cpu_core/L1-dcache-loads/,662393,93.00,,
+14581,,cpu_core/L1-dcache-load-misses/,662393,93.00,2.14,of all L1-dcache accesses
+563723,,cpu_core/branch-instructions/,662393,93.00,,
+19762,,cpu_core/branch-misses/,662393,93.00,,
+3353427,,cpu_core/instructions/,662393,93.00,,
+2459995,,cpu_core/cpu-cycles/,662393,93.00,,
+1,,context-switches,710228,100.00,,
+163,,page-faults,710228,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1029368,,cpu_core/L1-dcache-loads/,1646937,75.00,,
+14039,,cpu_core/L1-dcache-load-misses/,1646937,75.00,1.36,of all L1-dcache accesses
+1050396,,cpu_core/branch-instructions/,1646937,75.00,,
+54791,,cpu_core/branch-misses/,1646937,75.00,,
+6926787,,cpu_core/instructions/,1646937,75.00,,
+4245202,,cpu_core/cpu-cycles/,1646937,75.00,,
+1,,context-switches,2167903,100.00,,
+265,,page-faults,2167903,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1094348,,cpu_core/L1-dcache-loads/,1637393,76.00,,
+16404,,cpu_core/L1-dcache-load-misses/,1637393,76.00,1.50,of all L1-dcache accesses
+1099811,,cpu_core/branch-instructions/,1637393,76.00,,
+53225,,cpu_core/branch-misses/,1637393,76.00,,
+7201014,,cpu_core/instructions/,1637393,76.00,,
+4388620,,cpu_core/cpu-cycles/,1637393,76.00,,
+2,,context-switches,2154074,100.00,,
+262,,page-faults,2154074,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1032687,,cpu_core/L1-dcache-loads/,2752157,100.00,,
+17233,,cpu_core/L1-dcache-load-misses/,2752157,100.00,1.67,of all L1-dcache accesses
+977247,,cpu_core/branch-instructions/,2752157,100.00,,
+47563,,cpu_core/branch-misses/,2752157,100.00,,
+6282083,,cpu_core/instructions/,2752157,100.00,,
+4551460,,cpu_core/cpu-cycles/,2752157,100.00,,
+1,,context-switches,2752157,100.00,,
+263,,page-faults,2752157,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1033786,,cpu_core/L1-dcache-loads/,2192450,96.00,,
+18422,,cpu_core/L1-dcache-load-misses/,2192450,96.00,1.78,of all L1-dcache accesses
+988747,,cpu_core/branch-instructions/,2192450,96.00,,
+47842,,cpu_core/branch-misses/,2192450,96.00,,
+6362732,,cpu_core/instructions/,2192450,96.00,,
+4204191,,cpu_core/cpu-cycles/,2192450,96.00,,
+2,,context-switches,2261577,100.00,,
+263,,page-faults,2261577,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1044474,,cpu_core/L1-dcache-loads/,1859871,85.00,,
+15431,,cpu_core/L1-dcache-load-misses/,1859871,85.00,1.48,of all L1-dcache accesses
+1026307,,cpu_core/branch-instructions/,1859871,85.00,,
+50152,,cpu_core/branch-misses/,1859871,85.00,,
+6678826,,cpu_core/instructions/,1859871,85.00,,
+4140941,,cpu_core/cpu-cycles/,1859871,85.00,,
+2,,context-switches,2171671,100.00,,
+263,,page-faults,2171671,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1020901,,cpu_core/L1-dcache-loads/,2251424,100.00,,
+16689,,cpu_core/L1-dcache-load-misses/,2251424,100.00,1.63,of all L1-dcache accesses
+970776,,cpu_core/branch-instructions/,2251424,100.00,,
+46415,,cpu_core/branch-misses/,2251424,100.00,,
+6236940,,cpu_core/instructions/,2251424,100.00,,
+4049381,,cpu_core/cpu-cycles/,2251424,100.00,,
+1,,context-switches,2251424,100.00,,
+263,,page-faults,2251424,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1025037,,cpu_core/L1-dcache-loads/,1713620,76.00,,
+14183,,cpu_core/L1-dcache-load-misses/,1713620,76.00,1.38,of all L1-dcache accesses
+1045516,,cpu_core/branch-instructions/,1713620,76.00,,
+52720,,cpu_core/branch-misses/,1713620,76.00,,
+6892734,,cpu_core/instructions/,1713620,76.00,,
+4163884,,cpu_core/cpu-cycles/,1713620,76.00,,
+1,,context-switches,2244643,100.00,,
+264,,page-faults,2244643,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1016436,,cpu_core/L1-dcache-loads/,1581749,100.00,,
+16572,,cpu_core/L1-dcache-load-misses/,1581749,100.00,1.63,of all L1-dcache accesses
+967529,,cpu_core/branch-instructions/,1581749,100.00,,
+46043,,cpu_core/branch-misses/,1581749,100.00,,
+6215701,,cpu_core/instructions/,1581749,100.00,,
+3925749,,cpu_core/cpu-cycles/,1581749,100.00,,
+1,,context-switches,1581749,100.00,,
+263,,page-faults,1581749,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1016932,,cpu_core/L1-dcache-loads/,2250406,100.00,,
+16430,,cpu_core/L1-dcache-load-misses/,2250406,100.00,1.62,of all L1-dcache accesses
+967347,,cpu_core/branch-instructions/,2250406,100.00,,
+45273,,cpu_core/branch-misses/,2250406,100.00,,
+6220125,,cpu_core/instructions/,2250406,100.00,,
+3970786,,cpu_core/cpu-cycles/,2250406,100.00,,
+1,,context-switches,2250406,100.00,,
+263,,page-faults,2250406,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1021871,,cpu_core/L1-dcache-loads/,1694174,76.00,,
+13990,,cpu_core/L1-dcache-load-misses/,1694174,76.00,1.37,of all L1-dcache accesses
+1043438,,cpu_core/branch-instructions/,1694174,76.00,,
+55375,,cpu_core/branch-misses/,1694174,76.00,,
+6883330,,cpu_core/instructions/,1694174,76.00,,
+4150840,,cpu_core/cpu-cycles/,1694174,76.00,,
+1,,context-switches,2221803,100.00,,
+262,,page-faults,2221803,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1039768,,cpu_core/L1-dcache-loads/,1659708,75.00,,
+13914,,cpu_core/L1-dcache-load-misses/,1659708,75.00,1.34,of all L1-dcache accesses
+1060845,,cpu_core/branch-instructions/,1659708,75.00,,
+54679,,cpu_core/branch-misses/,1659708,75.00,,
+6999971,,cpu_core/instructions/,1659708,75.00,,
+4169201,,cpu_core/cpu-cycles/,1659708,75.00,,
+1,,context-switches,2210774,100.00,,
+265,,page-faults,2210774,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1019393,,cpu_core/L1-dcache-loads/,1769062,76.00,,
+15141,,cpu_core/L1-dcache-load-misses/,1769062,76.00,1.49,of all L1-dcache accesses
+1039911,,cpu_core/branch-instructions/,1769062,76.00,,
+52748,,cpu_core/branch-misses/,1769062,76.00,,
+6856269,,cpu_core/instructions/,1769062,76.00,,
+4113794,,cpu_core/cpu-cycles/,1769062,76.00,,
+1,,context-switches,2303858,100.00,,
+262,,page-faults,2303858,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1079601,,cpu_core/L1-dcache-loads/,1010346,72.00,,
+15118,,cpu_core/L1-dcache-load-misses/,1010346,72.00,1.40,of all L1-dcache accesses
+1101206,,cpu_core/branch-instructions/,1010346,72.00,,
+55548,,cpu_core/branch-misses/,1010346,72.00,,
+7264510,,cpu_core/instructions/,1010346,72.00,,
+4432069,,cpu_core/cpu-cycles/,1010346,72.00,,
+1,,context-switches,1395501,100.00,,
+264,,page-faults,1395501,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1018310,,cpu_core/L1-dcache-loads/,1215422,100.00,,
+15953,,cpu_core/L1-dcache-load-misses/,1215422,100.00,1.57,of all L1-dcache accesses
+969008,,cpu_core/branch-instructions/,1215422,100.00,,
+46185,,cpu_core/branch-misses/,1215422,100.00,,
+6223700,,cpu_core/instructions/,1215422,100.00,,
+4147394,,cpu_core/cpu-cycles/,1215422,100.00,,
+1,,context-switches,1215422,100.00,,
+265,,page-faults,1215422,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1046149,,cpu_core/L1-dcache-loads/,1193339,74.00,,
+14322,,cpu_core/L1-dcache-load-misses/,1193339,74.00,1.37,of all L1-dcache accesses
+1067245,,cpu_core/branch-instructions/,1193339,74.00,,
+53798,,cpu_core/branch-misses/,1193339,74.00,,
+7036526,,cpu_core/instructions/,1193339,74.00,,
+4176923,,cpu_core/cpu-cycles/,1193339,74.00,,
+1,,context-switches,1595970,100.00,,
+265,,page-faults,1595970,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1076487,,cpu_core/L1-dcache-loads/,1111998,72.00,,
+14490,,cpu_core/L1-dcache-load-misses/,1111998,72.00,1.35,of all L1-dcache accesses
+1096540,,cpu_core/branch-instructions/,1111998,72.00,,
+55433,,cpu_core/branch-misses/,1111998,72.00,,
+7239271,,cpu_core/instructions/,1111998,72.00,,
+4658092,,cpu_core/cpu-cycles/,1111998,72.00,,
+1,,context-switches,1528058,100.00,,
+264,,page-faults,1528058,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1098844,,cpu_core/L1-dcache-loads/,948987,70.00,,
+15344,,cpu_core/L1-dcache-load-misses/,948987,70.00,1.40,of all L1-dcache accesses
+1122357,,cpu_core/branch-instructions/,948987,70.00,,
+56659,,cpu_core/branch-misses/,948987,70.00,,
+7404429,,cpu_core/instructions/,948987,70.00,,
+4351051,,cpu_core/cpu-cycles/,948987,70.00,,
+1,,context-switches,1339028,100.00,,
+262,,page-faults,1339028,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1107271,,cpu_core/L1-dcache-loads/,1110471,82.00,,
+17285,,cpu_core/L1-dcache-load-misses/,1110471,82.00,1.56,of all L1-dcache accesses
+1082373,,cpu_core/branch-instructions/,1110471,82.00,,
+52444,,cpu_core/branch-misses/,1110471,82.00,,
+7030918,,cpu_core/instructions/,1110471,82.00,,
+4332986,,cpu_core/cpu-cycles/,1110471,82.00,,
+2,,context-switches,1347225,100.00,,
+265,,page-faults,1347225,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1191756,,cpu_core/L1-dcache-loads/,1000686,65.00,,
+16497,,cpu_core/L1-dcache-load-misses/,1000686,65.00,1.38,of all L1-dcache accesses
+1217392,,cpu_core/branch-instructions/,1000686,65.00,,
+63779,,cpu_core/branch-misses/,1000686,65.00,,
+8030910,,cpu_core/instructions/,1000686,65.00,,
+5060149,,cpu_core/cpu-cycles/,1000686,65.00,,
+1,,context-switches,1531901,100.00,,
+263,,page-faults,1531901,100.00,,
+
+----- [calibration] H=256 W=256 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=256 W=256 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1016105,,cpu_core/L1-dcache-loads/,1125615,100.00,,
+16121,,cpu_core/L1-dcache-load-misses/,1125615,100.00,1.59,of all L1-dcache accesses
+966861,,cpu_core/branch-instructions/,1125615,100.00,,
+47423,,cpu_core/branch-misses/,1125615,100.00,,
+6217180,,cpu_core/instructions/,1125615,100.00,,
+4030974,,cpu_core/cpu-cycles/,1125615,100.00,,
+1,,context-switches,1125615,100.00,,
+263,,page-faults,1125615,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2509053,,cpu_core/L1-dcache-loads/,2692196,87.00,,
+23711,,cpu_core/L1-dcache-load-misses/,2692196,87.00,0.95,of all L1-dcache accesses
+2848259,,cpu_core/branch-instructions/,2692196,87.00,,
+163337,,cpu_core/branch-misses/,2692196,87.00,,
+19649878,,cpu_core/instructions/,2692196,87.00,,
+10642131,,cpu_core/cpu-cycles/,2692196,87.00,,
+1,,context-switches,3087162,100.00,,
+646,,page-faults,3087162,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2498601,,cpu_core/L1-dcache-loads/,2886442,87.00,,
+23202,,cpu_core/L1-dcache-load-misses/,2886442,87.00,0.93,of all L1-dcache accesses
+2834427,,cpu_core/branch-instructions/,2886442,87.00,,
+161715,,cpu_core/branch-misses/,2886442,87.00,,
+19555332,,cpu_core/instructions/,2886442,87.00,,
+10597010,,cpu_core/cpu-cycles/,2886442,87.00,,
+1,,context-switches,3291177,100.00,,
+649,,page-faults,3291177,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2497594,,cpu_core/L1-dcache-loads/,3200993,87.00,,
+23693,,cpu_core/L1-dcache-load-misses/,3200993,87.00,0.95,of all L1-dcache accesses
+2833816,,cpu_core/branch-instructions/,3200993,87.00,,
+160289,,cpu_core/branch-misses/,3200993,87.00,,
+19545193,,cpu_core/instructions/,3200993,87.00,,
+10511905,,cpu_core/cpu-cycles/,3200993,87.00,,
+1,,context-switches,3648038,100.00,,
+647,,page-faults,3648038,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2431860,,cpu_core/L1-dcache-loads/,3128710,100.00,,
+25709,,cpu_core/L1-dcache-load-misses/,3128710,100.00,1.06,of all L1-dcache accesses
+2660407,,cpu_core/branch-instructions/,3128710,100.00,,
+148202,,cpu_core/branch-misses/,3128710,100.00,,
+18132350,,cpu_core/instructions/,3128710,100.00,,
+10405101,,cpu_core/cpu-cycles/,3128710,100.00,,
+1,,context-switches,3128710,100.00,,
+651,,page-faults,3128710,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2428043,,cpu_core/L1-dcache-loads/,3043574,100.00,,
+27165,,cpu_core/L1-dcache-load-misses/,3043574,100.00,1.12,of all L1-dcache accesses
+2657353,,cpu_core/branch-instructions/,3043574,100.00,,
+147410,,cpu_core/branch-misses/,3043574,100.00,,
+18119839,,cpu_core/instructions/,3043574,100.00,,
+10215330,,cpu_core/cpu-cycles/,3043574,100.00,,
+1,,context-switches,3043574,100.00,,
+648,,page-faults,3043574,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2436477,,cpu_core/L1-dcache-loads/,4932955,90.00,,
+25515,,cpu_core/L1-dcache-load-misses/,4932955,90.00,1.05,of all L1-dcache accesses
+2763391,,cpu_core/branch-instructions/,4932955,90.00,,
+155479,,cpu_core/branch-misses/,4932955,90.00,,
+19059332,,cpu_core/instructions/,4932955,90.00,,
+10772506,,cpu_core/cpu-cycles/,4932955,90.00,,
+1,,context-switches,5477555,100.00,,
+649,,page-faults,5477555,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2450670,,cpu_core/L1-dcache-loads/,6445892,100.00,,
+29407,,cpu_core/L1-dcache-load-misses/,6445892,100.00,1.20,of all L1-dcache accesses
+2668344,,cpu_core/branch-instructions/,6445892,100.00,,
+146272,,cpu_core/branch-misses/,6445892,100.00,,
+18221530,,cpu_core/instructions/,6445892,100.00,,
+10461531,,cpu_core/cpu-cycles/,6445892,100.00,,
+1,,context-switches,6445892,100.00,,
+646,,page-faults,6445892,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2443090,,cpu_core/L1-dcache-loads/,4776865,89.00,,
+24497,,cpu_core/L1-dcache-load-misses/,4776865,89.00,1.00,of all L1-dcache accesses
+2771239,,cpu_core/branch-instructions/,4776865,89.00,,
+155713,,cpu_core/branch-misses/,4776865,89.00,,
+19112771,,cpu_core/instructions/,4776865,89.00,,
+10032696,,cpu_core/cpu-cycles/,4776865,89.00,,
+1,,context-switches,5321127,100.00,,
+647,,page-faults,5321127,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2432426,,cpu_core/L1-dcache-loads/,5298623,100.00,,
+28001,,cpu_core/L1-dcache-load-misses/,5298623,100.00,1.15,of all L1-dcache accesses
+2660299,,cpu_core/branch-instructions/,5298623,100.00,,
+147155,,cpu_core/branch-misses/,5298623,100.00,,
+18132733,,cpu_core/instructions/,5298623,100.00,,
+10011641,,cpu_core/cpu-cycles/,5298623,100.00,,
+1,,context-switches,5298623,100.00,,
+650,,page-faults,5298623,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2457178,,cpu_core/L1-dcache-loads/,4952044,89.00,,
+27194,,cpu_core/L1-dcache-load-misses/,4952044,89.00,1.11,of all L1-dcache accesses
+2780430,,cpu_core/branch-instructions/,4952044,89.00,,
+156885,,cpu_core/branch-misses/,4952044,89.00,,
+19168195,,cpu_core/instructions/,4952044,89.00,,
+10398501,,cpu_core/cpu-cycles/,4952044,89.00,,
+2,,context-switches,5506693,100.00,,
+651,,page-faults,5506693,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2431418,,cpu_core/L1-dcache-loads/,5157924,100.00,,
+28745,,cpu_core/L1-dcache-load-misses/,5157924,100.00,1.18,of all L1-dcache accesses
+2659938,,cpu_core/branch-instructions/,5157924,100.00,,
+146856,,cpu_core/branch-misses/,5157924,100.00,,
+18130643,,cpu_core/instructions/,5157924,100.00,,
+10037704,,cpu_core/cpu-cycles/,5157924,100.00,,
+1,,context-switches,5157924,100.00,,
+650,,page-faults,5157924,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2450025,,cpu_core/L1-dcache-loads/,4850518,89.00,,
+25503,,cpu_core/L1-dcache-load-misses/,4850518,89.00,1.04,of all L1-dcache accesses
+2779853,,cpu_core/branch-instructions/,4850518,89.00,,
+157108,,cpu_core/branch-misses/,4850518,89.00,,
+19175540,,cpu_core/instructions/,4850518,89.00,,
+10240181,,cpu_core/cpu-cycles/,4850518,89.00,,
+1,,context-switches,5424545,100.00,,
+645,,page-faults,5424545,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2477497,,cpu_core/L1-dcache-loads/,2855516,88.00,,
+25196,,cpu_core/L1-dcache-load-misses/,2855516,88.00,1.02,of all L1-dcache accesses
+2810068,,cpu_core/branch-instructions/,2855516,88.00,,
+159004,,cpu_core/branch-misses/,2855516,88.00,,
+19385313,,cpu_core/instructions/,2855516,88.00,,
+10474350,,cpu_core/cpu-cycles/,2855516,88.00,,
+1,,context-switches,3226221,100.00,,
+650,,page-faults,3226221,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2470154,,cpu_core/L1-dcache-loads/,5574340,95.00,,
+28016,,cpu_core/L1-dcache-load-misses/,5574340,95.00,1.13,of all L1-dcache accesses
+2729387,,cpu_core/branch-instructions/,5574340,95.00,,
+151132,,cpu_core/branch-misses/,5574340,95.00,,
+18664675,,cpu_core/instructions/,5574340,95.00,,
+10280669,,cpu_core/cpu-cycles/,5574340,95.00,,
+2,,context-switches,5832452,100.00,,
+651,,page-faults,5832452,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2415730,,cpu_core/L1-dcache-loads/,5605795,90.00,,
+24811,,cpu_core/L1-dcache-load-misses/,5605795,90.00,1.03,of all L1-dcache accesses
+2738594,,cpu_core/branch-instructions/,5605795,90.00,,
+156702,,cpu_core/branch-misses/,5605795,90.00,,
+18892537,,cpu_core/instructions/,5605795,90.00,,
+10289716,,cpu_core/cpu-cycles/,5605795,90.00,,
+1,,context-switches,6170402,100.00,,
+647,,page-faults,6170402,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2434155,,cpu_core/L1-dcache-loads/,6077521,100.00,,
+29222,,cpu_core/L1-dcache-load-misses/,6077521,100.00,1.20,of all L1-dcache accesses
+2661338,,cpu_core/branch-instructions/,6077521,100.00,,
+146690,,cpu_core/branch-misses/,6077521,100.00,,
+18142971,,cpu_core/instructions/,6077521,100.00,,
+10359206,,cpu_core/cpu-cycles/,6077521,100.00,,
+1,,context-switches,6077521,100.00,,
+645,,page-faults,6077521,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2440004,,cpu_core/L1-dcache-loads/,4800657,89.00,,
+25237,,cpu_core/L1-dcache-load-misses/,4800657,89.00,1.03,of all L1-dcache accesses
+2767658,,cpu_core/branch-instructions/,4800657,89.00,,
+156344,,cpu_core/branch-misses/,4800657,89.00,,
+19090657,,cpu_core/instructions/,4800657,89.00,,
+10106748,,cpu_core/cpu-cycles/,4800657,89.00,,
+1,,context-switches,5342238,100.00,,
+647,,page-faults,5342238,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2427622,,cpu_core/L1-dcache-loads/,5405873,100.00,,
+28676,,cpu_core/L1-dcache-load-misses/,5405873,100.00,1.18,of all L1-dcache accesses
+2656773,,cpu_core/branch-instructions/,5405873,100.00,,
+148428,,cpu_core/branch-misses/,5405873,100.00,,
+18113661,,cpu_core/instructions/,5405873,100.00,,
+10034324,,cpu_core/cpu-cycles/,5405873,100.00,,
+1,,context-switches,5405873,100.00,,
+647,,page-faults,5405873,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2424870,,cpu_core/L1-dcache-loads/,5280587,100.00,,
+28381,,cpu_core/L1-dcache-load-misses/,5280587,100.00,1.17,of all L1-dcache accesses
+2655157,,cpu_core/branch-instructions/,5280587,100.00,,
+147968,,cpu_core/branch-misses/,5280587,100.00,,
+18100277,,cpu_core/instructions/,5280587,100.00,,
+9994547,,cpu_core/cpu-cycles/,5280587,100.00,,
+0,,context-switches,5280587,100.00,,
+649,,page-faults,5280587,100.00,,
+
+----- [calibration] H=512 W=512 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=512 W=512 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+2425453,,cpu_core/L1-dcache-loads/,4923195,90.00,,
+24845,,cpu_core/L1-dcache-load-misses/,4923195,90.00,1.02,of all L1-dcache accesses
+2750503,,cpu_core/branch-instructions/,4923195,90.00,,
+156675,,cpu_core/branch-misses/,4923195,90.00,,
+18969827,,cpu_core/instructions/,4923195,90.00,,
+10044638,,cpu_core/cpu-cycles/,4923195,90.00,,
+1,,context-switches,5440719,100.00,,
+651,,page-faults,5440719,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8104395,,cpu_core/L1-dcache-loads/,16663969,96.00,,
+58031,,cpu_core/L1-dcache-load-misses/,16663969,96.00,0.72,of all L1-dcache accesses
+9552066,,cpu_core/branch-instructions/,16663969,96.00,,
+558865,,cpu_core/branch-misses/,16663969,96.00,,
+66879613,,cpu_core/instructions/,16663969,96.00,,
+34959423,,cpu_core/cpu-cycles/,16663969,96.00,,
+2,,context-switches,17196363,100.00,,
+2185,,page-faults,17196363,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8072435,,cpu_core/L1-dcache-loads/,17310113,100.00,,
+59655,,cpu_core/L1-dcache-load-misses/,17310113,100.00,0.74,of all L1-dcache accesses
+9414132,,cpu_core/branch-instructions/,17310113,100.00,,
+550340,,cpu_core/branch-misses/,17310113,100.00,,
+65687856,,cpu_core/instructions/,17310113,100.00,,
+34837155,,cpu_core/cpu-cycles/,17310113,100.00,,
+0,,context-switches,17310113,100.00,,
+2186,,page-faults,17310113,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8097829,,cpu_core/L1-dcache-loads/,15652195,96.00,,
+53949,,cpu_core/L1-dcache-load-misses/,15652195,96.00,0.67,of all L1-dcache accesses
+9555613,,cpu_core/branch-instructions/,15652195,96.00,,
+560693,,cpu_core/branch-misses/,15652195,96.00,,
+66915621,,cpu_core/instructions/,15652195,96.00,,
+34422127,,cpu_core/cpu-cycles/,15652195,96.00,,
+1,,context-switches,16187294,100.00,,
+2189,,page-faults,16187294,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8087362,,cpu_core/L1-dcache-loads/,16283617,96.00,,
+52259,,cpu_core/L1-dcache-load-misses/,16283617,96.00,0.65,of all L1-dcache accesses
+9543883,,cpu_core/branch-instructions/,16283617,96.00,,
+555979,,cpu_core/branch-misses/,16283617,96.00,,
+66835049,,cpu_core/instructions/,16283617,96.00,,
+35757201,,cpu_core/cpu-cycles/,16283617,96.00,,
+1,,context-switches,16821571,100.00,,
+2186,,page-faults,16821571,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8072039,,cpu_core/L1-dcache-loads/,17859978,100.00,,
+56218,,cpu_core/L1-dcache-load-misses/,17859978,100.00,0.70,of all L1-dcache accesses
+9414002,,cpu_core/branch-instructions/,17859978,100.00,,
+547831,,cpu_core/branch-misses/,17859978,100.00,,
+65689824,,cpu_core/instructions/,17859978,100.00,,
+35596021,,cpu_core/cpu-cycles/,17859978,100.00,,
+1,,context-switches,17859978,100.00,,
+2185,,page-faults,17859978,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8105360,,cpu_core/L1-dcache-loads/,15706269,96.00,,
+56016,,cpu_core/L1-dcache-load-misses/,15706269,96.00,0.69,of all L1-dcache accesses
+9563603,,cpu_core/branch-instructions/,15706269,96.00,,
+560453,,cpu_core/branch-misses/,15706269,96.00,,
+66969842,,cpu_core/instructions/,15706269,96.00,,
+34946864,,cpu_core/cpu-cycles/,15706269,96.00,,
+1,,context-switches,16255114,100.00,,
+2184,,page-faults,16255114,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8065587,,cpu_core/L1-dcache-loads/,16637527,100.00,,
+59237,,cpu_core/L1-dcache-load-misses/,16637527,100.00,0.73,of all L1-dcache accesses
+9409906,,cpu_core/branch-instructions/,16637527,100.00,,
+544417,,cpu_core/branch-misses/,16637527,100.00,,
+65662765,,cpu_core/instructions/,16637527,100.00,,
+34421188,,cpu_core/cpu-cycles/,16637527,100.00,,
+1,,context-switches,16637527,100.00,,
+2187,,page-faults,16637527,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8071542,,cpu_core/L1-dcache-loads/,16115310,100.00,,
+57590,,cpu_core/L1-dcache-load-misses/,16115310,100.00,0.71,of all L1-dcache accesses
+9413463,,cpu_core/branch-instructions/,16115310,100.00,,
+546160,,cpu_core/branch-misses/,16115310,100.00,,
+65683598,,cpu_core/instructions/,16115310,100.00,,
+35147643,,cpu_core/cpu-cycles/,16115310,100.00,,
+0,,context-switches,16115310,100.00,,
+2188,,page-faults,16115310,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8094513,,cpu_core/L1-dcache-loads/,15723795,96.00,,
+56614,,cpu_core/L1-dcache-load-misses/,15723795,96.00,0.70,of all L1-dcache accesses
+9551426,,cpu_core/branch-instructions/,15723795,96.00,,
+556656,,cpu_core/branch-misses/,15723795,96.00,,
+66886152,,cpu_core/instructions/,15723795,96.00,,
+34790148,,cpu_core/cpu-cycles/,15723795,96.00,,
+1,,context-switches,16253850,100.00,,
+2186,,page-faults,16253850,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8173876,,cpu_core/L1-dcache-loads/,16885049,97.00,,
+61607,,cpu_core/L1-dcache-load-misses/,16885049,97.00,0.75,of all L1-dcache accesses
+9576655,,cpu_core/branch-instructions/,16885049,97.00,,
+554423,,cpu_core/branch-misses/,16885049,97.00,,
+67141927,,cpu_core/instructions/,16885049,97.00,,
+36188393,,cpu_core/cpu-cycles/,16885049,97.00,,
+1,,context-switches,17386276,100.00,,
+2184,,page-faults,17386276,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8123860,,cpu_core/L1-dcache-loads/,17693501,96.00,,
+58571,,cpu_core/L1-dcache-load-misses/,17693501,96.00,0.72,of all L1-dcache accesses
+9580984,,cpu_core/branch-instructions/,17693501,96.00,,
+562790,,cpu_core/branch-misses/,17693501,96.00,,
+67088496,,cpu_core/instructions/,17693501,96.00,,
+35186853,,cpu_core/cpu-cycles/,17693501,96.00,,
+1,,context-switches,18337008,100.00,,
+2184,,page-faults,18337008,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8095537,,cpu_core/L1-dcache-loads/,16495790,96.00,,
+53366,,cpu_core/L1-dcache-load-misses/,16495790,96.00,0.66,of all L1-dcache accesses
+9549637,,cpu_core/branch-instructions/,16495790,96.00,,
+562658,,cpu_core/branch-misses/,16495790,96.00,,
+66872909,,cpu_core/instructions/,16495790,96.00,,
+35603622,,cpu_core/cpu-cycles/,16495790,96.00,,
+1,,context-switches,17044271,100.00,,
+2187,,page-faults,17044271,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8163324,,cpu_core/L1-dcache-loads/,17390802,96.00,,
+56656,,cpu_core/L1-dcache-load-misses/,17390802,96.00,0.69,of all L1-dcache accesses
+9625936,,cpu_core/branch-instructions/,17390802,96.00,,
+565373,,cpu_core/branch-misses/,17390802,96.00,,
+67378513,,cpu_core/instructions/,17390802,96.00,,
+35821617,,cpu_core/cpu-cycles/,17390802,96.00,,
+1,,context-switches,18089313,100.00,,
+2185,,page-faults,18089313,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8107959,,cpu_core/L1-dcache-loads/,16608812,96.00,,
+52434,,cpu_core/L1-dcache-load-misses/,16608812,96.00,0.65,of all L1-dcache accesses
+9567170,,cpu_core/branch-instructions/,16608812,96.00,,
+562390,,cpu_core/branch-misses/,16608812,96.00,,
+66996815,,cpu_core/instructions/,16608812,96.00,,
+36324205,,cpu_core/cpu-cycles/,16608812,96.00,,
+1,,context-switches,17197058,100.00,,
+2188,,page-faults,17197058,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8072366,,cpu_core/L1-dcache-loads/,17296563,100.00,,
+60194,,cpu_core/L1-dcache-load-misses/,17296563,100.00,0.75,of all L1-dcache accesses
+9413752,,cpu_core/branch-instructions/,17296563,100.00,,
+543873,,cpu_core/branch-misses/,17296563,100.00,,
+65689772,,cpu_core/instructions/,17296563,100.00,,
+35286970,,cpu_core/cpu-cycles/,17296563,100.00,,
+1,,context-switches,17296563,100.00,,
+2183,,page-faults,17296563,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8065257,,cpu_core/L1-dcache-loads/,16319199,100.00,,
+51280,,cpu_core/L1-dcache-load-misses/,16319199,100.00,0.64,of all L1-dcache accesses
+9409782,,cpu_core/branch-instructions/,16319199,100.00,,
+549591,,cpu_core/branch-misses/,16319199,100.00,,
+65661722,,cpu_core/instructions/,16319199,100.00,,
+35055495,,cpu_core/cpu-cycles/,16319199,100.00,,
+1,,context-switches,16319199,100.00,,
+2186,,page-faults,16319199,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8095988,,cpu_core/L1-dcache-loads/,15749491,96.00,,
+53560,,cpu_core/L1-dcache-load-misses/,15749491,96.00,0.66,of all L1-dcache accesses
+9554557,,cpu_core/branch-instructions/,15749491,96.00,,
+560354,,cpu_core/branch-misses/,15749491,96.00,,
+66907911,,cpu_core/instructions/,15749491,96.00,,
+34982376,,cpu_core/cpu-cycles/,15749491,96.00,,
+1,,context-switches,16288600,100.00,,
+2185,,page-faults,16288600,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8077291,,cpu_core/L1-dcache-loads/,16221995,96.00,,
+54308,,cpu_core/L1-dcache-load-misses/,16221995,96.00,0.67,of all L1-dcache accesses
+9531587,,cpu_core/branch-instructions/,16221995,96.00,,
+555041,,cpu_core/branch-misses/,16221995,96.00,,
+66747743,,cpu_core/instructions/,16221995,96.00,,
+34680135,,cpu_core/cpu-cycles/,16221995,96.00,,
+1,,context-switches,16735256,100.00,,
+2188,,page-faults,16735256,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8122227,,cpu_core/L1-dcache-loads/,17255229,96.00,,
+52690,,cpu_core/L1-dcache-load-misses/,17255229,96.00,0.65,of all L1-dcache accesses
+9580905,,cpu_core/branch-instructions/,17255229,96.00,,
+562552,,cpu_core/branch-misses/,17255229,96.00,,
+67085660,,cpu_core/instructions/,17255229,96.00,,
+35686838,,cpu_core/cpu-cycles/,17255229,96.00,,
+1,,context-switches,17883522,100.00,,
+2186,,page-faults,17883522,100.00,,
+
+----- [calibration] H=1024 W=1024 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=1024 W=1024 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+8086769,,cpu_core/L1-dcache-loads/,16555333,96.00,,
+54008,,cpu_core/L1-dcache-load-misses/,16555333,96.00,0.67,of all L1-dcache accesses
+9543765,,cpu_core/branch-instructions/,16555333,96.00,,
+564531,,cpu_core/branch-misses/,16555333,96.00,,
+66835698,,cpu_core/instructions/,16555333,96.00,,
+35425270,,cpu_core/cpu-cycles/,16555333,96.00,,
+1,,context-switches,17103924,100.00,,
+2183,,page-faults,17103924,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30840815,,cpu_core/L1-dcache-loads/,43711581,98.00,,
+178270,,cpu_core/L1-dcache-load-misses/,43711581,98.00,0.58,of all L1-dcache accesses
+36785447,,cpu_core/branch-instructions/,43711581,98.00,,
+2164338,,cpu_core/branch-misses/,43711581,98.00,,
+258667799,,cpu_core/instructions/,43711581,98.00,,
+137887484,,cpu_core/cpu-cycles/,43711581,98.00,,
+1,,context-switches,44324594,100.00,,
+8332,,page-faults,44324594,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30744768,,cpu_core/L1-dcache-loads/,40377582,98.00,,
+168509,,cpu_core/L1-dcache-load-misses/,40377582,98.00,0.55,of all L1-dcache accesses
+36701942,,cpu_core/branch-instructions/,40377582,98.00,,
+2159922,,cpu_core/branch-misses/,40377582,98.00,,
+258104610,,cpu_core/instructions/,40377582,98.00,,
+136443991,,cpu_core/cpu-cycles/,40377582,98.00,,
+1,,context-switches,40912923,100.00,,
+8332,,page-faults,40912923,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30775170,,cpu_core/L1-dcache-loads/,40335981,98.00,,
+174919,,cpu_core/L1-dcache-load-misses/,40335981,98.00,0.57,of all L1-dcache accesses
+36732052,,cpu_core/branch-instructions/,40335981,98.00,,
+2167908,,cpu_core/branch-misses/,40335981,98.00,,
+258316759,,cpu_core/instructions/,40335981,98.00,,
+137044575,,cpu_core/cpu-cycles/,40335981,98.00,,
+1,,context-switches,40898217,100.00,,
+8332,,page-faults,40898217,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30688743,,cpu_core/L1-dcache-loads/,41101179,98.00,,
+165790,,cpu_core/L1-dcache-load-misses/,41101179,98.00,0.54,of all L1-dcache accesses
+36626608,,cpu_core/branch-instructions/,41101179,98.00,,
+2159730,,cpu_core/branch-misses/,41101179,98.00,,
+257570445,,cpu_core/instructions/,41101179,98.00,,
+136201443,,cpu_core/cpu-cycles/,41101179,98.00,,
+2,,context-switches,41550485,100.00,,
+8334,,page-faults,41550485,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30776545,,cpu_core/L1-dcache-loads/,40712054,98.00,,
+170416,,cpu_core/L1-dcache-load-misses/,40712054,98.00,0.55,of all L1-dcache accesses
+36732356,,cpu_core/branch-instructions/,40712054,98.00,,
+2168287,,cpu_core/branch-misses/,40712054,98.00,,
+258319504,,cpu_core/instructions/,40712054,98.00,,
+136918202,,cpu_core/cpu-cycles/,40712054,98.00,,
+2,,context-switches,41279066,100.00,,
+8333,,page-faults,41279066,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30756283,,cpu_core/L1-dcache-loads/,39975499,98.00,,
+169255,,cpu_core/L1-dcache-load-misses/,39975499,98.00,0.55,of all L1-dcache accesses
+36709800,,cpu_core/branch-instructions/,39975499,98.00,,
+2167841,,cpu_core/branch-misses/,39975499,98.00,,
+258161949,,cpu_core/instructions/,39975499,98.00,,
+136739950,,cpu_core/cpu-cycles/,39975499,98.00,,
+1,,context-switches,40509425,100.00,,
+8333,,page-faults,40509425,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30692283,,cpu_core/L1-dcache-loads/,40259483,98.00,,
+170172,,cpu_core/L1-dcache-load-misses/,40259483,98.00,0.55,of all L1-dcache accesses
+36635820,,cpu_core/branch-instructions/,40259483,98.00,,
+2155948,,cpu_core/branch-misses/,40259483,98.00,,
+257643531,,cpu_core/instructions/,40259483,98.00,,
+136816864,,cpu_core/cpu-cycles/,40259483,98.00,,
+1,,context-switches,40717517,100.00,,
+8333,,page-faults,40717517,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30808499,,cpu_core/L1-dcache-loads/,37561307,98.00,,
+165989,,cpu_core/L1-dcache-load-misses/,37561307,98.00,0.54,of all L1-dcache accesses
+36765258,,cpu_core/branch-instructions/,37561307,98.00,,
+2165297,,cpu_core/branch-misses/,37561307,98.00,,
+258541340,,cpu_core/instructions/,37561307,98.00,,
+139814338,,cpu_core/cpu-cycles/,37561307,98.00,,
+2,,context-switches,38110658,100.00,,
+8337,,page-faults,38110658,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30593237,,cpu_core/L1-dcache-loads/,45104516,100.00,,
+173198,,cpu_core/L1-dcache-load-misses/,45104516,100.00,0.57,of all L1-dcache accesses
+36400670,,cpu_core/branch-instructions/,45104516,100.00,,
+2141898,,cpu_core/branch-misses/,45104516,100.00,,
+255744838,,cpu_core/instructions/,45104516,100.00,,
+136899602,,cpu_core/cpu-cycles/,45104516,100.00,,
+1,,context-switches,45104516,100.00,,
+8335,,page-faults,45104516,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30783443,,cpu_core/L1-dcache-loads/,41738468,98.00,,
+168299,,cpu_core/L1-dcache-load-misses/,41738468,98.00,0.55,of all L1-dcache accesses
+36745211,,cpu_core/branch-instructions/,41738468,98.00,,
+2167748,,cpu_core/branch-misses/,41738468,98.00,,
+258410322,,cpu_core/instructions/,41738468,98.00,,
+138361085,,cpu_core/cpu-cycles/,41738468,98.00,,
+1,,context-switches,42339197,100.00,,
+8333,,page-faults,42339197,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30882748,,cpu_core/L1-dcache-loads/,42821234,98.00,,
+174879,,cpu_core/L1-dcache-load-misses/,42821234,98.00,0.57,of all L1-dcache accesses
+36860153,,cpu_core/branch-instructions/,42821234,98.00,,
+2172491,,cpu_core/branch-misses/,42821234,98.00,,
+259211313,,cpu_core/instructions/,42821234,98.00,,
+137555392,,cpu_core/cpu-cycles/,42821234,98.00,,
+1,,context-switches,43567815,100.00,,
+8335,,page-faults,43567815,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30594616,,cpu_core/L1-dcache-loads/,42875085,100.00,,
+173892,,cpu_core/L1-dcache-load-misses/,42875085,100.00,0.57,of all L1-dcache accesses
+36401915,,cpu_core/branch-instructions/,42875085,100.00,,
+2142890,,cpu_core/branch-misses/,42875085,100.00,,
+255751903,,cpu_core/instructions/,42875085,100.00,,
+137891402,,cpu_core/cpu-cycles/,42875085,100.00,,
+1,,context-switches,42875085,100.00,,
+8337,,page-faults,42875085,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30838660,,cpu_core/L1-dcache-loads/,40828451,98.00,,
+172644,,cpu_core/L1-dcache-load-misses/,40828451,98.00,0.56,of all L1-dcache accesses
+36806361,,cpu_core/branch-instructions/,40828451,98.00,,
+2170653,,cpu_core/branch-misses/,40828451,98.00,,
+258836487,,cpu_core/instructions/,40828451,98.00,,
+137018440,,cpu_core/cpu-cycles/,40828451,98.00,,
+1,,context-switches,41480427,100.00,,
+8335,,page-faults,41480427,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30831437,,cpu_core/L1-dcache-loads/,41290920,98.00,,
+171196,,cpu_core/L1-dcache-load-misses/,41290920,98.00,0.56,of all L1-dcache accesses
+36796887,,cpu_core/branch-instructions/,41290920,98.00,,
+2170195,,cpu_core/branch-misses/,41290920,98.00,,
+258767997,,cpu_core/instructions/,41290920,98.00,,
+138180627,,cpu_core/cpu-cycles/,41290920,98.00,,
+1,,context-switches,41936893,100.00,,
+8336,,page-faults,41936893,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30806508,,cpu_core/L1-dcache-loads/,42554945,98.00,,
+170105,,cpu_core/L1-dcache-load-misses/,42554945,98.00,0.55,of all L1-dcache accesses
+36755096,,cpu_core/branch-instructions/,42554945,98.00,,
+2168996,,cpu_core/branch-misses/,42554945,98.00,,
+258426701,,cpu_core/instructions/,42554945,98.00,,
+139601951,,cpu_core/cpu-cycles/,42554945,98.00,,
+2,,context-switches,43141660,100.00,,
+8334,,page-faults,43141660,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30791577,,cpu_core/L1-dcache-loads/,41786397,98.00,,
+170947,,cpu_core/L1-dcache-load-misses/,41786397,98.00,0.56,of all L1-dcache accesses
+36750385,,cpu_core/branch-instructions/,41786397,98.00,,
+2166800,,cpu_core/branch-misses/,41786397,98.00,,
+258441237,,cpu_core/instructions/,41786397,98.00,,
+138787995,,cpu_core/cpu-cycles/,41786397,98.00,,
+1,,context-switches,42388258,100.00,,
+8335,,page-faults,42388258,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30797404,,cpu_core/L1-dcache-loads/,42170198,98.00,,
+165063,,cpu_core/L1-dcache-load-misses/,42170198,98.00,0.54,of all L1-dcache accesses
+36759494,,cpu_core/branch-instructions/,42170198,98.00,,
+2175180,,cpu_core/branch-misses/,42170198,98.00,,
+258507811,,cpu_core/instructions/,42170198,98.00,,
+142408879,,cpu_core/cpu-cycles/,42170198,98.00,,
+1,,context-switches,42790181,100.00,,
+8335,,page-faults,42790181,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30834333,,cpu_core/L1-dcache-loads/,41624826,98.00,,
+173110,,cpu_core/L1-dcache-load-misses/,41624826,98.00,0.56,of all L1-dcache accesses
+36802702,,cpu_core/branch-instructions/,41624826,98.00,,
+2174792,,cpu_core/branch-misses/,41624826,98.00,,
+258817373,,cpu_core/instructions/,41624826,98.00,,
+138018833,,cpu_core/cpu-cycles/,41624826,98.00,,
+1,,context-switches,42288164,100.00,,
+8335,,page-faults,42288164,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30833944,,cpu_core/L1-dcache-loads/,41426148,98.00,,
+171450,,cpu_core/L1-dcache-load-misses/,41426148,98.00,0.56,of all L1-dcache accesses
+36803209,,cpu_core/branch-instructions/,41426148,98.00,,
+2168343,,cpu_core/branch-misses/,41426148,98.00,,
+258816797,,cpu_core/instructions/,41426148,98.00,,
+138875377,,cpu_core/cpu-cycles/,41426148,98.00,,
+1,,context-switches,42086235,100.00,,
+8334,,page-faults,42086235,100.00,,
+
+----- [calibration] H=2048 W=2048 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+30839354,,cpu_core/L1-dcache-loads/,41645191,98.00,,
+169407,,cpu_core/L1-dcache-load-misses/,41645191,98.00,0.55,of all L1-dcache accesses
+36808520,,cpu_core/branch-instructions/,41645191,98.00,,
+2169561,,cpu_core/branch-misses/,41645191,98.00,,
+258850179,,cpu_core/instructions/,41645191,98.00,,
+139204162,,cpu_core/cpu-cycles/,41645191,98.00,,
+1,,context-switches,42312373,100.00,,
+8334,,page-faults,42312373,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121199966,,cpu_core/L1-dcache-loads/,149206525,99.00,,
+672945,,cpu_core/L1-dcache-load-misses/,149206525,99.00,0.56,of all L1-dcache accesses
+144975178,,cpu_core/branch-instructions/,149206525,99.00,,
+8540749,,cpu_core/branch-misses/,149206525,99.00,,
+1020550567,,cpu_core/instructions/,149206525,99.00,,
+547921796,,cpu_core/cpu-cycles/,149206525,99.00,,
+2,,context-switches,149796072,100.00,,
+32916,,page-faults,149796072,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120781662,,cpu_core/L1-dcache-loads/,151652878,100.00,,
+674936,,cpu_core/L1-dcache-load-misses/,151652878,100.00,0.56,of all L1-dcache accesses
+144427475,,cpu_core/branch-instructions/,151652878,100.00,,
+8517956,,cpu_core/branch-misses/,151652878,100.00,,
+1016514618,,cpu_core/instructions/,151652878,100.00,,
+542555886,,cpu_core/cpu-cycles/,151652878,100.00,,
+4,,context-switches,151652878,100.00,,
+32916,,page-faults,151652878,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120867483,,cpu_core/L1-dcache-loads/,145389471,99.00,,
+658337,,cpu_core/L1-dcache-load-misses/,145389471,99.00,0.54,of all L1-dcache accesses
+144649348,,cpu_core/branch-instructions/,145389471,99.00,,
+8533971,,cpu_core/branch-misses/,145389471,99.00,,
+1018330455,,cpu_core/instructions/,145389471,99.00,,
+540197587,,cpu_core/cpu-cycles/,145389471,99.00,,
+1,,context-switches,145798269,100.00,,
+32917,,page-faults,145798269,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120776785,,cpu_core/L1-dcache-loads/,147877735,100.00,,
+663637,,cpu_core/L1-dcache-load-misses/,147877735,100.00,0.55,of all L1-dcache accesses
+144423050,,cpu_core/branch-instructions/,147877735,100.00,,
+8526937,,cpu_core/branch-misses/,147877735,100.00,,
+1016489729,,cpu_core/instructions/,147877735,100.00,,
+542982060,,cpu_core/cpu-cycles/,147877735,100.00,,
+2,,context-switches,147877735,100.00,,
+32918,,page-faults,147877735,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120867929,,cpu_core/L1-dcache-loads/,144625782,99.00,,
+657779,,cpu_core/L1-dcache-load-misses/,144625782,99.00,0.54,of all L1-dcache accesses
+144648794,,cpu_core/branch-instructions/,144625782,99.00,,
+8531015,,cpu_core/branch-misses/,144625782,99.00,,
+1018312134,,cpu_core/instructions/,144625782,99.00,,
+542283805,,cpu_core/cpu-cycles/,144625782,99.00,,
+3,,context-switches,145025100,100.00,,
+32917,,page-faults,145025100,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121065516,,cpu_core/L1-dcache-loads/,146688468,99.00,,
+653556,,cpu_core/L1-dcache-load-misses/,146688468,99.00,0.54,of all L1-dcache accesses
+144888763,,cpu_core/branch-instructions/,146688468,99.00,,
+8547685,,cpu_core/branch-misses/,146688468,99.00,,
+1020021346,,cpu_core/instructions/,146688468,99.00,,
+544899701,,cpu_core/cpu-cycles/,146688468,99.00,,
+4,,context-switches,147348130,100.00,,
+32918,,page-faults,147348130,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121057333,,cpu_core/L1-dcache-loads/,152644429,99.00,,
+612669,,cpu_core/L1-dcache-load-misses/,152644429,99.00,0.51,of all L1-dcache accesses
+144872031,,cpu_core/branch-instructions/,152644429,99.00,,
+8555928,,cpu_core/branch-misses/,152644429,99.00,,
+1019897156,,cpu_core/instructions/,152644429,99.00,,
+561860697,,cpu_core/cpu-cycles/,152644429,99.00,,
+2,,context-switches,153305354,100.00,,
+32917,,page-faults,153305354,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120789650,,cpu_core/L1-dcache-loads/,148267853,99.00,,
+670129,,cpu_core/L1-dcache-load-misses/,148267853,99.00,0.55,of all L1-dcache accesses
+144449381,,cpu_core/branch-instructions/,148267853,99.00,,
+8516159,,cpu_core/branch-misses/,148267853,99.00,,
+1016682050,,cpu_core/instructions/,148267853,99.00,,
+545360224,,cpu_core/cpu-cycles/,148267853,99.00,,
+3,,context-switches,148306809,100.00,,
+32920,,page-faults,148306809,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120789100,,cpu_core/L1-dcache-loads/,151774032,100.00,,
+668320,,cpu_core/L1-dcache-load-misses/,151774032,100.00,0.55,of all L1-dcache accesses
+144432040,,cpu_core/branch-instructions/,151774032,100.00,,
+8513900,,cpu_core/branch-misses/,151774032,100.00,,
+1016541573,,cpu_core/instructions/,151774032,100.00,,
+548299161,,cpu_core/cpu-cycles/,151774032,100.00,,
+1,,context-switches,151774032,100.00,,
+32920,,page-faults,151774032,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120911251,,cpu_core/L1-dcache-loads/,146453393,99.00,,
+667728,,cpu_core/L1-dcache-load-misses/,146453393,99.00,0.55,of all L1-dcache accesses
+144697688,,cpu_core/branch-instructions/,146453393,99.00,,
+8533818,,cpu_core/branch-misses/,146453393,99.00,,
+1018658561,,cpu_core/instructions/,146453393,99.00,,
+541913315,,cpu_core/cpu-cycles/,146453393,99.00,,
+1,,context-switches,146905592,100.00,,
+32920,,page-faults,146905592,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121035001,,cpu_core/L1-dcache-loads/,145263883,99.00,,
+659998,,cpu_core/L1-dcache-load-misses/,145263883,99.00,0.55,of all L1-dcache accesses
+144853250,,cpu_core/branch-instructions/,145263883,99.00,,
+8546866,,cpu_core/branch-misses/,145263883,99.00,,
+1019770480,,cpu_core/instructions/,145263883,99.00,,
+540785158,,cpu_core/cpu-cycles/,145263883,99.00,,
+2,,context-switches,145881528,100.00,,
+32918,,page-faults,145881528,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121016559,,cpu_core/L1-dcache-loads/,146633623,99.00,,
+664846,,cpu_core/L1-dcache-load-misses/,146633623,99.00,0.55,of all L1-dcache accesses
+144824401,,cpu_core/branch-instructions/,146633623,99.00,,
+8542815,,cpu_core/branch-misses/,146633623,99.00,,
+1019551687,,cpu_core/instructions/,146633623,99.00,,
+541866580,,cpu_core/cpu-cycles/,146633623,99.00,,
+2,,context-switches,147216623,100.00,,
+32920,,page-faults,147216623,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120875176,,cpu_core/L1-dcache-loads/,145750529,99.00,,
+657524,,cpu_core/L1-dcache-load-misses/,145750529,99.00,0.54,of all L1-dcache accesses
+144656061,,cpu_core/branch-instructions/,145750529,99.00,,
+8532197,,cpu_core/branch-misses/,145750529,99.00,,
+1018368595,,cpu_core/instructions/,145750529,99.00,,
+542745024,,cpu_core/cpu-cycles/,145750529,99.00,,
+2,,context-switches,146160974,100.00,,
+32918,,page-faults,146160974,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120807967,,cpu_core/L1-dcache-loads/,146558460,99.00,,
+655873,,cpu_core/L1-dcache-load-misses/,146558460,99.00,0.54,of all L1-dcache accesses
+144478385,,cpu_core/branch-instructions/,146558460,99.00,,
+8519658,,cpu_core/branch-misses/,146558460,99.00,,
+1016912717,,cpu_core/instructions/,146558460,99.00,,
+540120851,,cpu_core/cpu-cycles/,146558460,99.00,,
+2,,context-switches,146640562,100.00,,
+32917,,page-faults,146640562,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121045856,,cpu_core/L1-dcache-loads/,146290394,99.00,,
+663386,,cpu_core/L1-dcache-load-misses/,146290394,99.00,0.55,of all L1-dcache accesses
+144864091,,cpu_core/branch-instructions/,146290394,99.00,,
+8556406,,cpu_core/branch-misses/,146290394,99.00,,
+1019841371,,cpu_core/instructions/,146290394,99.00,,
+541602103,,cpu_core/cpu-cycles/,146290394,99.00,,
+2,,context-switches,146919870,100.00,,
+32920,,page-faults,146919870,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121023312,,cpu_core/L1-dcache-loads/,146138193,99.00,,
+656440,,cpu_core/L1-dcache-load-misses/,146138193,99.00,0.54,of all L1-dcache accesses
+144832094,,cpu_core/branch-instructions/,146138193,99.00,,
+8541248,,cpu_core/branch-misses/,146138193,99.00,,
+1019615853,,cpu_core/instructions/,146138193,99.00,,
+540492543,,cpu_core/cpu-cycles/,146138193,99.00,,
+2,,context-switches,146730718,100.00,,
+32919,,page-faults,146730718,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+120848367,,cpu_core/L1-dcache-loads/,143754866,99.00,,
+657684,,cpu_core/L1-dcache-load-misses/,143754866,99.00,0.54,of all L1-dcache accesses
+144624798,,cpu_core/branch-instructions/,143754866,99.00,,
+8535119,,cpu_core/branch-misses/,143754866,99.00,,
+1018153399,,cpu_core/instructions/,143754866,99.00,,
+540158312,,cpu_core/cpu-cycles/,143754866,99.00,,
+3,,context-switches,144131931,100.00,,
+32918,,page-faults,144131931,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121012820,,cpu_core/L1-dcache-loads/,147172492,99.00,,
+656326,,cpu_core/L1-dcache-load-misses/,147172492,99.00,0.54,of all L1-dcache accesses
+144820491,,cpu_core/branch-instructions/,147172492,99.00,,
+8550788,,cpu_core/branch-misses/,147172492,99.00,,
+1019534984,,cpu_core/instructions/,147172492,99.00,,
+543840311,,cpu_core/cpu-cycles/,147172492,99.00,,
+2,,context-switches,147758287,100.00,,
+32918,,page-faults,147758287,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121013128,,cpu_core/L1-dcache-loads/,146323165,99.00,,
+678440,,cpu_core/L1-dcache-load-misses/,146323165,99.00,0.56,of all L1-dcache accesses
+144823026,,cpu_core/branch-instructions/,146323165,99.00,,
+8543416,,cpu_core/branch-misses/,146323165,99.00,,
+1019546759,,cpu_core/instructions/,146323165,99.00,,
+541380713,,cpu_core/cpu-cycles/,146323165,99.00,,
+3,,context-switches,146907487,100.00,,
+32919,,page-faults,146907487,100.00,,
+
+----- [calibration] H=4096 W=4096 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+121025828,,cpu_core/L1-dcache-loads/,146530362,99.00,,
+666353,,cpu_core/L1-dcache-load-misses/,146530362,99.00,0.55,of all L1-dcache accesses
+144838566,,cpu_core/branch-instructions/,146530362,99.00,,
+8546943,,cpu_core/branch-misses/,146530362,99.00,,
+1019658824,,cpu_core/instructions/,146530362,99.00,,
+540139556,,cpu_core/cpu-cycles/,146530362,99.00,,
+1,,context-switches,147132492,100.00,,
+32920,,page-faults,147132492,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482457779,,cpu_core/L1-dcache-loads/,576984517,99.00,,
+2629512,,cpu_core/L1-dcache-load-misses/,576984517,99.00,0.55,of all L1-dcache accesses
+577586369,,cpu_core/branch-instructions/,576984517,99.00,,
+34025284,,cpu_core/branch-misses/,576984517,99.00,,
+4067024839,,cpu_core/instructions/,576984517,99.00,,
+2167871130,,cpu_core/cpu-cycles/,576984517,99.00,,
+3,,context-switches,577592761,100.00,,
+131238,,page-faults,577592761,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482502500,,cpu_core/L1-dcache-loads/,573950594,99.00,,
+2626766,,cpu_core/L1-dcache-load-misses/,573950594,99.00,0.54,of all L1-dcache accesses
+577639946,,cpu_core/branch-instructions/,573950594,99.00,,
+34046709,,cpu_core/branch-misses/,573950594,99.00,,
+4067398494,,cpu_core/instructions/,573950594,99.00,,
+2159587855,,cpu_core/cpu-cycles/,573950594,99.00,,
+6,,context-switches,574614083,100.00,,
+131237,,page-faults,574614083,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482463456,,cpu_core/L1-dcache-loads/,575317492,99.00,,
+2663901,,cpu_core/L1-dcache-load-misses/,575317492,99.00,0.55,of all L1-dcache accesses
+577580623,,cpu_core/branch-instructions/,575317492,99.00,,
+34021002,,cpu_core/branch-misses/,575317492,99.00,,
+4066947760,,cpu_core/instructions/,575317492,99.00,,
+2158540709,,cpu_core/cpu-cycles/,575317492,99.00,,
+5,,context-switches,575896850,100.00,,
+131240,,page-faults,575896850,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482465373,,cpu_core/L1-dcache-loads/,577332204,99.00,,
+2666615,,cpu_core/L1-dcache-load-misses/,577332204,99.00,0.55,of all L1-dcache accesses
+577584382,,cpu_core/branch-instructions/,577332204,99.00,,
+34055026,,cpu_core/branch-misses/,577332204,99.00,,
+4066963133,,cpu_core/instructions/,577332204,99.00,,
+2168236339,,cpu_core/cpu-cycles/,577332204,99.00,,
+3,,context-switches,577916128,100.00,,
+131239,,page-faults,577916128,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482500564,,cpu_core/L1-dcache-loads/,578053161,99.00,,
+2655567,,cpu_core/L1-dcache-load-misses/,578053161,99.00,0.55,of all L1-dcache accesses
+577616590,,cpu_core/branch-instructions/,578053161,99.00,,
+34030650,,cpu_core/branch-misses/,578053161,99.00,,
+4067167899,,cpu_core/instructions/,578053161,99.00,,
+2170895075,,cpu_core/cpu-cycles/,578053161,99.00,,
+3,,context-switches,578656374,100.00,,
+131240,,page-faults,578656374,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482451553,,cpu_core/L1-dcache-loads/,578561109,99.00,,
+2663141,,cpu_core/L1-dcache-load-misses/,578561109,99.00,0.55,of all L1-dcache accesses
+577570110,,cpu_core/branch-instructions/,578561109,99.00,,
+34036995,,cpu_core/branch-misses/,578561109,99.00,,
+4066868596,,cpu_core/instructions/,578561109,99.00,,
+2175675830,,cpu_core/cpu-cycles/,578561109,99.00,,
+7,,context-switches,579149680,100.00,,
+131240,,page-faults,579149680,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482452993,,cpu_core/L1-dcache-loads/,579185044,99.00,,
+2714870,,cpu_core/L1-dcache-load-misses/,579185044,99.00,0.56,of all L1-dcache accesses
+577571406,,cpu_core/branch-instructions/,579185044,99.00,,
+34042633,,cpu_core/branch-misses/,579185044,99.00,,
+4066878946,,cpu_core/instructions/,579185044,99.00,,
+2175347119,,cpu_core/cpu-cycles/,579185044,99.00,,
+2,,context-switches,579776360,100.00,,
+131240,,page-faults,579776360,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482456948,,cpu_core/L1-dcache-loads/,577195285,99.00,,
+2648237,,cpu_core/L1-dcache-load-misses/,577195285,99.00,0.55,of all L1-dcache accesses
+577575344,,cpu_core/branch-instructions/,577195285,99.00,,
+34035125,,cpu_core/branch-misses/,577195285,99.00,,
+4066922523,,cpu_core/instructions/,577195285,99.00,,
+2169328730,,cpu_core/cpu-cycles/,577195285,99.00,,
+6,,context-switches,577785285,100.00,,
+131236,,page-faults,577785285,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482406724,,cpu_core/L1-dcache-loads/,575843524,99.00,,
+2628919,,cpu_core/L1-dcache-load-misses/,575843524,99.00,0.54,of all L1-dcache accesses
+577528324,,cpu_core/branch-instructions/,575843524,99.00,,
+34035433,,cpu_core/branch-misses/,575843524,99.00,,
+4066623893,,cpu_core/instructions/,575843524,99.00,,
+2163996904,,cpu_core/cpu-cycles/,575843524,99.00,,
+7,,context-switches,576424016,100.00,,
+131238,,page-faults,576424016,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482264791,,cpu_core/L1-dcache-loads/,577059391,99.00,,
+2668787,,cpu_core/L1-dcache-load-misses/,577059391,99.00,0.55,of all L1-dcache accesses
+577359427,,cpu_core/branch-instructions/,577059391,99.00,,
+34023086,,cpu_core/branch-misses/,577059391,99.00,,
+4065443238,,cpu_core/instructions/,577059391,99.00,,
+2168973168,,cpu_core/cpu-cycles/,577059391,99.00,,
+1,,context-switches,577477072,100.00,,
+131240,,page-faults,577477072,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482269198,,cpu_core/L1-dcache-loads/,579262478,99.00,,
+2653308,,cpu_core/L1-dcache-load-misses/,579262478,99.00,0.55,of all L1-dcache accesses
+577360937,,cpu_core/branch-instructions/,579262478,99.00,,
+34042481,,cpu_core/branch-misses/,579262478,99.00,,
+4065446330,,cpu_core/instructions/,579262478,99.00,,
+2174491472,,cpu_core/cpu-cycles/,579262478,99.00,,
+6,,context-switches,579680698,100.00,,
+131239,,page-faults,579680698,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482493220,,cpu_core/L1-dcache-loads/,579761809,99.00,,
+2697438,,cpu_core/L1-dcache-load-misses/,579761809,99.00,0.56,of all L1-dcache accesses
+577609279,,cpu_core/branch-instructions/,579761809,99.00,,
+34060685,,cpu_core/branch-misses/,579761809,99.00,,
+4067130588,,cpu_core/instructions/,579761809,99.00,,
+2179801205,,cpu_core/cpu-cycles/,579761809,99.00,,
+7,,context-switches,580390018,100.00,,
+131237,,page-faults,580390018,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482286601,,cpu_core/L1-dcache-loads/,576362122,99.00,,
+2679491,,cpu_core/L1-dcache-load-misses/,576362122,99.00,0.56,of all L1-dcache accesses
+577382981,,cpu_core/branch-instructions/,576362122,99.00,,
+34025755,,cpu_core/branch-misses/,576362122,99.00,,
+4065605219,,cpu_core/instructions/,576362122,99.00,,
+2167680410,,cpu_core/cpu-cycles/,576362122,99.00,,
+2,,context-switches,576804213,100.00,,
+131238,,page-faults,576804213,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482502120,,cpu_core/L1-dcache-loads/,577501061,99.00,,
+2661734,,cpu_core/L1-dcache-load-misses/,577501061,99.00,0.55,of all L1-dcache accesses
+577626524,,cpu_core/branch-instructions/,577501061,99.00,,
+34063750,,cpu_core/branch-misses/,577501061,99.00,,
+4067261661,,cpu_core/instructions/,577501061,99.00,,
+2167635889,,cpu_core/cpu-cycles/,577501061,99.00,,
+7,,context-switches,578152638,100.00,,
+131240,,page-faults,578152638,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482390404,,cpu_core/L1-dcache-loads/,574800003,99.00,,
+2678534,,cpu_core/L1-dcache-load-misses/,574800003,99.00,0.56,of all L1-dcache accesses
+577492715,,cpu_core/branch-instructions/,574800003,99.00,,
+34044396,,cpu_core/branch-misses/,574800003,99.00,,
+4066330086,,cpu_core/instructions/,574800003,99.00,,
+2172523256,,cpu_core/cpu-cycles/,574800003,99.00,,
+7,,context-switches,575319536,100.00,,
+131239,,page-faults,575319536,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482329395,,cpu_core/L1-dcache-loads/,575774310,99.00,,
+2700043,,cpu_core/L1-dcache-load-misses/,575774310,99.00,0.56,of all L1-dcache accesses
+577403639,,cpu_core/branch-instructions/,575774310,99.00,,
+34035889,,cpu_core/branch-misses/,575774310,99.00,,
+4065677096,,cpu_core/instructions/,575774310,99.00,,
+2181672441,,cpu_core/cpu-cycles/,575774310,99.00,,
+6,,context-switches,576168489,100.00,,
+131239,,page-faults,576168489,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482412844,,cpu_core/L1-dcache-loads/,578921446,99.00,,
+2677381,,cpu_core/L1-dcache-load-misses/,578921446,99.00,0.55,of all L1-dcache accesses
+577506045,,cpu_core/branch-instructions/,578921446,99.00,,
+34043355,,cpu_core/branch-misses/,578921446,99.00,,
+4066392917,,cpu_core/instructions/,578921446,99.00,,
+2175711732,,cpu_core/cpu-cycles/,578921446,99.00,,
+3,,context-switches,579418775,100.00,,
+131238,,page-faults,579418775,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482352621,,cpu_core/L1-dcache-loads/,575771085,99.00,,
+2684803,,cpu_core/L1-dcache-load-misses/,575771085,99.00,0.56,of all L1-dcache accesses
+577423162,,cpu_core/branch-instructions/,575771085,99.00,,
+34047378,,cpu_core/branch-misses/,575771085,99.00,,
+4065810487,,cpu_core/instructions/,575771085,99.00,,
+2181707176,,cpu_core/cpu-cycles/,575771085,99.00,,
+6,,context-switches,576174852,100.00,,
+131238,,page-faults,576174852,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482365798,,cpu_core/L1-dcache-loads/,579460190,99.00,,
+2640984,,cpu_core/L1-dcache-load-misses/,579460190,99.00,0.55,of all L1-dcache accesses
+577465763,,cpu_core/branch-instructions/,579460190,99.00,,
+34034945,,cpu_core/branch-misses/,579460190,99.00,,
+4066147141,,cpu_core/instructions/,579460190,99.00,,
+2181386290,,cpu_core/cpu-cycles/,579460190,99.00,,
+6,,context-switches,579948664,100.00,,
+131239,,page-faults,579948664,100.00,,
+
+----- [calibration] H=8192 W=8192 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+482447296,,cpu_core/L1-dcache-loads/,576587880,99.00,,
+2625149,,cpu_core/L1-dcache-load-misses/,576587880,99.00,0.54,of all L1-dcache accesses
+577573106,,cpu_core/branch-instructions/,576587880,99.00,,
+34048545,,cpu_core/branch-misses/,576587880,99.00,,
+4066932929,,cpu_core/instructions/,576587880,99.00,,
+2167144558,,cpu_core/cpu-cycles/,576587880,99.00,,
+4,,context-switches,577211242,100.00,,
+131241,,page-faults,577211242,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928788065,,cpu_core/L1-dcache-loads/,2285424699,99.00,,
+10402925,,cpu_core/L1-dcache-load-misses/,2285424699,99.00,0.54,of all L1-dcache accesses
+2309587959,,cpu_core/branch-instructions/,2285424699,99.00,,
+135980891,,cpu_core/branch-misses/,2285424699,99.00,,
+16262470168,,cpu_core/instructions/,2285424699,99.00,,
+8635048317,,cpu_core/cpu-cycles/,2285424699,99.00,,
+16,,context-switches,2285846639,100.00,,
+524486,,page-faults,2285846639,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928993957,,cpu_core/L1-dcache-loads/,2289585394,99.00,,
+10446135,,cpu_core/L1-dcache-load-misses/,2289585394,99.00,0.54,of all L1-dcache accesses
+2309763316,,cpu_core/branch-instructions/,2289585394,99.00,,
+136012766,,cpu_core/branch-misses/,2289585394,99.00,,
+16263646856,,cpu_core/instructions/,2289585394,99.00,,
+8649106649,,cpu_core/cpu-cycles/,2289585394,99.00,,
+19,,context-switches,2290217119,100.00,,
+524484,,page-faults,2290217119,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928666492,,cpu_core/L1-dcache-loads/,2283755286,99.00,,
+10298466,,cpu_core/L1-dcache-load-misses/,2283755286,99.00,0.53,of all L1-dcache accesses
+2309421499,,cpu_core/branch-instructions/,2283755286,99.00,,
+135979727,,cpu_core/branch-misses/,2283755286,99.00,,
+16261388007,,cpu_core/instructions/,2283755286,99.00,,
+8633609960,,cpu_core/cpu-cycles/,2283755286,99.00,,
+12,,context-switches,2284148900,100.00,,
+524488,,page-faults,2284148900,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928633305,,cpu_core/L1-dcache-loads/,2293680368,100.00,,
+10456885,,cpu_core/L1-dcache-load-misses/,2293680368,100.00,0.54,of all L1-dcache accesses
+2309250855,,cpu_core/branch-instructions/,2293680368,100.00,,
+135973373,,cpu_core/branch-misses/,2293680368,100.00,,
+16259921696,,cpu_core/instructions/,2293680368,100.00,,
+8663460329,,cpu_core/cpu-cycles/,2293680368,100.00,,
+16,,context-switches,2293680368,100.00,,
+524485,,page-faults,2293680368,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928811342,,cpu_core/L1-dcache-loads/,2303402842,99.00,,
+10402499,,cpu_core/L1-dcache-load-misses/,2303402842,99.00,0.54,of all L1-dcache accesses
+2309608546,,cpu_core/branch-instructions/,2303402842,99.00,,
+136028751,,cpu_core/branch-misses/,2303402842,99.00,,
+16262798764,,cpu_core/instructions/,2303402842,99.00,,
+8702514427,,cpu_core/cpu-cycles/,2303402842,99.00,,
+13,,context-switches,2304030553,100.00,,
+524487,,page-faults,2304030553,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928899133,,cpu_core/L1-dcache-loads/,2297771823,99.00,,
+10305707,,cpu_core/L1-dcache-load-misses/,2297771823,99.00,0.53,of all L1-dcache accesses
+2309688707,,cpu_core/branch-instructions/,2297771823,99.00,,
+136033504,,cpu_core/branch-misses/,2297771823,99.00,,
+16263263639,,cpu_core/instructions/,2297771823,99.00,,
+8683112048,,cpu_core/cpu-cycles/,2297771823,99.00,,
+15,,context-switches,2298397732,100.00,,
+524483,,page-faults,2298397732,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928731070,,cpu_core/L1-dcache-loads/,2291930485,99.00,,
+10355797,,cpu_core/L1-dcache-load-misses/,2291930485,99.00,0.54,of all L1-dcache accesses
+2309550183,,cpu_core/branch-instructions/,2291930485,99.00,,
+136056635,,cpu_core/branch-misses/,2291930485,99.00,,
+16262480745,,cpu_core/instructions/,2291930485,99.00,,
+8658522766,,cpu_core/cpu-cycles/,2291930485,99.00,,
+16,,context-switches,2292573258,100.00,,
+524487,,page-faults,2292573258,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928943971,,cpu_core/L1-dcache-loads/,2298961585,99.00,,
+10417323,,cpu_core/L1-dcache-load-misses/,2298961585,99.00,0.54,of all L1-dcache accesses
+2309733243,,cpu_core/branch-instructions/,2298961585,99.00,,
+136011023,,cpu_core/branch-misses/,2298961585,99.00,,
+16263505195,,cpu_core/instructions/,2298961585,99.00,,
+8688641893,,cpu_core/cpu-cycles/,2298961585,99.00,,
+14,,context-switches,2299621798,100.00,,
+524487,,page-faults,2299621798,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928805969,,cpu_core/L1-dcache-loads/,2295810376,99.00,,
+10455414,,cpu_core/L1-dcache-load-misses/,2295810376,99.00,0.54,of all L1-dcache accesses
+2309550211,,cpu_core/branch-instructions/,2295810376,99.00,,
+135969311,,cpu_core/branch-misses/,2295810376,99.00,,
+16262164039,,cpu_core/instructions/,2295810376,99.00,,
+8677309647,,cpu_core/cpu-cycles/,2295810376,99.00,,
+19,,context-switches,2296206808,100.00,,
+524485,,page-faults,2296206808,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928774035,,cpu_core/L1-dcache-loads/,2298238925,99.00,,
+10301722,,cpu_core/L1-dcache-load-misses/,2298238925,99.00,0.53,of all L1-dcache accesses
+2309583986,,cpu_core/branch-instructions/,2298238925,99.00,,
+136051761,,cpu_core/branch-misses/,2298238925,99.00,,
+16262683962,,cpu_core/instructions/,2298238925,99.00,,
+8687368069,,cpu_core/cpu-cycles/,2298238925,99.00,,
+12,,context-switches,2298872027,100.00,,
+524487,,page-faults,2298872027,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928884081,,cpu_core/L1-dcache-loads/,2295483745,99.00,,
+10397243,,cpu_core/L1-dcache-load-misses/,2295483745,99.00,0.54,of all L1-dcache accesses
+2309670639,,cpu_core/branch-instructions/,2295483745,99.00,,
+136007323,,cpu_core/branch-misses/,2295483745,99.00,,
+16263137151,,cpu_core/instructions/,2295483745,99.00,,
+8670756255,,cpu_core/cpu-cycles/,2295483745,99.00,,
+19,,context-switches,2296101705,100.00,,
+524488,,page-faults,2296101705,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928595517,,cpu_core/L1-dcache-loads/,2287094443,99.00,,
+10417494,,cpu_core/L1-dcache-load-misses/,2287094443,99.00,0.54,of all L1-dcache accesses
+2309366490,,cpu_core/branch-instructions/,2287094443,99.00,,
+136009045,,cpu_core/branch-misses/,2287094443,99.00,,
+16261110078,,cpu_core/instructions/,2287094443,99.00,,
+8646145223,,cpu_core/cpu-cycles/,2287094443,99.00,,
+14,,context-switches,2287509283,100.00,,
+524487,,page-faults,2287509283,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928770492,,cpu_core/L1-dcache-loads/,2292797408,99.00,,
+10296421,,cpu_core/L1-dcache-load-misses/,2292797408,99.00,0.53,of all L1-dcache accesses
+2309540294,,cpu_core/branch-instructions/,2292797408,99.00,,
+135992433,,cpu_core/branch-misses/,2292797408,99.00,,
+16262210037,,cpu_core/instructions/,2292797408,99.00,,
+8661937730,,cpu_core/cpu-cycles/,2292797408,99.00,,
+16,,context-switches,2293310343,100.00,,
+524483,,page-faults,2293310343,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928764098,,cpu_core/L1-dcache-loads/,2288126868,99.00,,
+10439247,,cpu_core/L1-dcache-load-misses/,2288126868,99.00,0.54,of all L1-dcache accesses
+2309516955,,cpu_core/branch-instructions/,2288126868,99.00,,
+136053205,,cpu_core/branch-misses/,2288126868,99.00,,
+16261990127,,cpu_core/instructions/,2288126868,99.00,,
+8653401191,,cpu_core/cpu-cycles/,2288126868,99.00,,
+12,,context-switches,2288535949,100.00,,
+524486,,page-faults,2288535949,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928660530,,cpu_core/L1-dcache-loads/,2291606402,99.00,,
+10333721,,cpu_core/L1-dcache-load-misses/,2291606402,99.00,0.54,of all L1-dcache accesses
+2309412452,,cpu_core/branch-instructions/,2291606402,99.00,,
+135967326,,cpu_core/branch-misses/,2291606402,99.00,,
+16261366478,,cpu_core/instructions/,2291606402,99.00,,
+8661009273,,cpu_core/cpu-cycles/,2291606402,99.00,,
+11,,context-switches,2291998732,100.00,,
+524486,,page-faults,2291998732,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928691613,,cpu_core/L1-dcache-loads/,2289144519,99.00,,
+10288073,,cpu_core/L1-dcache-load-misses/,2289144519,99.00,0.53,of all L1-dcache accesses
+2309476751,,cpu_core/branch-instructions/,2289144519,99.00,,
+136000580,,cpu_core/branch-misses/,2289144519,99.00,,
+16261872823,,cpu_core/instructions/,2289144519,99.00,,
+8649843943,,cpu_core/cpu-cycles/,2289144519,99.00,,
+17,,context-switches,2289650248,100.00,,
+524487,,page-faults,2289650248,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928649744,,cpu_core/L1-dcache-loads/,2287564830,100.00,,
+10401840,,cpu_core/L1-dcache-load-misses/,2287564830,100.00,0.54,of all L1-dcache accesses
+2309263832,,cpu_core/branch-instructions/,2287564830,100.00,,
+135999825,,cpu_core/branch-misses/,2287564830,100.00,,
+16259924200,,cpu_core/instructions/,2287564830,100.00,,
+8646762829,,cpu_core/cpu-cycles/,2287564830,100.00,,
+22,,context-switches,2287564830,100.00,,
+524486,,page-faults,2287564830,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928706785,,cpu_core/L1-dcache-loads/,2292669838,99.00,,
+10280874,,cpu_core/L1-dcache-load-misses/,2292669838,99.00,0.53,of all L1-dcache accesses
+2309461636,,cpu_core/branch-instructions/,2292669838,99.00,,
+135996586,,cpu_core/branch-misses/,2292669838,99.00,,
+16261679636,,cpu_core/instructions/,2292669838,99.00,,
+8671460285,,cpu_core/cpu-cycles/,2292669838,99.00,,
+15,,context-switches,2293098648,100.00,,
+524488,,page-faults,2293098648,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928698404,,cpu_core/L1-dcache-loads/,2290344109,100.00,,
+10492159,,cpu_core/L1-dcache-load-misses/,2290344109,100.00,0.54,of all L1-dcache accesses
+2309308233,,cpu_core/branch-instructions/,2290344109,100.00,,
+135962886,,cpu_core/branch-misses/,2290344109,100.00,,
+16260237667,,cpu_core/instructions/,2290344109,100.00,,
+8651474884,,cpu_core/cpu-cycles/,2290344109,100.00,,
+16,,context-switches,2290344109,100.00,,
+524487,,page-faults,2290344109,100.00,,
+
+----- [calibration] H=16384 W=16384 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING calibration variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.000000
+--- perf stat -x, ---
+1928803549,,cpu_core/L1-dcache-loads/,2290065095,99.00,,
+10315539,,cpu_core/L1-dcache-load-misses/,2290065095,99.00,0.53,of all L1-dcache accesses
+2309606562,,cpu_core/branch-instructions/,2290065095,99.00,,
+136001403,,cpu_core/branch-misses/,2290065095,99.00,,
+16262814064,,cpu_core/instructions/,2290065095,99.00,,
+8653929480,,cpu_core/cpu-cycles/,2290065095,99.00,,
+17,,context-switches,2290710142,100.00,,
+524486,,page-faults,2290710142,100.00,,
+# finished : 2026-09-06T17:27:41+05:30

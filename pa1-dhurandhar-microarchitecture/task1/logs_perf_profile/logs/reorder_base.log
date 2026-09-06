@@ -1,0 +1,2348 @@
+############################################################
+# label   : reorder_base
+# stage   : reorder      (/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_reorder.cpp)
+# variant : default
+# events  : cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/instructions/,cpu_core/cpu-cycles/,context-switches,page-faults
+# started : 2026-09-06T17:29:25+05:30
+############################################################
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+644449,,cpu_core/L1-dcache-loads/,995581,100.00,,
+14451,,cpu_core/L1-dcache-load-misses/,995581,100.00,2.24,of all L1-dcache accesses
+474105,,cpu_core/branch-instructions/,995581,100.00,,
+15287,,cpu_core/branch-misses/,995581,100.00,,
+2744651,,cpu_core/instructions/,995581,100.00,,
+2148024,,cpu_core/cpu-cycles/,995581,100.00,,
+0,,context-switches,995581,100.00,,
+141,,page-faults,995581,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+704889,,cpu_core/L1-dcache-loads/,891099,58.00,,
+14935,,cpu_core/L1-dcache-load-misses/,891099,58.00,2.12,of all L1-dcache accesses
+523531,,cpu_core/branch-instructions/,891099,58.00,,
+18475,,cpu_core/branch-misses/,891099,58.00,,
+3078292,,cpu_core/instructions/,891099,58.00,,
+2539164,,cpu_core/cpu-cycles/,891099,58.00,,
+1,,context-switches,1514748,100.00,,
+142,,page-faults,1514748,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+699608,,cpu_core/L1-dcache-loads/,845212,58.00,,
+16781,,cpu_core/L1-dcache-load-misses/,845212,58.00,2.40,of all L1-dcache accesses
+519497,,cpu_core/branch-instructions/,845212,58.00,,
+18004,,cpu_core/branch-misses/,845212,58.00,,
+3058280,,cpu_core/instructions/,845212,58.00,,
+2416753,,cpu_core/cpu-cycles/,845212,58.00,,
+1,,context-switches,1437679,100.00,,
+141,,page-faults,1437679,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+849798,,cpu_core/L1-dcache-loads/,405118,48.00,,
+19920,,cpu_core/L1-dcache-load-misses/,405118,48.00,2.34,of all L1-dcache accesses
+631345,,cpu_core/branch-instructions/,405118,48.00,,
+22248,,cpu_core/branch-misses/,405118,48.00,,
+3710870,,cpu_core/instructions/,405118,48.00,,
+2931791,,cpu_core/cpu-cycles/,405118,48.00,,
+1,,context-switches,842050,100.00,,
+141,,page-faults,842050,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+647908,,cpu_core/L1-dcache-loads/,1309001,100.00,,
+15151,,cpu_core/L1-dcache-load-misses/,1309001,100.00,2.34,of all L1-dcache accesses
+476729,,cpu_core/branch-instructions/,1309001,100.00,,
+15014,,cpu_core/branch-misses/,1309001,100.00,,
+2760886,,cpu_core/instructions/,1309001,100.00,,
+2203624,,cpu_core/cpu-cycles/,1309001,100.00,,
+0,,context-switches,1309001,100.00,,
+142,,page-faults,1309001,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+649863,,cpu_core/L1-dcache-loads/,1266933,100.00,,
+14256,,cpu_core/L1-dcache-load-misses/,1266933,100.00,2.19,of all L1-dcache accesses
+477719,,cpu_core/branch-instructions/,1266933,100.00,,
+15189,,cpu_core/branch-misses/,1266933,100.00,,
+2768407,,cpu_core/instructions/,1266933,100.00,,
+2134380,,cpu_core/cpu-cycles/,1266933,100.00,,
+0,,context-switches,1266933,100.00,,
+143,,page-faults,1266933,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+898590,,cpu_core/L1-dcache-loads/,358963,45.00,,
+21839,,cpu_core/L1-dcache-load-misses/,358963,45.00,2.43,of all L1-dcache accesses
+667350,,cpu_core/branch-instructions/,358963,45.00,,
+23265,,cpu_core/branch-misses/,358963,45.00,,
+3922325,,cpu_core/instructions/,358963,45.00,,
+2927566,,cpu_core/cpu-cycles/,358963,45.00,,
+1,,context-switches,784033,100.00,,
+143,,page-faults,784033,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+716069,,cpu_core/L1-dcache-loads/,975530,69.00,,
+15559,,cpu_core/L1-dcache-load-misses/,975530,69.00,2.17,of all L1-dcache accesses
+531608,,cpu_core/branch-instructions/,975530,69.00,,
+17690,,cpu_core/branch-misses/,975530,69.00,,
+3099550,,cpu_core/instructions/,975530,69.00,,
+2498664,,cpu_core/cpu-cycles/,975530,69.00,,
+1,,context-switches,1405953,100.00,,
+145,,page-faults,1405953,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+695493,,cpu_core/L1-dcache-loads/,892629,59.00,,
+14736,,cpu_core/L1-dcache-load-misses/,892629,59.00,2.12,of all L1-dcache accesses
+516713,,cpu_core/branch-instructions/,892629,59.00,,
+18143,,cpu_core/branch-misses/,892629,59.00,,
+3035338,,cpu_core/instructions/,892629,59.00,,
+2524810,,cpu_core/cpu-cycles/,892629,59.00,,
+1,,context-switches,1509918,100.00,,
+140,,page-faults,1509918,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+644204,,cpu_core/L1-dcache-loads/,1246205,100.00,,
+16067,,cpu_core/L1-dcache-load-misses/,1246205,100.00,2.49,of all L1-dcache accesses
+473785,,cpu_core/branch-instructions/,1246205,100.00,,
+16972,,cpu_core/branch-misses/,1246205,100.00,,
+2745826,,cpu_core/instructions/,1246205,100.00,,
+2485711,,cpu_core/cpu-cycles/,1246205,100.00,,
+1,,context-switches,1246205,100.00,,
+139,,page-faults,1246205,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+720125,,cpu_core/L1-dcache-loads/,845973,57.00,,
+15925,,cpu_core/L1-dcache-load-misses/,845973,57.00,2.21,of all L1-dcache accesses
+534951,,cpu_core/branch-instructions/,845973,57.00,,
+18715,,cpu_core/branch-misses/,845973,57.00,,
+3141447,,cpu_core/instructions/,845973,57.00,,
+2452728,,cpu_core/cpu-cycles/,845973,57.00,,
+1,,context-switches,1475974,100.00,,
+143,,page-faults,1475974,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+660117,,cpu_core/L1-dcache-loads/,1282955,95.00,,
+16495,,cpu_core/L1-dcache-load-misses/,1282955,95.00,2.50,of all L1-dcache accesses
+486986,,cpu_core/branch-instructions/,1282955,95.00,,
+15863,,cpu_core/branch-misses/,1282955,95.00,,
+2817086,,cpu_core/instructions/,1282955,95.00,,
+2262725,,cpu_core/cpu-cycles/,1282955,95.00,,
+1,,context-switches,1345295,100.00,,
+142,,page-faults,1345295,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+706577,,cpu_core/L1-dcache-loads/,904841,58.00,,
+16730,,cpu_core/L1-dcache-load-misses/,904841,58.00,2.37,of all L1-dcache accesses
+524601,,cpu_core/branch-instructions/,904841,58.00,,
+18766,,cpu_core/branch-misses/,904841,58.00,,
+3088141,,cpu_core/instructions/,904841,58.00,,
+2510174,,cpu_core/cpu-cycles/,904841,58.00,,
+1,,context-switches,1547769,100.00,,
+140,,page-faults,1547769,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+759652,,cpu_core/L1-dcache-loads/,839820,55.00,,
+18356,,cpu_core/L1-dcache-load-misses/,839820,55.00,2.42,of all L1-dcache accesses
+565533,,cpu_core/branch-instructions/,839820,55.00,,
+19956,,cpu_core/branch-misses/,839820,55.00,,
+3313718,,cpu_core/instructions/,839820,55.00,,
+2981992,,cpu_core/cpu-cycles/,839820,55.00,,
+1,,context-switches,1515115,100.00,,
+143,,page-faults,1515115,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+651643,,cpu_core/L1-dcache-loads/,1322510,99.00,,
+14668,,cpu_core/L1-dcache-load-misses/,1322510,99.00,2.25,of all L1-dcache accesses
+479430,,cpu_core/branch-instructions/,1322510,99.00,,
+15505,,cpu_core/branch-misses/,1322510,99.00,,
+2773989,,cpu_core/instructions/,1322510,99.00,,
+2236922,,cpu_core/cpu-cycles/,1322510,99.00,,
+1,,context-switches,1329132,100.00,,
+144,,page-faults,1329132,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+694342,,cpu_core/L1-dcache-loads/,1073735,67.00,,
+16181,,cpu_core/L1-dcache-load-misses/,1073735,67.00,2.33,of all L1-dcache accesses
+517120,,cpu_core/branch-instructions/,1073735,67.00,,
+18533,,cpu_core/branch-misses/,1073735,67.00,,
+3019244,,cpu_core/instructions/,1073735,67.00,,
+2635644,,cpu_core/cpu-cycles/,1073735,67.00,,
+2,,context-switches,1591263,100.00,,
+144,,page-faults,1591263,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+726484,,cpu_core/L1-dcache-loads/,859043,56.00,,
+14785,,cpu_core/L1-dcache-load-misses/,859043,56.00,2.04,of all L1-dcache accesses
+539461,,cpu_core/branch-instructions/,859043,56.00,,
+18376,,cpu_core/branch-misses/,859043,56.00,,
+3172915,,cpu_core/instructions/,859043,56.00,,
+2470964,,cpu_core/cpu-cycles/,859043,56.00,,
+1,,context-switches,1509912,100.00,,
+142,,page-faults,1509912,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+801658,,cpu_core/L1-dcache-loads/,865515,51.00,,
+16553,,cpu_core/L1-dcache-load-misses/,865515,51.00,2.06,of all L1-dcache accesses
+595418,,cpu_core/branch-instructions/,865515,51.00,,
+18756,,cpu_core/branch-misses/,865515,51.00,,
+3499785,,cpu_core/instructions/,865515,51.00,,
+2819173,,cpu_core/cpu-cycles/,865515,51.00,,
+1,,context-switches,1689945,100.00,,
+140,,page-faults,1689945,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+720370,,cpu_core/L1-dcache-loads/,866466,57.00,,
+14757,,cpu_core/L1-dcache-load-misses/,866466,57.00,2.05,of all L1-dcache accesses
+534720,,cpu_core/branch-instructions/,866466,57.00,,
+16772,,cpu_core/branch-misses/,866466,57.00,,
+3145728,,cpu_core/instructions/,866466,57.00,,
+2480331,,cpu_core/cpu-cycles/,866466,57.00,,
+1,,context-switches,1516666,100.00,,
+141,,page-faults,1516666,100.00,,
+
+----- [reorder_base] H=64 W=64 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=64 W=64 K=3 seed=1234
+checksum -1.144976
+--- perf stat -x, ---
+743571,,cpu_core/L1-dcache-loads/,825741,55.00,,
+14903,,cpu_core/L1-dcache-load-misses/,825741,55.00,2.00,of all L1-dcache accesses
+552731,,cpu_core/branch-instructions/,825741,55.00,,
+16921,,cpu_core/branch-misses/,825741,55.00,,
+3246995,,cpu_core/instructions/,825741,55.00,,
+2492626,,cpu_core/cpu-cycles/,825741,55.00,,
+1,,context-switches,1490270,100.00,,
+144,,page-faults,1490270,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1149367,,cpu_core/L1-dcache-loads/,1190430,64.00,,
+14280,,cpu_core/L1-dcache-load-misses/,1190430,64.00,1.24,of all L1-dcache accesses
+835159,,cpu_core/branch-instructions/,1190430,64.00,,
+27739,,cpu_core/branch-misses/,1190430,64.00,,
+5294636,,cpu_core/instructions/,1190430,64.00,,
+3110320,,cpu_core/cpu-cycles/,1190430,64.00,,
+1,,context-switches,1853697,100.00,,
+179,,page-faults,1853697,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+969497,,cpu_core/L1-dcache-loads/,1425413,100.00,,
+14576,,cpu_core/L1-dcache-load-misses/,1425413,100.00,1.50,of all L1-dcache accesses
+703805,,cpu_core/branch-instructions/,1425413,100.00,,
+22136,,cpu_core/branch-misses/,1425413,100.00,,
+4341251,,cpu_core/instructions/,1425413,100.00,,
+2685060,,cpu_core/cpu-cycles/,1425413,100.00,,
+0,,context-switches,1425413,100.00,,
+179,,page-faults,1425413,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+967879,,cpu_core/L1-dcache-loads/,802644,100.00,,
+15902,,cpu_core/L1-dcache-load-misses/,802644,100.00,1.64,of all L1-dcache accesses
+702468,,cpu_core/branch-instructions/,802644,100.00,,
+23290,,cpu_core/branch-misses/,802644,100.00,,
+4336905,,cpu_core/instructions/,802644,100.00,,
+2812658,,cpu_core/cpu-cycles/,802644,100.00,,
+1,,context-switches,802644,100.00,,
+177,,page-faults,802644,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1121947,,cpu_core/L1-dcache-loads/,1054726,66.00,,
+15249,,cpu_core/L1-dcache-load-misses/,1054726,66.00,1.36,of all L1-dcache accesses
+814571,,cpu_core/branch-instructions/,1054726,66.00,,
+24937,,cpu_core/branch-misses/,1054726,66.00,,
+5155994,,cpu_core/instructions/,1054726,66.00,,
+2805950,,cpu_core/cpu-cycles/,1054726,66.00,,
+1,,context-switches,1579548,100.00,,
+180,,page-faults,1579548,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1111580,,cpu_core/L1-dcache-loads/,1002749,65.00,,
+14146,,cpu_core/L1-dcache-load-misses/,1002749,65.00,1.27,of all L1-dcache accesses
+807421,,cpu_core/branch-instructions/,1002749,65.00,,
+26487,,cpu_core/branch-misses/,1002749,65.00,,
+5121492,,cpu_core/instructions/,1002749,65.00,,
+2849227,,cpu_core/cpu-cycles/,1002749,65.00,,
+1,,context-switches,1519443,100.00,,
+178,,page-faults,1519443,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1183357,,cpu_core/L1-dcache-loads/,1004612,62.00,,
+15817,,cpu_core/L1-dcache-load-misses/,1004612,62.00,1.34,of all L1-dcache accesses
+860367,,cpu_core/branch-instructions/,1004612,62.00,,
+28340,,cpu_core/branch-misses/,1004612,62.00,,
+5449910,,cpu_core/instructions/,1004612,62.00,,
+3090087,,cpu_core/cpu-cycles/,1004612,62.00,,
+1,,context-switches,1616668,100.00,,
+177,,page-faults,1616668,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1120246,,cpu_core/L1-dcache-loads/,1228340,69.00,,
+16056,,cpu_core/L1-dcache-load-misses/,1228340,69.00,1.43,of all L1-dcache accesses
+817489,,cpu_core/branch-instructions/,1228340,69.00,,
+24915,,cpu_core/branch-misses/,1228340,69.00,,
+5138430,,cpu_core/instructions/,1228340,69.00,,
+2946143,,cpu_core/cpu-cycles/,1228340,69.00,,
+2,,context-switches,1771709,100.00,,
+180,,page-faults,1771709,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1169940,,cpu_core/L1-dcache-loads/,1049811,62.00,,
+15818,,cpu_core/L1-dcache-load-misses/,1049811,62.00,1.35,of all L1-dcache accesses
+850645,,cpu_core/branch-instructions/,1049811,62.00,,
+25536,,cpu_core/branch-misses/,1049811,62.00,,
+5390194,,cpu_core/instructions/,1049811,62.00,,
+2968949,,cpu_core/cpu-cycles/,1049811,62.00,,
+1,,context-switches,1671177,100.00,,
+178,,page-faults,1671177,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+970418,,cpu_core/L1-dcache-loads/,2032745,100.00,,
+14725,,cpu_core/L1-dcache-load-misses/,2032745,100.00,1.52,of all L1-dcache accesses
+704591,,cpu_core/branch-instructions/,2032745,100.00,,
+20134,,cpu_core/branch-misses/,2032745,100.00,,
+4344577,,cpu_core/instructions/,2032745,100.00,,
+2742390,,cpu_core/cpu-cycles/,2032745,100.00,,
+0,,context-switches,2032745,100.00,,
+179,,page-faults,2032745,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+981138,,cpu_core/L1-dcache-loads/,1399874,100.00,,
+15646,,cpu_core/L1-dcache-load-misses/,1399874,100.00,1.59,of all L1-dcache accesses
+711189,,cpu_core/branch-instructions/,1399874,100.00,,
+21088,,cpu_core/branch-misses/,1399874,100.00,,
+4387979,,cpu_core/instructions/,1399874,100.00,,
+2636524,,cpu_core/cpu-cycles/,1399874,100.00,,
+0,,context-switches,1399874,100.00,,
+180,,page-faults,1399874,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1140618,,cpu_core/L1-dcache-loads/,971848,64.00,,
+15797,,cpu_core/L1-dcache-load-misses/,971848,64.00,1.38,of all L1-dcache accesses
+829068,,cpu_core/branch-instructions/,971848,64.00,,
+25466,,cpu_core/branch-misses/,971848,64.00,,
+5255305,,cpu_core/instructions/,971848,64.00,,
+2831304,,cpu_core/cpu-cycles/,971848,64.00,,
+1,,context-switches,1508123,100.00,,
+180,,page-faults,1508123,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1141459,,cpu_core/L1-dcache-loads/,965108,64.00,,
+17336,,cpu_core/L1-dcache-load-misses/,965108,64.00,1.52,of all L1-dcache accesses
+830063,,cpu_core/branch-instructions/,965108,64.00,,
+23889,,cpu_core/branch-misses/,965108,64.00,,
+5260114,,cpu_core/instructions/,965108,64.00,,
+2818069,,cpu_core/cpu-cycles/,965108,64.00,,
+1,,context-switches,1500080,100.00,,
+178,,page-faults,1500080,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1133736,,cpu_core/L1-dcache-loads/,1091265,65.00,,
+14468,,cpu_core/L1-dcache-load-misses/,1091265,65.00,1.28,of all L1-dcache accesses
+823473,,cpu_core/branch-instructions/,1091265,65.00,,
+26580,,cpu_core/branch-misses/,1091265,65.00,,
+5222437,,cpu_core/instructions/,1091265,65.00,,
+2933631,,cpu_core/cpu-cycles/,1091265,65.00,,
+1,,context-switches,1674368,100.00,,
+176,,page-faults,1674368,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1012003,,cpu_core/L1-dcache-loads/,1555834,95.00,,
+17695,,cpu_core/L1-dcache-load-misses/,1555834,95.00,1.75,of all L1-dcache accesses
+734962,,cpu_core/branch-instructions/,1555834,95.00,,
+22534,,cpu_core/branch-misses/,1555834,95.00,,
+4535909,,cpu_core/instructions/,1555834,95.00,,
+2866178,,cpu_core/cpu-cycles/,1555834,95.00,,
+1,,context-switches,1630867,100.00,,
+178,,page-faults,1630867,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1129056,,cpu_core/L1-dcache-loads/,1166959,65.00,,
+16178,,cpu_core/L1-dcache-load-misses/,1166959,65.00,1.43,of all L1-dcache accesses
+820392,,cpu_core/branch-instructions/,1166959,65.00,,
+25848,,cpu_core/branch-misses/,1166959,65.00,,
+5200510,,cpu_core/instructions/,1166959,65.00,,
+2935437,,cpu_core/cpu-cycles/,1166959,65.00,,
+1,,context-switches,1790595,100.00,,
+179,,page-faults,1790595,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1137157,,cpu_core/L1-dcache-loads/,1089577,64.00,,
+13971,,cpu_core/L1-dcache-load-misses/,1089577,64.00,1.23,of all L1-dcache accesses
+826931,,cpu_core/branch-instructions/,1089577,64.00,,
+25512,,cpu_core/branch-misses/,1089577,64.00,,
+5240852,,cpu_core/instructions/,1089577,64.00,,
+2950310,,cpu_core/cpu-cycles/,1089577,64.00,,
+1,,context-switches,1690157,100.00,,
+176,,page-faults,1690157,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1148479,,cpu_core/L1-dcache-loads/,1140369,63.00,,
+14069,,cpu_core/L1-dcache-load-misses/,1140369,63.00,1.23,of all L1-dcache accesses
+834594,,cpu_core/branch-instructions/,1140369,63.00,,
+25878,,cpu_core/branch-misses/,1140369,63.00,,
+5290072,,cpu_core/instructions/,1140369,63.00,,
+2991861,,cpu_core/cpu-cycles/,1140369,63.00,,
+1,,context-switches,1782959,100.00,,
+177,,page-faults,1782959,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+969277,,cpu_core/L1-dcache-loads/,1591629,100.00,,
+14893,,cpu_core/L1-dcache-load-misses/,1591629,100.00,1.54,of all L1-dcache accesses
+703806,,cpu_core/branch-instructions/,1591629,100.00,,
+21234,,cpu_core/branch-misses/,1591629,100.00,,
+4341519,,cpu_core/instructions/,1591629,100.00,,
+2681798,,cpu_core/cpu-cycles/,1591629,100.00,,
+0,,context-switches,1591629,100.00,,
+178,,page-faults,1591629,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1127527,,cpu_core/L1-dcache-loads/,1036894,65.00,,
+15931,,cpu_core/L1-dcache-load-misses/,1036894,65.00,1.41,of all L1-dcache accesses
+819312,,cpu_core/branch-instructions/,1036894,65.00,,
+26424,,cpu_core/branch-misses/,1036894,65.00,,
+5192035,,cpu_core/instructions/,1036894,65.00,,
+2926990,,cpu_core/cpu-cycles/,1036894,65.00,,
+1,,context-switches,1588718,100.00,,
+179,,page-faults,1588718,100.00,,
+
+----- [reorder_base] H=128 W=128 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=128 W=128 K=3 seed=1234
+checksum 1.545684
+--- perf stat -x, ---
+1097614,,cpu_core/L1-dcache-loads/,1086476,71.00,,
+15664,,cpu_core/L1-dcache-load-misses/,1086476,71.00,1.43,of all L1-dcache accesses
+801158,,cpu_core/branch-instructions/,1086476,71.00,,
+24682,,cpu_core/branch-misses/,1086476,71.00,,
+5028227,,cpu_core/instructions/,1086476,71.00,,
+2909423,,cpu_core/cpu-cycles/,1086476,71.00,,
+2,,context-switches,1510658,100.00,,
+180,,page-faults,1510658,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2545788,,cpu_core/L1-dcache-loads/,2396055,79.00,,
+18888,,cpu_core/L1-dcache-load-misses/,2396055,79.00,0.74,of all L1-dcache accesses
+1813147,,cpu_core/branch-instructions/,2396055,79.00,,
+52599,,cpu_core/branch-misses/,2396055,79.00,,
+12195121,,cpu_core/instructions/,2396055,79.00,,
+5095062,,cpu_core/cpu-cycles/,2396055,79.00,,
+1,,context-switches,2998200,100.00,,
+325,,page-faults,2998200,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2268400,,cpu_core/L1-dcache-loads/,3090818,100.00,,
+20879,,cpu_core/L1-dcache-load-misses/,3090818,100.00,0.92,of all L1-dcache accesses
+1618345,,cpu_core/branch-instructions/,3090818,100.00,,
+49240,,cpu_core/branch-misses/,3090818,100.00,,
+10696534,,cpu_core/instructions/,3090818,100.00,,
+5175952,,cpu_core/cpu-cycles/,3090818,100.00,,
+1,,context-switches,3090818,100.00,,
+325,,page-faults,3090818,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2264185,,cpu_core/L1-dcache-loads/,2546644,100.00,,
+20323,,cpu_core/L1-dcache-load-misses/,2546644,100.00,0.90,of all L1-dcache accesses
+1614817,,cpu_core/branch-instructions/,2546644,100.00,,
+47320,,cpu_core/branch-misses/,2546644,100.00,,
+10677598,,cpu_core/instructions/,2546644,100.00,,
+4813389,,cpu_core/cpu-cycles/,2546644,100.00,,
+0,,context-switches,2546644,100.00,,
+326,,page-faults,2546644,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2555231,,cpu_core/L1-dcache-loads/,2156042,79.00,,
+19671,,cpu_core/L1-dcache-load-misses/,2156042,79.00,0.77,of all L1-dcache accesses
+1819568,,cpu_core/branch-instructions/,2156042,79.00,,
+54187,,cpu_core/branch-misses/,2156042,79.00,,
+12239206,,cpu_core/instructions/,2156042,79.00,,
+5120562,,cpu_core/cpu-cycles/,2156042,79.00,,
+1,,context-switches,2714544,100.00,,
+326,,page-faults,2714544,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2558580,,cpu_core/L1-dcache-loads/,2134743,79.00,,
+16105,,cpu_core/L1-dcache-load-misses/,2134743,79.00,0.63,of all L1-dcache accesses
+1822152,,cpu_core/branch-instructions/,2134743,79.00,,
+53471,,cpu_core/branch-misses/,2134743,79.00,,
+12255793,,cpu_core/instructions/,2134743,79.00,,
+5063112,,cpu_core/cpu-cycles/,2134743,79.00,,
+1,,context-switches,2682316,100.00,,
+327,,page-faults,2682316,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2532507,,cpu_core/L1-dcache-loads/,2363412,80.00,,
+19004,,cpu_core/L1-dcache-load-misses/,2363412,80.00,0.75,of all L1-dcache accesses
+1803581,,cpu_core/branch-instructions/,2363412,80.00,,
+53348,,cpu_core/branch-misses/,2363412,80.00,,
+12129968,,cpu_core/instructions/,2363412,80.00,,
+5156934,,cpu_core/cpu-cycles/,2363412,80.00,,
+1,,context-switches,2945398,100.00,,
+325,,page-faults,2945398,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2562112,,cpu_core/L1-dcache-loads/,2479308,79.00,,
+16684,,cpu_core/L1-dcache-load-misses/,2479308,79.00,0.65,of all L1-dcache accesses
+1824814,,cpu_core/branch-instructions/,2479308,79.00,,
+53927,,cpu_core/branch-misses/,2479308,79.00,,
+12268974,,cpu_core/instructions/,2479308,79.00,,
+5192050,,cpu_core/cpu-cycles/,2479308,79.00,,
+1,,context-switches,3116528,100.00,,
+326,,page-faults,3116528,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2561859,,cpu_core/L1-dcache-loads/,2315083,79.00,,
+17484,,cpu_core/L1-dcache-load-misses/,2315083,79.00,0.68,of all L1-dcache accesses
+1824787,,cpu_core/branch-instructions/,2315083,79.00,,
+52965,,cpu_core/branch-misses/,2315083,79.00,,
+12264979,,cpu_core/instructions/,2315083,79.00,,
+5192140,,cpu_core/cpu-cycles/,2315083,79.00,,
+1,,context-switches,2905760,100.00,,
+326,,page-faults,2905760,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2554764,,cpu_core/L1-dcache-loads/,2316835,79.00,,
+20961,,cpu_core/L1-dcache-load-misses/,2316835,79.00,0.82,of all L1-dcache accesses
+1818371,,cpu_core/branch-instructions/,2316835,79.00,,
+53384,,cpu_core/branch-misses/,2316835,79.00,,
+12230368,,cpu_core/instructions/,2316835,79.00,,
+5186593,,cpu_core/cpu-cycles/,2316835,79.00,,
+1,,context-switches,2902419,100.00,,
+325,,page-faults,2902419,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2515348,,cpu_core/L1-dcache-loads/,2450330,83.00,,
+24934,,cpu_core/L1-dcache-load-misses/,2450330,83.00,0.99,of all L1-dcache accesses
+1792268,,cpu_core/branch-instructions/,2450330,83.00,,
+54753,,cpu_core/branch-misses/,2450330,83.00,,
+12001095,,cpu_core/instructions/,2450330,83.00,,
+5264689,,cpu_core/cpu-cycles/,2450330,83.00,,
+1,,context-switches,2944599,100.00,,
+326,,page-faults,2944599,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2335753,,cpu_core/L1-dcache-loads/,2646102,95.00,,
+18910,,cpu_core/L1-dcache-load-misses/,2646102,95.00,0.81,of all L1-dcache accesses
+1664978,,cpu_core/branch-instructions/,2646102,95.00,,
+50998,,cpu_core/branch-misses/,2646102,95.00,,
+11039475,,cpu_core/instructions/,2646102,95.00,,
+5183200,,cpu_core/cpu-cycles/,2646102,95.00,,
+2,,context-switches,2772191,100.00,,
+328,,page-faults,2772191,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2286229,,cpu_core/L1-dcache-loads/,3080543,100.00,,
+18954,,cpu_core/L1-dcache-load-misses/,3080543,100.00,0.83,of all L1-dcache accesses
+1630341,,cpu_core/branch-instructions/,3080543,100.00,,
+50544,,cpu_core/branch-misses/,3080543,100.00,,
+10769900,,cpu_core/instructions/,3080543,100.00,,
+5169756,,cpu_core/cpu-cycles/,3080543,100.00,,
+2,,context-switches,3080543,100.00,,
+327,,page-faults,3080543,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2314252,,cpu_core/L1-dcache-loads/,2535133,96.00,,
+19337,,cpu_core/L1-dcache-load-misses/,2535133,96.00,0.84,of all L1-dcache accesses
+1651738,,cpu_core/branch-instructions/,2535133,96.00,,
+48606,,cpu_core/branch-misses/,2535133,96.00,,
+10935044,,cpu_core/instructions/,2535133,96.00,,
+4943117,,cpu_core/cpu-cycles/,2535133,96.00,,
+1,,context-switches,2617606,100.00,,
+326,,page-faults,2617606,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2523085,,cpu_core/L1-dcache-loads/,2333195,80.00,,
+16876,,cpu_core/L1-dcache-load-misses/,2333195,80.00,0.67,of all L1-dcache accesses
+1796868,,cpu_core/branch-instructions/,2333195,80.00,,
+53866,,cpu_core/branch-misses/,2333195,80.00,,
+12084925,,cpu_core/instructions/,2333195,80.00,,
+5138956,,cpu_core/cpu-cycles/,2333195,80.00,,
+1,,context-switches,2896123,100.00,,
+325,,page-faults,2896123,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2363355,,cpu_core/L1-dcache-loads/,2778553,94.00,,
+18544,,cpu_core/L1-dcache-load-misses/,2778553,94.00,0.78,of all L1-dcache accesses
+1683975,,cpu_core/branch-instructions/,2778553,94.00,,
+49343,,cpu_core/branch-misses/,2778553,94.00,,
+11169004,,cpu_core/instructions/,2778553,94.00,,
+5033794,,cpu_core/cpu-cycles/,2778553,94.00,,
+1,,context-switches,2951019,100.00,,
+329,,page-faults,2951019,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2566414,,cpu_core/L1-dcache-loads/,2492343,79.00,,
+16253,,cpu_core/L1-dcache-load-misses/,2492343,79.00,0.63,of all L1-dcache accesses
+1826995,,cpu_core/branch-instructions/,2492343,79.00,,
+53696,,cpu_core/branch-misses/,2492343,79.00,,
+12283125,,cpu_core/instructions/,2492343,79.00,,
+5241413,,cpu_core/cpu-cycles/,2492343,79.00,,
+1,,context-switches,3134171,100.00,,
+325,,page-faults,3134171,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2606589,,cpu_core/L1-dcache-loads/,2563579,79.00,,
+18570,,cpu_core/L1-dcache-load-misses/,2563579,79.00,0.71,of all L1-dcache accesses
+1853139,,cpu_core/branch-instructions/,2563579,79.00,,
+54951,,cpu_core/branch-misses/,2563579,79.00,,
+12459046,,cpu_core/instructions/,2563579,79.00,,
+5462297,,cpu_core/cpu-cycles/,2563579,79.00,,
+1,,context-switches,3234756,100.00,,
+327,,page-faults,3234756,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2268712,,cpu_core/L1-dcache-loads/,3083499,100.00,,
+23241,,cpu_core/L1-dcache-load-misses/,3083499,100.00,1.02,of all L1-dcache accesses
+1618691,,cpu_core/branch-instructions/,3083499,100.00,,
+48868,,cpu_core/branch-misses/,3083499,100.00,,
+10698650,,cpu_core/instructions/,3083499,100.00,,
+5108989,,cpu_core/cpu-cycles/,3083499,100.00,,
+1,,context-switches,3083499,100.00,,
+324,,page-faults,3083499,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2617687,,cpu_core/L1-dcache-loads/,2854752,77.00,,
+20209,,cpu_core/L1-dcache-load-misses/,2854752,77.00,0.77,of all L1-dcache accesses
+1864102,,cpu_core/branch-instructions/,2854752,77.00,,
+55446,,cpu_core/branch-misses/,2854752,77.00,,
+12534003,,cpu_core/instructions/,2854752,77.00,,
+5355164,,cpu_core/cpu-cycles/,2854752,77.00,,
+1,,context-switches,3668421,100.00,,
+326,,page-faults,3668421,100.00,,
+
+----- [reorder_base] H=256 W=256 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=256 W=256 K=3 seed=1234
+checksum 1.200319
+--- perf stat -x, ---
+2546146,,cpu_core/L1-dcache-loads/,2166638,79.00,,
+18705,,cpu_core/L1-dcache-load-misses/,2166638,79.00,0.73,of all L1-dcache accesses
+1813046,,cpu_core/branch-instructions/,2166638,79.00,,
+52860,,cpu_core/branch-misses/,2166638,79.00,,
+12193737,,cpu_core/instructions/,2166638,79.00,,
+5062707,,cpu_core/cpu-cycles/,2166638,79.00,,
+1,,context-switches,2713149,100.00,,
+326,,page-faults,2713149,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7736370,,cpu_core/L1-dcache-loads/,7653453,93.00,,
+58842,,cpu_core/L1-dcache-load-misses/,7653453,93.00,0.76,of all L1-dcache accesses
+5455538,,cpu_core/branch-instructions/,7653453,93.00,,
+156761,,cpu_core/branch-misses/,7653453,93.00,,
+37606174,,cpu_core/instructions/,7653453,93.00,,
+14143759,,cpu_core/cpu-cycles/,7653453,93.00,,
+1,,context-switches,8225395,100.00,,
+903,,page-faults,8225395,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7431005,,cpu_core/L1-dcache-loads/,7690992,100.00,,
+62032,,cpu_core/L1-dcache-load-misses/,7690992,100.00,0.83,of all L1-dcache accesses
+5245722,,cpu_core/branch-instructions/,7690992,100.00,,
+151524,,cpu_core/branch-misses/,7690992,100.00,,
+35939720,,cpu_core/instructions/,7690992,100.00,,
+14044124,,cpu_core/cpu-cycles/,7690992,100.00,,
+1,,context-switches,7690992,100.00,,
+903,,page-faults,7690992,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7779447,,cpu_core/L1-dcache-loads/,6736964,92.00,,
+49006,,cpu_core/L1-dcache-load-misses/,6736964,92.00,0.63,of all L1-dcache accesses
+5486881,,cpu_core/branch-instructions/,6736964,92.00,,
+156759,,cpu_core/branch-misses/,6736964,92.00,,
+37818039,,cpu_core/instructions/,6736964,92.00,,
+13778282,,cpu_core/cpu-cycles/,6736964,92.00,,
+1,,context-switches,7284708,100.00,,
+904,,page-faults,7284708,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7744555,,cpu_core/L1-dcache-loads/,7153897,93.00,,
+67886,,cpu_core/L1-dcache-load-misses/,7153897,93.00,0.88,of all L1-dcache accesses
+5461949,,cpu_core/branch-instructions/,7153897,93.00,,
+160051,,cpu_core/branch-misses/,7153897,93.00,,
+37640687,,cpu_core/instructions/,7153897,93.00,,
+14279720,,cpu_core/cpu-cycles/,7153897,93.00,,
+1,,context-switches,7688150,100.00,,
+903,,page-faults,7688150,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7483028,,cpu_core/L1-dcache-loads/,7505370,98.00,,
+62556,,cpu_core/L1-dcache-load-misses/,7505370,98.00,0.84,of all L1-dcache accesses
+5280844,,cpu_core/branch-instructions/,7505370,98.00,,
+153225,,cpu_core/branch-misses/,7505370,98.00,,
+36222630,,cpu_core/instructions/,7505370,98.00,,
+14176876,,cpu_core/cpu-cycles/,7505370,98.00,,
+2,,context-switches,7604860,100.00,,
+903,,page-faults,7604860,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7803488,,cpu_core/L1-dcache-loads/,8009376,92.00,,
+55181,,cpu_core/L1-dcache-load-misses/,8009376,92.00,0.71,of all L1-dcache accesses
+5503221,,cpu_core/branch-instructions/,8009376,92.00,,
+158830,,cpu_core/branch-misses/,8009376,92.00,,
+37934249,,cpu_core/instructions/,8009376,92.00,,
+14239455,,cpu_core/cpu-cycles/,8009376,92.00,,
+1,,context-switches,8687076,100.00,,
+901,,page-faults,8687076,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7766479,,cpu_core/L1-dcache-loads/,7025762,92.00,,
+69277,,cpu_core/L1-dcache-load-misses/,7025762,92.00,0.89,of all L1-dcache accesses
+5476891,,cpu_core/branch-instructions/,7025762,92.00,,
+156849,,cpu_core/branch-misses/,7025762,92.00,,
+37738969,,cpu_core/instructions/,7025762,92.00,,
+14094216,,cpu_core/cpu-cycles/,7025762,92.00,,
+2,,context-switches,7563705,100.00,,
+901,,page-faults,7563705,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7555706,,cpu_core/L1-dcache-loads/,8381988,97.00,,
+52431,,cpu_core/L1-dcache-load-misses/,8381988,97.00,0.69,of all L1-dcache accesses
+5331615,,cpu_core/branch-instructions/,8381988,97.00,,
+154469,,cpu_core/branch-misses/,8381988,97.00,,
+36563660,,cpu_core/instructions/,8381988,97.00,,
+14436511,,cpu_core/cpu-cycles/,8381988,97.00,,
+3,,context-switches,8558912,100.00,,
+902,,page-faults,8558912,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7519170,,cpu_core/L1-dcache-loads/,7903191,98.00,,
+53463,,cpu_core/L1-dcache-load-misses/,7903191,98.00,0.71,of all L1-dcache accesses
+5307671,,cpu_core/branch-instructions/,7903191,98.00,,
+156048,,cpu_core/branch-misses/,7903191,98.00,,
+36378653,,cpu_core/instructions/,7903191,98.00,,
+14160604,,cpu_core/cpu-cycles/,7903191,98.00,,
+1,,context-switches,8020261,100.00,,
+906,,page-faults,8020261,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7794682,,cpu_core/L1-dcache-loads/,7771213,92.00,,
+56801,,cpu_core/L1-dcache-load-misses/,7771213,92.00,0.73,of all L1-dcache accesses
+5497440,,cpu_core/branch-instructions/,7771213,92.00,,
+159015,,cpu_core/branch-misses/,7771213,92.00,,
+37890602,,cpu_core/instructions/,7771213,92.00,,
+14255627,,cpu_core/cpu-cycles/,7771213,92.00,,
+1,,context-switches,8415332,100.00,,
+900,,page-faults,8415332,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7618183,,cpu_core/L1-dcache-loads/,8228325,96.00,,
+52808,,cpu_core/L1-dcache-load-misses/,8228325,96.00,0.69,of all L1-dcache accesses
+5375320,,cpu_core/branch-instructions/,8228325,96.00,,
+156545,,cpu_core/branch-misses/,8228325,96.00,,
+36902305,,cpu_core/instructions/,8228325,96.00,,
+14227517,,cpu_core/cpu-cycles/,8228325,96.00,,
+1,,context-switches,8529265,100.00,,
+901,,page-faults,8529265,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7430578,,cpu_core/L1-dcache-loads/,8215426,100.00,,
+51447,,cpu_core/L1-dcache-load-misses/,8215426,100.00,0.69,of all L1-dcache accesses
+5244805,,cpu_core/branch-instructions/,8215426,100.00,,
+153069,,cpu_core/branch-misses/,8215426,100.00,,
+35935500,,cpu_core/instructions/,8215426,100.00,,
+13919688,,cpu_core/cpu-cycles/,8215426,100.00,,
+0,,context-switches,8215426,100.00,,
+904,,page-faults,8215426,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7789324,,cpu_core/L1-dcache-loads/,7641915,92.00,,
+54055,,cpu_core/L1-dcache-load-misses/,7641915,92.00,0.69,of all L1-dcache accesses
+5493725,,cpu_core/branch-instructions/,7641915,92.00,,
+160893,,cpu_core/branch-misses/,7641915,92.00,,
+37864130,,cpu_core/instructions/,7641915,92.00,,
+14222749,,cpu_core/cpu-cycles/,7641915,92.00,,
+1,,context-switches,8271030,100.00,,
+904,,page-faults,8271030,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7754289,,cpu_core/L1-dcache-loads/,7995270,92.00,,
+68329,,cpu_core/L1-dcache-load-misses/,7995270,92.00,0.88,of all L1-dcache accesses
+5469277,,cpu_core/branch-instructions/,7995270,92.00,,
+158453,,cpu_core/branch-misses/,7995270,92.00,,
+37691659,,cpu_core/instructions/,7995270,92.00,,
+14480226,,cpu_core/cpu-cycles/,7995270,92.00,,
+1,,context-switches,8612606,100.00,,
+903,,page-faults,8612606,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7436717,,cpu_core/L1-dcache-loads/,8396277,100.00,,
+55877,,cpu_core/L1-dcache-load-misses/,8396277,100.00,0.75,of all L1-dcache accesses
+5249348,,cpu_core/branch-instructions/,8396277,100.00,,
+152916,,cpu_core/branch-misses/,8396277,100.00,,
+35962929,,cpu_core/instructions/,8396277,100.00,,
+14139855,,cpu_core/cpu-cycles/,8396277,100.00,,
+1,,context-switches,8396277,100.00,,
+906,,page-faults,8396277,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7756832,,cpu_core/L1-dcache-loads/,7857043,92.00,,
+36788,,cpu_core/L1-dcache-load-misses/,7857043,92.00,0.47,of all L1-dcache accesses
+5470985,,cpu_core/branch-instructions/,7857043,92.00,,
+158692,,cpu_core/branch-misses/,7857043,92.00,,
+37706329,,cpu_core/instructions/,7857043,92.00,,
+14324712,,cpu_core/cpu-cycles/,7857043,92.00,,
+2,,context-switches,8467376,100.00,,
+902,,page-faults,8467376,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7785401,,cpu_core/L1-dcache-loads/,7773003,92.00,,
+65865,,cpu_core/L1-dcache-load-misses/,7773003,92.00,0.85,of all L1-dcache accesses
+5490061,,cpu_core/branch-instructions/,7773003,92.00,,
+158897,,cpu_core/branch-misses/,7773003,92.00,,
+37842249,,cpu_core/instructions/,7773003,92.00,,
+14199389,,cpu_core/cpu-cycles/,7773003,92.00,,
+1,,context-switches,8404554,100.00,,
+902,,page-faults,8404554,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7429733,,cpu_core/L1-dcache-loads/,8590745,100.00,,
+70990,,cpu_core/L1-dcache-load-misses/,8590745,100.00,0.96,of all L1-dcache accesses
+5244318,,cpu_core/branch-instructions/,8590745,100.00,,
+151446,,cpu_core/branch-misses/,8590745,100.00,,
+35931213,,cpu_core/instructions/,8590745,100.00,,
+14074221,,cpu_core/cpu-cycles/,8590745,100.00,,
+0,,context-switches,8590745,100.00,,
+905,,page-faults,8590745,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7793158,,cpu_core/L1-dcache-loads/,7504070,92.00,,
+64157,,cpu_core/L1-dcache-load-misses/,7504070,92.00,0.82,of all L1-dcache accesses
+5496534,,cpu_core/branch-instructions/,7504070,92.00,,
+159178,,cpu_core/branch-misses/,7504070,92.00,,
+37882653,,cpu_core/instructions/,7504070,92.00,,
+14206761,,cpu_core/cpu-cycles/,7504070,92.00,,
+2,,context-switches,8123434,100.00,,
+903,,page-faults,8123434,100.00,,
+
+----- [reorder_base] H=512 W=512 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=512 W=512 K=3 seed=1234
+checksum -0.596669
+--- perf stat -x, ---
+7795530,,cpu_core/L1-dcache-loads/,7723041,92.00,,
+48438,,cpu_core/L1-dcache-load-misses/,7723041,92.00,0.62,of all L1-dcache accesses
+5497832,,cpu_core/branch-instructions/,7723041,92.00,,
+159393,,cpu_core/branch-misses/,7723041,92.00,,
+37891529,,cpu_core/instructions/,7723041,92.00,,
+14161634,,cpu_core/cpu-cycles/,7723041,92.00,,
+1,,context-switches,8360347,100.00,,
+904,,page-faults,8360347,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28781817,,cpu_core/L1-dcache-loads/,20709065,96.00,,
+179840,,cpu_core/L1-dcache-load-misses/,20709065,96.00,0.62,of all L1-dcache accesses
+20192272,,cpu_core/branch-instructions/,20709065,96.00,,
+573296,,cpu_core/branch-misses/,20709065,96.00,,
+140191865,,cpu_core/instructions/,20709065,96.00,,
+52502829,,cpu_core/cpu-cycles/,20709065,96.00,,
+1,,context-switches,21406940,100.00,,
+3208,,page-faults,21406940,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28368346,,cpu_core/L1-dcache-loads/,23096204,98.00,,
+189602,,cpu_core/L1-dcache-load-misses/,23096204,98.00,0.67,of all L1-dcache accesses
+19906211,,cpu_core/branch-instructions/,23096204,98.00,,
+562007,,cpu_core/branch-misses/,23096204,98.00,,
+138022210,,cpu_core/instructions/,23096204,98.00,,
+52238581,,cpu_core/cpu-cycles/,23096204,98.00,,
+1,,context-switches,23372625,100.00,,
+3209,,page-faults,23372625,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28338653,,cpu_core/L1-dcache-loads/,21129895,98.00,,
+261920,,cpu_core/L1-dcache-load-misses/,21129895,98.00,0.92,of all L1-dcache accesses
+19884520,,cpu_core/branch-instructions/,21129895,98.00,,
+560865,,cpu_core/branch-misses/,21129895,98.00,,
+137900211,,cpu_core/instructions/,21129895,98.00,,
+55550426,,cpu_core/cpu-cycles/,21129895,98.00,,
+1,,context-switches,21379303,100.00,,
+3210,,page-faults,21379303,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28956306,,cpu_core/L1-dcache-loads/,17076094,96.00,,
+231863,,cpu_core/L1-dcache-load-misses/,17076094,96.00,0.80,of all L1-dcache accesses
+20315417,,cpu_core/branch-instructions/,17076094,96.00,,
+572575,,cpu_core/branch-misses/,17076094,96.00,,
+141047937,,cpu_core/instructions/,17076094,96.00,,
+53331254,,cpu_core/cpu-cycles/,17076094,96.00,,
+2,,context-switches,17760986,100.00,,
+3209,,page-faults,17760986,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28235679,,cpu_core/L1-dcache-loads/,20446591,99.00,,
+229789,,cpu_core/L1-dcache-load-misses/,20446591,99.00,0.81,of all L1-dcache accesses
+19815034,,cpu_core/branch-instructions/,20446591,99.00,,
+558999,,cpu_core/branch-misses/,20446591,99.00,,
+137372550,,cpu_core/instructions/,20446591,99.00,,
+52290818,,cpu_core/cpu-cycles/,20446591,99.00,,
+2,,context-switches,20588376,100.00,,
+3208,,page-faults,20588376,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28076024,,cpu_core/L1-dcache-loads/,14952733,100.00,,
+195531,,cpu_core/L1-dcache-load-misses/,14952733,100.00,0.70,of all L1-dcache accesses
+19703261,,cpu_core/branch-instructions/,14952733,100.00,,
+555519,,cpu_core/branch-misses/,14952733,100.00,,
+136569666,,cpu_core/instructions/,14952733,100.00,,
+51920043,,cpu_core/cpu-cycles/,14952733,100.00,,
+1,,context-switches,14952733,100.00,,
+3211,,page-faults,14952733,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28926643,,cpu_core/L1-dcache-loads/,16319198,96.00,,
+205688,,cpu_core/L1-dcache-load-misses/,16319198,96.00,0.71,of all L1-dcache accesses
+20293519,,cpu_core/branch-instructions/,16319198,96.00,,
+573272,,cpu_core/branch-misses/,16319198,96.00,,
+140895774,,cpu_core/instructions/,16319198,96.00,,
+52538938,,cpu_core/cpu-cycles/,16319198,96.00,,
+2,,context-switches,16951802,100.00,,
+3206,,page-faults,16951802,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28090013,,cpu_core/L1-dcache-loads/,16681345,100.00,,
+216892,,cpu_core/L1-dcache-load-misses/,16681345,100.00,0.77,of all L1-dcache accesses
+19712452,,cpu_core/branch-instructions/,16681345,100.00,,
+561395,,cpu_core/branch-misses/,16681345,100.00,,
+136628490,,cpu_core/instructions/,16681345,100.00,,
+56394112,,cpu_core/cpu-cycles/,16681345,100.00,,
+3,,context-switches,16681345,100.00,,
+3206,,page-faults,16681345,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28787014,,cpu_core/L1-dcache-loads/,14338292,96.00,,
+208201,,cpu_core/L1-dcache-load-misses/,14338292,96.00,0.72,of all L1-dcache accesses
+20193805,,cpu_core/branch-instructions/,14338292,96.00,,
+569532,,cpu_core/branch-misses/,14338292,96.00,,
+140196437,,cpu_core/instructions/,14338292,96.00,,
+52084497,,cpu_core/cpu-cycles/,14338292,96.00,,
+2,,context-switches,14821161,100.00,,
+3209,,page-faults,14821161,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28712318,,cpu_core/L1-dcache-loads/,19814653,96.00,,
+194069,,cpu_core/L1-dcache-load-misses/,19814653,96.00,0.68,of all L1-dcache accesses
+20144492,,cpu_core/branch-instructions/,19814653,96.00,,
+568346,,cpu_core/branch-misses/,19814653,96.00,,
+139856948,,cpu_core/instructions/,19814653,96.00,,
+52152838,,cpu_core/cpu-cycles/,19814653,96.00,,
+1,,context-switches,20435621,100.00,,
+3211,,page-faults,20435621,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28099429,,cpu_core/L1-dcache-loads/,15322963,100.00,,
+198496,,cpu_core/L1-dcache-load-misses/,15322963,100.00,0.71,of all L1-dcache accesses
+19718924,,cpu_core/branch-instructions/,15322963,100.00,,
+557278,,cpu_core/branch-misses/,15322963,100.00,,
+136667377,,cpu_core/instructions/,15322963,100.00,,
+51680437,,cpu_core/cpu-cycles/,15322963,100.00,,
+3,,context-switches,15322963,100.00,,
+3212,,page-faults,15322963,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28794884,,cpu_core/L1-dcache-loads/,15022153,96.00,,
+187926,,cpu_core/L1-dcache-load-misses/,15022153,96.00,0.65,of all L1-dcache accesses
+20201538,,cpu_core/branch-instructions/,15022153,96.00,,
+569766,,cpu_core/branch-misses/,15022153,96.00,,
+140258008,,cpu_core/instructions/,15022153,96.00,,
+52802523,,cpu_core/cpu-cycles/,15022153,96.00,,
+2,,context-switches,15535473,100.00,,
+3210,,page-faults,15535473,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28832755,,cpu_core/L1-dcache-loads/,16926960,96.00,,
+190639,,cpu_core/L1-dcache-load-misses/,16926960,96.00,0.66,of all L1-dcache accesses
+20228761,,cpu_core/branch-instructions/,16926960,96.00,,
+571510,,cpu_core/branch-misses/,16926960,96.00,,
+140445016,,cpu_core/instructions/,16926960,96.00,,
+52994056,,cpu_core/cpu-cycles/,16926960,96.00,,
+1,,context-switches,17532048,100.00,,
+3210,,page-faults,17532048,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28967511,,cpu_core/L1-dcache-loads/,15612477,96.00,,
+201545,,cpu_core/L1-dcache-load-misses/,15612477,96.00,0.70,of all L1-dcache accesses
+20322300,,cpu_core/branch-instructions/,15612477,96.00,,
+573637,,cpu_core/branch-misses/,15612477,96.00,,
+141092280,,cpu_core/instructions/,15612477,96.00,,
+52933351,,cpu_core/cpu-cycles/,15612477,96.00,,
+2,,context-switches,16238257,100.00,,
+3208,,page-faults,16238257,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28083315,,cpu_core/L1-dcache-loads/,16704628,100.00,,
+223929,,cpu_core/L1-dcache-load-misses/,16704628,100.00,0.80,of all L1-dcache accesses
+19707609,,cpu_core/branch-instructions/,16704628,100.00,,
+554616,,cpu_core/branch-misses/,16704628,100.00,,
+136601484,,cpu_core/instructions/,16704628,100.00,,
+51440361,,cpu_core/cpu-cycles/,16704628,100.00,,
+0,,context-switches,16704628,100.00,,
+3210,,page-faults,16704628,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28823480,,cpu_core/L1-dcache-loads/,17381747,96.00,,
+175688,,cpu_core/L1-dcache-load-misses/,17381747,96.00,0.61,of all L1-dcache accesses
+20222805,,cpu_core/branch-instructions/,17381747,96.00,,
+569526,,cpu_core/branch-misses/,17381747,96.00,,
+140406199,,cpu_core/instructions/,17381747,96.00,,
+52529689,,cpu_core/cpu-cycles/,17381747,96.00,,
+1,,context-switches,18000293,100.00,,
+3210,,page-faults,18000293,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28684626,,cpu_core/L1-dcache-loads/,20165396,97.00,,
+188084,,cpu_core/L1-dcache-load-misses/,20165396,97.00,0.66,of all L1-dcache accesses
+20125177,,cpu_core/branch-instructions/,20165396,97.00,,
+569418,,cpu_core/branch-misses/,20165396,97.00,,
+139723245,,cpu_core/instructions/,20165396,97.00,,
+53664510,,cpu_core/cpu-cycles/,20165396,97.00,,
+1,,context-switches,20777564,100.00,,
+3208,,page-faults,20777564,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28193777,,cpu_core/L1-dcache-loads/,20498842,99.00,,
+195591,,cpu_core/L1-dcache-load-misses/,20498842,99.00,0.69,of all L1-dcache accesses
+19785887,,cpu_core/branch-instructions/,20498842,99.00,,
+557913,,cpu_core/branch-misses/,20498842,99.00,,
+137167423,,cpu_core/instructions/,20498842,99.00,,
+52176213,,cpu_core/cpu-cycles/,20498842,99.00,,
+1,,context-switches,20604415,100.00,,
+3210,,page-faults,20604415,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28661696,,cpu_core/L1-dcache-loads/,21491241,97.00,,
+194008,,cpu_core/L1-dcache-load-misses/,21491241,97.00,0.68,of all L1-dcache accesses
+20108884,,cpu_core/branch-instructions/,21491241,97.00,,
+566146,,cpu_core/branch-misses/,21491241,97.00,,
+139612228,,cpu_core/instructions/,21491241,97.00,,
+51748734,,cpu_core/cpu-cycles/,21491241,97.00,,
+1,,context-switches,22127851,100.00,,
+3210,,page-faults,22127851,100.00,,
+
+----- [reorder_base] H=1024 W=1024 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=1024 W=1024 K=3 seed=1234
+checksum -0.395011
+--- perf stat -x, ---
+28077609,,cpu_core/L1-dcache-loads/,19072733,100.00,,
+203069,,cpu_core/L1-dcache-load-misses/,19072733,100.00,0.72,of all L1-dcache accesses
+19704086,,cpu_core/branch-instructions/,19072733,100.00,,
+556399,,cpu_core/branch-misses/,19072733,100.00,,
+136578427,,cpu_core/instructions/,19072733,100.00,,
+51975606,,cpu_core/cpu-cycles/,19072733,100.00,,
+0,,context-switches,19072733,100.00,,
+3209,,page-faults,19072733,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111459686,,cpu_core/L1-dcache-loads/,64695083,99.00,,
+990652,,cpu_core/L1-dcache-load-misses/,64695083,99.00,0.89,of all L1-dcache accesses
+78099217,,cpu_core/branch-instructions/,64695083,99.00,,
+2177502,,cpu_core/branch-misses/,64695083,99.00,,
+543303010,,cpu_core/instructions/,64695083,99.00,,
+222810030,,cpu_core/cpu-cycles/,64695083,99.00,,
+2,,context-switches,65323761,100.00,,
+12427,,page-faults,65323761,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110603185,,cpu_core/L1-dcache-loads/,62831437,100.00,,
+1082873,,cpu_core/L1-dcache-load-misses/,62831437,100.00,0.98,of all L1-dcache accesses
+77503753,,cpu_core/branch-instructions/,62831437,100.00,,
+2163389,,cpu_core/branch-misses/,62831437,100.00,,
+538943893,,cpu_core/instructions/,62831437,100.00,,
+220312489,,cpu_core/cpu-cycles/,62831437,100.00,,
+1,,context-switches,62831437,100.00,,
+12429,,page-faults,62831437,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111438269,,cpu_core/L1-dcache-loads/,62505291,99.00,,
+1024172,,cpu_core/L1-dcache-load-misses/,62505291,99.00,0.92,of all L1-dcache accesses
+78084428,,cpu_core/branch-instructions/,62505291,99.00,,
+2176867,,cpu_core/branch-misses/,62505291,99.00,,
+543207231,,cpu_core/instructions/,62505291,99.00,,
+222436998,,cpu_core/cpu-cycles/,62505291,99.00,,
+2,,context-switches,63111744,100.00,,
+12427,,page-faults,63111744,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110629360,,cpu_core/L1-dcache-loads/,58601908,100.00,,
+1022576,,cpu_core/L1-dcache-load-misses/,58601908,100.00,0.92,of all L1-dcache accesses
+77520008,,cpu_core/branch-instructions/,58601908,100.00,,
+2161427,,cpu_core/branch-misses/,58601908,100.00,,
+539053156,,cpu_core/instructions/,58601908,100.00,,
+221933789,,cpu_core/cpu-cycles/,58601908,100.00,,
+2,,context-switches,58601908,100.00,,
+12429,,page-faults,58601908,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110642210,,cpu_core/L1-dcache-loads/,57896257,100.00,,
+1025015,,cpu_core/L1-dcache-load-misses/,57896257,100.00,0.93,of all L1-dcache accesses
+77530808,,cpu_core/branch-instructions/,57896257,100.00,,
+2161225,,cpu_core/branch-misses/,57896257,100.00,,
+539118418,,cpu_core/instructions/,57896257,100.00,,
+219487905,,cpu_core/cpu-cycles/,57896257,100.00,,
+2,,context-switches,57896257,100.00,,
+12429,,page-faults,57896257,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111514061,,cpu_core/L1-dcache-loads/,60442478,98.00,,
+1058155,,cpu_core/L1-dcache-load-misses/,60442478,98.00,0.95,of all L1-dcache accesses
+78136648,,cpu_core/branch-instructions/,60442478,98.00,,
+2178648,,cpu_core/branch-misses/,60442478,98.00,,
+543574932,,cpu_core/instructions/,60442478,98.00,,
+220823116,,cpu_core/cpu-cycles/,60442478,98.00,,
+1,,context-switches,61070193,100.00,,
+12429,,page-faults,61070193,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111214974,,cpu_core/L1-dcache-loads/,58093888,99.00,,
+1038434,,cpu_core/L1-dcache-load-misses/,58093888,99.00,0.93,of all L1-dcache accesses
+77926373,,cpu_core/branch-instructions/,58093888,99.00,,
+2173799,,cpu_core/branch-misses/,58093888,99.00,,
+542104903,,cpu_core/instructions/,58093888,99.00,,
+221656097,,cpu_core/cpu-cycles/,58093888,99.00,,
+3,,context-switches,58530583,100.00,,
+12427,,page-faults,58530583,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111390598,,cpu_core/L1-dcache-loads/,61294299,99.00,,
+1074377,,cpu_core/L1-dcache-load-misses/,61294299,99.00,0.96,of all L1-dcache accesses
+78050622,,cpu_core/branch-instructions/,61294299,99.00,,
+2176145,,cpu_core/branch-misses/,61294299,99.00,,
+542973049,,cpu_core/instructions/,61294299,99.00,,
+220791386,,cpu_core/cpu-cycles/,61294299,99.00,,
+2,,context-switches,61863195,100.00,,
+12426,,page-faults,61863195,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111117266,,cpu_core/L1-dcache-loads/,57810678,99.00,,
+1070012,,cpu_core/L1-dcache-load-misses/,57810678,99.00,0.96,of all L1-dcache accesses
+77857942,,cpu_core/branch-instructions/,57810678,99.00,,
+2170568,,cpu_core/branch-misses/,57810678,99.00,,
+541633075,,cpu_core/instructions/,57810678,99.00,,
+220468390,,cpu_core/cpu-cycles/,57810678,99.00,,
+2,,context-switches,58194071,100.00,,
+12431,,page-faults,58194071,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111254342,,cpu_core/L1-dcache-loads/,61854989,99.00,,
+1069175,,cpu_core/L1-dcache-load-misses/,61854989,99.00,0.96,of all L1-dcache accesses
+77956071,,cpu_core/branch-instructions/,61854989,99.00,,
+2172520,,cpu_core/branch-misses/,61854989,99.00,,
+542316842,,cpu_core/instructions/,61854989,99.00,,
+220841810,,cpu_core/cpu-cycles/,61854989,99.00,,
+2,,context-switches,62356162,100.00,,
+12428,,page-faults,62356162,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111473735,,cpu_core/L1-dcache-loads/,63536644,99.00,,
+1006275,,cpu_core/L1-dcache-load-misses/,63536644,99.00,0.90,of all L1-dcache accesses
+78109508,,cpu_core/branch-instructions/,63536644,99.00,,
+2176540,,cpu_core/branch-misses/,63536644,99.00,,
+543375752,,cpu_core/instructions/,63536644,99.00,,
+222707348,,cpu_core/cpu-cycles/,63536644,99.00,,
+1,,context-switches,64170067,100.00,,
+12429,,page-faults,64170067,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110606123,,cpu_core/L1-dcache-loads/,58368094,100.00,,
+1091996,,cpu_core/L1-dcache-load-misses/,58368094,100.00,0.99,of all L1-dcache accesses
+77506788,,cpu_core/branch-instructions/,58368094,100.00,,
+2159677,,cpu_core/branch-misses/,58368094,100.00,,
+538958391,,cpu_core/instructions/,58368094,100.00,,
+219330109,,cpu_core/cpu-cycles/,58368094,100.00,,
+0,,context-switches,58368094,100.00,,
+12428,,page-faults,58368094,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111463308,,cpu_core/L1-dcache-loads/,61349027,99.00,,
+1113455,,cpu_core/L1-dcache-load-misses/,61349027,99.00,1.00,of all L1-dcache accesses
+78101202,,cpu_core/branch-instructions/,61349027,99.00,,
+2175595,,cpu_core/branch-misses/,61349027,99.00,,
+543321220,,cpu_core/instructions/,61349027,99.00,,
+219411845,,cpu_core/cpu-cycles/,61349027,99.00,,
+1,,context-switches,61951744,100.00,,
+12430,,page-faults,61951744,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111160321,,cpu_core/L1-dcache-loads/,57914848,99.00,,
+1085161,,cpu_core/L1-dcache-load-misses/,57914848,99.00,0.98,of all L1-dcache accesses
+77888832,,cpu_core/branch-instructions/,57914848,99.00,,
+2171612,,cpu_core/branch-misses/,57914848,99.00,,
+541839637,,cpu_core/instructions/,57914848,99.00,,
+220359928,,cpu_core/cpu-cycles/,57914848,99.00,,
+2,,context-switches,58321606,100.00,,
+12431,,page-faults,58321606,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111481412,,cpu_core/L1-dcache-loads/,61598862,98.00,,
+1104392,,cpu_core/L1-dcache-load-misses/,61598862,98.00,0.99,of all L1-dcache accesses
+78114384,,cpu_core/branch-instructions/,61598862,98.00,,
+2177588,,cpu_core/branch-misses/,61598862,98.00,,
+543420139,,cpu_core/instructions/,61598862,98.00,,
+219954325,,cpu_core/cpu-cycles/,61598862,98.00,,
+1,,context-switches,62222484,100.00,,
+12430,,page-faults,62222484,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110612486,,cpu_core/L1-dcache-loads/,59208691,100.00,,
+1082637,,cpu_core/L1-dcache-load-misses/,59208691,100.00,0.98,of all L1-dcache accesses
+77510705,,cpu_core/branch-instructions/,59208691,100.00,,
+2162503,,cpu_core/branch-misses/,59208691,100.00,,
+538985694,,cpu_core/instructions/,59208691,100.00,,
+219914095,,cpu_core/cpu-cycles/,59208691,100.00,,
+0,,context-switches,59208691,100.00,,
+12429,,page-faults,59208691,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111441271,,cpu_core/L1-dcache-loads/,61962825,99.00,,
+1086850,,cpu_core/L1-dcache-load-misses/,61962825,99.00,0.98,of all L1-dcache accesses
+78086028,,cpu_core/branch-instructions/,61962825,99.00,,
+2180375,,cpu_core/branch-misses/,61962825,99.00,,
+543221137,,cpu_core/instructions/,61962825,99.00,,
+221516722,,cpu_core/cpu-cycles/,61962825,99.00,,
+1,,context-switches,62566135,100.00,,
+12428,,page-faults,62566135,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+110615411,,cpu_core/L1-dcache-loads/,58177404,100.00,,
+1019279,,cpu_core/L1-dcache-load-misses/,58177404,100.00,0.92,of all L1-dcache accesses
+77512360,,cpu_core/branch-instructions/,58177404,100.00,,
+2159558,,cpu_core/branch-misses/,58177404,100.00,,
+538998773,,cpu_core/instructions/,58177404,100.00,,
+220437581,,cpu_core/cpu-cycles/,58177404,100.00,,
+1,,context-switches,58177404,100.00,,
+12430,,page-faults,58177404,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111510313,,cpu_core/L1-dcache-loads/,59814723,98.00,,
+1138592,,cpu_core/L1-dcache-load-misses/,59814723,98.00,1.02,of all L1-dcache accesses
+78134307,,cpu_core/branch-instructions/,59814723,98.00,,
+2180011,,cpu_core/branch-misses/,59814723,98.00,,
+543560052,,cpu_core/instructions/,59814723,98.00,,
+220134979,,cpu_core/cpu-cycles/,59814723,98.00,,
+1,,context-switches,60435070,100.00,,
+12429,,page-faults,60435070,100.00,,
+
+----- [reorder_base] H=2048 W=2048 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=2048 W=2048 K=3 seed=1234
+checksum 0.491263
+--- perf stat -x, ---
+111115007,,cpu_core/L1-dcache-loads/,58186063,99.00,,
+1042000,,cpu_core/L1-dcache-load-misses/,58186063,99.00,0.94,of all L1-dcache accesses
+77858594,,cpu_core/branch-instructions/,58186063,99.00,,
+2170504,,cpu_core/branch-misses/,58186063,99.00,,
+541638335,,cpu_core/instructions/,58186063,99.00,,
+220992406,,cpu_core/cpu-cycles/,58186063,99.00,,
+1,,context-switches,58584196,100.00,,
+12428,,page-faults,58584196,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441136444,,cpu_core/L1-dcache-loads/,245245841,100.00,,
+4921745,,cpu_core/L1-dcache-load-misses/,245245841,100.00,1.12,of all L1-dcache accesses
+308989668,,cpu_core/branch-instructions/,245245841,100.00,,
+8557735,,cpu_core/branch-misses/,245245841,100.00,,
+2150318572,,cpu_core/instructions/,245245841,100.00,,
+918031351,,cpu_core/cpu-cycles/,245245841,100.00,,
+3,,context-switches,245245841,100.00,,
+49300,,page-faults,245245841,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441906148,,cpu_core/L1-dcache-loads/,244535760,99.00,,
+5089393,,cpu_core/L1-dcache-load-misses/,244535760,99.00,1.15,of all L1-dcache accesses
+309513710,,cpu_core/branch-instructions/,244535760,99.00,,
+8570216,,cpu_core/branch-misses/,244535760,99.00,,
+2154237808,,cpu_core/instructions/,244535760,99.00,,
+913370277,,cpu_core/cpu-cycles/,244535760,99.00,,
+1,,context-switches,245166305,100.00,,
+49299,,page-faults,245166305,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441528266,,cpu_core/L1-dcache-loads/,241175522,99.00,,
+4987410,,cpu_core/L1-dcache-load-misses/,241175522,99.00,1.13,of all L1-dcache accesses
+309241684,,cpu_core/branch-instructions/,241175522,99.00,,
+8581129,,cpu_core/branch-misses/,241175522,99.00,,
+2152350380,,cpu_core/instructions/,241175522,99.00,,
+915671997,,cpu_core/cpu-cycles/,241175522,99.00,,
+3,,context-switches,241595329,100.00,,
+49301,,page-faults,241595329,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441858632,,cpu_core/L1-dcache-loads/,244290376,99.00,,
+5114417,,cpu_core/L1-dcache-load-misses/,244290376,99.00,1.16,of all L1-dcache accesses
+309477997,,cpu_core/branch-instructions/,244290376,99.00,,
+8578154,,cpu_core/branch-misses/,244290376,99.00,,
+2153985715,,cpu_core/instructions/,244290376,99.00,,
+915862306,,cpu_core/cpu-cycles/,244290376,99.00,,
+2,,context-switches,244911153,100.00,,
+49302,,page-faults,244911153,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441431004,,cpu_core/L1-dcache-loads/,244605776,99.00,,
+4911338,,cpu_core/L1-dcache-load-misses/,244605776,99.00,1.11,of all L1-dcache accesses
+309179913,,cpu_core/branch-instructions/,244605776,99.00,,
+8570030,,cpu_core/branch-misses/,244605776,99.00,,
+2151874376,,cpu_core/instructions/,244605776,99.00,,
+915739546,,cpu_core/cpu-cycles/,244605776,99.00,,
+5,,context-switches,244969384,100.00,,
+49302,,page-faults,244969384,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441493514,,cpu_core/L1-dcache-loads/,244813920,99.00,,
+4947344,,cpu_core/L1-dcache-load-misses/,244813920,99.00,1.12,of all L1-dcache accesses
+309219877,,cpu_core/branch-instructions/,244813920,99.00,,
+8566465,,cpu_core/branch-misses/,244813920,99.00,,
+2152212159,,cpu_core/instructions/,244813920,99.00,,
+917791915,,cpu_core/cpu-cycles/,244813920,99.00,,
+1,,context-switches,245241492,100.00,,
+49300,,page-faults,245241492,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441512778,,cpu_core/L1-dcache-loads/,241068866,99.00,,
+4898736,,cpu_core/L1-dcache-load-misses/,241068866,99.00,1.11,of all L1-dcache accesses
+309243202,,cpu_core/branch-instructions/,241068866,99.00,,
+8568649,,cpu_core/branch-misses/,241068866,99.00,,
+2152342219,,cpu_core/instructions/,241068866,99.00,,
+915432208,,cpu_core/cpu-cycles/,241068866,99.00,,
+3,,context-switches,241478202,100.00,,
+49301,,page-faults,241478202,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441850620,,cpu_core/L1-dcache-loads/,244415833,99.00,,
+5036704,,cpu_core/L1-dcache-load-misses/,244415833,99.00,1.14,of all L1-dcache accesses
+309471255,,cpu_core/branch-instructions/,244415833,99.00,,
+8586973,,cpu_core/branch-misses/,244415833,99.00,,
+2153932318,,cpu_core/instructions/,244415833,99.00,,
+920445742,,cpu_core/cpu-cycles/,244415833,99.00,,
+2,,context-switches,245023410,100.00,,
+49302,,page-faults,245023410,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441608451,,cpu_core/L1-dcache-loads/,241495891,99.00,,
+4943320,,cpu_core/L1-dcache-load-misses/,241495891,99.00,1.12,of all L1-dcache accesses
+309308972,,cpu_core/branch-instructions/,241495891,99.00,,
+8577361,,cpu_core/branch-misses/,241495891,99.00,,
+2152779864,,cpu_core/instructions/,241495891,99.00,,
+916977757,,cpu_core/cpu-cycles/,241495891,99.00,,
+4,,context-switches,241928348,100.00,,
+49300,,page-faults,241928348,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441693585,,cpu_core/L1-dcache-loads/,248097978,99.00,,
+4931821,,cpu_core/L1-dcache-load-misses/,248097978,99.00,1.12,of all L1-dcache accesses
+309363219,,cpu_core/branch-instructions/,248097978,99.00,,
+8578167,,cpu_core/branch-misses/,248097978,99.00,,
+2153179316,,cpu_core/instructions/,248097978,99.00,,
+926411141,,cpu_core/cpu-cycles/,248097978,99.00,,
+2,,context-switches,248617372,100.00,,
+49301,,page-faults,248617372,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441521899,,cpu_core/L1-dcache-loads/,241277133,99.00,,
+4897342,,cpu_core/L1-dcache-load-misses/,241277133,99.00,1.11,of all L1-dcache accesses
+309242645,,cpu_core/branch-instructions/,241277133,99.00,,
+8573684,,cpu_core/branch-misses/,241277133,99.00,,
+2152323288,,cpu_core/instructions/,241277133,99.00,,
+915619229,,cpu_core/cpu-cycles/,241277133,99.00,,
+6,,context-switches,241674034,100.00,,
+49301,,page-faults,241674034,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441768998,,cpu_core/L1-dcache-loads/,245804363,99.00,,
+5001444,,cpu_core/L1-dcache-load-misses/,245804363,99.00,1.13,of all L1-dcache accesses
+309418731,,cpu_core/branch-instructions/,245804363,99.00,,
+8575728,,cpu_core/branch-misses/,245804363,99.00,,
+2153512431,,cpu_core/instructions/,245804363,99.00,,
+914554371,,cpu_core/cpu-cycles/,245804363,99.00,,
+6,,context-switches,246347679,100.00,,
+49302,,page-faults,246347679,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+440999051,,cpu_core/L1-dcache-loads/,241492363,100.00,,
+5080353,,cpu_core/L1-dcache-load-misses/,241492363,100.00,1.15,of all L1-dcache accesses
+308880718,,cpu_core/branch-instructions/,241492363,100.00,,
+8559855,,cpu_core/branch-misses/,241492363,100.00,,
+2149587430,,cpu_core/instructions/,241492363,100.00,,
+915633896,,cpu_core/cpu-cycles/,241492363,100.00,,
+2,,context-switches,241492363,100.00,,
+49302,,page-faults,241492363,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441505372,,cpu_core/L1-dcache-loads/,241697226,99.00,,
+5013014,,cpu_core/L1-dcache-load-misses/,241697226,99.00,1.14,of all L1-dcache accesses
+309230138,,cpu_core/branch-instructions/,241697226,99.00,,
+8579659,,cpu_core/branch-misses/,241697226,99.00,,
+2152250813,,cpu_core/instructions/,241697226,99.00,,
+917572994,,cpu_core/cpu-cycles/,241697226,99.00,,
+2,,context-switches,242092769,100.00,,
+49304,,page-faults,242092769,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441517737,,cpu_core/L1-dcache-loads/,242068144,99.00,,
+4929674,,cpu_core/L1-dcache-load-misses/,242068144,99.00,1.12,of all L1-dcache accesses
+309238048,,cpu_core/branch-instructions/,242068144,99.00,,
+8578426,,cpu_core/branch-misses/,242068144,99.00,,
+2152303328,,cpu_core/instructions/,242068144,99.00,,
+919270796,,cpu_core/cpu-cycles/,242068144,99.00,,
+3,,context-switches,242468210,100.00,,
+49300,,page-faults,242468210,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441501565,,cpu_core/L1-dcache-loads/,241125282,99.00,,
+5077848,,cpu_core/L1-dcache-load-misses/,241125282,99.00,1.15,of all L1-dcache accesses
+309227007,,cpu_core/branch-instructions/,241125282,99.00,,
+8574423,,cpu_core/branch-misses/,241125282,99.00,,
+2152218721,,cpu_core/instructions/,241125282,99.00,,
+915409482,,cpu_core/cpu-cycles/,241125282,99.00,,
+6,,context-switches,241528726,100.00,,
+49299,,page-faults,241528726,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441510410,,cpu_core/L1-dcache-loads/,241311201,99.00,,
+5058292,,cpu_core/L1-dcache-load-misses/,241311201,99.00,1.15,of all L1-dcache accesses
+309233135,,cpu_core/branch-instructions/,241311201,99.00,,
+8574295,,cpu_core/branch-misses/,241311201,99.00,,
+2152273607,,cpu_core/instructions/,241311201,99.00,,
+916415108,,cpu_core/cpu-cycles/,241311201,99.00,,
+3,,context-switches,241707918,100.00,,
+49301,,page-faults,241707918,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441533670,,cpu_core/L1-dcache-loads/,242774159,99.00,,
+5028467,,cpu_core/L1-dcache-load-misses/,242774159,99.00,1.14,of all L1-dcache accesses
+309251976,,cpu_core/branch-instructions/,242774159,99.00,,
+8571420,,cpu_core/branch-misses/,242774159,99.00,,
+2152325837,,cpu_core/instructions/,242774159,99.00,,
+915713190,,cpu_core/cpu-cycles/,242774159,99.00,,
+1,,context-switches,243147076,100.00,,
+49302,,page-faults,243147076,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441738120,,cpu_core/L1-dcache-loads/,245434349,99.00,,
+4906625,,cpu_core/L1-dcache-load-misses/,245434349,99.00,1.11,of all L1-dcache accesses
+309395153,,cpu_core/branch-instructions/,245434349,99.00,,
+8570504,,cpu_core/branch-misses/,245434349,99.00,,
+2153404677,,cpu_core/instructions/,245434349,99.00,,
+921374258,,cpu_core/cpu-cycles/,245434349,99.00,,
+3,,context-switches,245977462,100.00,,
+49300,,page-faults,245977462,100.00,,
+
+----- [reorder_base] H=4096 W=4096 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=4096 W=4096 K=3 seed=1234
+checksum 0.712899
+--- perf stat -x, ---
+441723378,,cpu_core/L1-dcache-loads/,242799907,99.00,,
+5013719,,cpu_core/L1-dcache-load-misses/,242799907,99.00,1.14,of all L1-dcache accesses
+309385076,,cpu_core/branch-instructions/,242799907,99.00,,
+8578031,,cpu_core/branch-misses/,242799907,99.00,,
+2153335956,,cpu_core/instructions/,242799907,99.00,,
+919119163,,cpu_core/cpu-cycles/,242799907,99.00,,
+2,,context-switches,243319038,100.00,,
+49302,,page-faults,243319038,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764063143,,cpu_core/L1-dcache-loads/,975109885,99.00,,
+20003086,,cpu_core/L1-dcache-load-misses/,975109885,99.00,1.13,of all L1-dcache accesses
+1235577159,,cpu_core/branch-instructions/,975109885,99.00,,
+34151368,,cpu_core/branch-misses/,975109885,99.00,,
+8600479782,,cpu_core/instructions/,975109885,99.00,,
+3684092153,,cpu_core/cpu-cycles/,975109885,99.00,,
+4,,context-switches,975690284,100.00,,
+196774,,page-faults,975690284,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764162041,,cpu_core/L1-dcache-loads/,976502628,99.00,,
+19802671,,cpu_core/L1-dcache-load-misses/,976502628,99.00,1.12,of all L1-dcache accesses
+1235666546,,cpu_core/branch-instructions/,976502628,99.00,,
+34128510,,cpu_core/branch-misses/,976502628,99.00,,
+8601095486,,cpu_core/instructions/,976502628,99.00,,
+3681911973,,cpu_core/cpu-cycles/,976502628,99.00,,
+4,,context-switches,977124385,100.00,,
+196771,,page-faults,977124385,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764186980,,cpu_core/L1-dcache-loads/,976691974,99.00,,
+19978629,,cpu_core/L1-dcache-load-misses/,976691974,99.00,1.13,of all L1-dcache accesses
+1235684267,,cpu_core/branch-instructions/,976691974,99.00,,
+34132684,,cpu_core/branch-misses/,976691974,99.00,,
+8601186829,,cpu_core/instructions/,976691974,99.00,,
+3690113382,,cpu_core/cpu-cycles/,976691974,99.00,,
+3,,context-switches,977314003,100.00,,
+196775,,page-faults,977314003,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763328251,,cpu_core/L1-dcache-loads/,972575522,100.00,,
+19831170,,cpu_core/L1-dcache-load-misses/,972575522,100.00,1.12,of all L1-dcache accesses
+1235089302,,cpu_core/branch-instructions/,972575522,100.00,,
+34124436,,cpu_core/branch-misses/,972575522,100.00,,
+8596788653,,cpu_core/instructions/,972575522,100.00,,
+3687207709,,cpu_core/cpu-cycles/,972575522,100.00,,
+10,,context-switches,972575522,100.00,,
+196771,,page-faults,972575522,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763803401,,cpu_core/L1-dcache-loads/,968642959,99.00,,
+20021581,,cpu_core/L1-dcache-load-misses/,968642959,99.00,1.14,of all L1-dcache accesses
+1235408481,,cpu_core/branch-instructions/,968642959,99.00,,
+34125812,,cpu_core/branch-misses/,968642959,99.00,,
+8599282634,,cpu_core/instructions/,968642959,99.00,,
+3674065160,,cpu_core/cpu-cycles/,968642959,99.00,,
+6,,context-switches,969052507,100.00,,
+196773,,page-faults,969052507,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763804199,,cpu_core/L1-dcache-loads/,977623313,99.00,,
+20145275,,cpu_core/L1-dcache-load-misses/,977623313,99.00,1.14,of all L1-dcache accesses
+1235409913,,cpu_core/branch-instructions/,977623313,99.00,,
+34111932,,cpu_core/branch-misses/,977623313,99.00,,
+8599284903,,cpu_core/instructions/,977623313,99.00,,
+3683694664,,cpu_core/cpu-cycles/,977623313,99.00,,
+9,,context-switches,978037181,100.00,,
+196775,,page-faults,978037181,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763779811,,cpu_core/L1-dcache-loads/,971944074,99.00,,
+19842276,,cpu_core/L1-dcache-load-misses/,971944074,99.00,1.12,of all L1-dcache accesses
+1235391023,,cpu_core/branch-instructions/,971944074,99.00,,
+34133925,,cpu_core/branch-misses/,971944074,99.00,,
+8599156155,,cpu_core/instructions/,971944074,99.00,,
+3686650071,,cpu_core/cpu-cycles/,971944074,99.00,,
+7,,context-switches,972341390,100.00,,
+196773,,page-faults,972341390,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764118431,,cpu_core/L1-dcache-loads/,979255698,99.00,,
+20115294,,cpu_core/L1-dcache-load-misses/,979255698,99.00,1.14,of all L1-dcache accesses
+1235624092,,cpu_core/branch-instructions/,979255698,99.00,,
+34132946,,cpu_core/branch-misses/,979255698,99.00,,
+8600813083,,cpu_core/instructions/,979255698,99.00,,
+3692791023,,cpu_core/cpu-cycles/,979255698,99.00,,
+7,,context-switches,979872226,100.00,,
+196775,,page-faults,979872226,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764459461,,cpu_core/L1-dcache-loads/,974675095,99.00,,
+19922011,,cpu_core/L1-dcache-load-misses/,974675095,99.00,1.13,of all L1-dcache accesses
+1235872609,,cpu_core/branch-instructions/,974675095,99.00,,
+34158567,,cpu_core/branch-misses/,974675095,99.00,,
+8602515260,,cpu_core/instructions/,974675095,99.00,,
+3679033487,,cpu_core/cpu-cycles/,974675095,99.00,,
+5,,context-switches,975455160,100.00,,
+196775,,page-faults,975455160,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763827136,,cpu_core/L1-dcache-loads/,973354730,99.00,,
+19824387,,cpu_core/L1-dcache-load-misses/,973354730,99.00,1.12,of all L1-dcache accesses
+1235421676,,cpu_core/branch-instructions/,973354730,99.00,,
+34127715,,cpu_core/branch-misses/,973354730,99.00,,
+8599397646,,cpu_core/instructions/,973354730,99.00,,
+3691937810,,cpu_core/cpu-cycles/,973354730,99.00,,
+6,,context-switches,973782458,100.00,,
+196772,,page-faults,973782458,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764050935,,cpu_core/L1-dcache-loads/,977173700,99.00,,
+19885975,,cpu_core/L1-dcache-load-misses/,977173700,99.00,1.13,of all L1-dcache accesses
+1235590513,,cpu_core/branch-instructions/,977173700,99.00,,
+34145555,,cpu_core/branch-misses/,977173700,99.00,,
+8600525874,,cpu_core/instructions/,977173700,99.00,,
+3689581983,,cpu_core/cpu-cycles/,977173700,99.00,,
+5,,context-switches,977728916,100.00,,
+196772,,page-faults,977728916,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763953382,,cpu_core/L1-dcache-loads/,975143758,99.00,,
+19926555,,cpu_core/L1-dcache-load-misses/,975143758,99.00,1.13,of all L1-dcache accesses
+1235512067,,cpu_core/branch-instructions/,975143758,99.00,,
+34119624,,cpu_core/branch-misses/,975143758,99.00,,
+8600050726,,cpu_core/instructions/,975143758,99.00,,
+3679468287,,cpu_core/cpu-cycles/,975143758,99.00,,
+6,,context-switches,975668311,100.00,,
+196774,,page-faults,975668311,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764302637,,cpu_core/L1-dcache-loads/,976638352,99.00,,
+20247097,,cpu_core/L1-dcache-load-misses/,976638352,99.00,1.15,of all L1-dcache accesses
+1235750086,,cpu_core/branch-instructions/,976638352,99.00,,
+34126982,,cpu_core/branch-misses/,976638352,99.00,,
+8601763087,,cpu_core/instructions/,976638352,99.00,,
+3680423886,,cpu_core/cpu-cycles/,976638352,99.00,,
+6,,context-switches,977373609,100.00,,
+196774,,page-faults,977373609,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764002388,,cpu_core/L1-dcache-loads/,972862607,99.00,,
+19966369,,cpu_core/L1-dcache-load-misses/,972862607,99.00,1.13,of all L1-dcache accesses
+1235545225,,cpu_core/branch-instructions/,972862607,99.00,,
+34128480,,cpu_core/branch-misses/,972862607,99.00,,
+8600299857,,cpu_core/instructions/,972862607,99.00,,
+3685048688,,cpu_core/cpu-cycles/,972862607,99.00,,
+5,,context-switches,973418233,100.00,,
+196775,,page-faults,973418233,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763810884,,cpu_core/L1-dcache-loads/,972757159,99.00,,
+19965558,,cpu_core/L1-dcache-load-misses/,972757159,99.00,1.13,of all L1-dcache accesses
+1235413324,,cpu_core/branch-instructions/,972757159,99.00,,
+34149050,,cpu_core/branch-misses/,972757159,99.00,,
+8599328786,,cpu_core/instructions/,972757159,99.00,,
+3689613314,,cpu_core/cpu-cycles/,972757159,99.00,,
+7,,context-switches,973177392,100.00,,
+196774,,page-faults,973177392,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763830256,,cpu_core/L1-dcache-loads/,972078870,99.00,,
+20048144,,cpu_core/L1-dcache-load-misses/,972078870,99.00,1.14,of all L1-dcache accesses
+1235435516,,cpu_core/branch-instructions/,972078870,99.00,,
+34123731,,cpu_core/branch-misses/,972078870,99.00,,
+8599448091,,cpu_core/instructions/,972078870,99.00,,
+3671930245,,cpu_core/cpu-cycles/,972078870,99.00,,
+8,,context-switches,972508636,100.00,,
+196775,,page-faults,972508636,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763920686,,cpu_core/L1-dcache-loads/,973493204,99.00,,
+20072531,,cpu_core/L1-dcache-load-misses/,973493204,99.00,1.14,of all L1-dcache accesses
+1235491525,,cpu_core/branch-instructions/,973493204,99.00,,
+34128159,,cpu_core/branch-misses/,973493204,99.00,,
+8599888857,,cpu_core/instructions/,973493204,99.00,,
+3684423484,,cpu_core/cpu-cycles/,973493204,99.00,,
+9,,context-switches,973996176,100.00,,
+196772,,page-faults,973996176,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1763231752,,cpu_core/L1-dcache-loads/,977345399,100.00,,
+20172219,,cpu_core/L1-dcache-load-misses/,977345399,100.00,1.14,of all L1-dcache accesses
+1235010134,,cpu_core/branch-instructions/,977345399,100.00,,
+34105654,,cpu_core/branch-misses/,977345399,100.00,,
+8596351089,,cpu_core/instructions/,977345399,100.00,,
+3672943288,,cpu_core/cpu-cycles/,977345399,100.00,,
+1,,context-switches,977345399,100.00,,
+196776,,page-faults,977345399,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764121362,,cpu_core/L1-dcache-loads/,976182510,99.00,,
+19995714,,cpu_core/L1-dcache-load-misses/,976182510,99.00,1.13,of all L1-dcache accesses
+1235629295,,cpu_core/branch-instructions/,976182510,99.00,,
+34143129,,cpu_core/branch-misses/,976182510,99.00,,
+8600856727,,cpu_core/instructions/,976182510,99.00,,
+3684507527,,cpu_core/cpu-cycles/,976182510,99.00,,
+6,,context-switches,976794227,100.00,,
+196775,,page-faults,976794227,100.00,,
+
+----- [reorder_base] H=8192 W=8192 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=8192 W=8192 K=3 seed=1234
+checksum 0.493239
+--- perf stat -x, ---
+1764290748,,cpu_core/L1-dcache-loads/,973229690,99.00,,
+20144355,,cpu_core/L1-dcache-load-misses/,973229690,99.00,1.14,of all L1-dcache accesses
+1235754781,,cpu_core/branch-instructions/,973229690,99.00,,
+34122593,,cpu_core/branch-misses/,973229690,99.00,,
+8601683236,,cpu_core/instructions/,973229690,99.00,,
+3670672013,,cpu_core/cpu-cycles/,973229690,99.00,,
+6,,context-switches,973916766,100.00,,
+196775,,page-faults,973916766,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=1/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054198568,,cpu_core/L1-dcache-loads/,3875012592,99.00,,
+80487002,,cpu_core/L1-dcache-load-misses/,3875012592,99.00,1.14,of all L1-dcache accesses
+4941832039,,cpu_core/branch-instructions/,3875012592,99.00,,
+136208080,,cpu_core/branch-misses/,3875012592,99.00,,
+34398225816,,cpu_core/instructions/,3875012592,99.00,,
+14685509078,,cpu_core/cpu-cycles/,3875012592,99.00,,
+20,,context-switches,3875608244,100.00,,
+786627,,page-faults,3875608244,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=2/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053828963,,cpu_core/L1-dcache-loads/,3874882336,99.00,,
+80423268,,cpu_core/L1-dcache-load-misses/,3874882336,99.00,1.14,of all L1-dcache accesses
+4941505646,,cpu_core/branch-instructions/,3874882336,99.00,,
+136196919,,cpu_core/branch-misses/,3874882336,99.00,,
+34396114008,,cpu_core/instructions/,3874882336,99.00,,
+14673828082,,cpu_core/cpu-cycles/,3874882336,99.00,,
+22,,context-switches,3875368234,100.00,,
+786630,,page-faults,3875368234,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=3/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053628784,,cpu_core/L1-dcache-loads/,3864356293,99.00,,
+80563779,,cpu_core/L1-dcache-load-misses/,3864356293,99.00,1.14,of all L1-dcache accesses
+4941352945,,cpu_core/branch-instructions/,3864356293,99.00,,
+136302548,,cpu_core/branch-misses/,3864356293,99.00,,
+34395243025,,cpu_core/instructions/,3864356293,99.00,,
+14652384100,,cpu_core/cpu-cycles/,3864356293,99.00,,
+22,,context-switches,3864792362,100.00,,
+786630,,page-faults,3864792362,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=4/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053854252,,cpu_core/L1-dcache-loads/,3869496029,99.00,,
+81018448,,cpu_core/L1-dcache-load-misses/,3869496029,99.00,1.15,of all L1-dcache accesses
+4941510514,,cpu_core/branch-instructions/,3869496029,99.00,,
+136260092,,cpu_core/branch-misses/,3869496029,99.00,,
+34396252414,,cpu_core/instructions/,3869496029,99.00,,
+14666401899,,cpu_core/cpu-cycles/,3869496029,99.00,,
+22,,context-switches,3870028219,100.00,,
+786630,,page-faults,3870028219,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=5/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053978958,,cpu_core/L1-dcache-loads/,3876151160,99.00,,
+80564304,,cpu_core/L1-dcache-load-misses/,3876151160,99.00,1.14,of all L1-dcache accesses
+4941614698,,cpu_core/branch-instructions/,3876151160,99.00,,
+136307654,,cpu_core/branch-misses/,3876151160,99.00,,
+34396838429,,cpu_core/instructions/,3876151160,99.00,,
+14680779833,,cpu_core/cpu-cycles/,3876151160,99.00,,
+17,,context-switches,3876685799,100.00,,
+786630,,page-faults,3876685799,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=6/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053671400,,cpu_core/L1-dcache-loads/,3872255314,99.00,,
+80274000,,cpu_core/L1-dcache-load-misses/,3872255314,99.00,1.14,of all L1-dcache accesses
+4941388531,,cpu_core/branch-instructions/,3872255314,99.00,,
+136297530,,cpu_core/branch-misses/,3872255314,99.00,,
+34395349947,,cpu_core/instructions/,3872255314,99.00,,
+14683611187,,cpu_core/cpu-cycles/,3872255314,99.00,,
+19,,context-switches,3872663856,100.00,,
+786629,,page-faults,3872663856,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=7/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053909452,,cpu_core/L1-dcache-loads/,3872787282,99.00,,
+80874693,,cpu_core/L1-dcache-load-misses/,3872787282,99.00,1.15,of all L1-dcache accesses
+4941566611,,cpu_core/branch-instructions/,3872787282,99.00,,
+136332716,,cpu_core/branch-misses/,3872787282,99.00,,
+34396560882,,cpu_core/instructions/,3872787282,99.00,,
+14681387518,,cpu_core/cpu-cycles/,3872787282,99.00,,
+22,,context-switches,3873314357,100.00,,
+786629,,page-faults,3873314357,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=8/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054228122,,cpu_core/L1-dcache-loads/,3880689475,99.00,,
+81087768,,cpu_core/L1-dcache-load-misses/,3880689475,99.00,1.15,of all L1-dcache accesses
+4941810015,,cpu_core/branch-instructions/,3880689475,99.00,,
+136224252,,cpu_core/branch-misses/,3880689475,99.00,,
+34398066574,,cpu_core/instructions/,3880689475,99.00,,
+14696078540,,cpu_core/cpu-cycles/,3880689475,99.00,,
+18,,context-switches,3881330755,100.00,,
+786631,,page-faults,3881330755,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=9/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053882718,,cpu_core/L1-dcache-loads/,3879782004,99.00,,
+80540889,,cpu_core/L1-dcache-load-misses/,3879782004,99.00,1.14,of all L1-dcache accesses
+4941539425,,cpu_core/branch-instructions/,3879782004,99.00,,
+136224050,,cpu_core/branch-misses/,3879782004,99.00,,
+34396352129,,cpu_core/instructions/,3879782004,99.00,,
+14696606902,,cpu_core/cpu-cycles/,3879782004,99.00,,
+23,,context-switches,3880193050,100.00,,
+786628,,page-faults,3880193050,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=10/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053806067,,cpu_core/L1-dcache-loads/,3868575189,99.00,,
+80639403,,cpu_core/L1-dcache-load-misses/,3868575189,99.00,1.14,of all L1-dcache accesses
+4941491974,,cpu_core/branch-instructions/,3868575189,99.00,,
+136214667,,cpu_core/branch-misses/,3868575189,99.00,,
+34395951175,,cpu_core/instructions/,3868575189,99.00,,
+14668639876,,cpu_core/cpu-cycles/,3868575189,99.00,,
+19,,context-switches,3869001149,100.00,,
+786631,,page-faults,3869001149,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=11/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054027608,,cpu_core/L1-dcache-loads/,3884496866,99.00,,
+80315243,,cpu_core/L1-dcache-load-misses/,3884496866,99.00,1.14,of all L1-dcache accesses
+4941671889,,cpu_core/branch-instructions/,3884496866,99.00,,
+136272189,,cpu_core/branch-misses/,3884496866,99.00,,
+34397010298,,cpu_core/instructions/,3884496866,99.00,,
+14713858728,,cpu_core/cpu-cycles/,3884496866,99.00,,
+26,,context-switches,3884984791,100.00,,
+786629,,page-faults,3884984791,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=12/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053702198,,cpu_core/L1-dcache-loads/,3876592656,99.00,,
+80537310,,cpu_core/L1-dcache-load-misses/,3876592656,99.00,1.14,of all L1-dcache accesses
+4941420076,,cpu_core/branch-instructions/,3876592656,99.00,,
+136222415,,cpu_core/branch-misses/,3876592656,99.00,,
+34395460679,,cpu_core/instructions/,3876592656,99.00,,
+14686734578,,cpu_core/cpu-cycles/,3876592656,99.00,,
+20,,context-switches,3876996651,100.00,,
+786630,,page-faults,3876996651,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=13/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054026178,,cpu_core/L1-dcache-loads/,3885208153,99.00,,
+80700638,,cpu_core/L1-dcache-load-misses/,3885208153,99.00,1.14,of all L1-dcache accesses
+4941657220,,cpu_core/branch-instructions/,3885208153,99.00,,
+136338976,,cpu_core/branch-misses/,3885208153,99.00,,
+34397014901,,cpu_core/instructions/,3885208153,99.00,,
+14727964050,,cpu_core/cpu-cycles/,3885208153,99.00,,
+24,,context-switches,3885722472,100.00,,
+786627,,page-faults,3885722472,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=14/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054178386,,cpu_core/L1-dcache-loads/,3873838948,99.00,,
+80416356,,cpu_core/L1-dcache-load-misses/,3873838948,99.00,1.14,of all L1-dcache accesses
+4941754368,,cpu_core/branch-instructions/,3873838948,99.00,,
+136263638,,cpu_core/branch-misses/,3873838948,99.00,,
+34397745965,,cpu_core/instructions/,3873838948,99.00,,
+14672732488,,cpu_core/cpu-cycles/,3873838948,99.00,,
+23,,context-switches,3874482994,100.00,,
+786632,,page-faults,3874482994,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=15/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053658726,,cpu_core/L1-dcache-loads/,3876861337,99.00,,
+80868291,,cpu_core/L1-dcache-load-misses/,3876861337,99.00,1.15,of all L1-dcache accesses
+4941352275,,cpu_core/branch-instructions/,3876861337,99.00,,
+136230356,,cpu_core/branch-misses/,3876861337,99.00,,
+34395211956,,cpu_core/instructions/,3876861337,99.00,,
+14698633277,,cpu_core/cpu-cycles/,3876861337,99.00,,
+21,,context-switches,3877307268,100.00,,
+786631,,page-faults,3877307268,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=16/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053602110,,cpu_core/L1-dcache-loads/,3877499134,99.00,,
+80373090,,cpu_core/L1-dcache-load-misses/,3877499134,99.00,1.14,of all L1-dcache accesses
+4941356729,,cpu_core/branch-instructions/,3877499134,99.00,,
+136279760,,cpu_core/branch-misses/,3877499134,99.00,,
+34394865590,,cpu_core/instructions/,3877499134,99.00,,
+14695209070,,cpu_core/cpu-cycles/,3877499134,99.00,,
+22,,context-switches,3877741229,100.00,,
+786630,,page-faults,3877741229,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=17/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053783068,,cpu_core/L1-dcache-loads/,3882282867,99.00,,
+80317261,,cpu_core/L1-dcache-load-misses/,3882282867,99.00,1.14,of all L1-dcache accesses
+4941486972,,cpu_core/branch-instructions/,3882282867,99.00,,
+136250539,,cpu_core/branch-misses/,3882282867,99.00,,
+34395858039,,cpu_core/instructions/,3882282867,99.00,,
+14710610326,,cpu_core/cpu-cycles/,3882282867,99.00,,
+26,,context-switches,3882684559,100.00,,
+786627,,page-faults,3882684559,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=18/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053744673,,cpu_core/L1-dcache-loads/,3874336949,99.00,,
+80797475,,cpu_core/L1-dcache-load-misses/,3874336949,99.00,1.15,of all L1-dcache accesses
+4941449440,,cpu_core/branch-instructions/,3874336949,99.00,,
+136311726,,cpu_core/branch-misses/,3874336949,99.00,,
+34395650786,,cpu_core/instructions/,3874336949,99.00,,
+14691200152,,cpu_core/cpu-cycles/,3874336949,99.00,,
+21,,context-switches,3874754002,100.00,,
+786630,,page-faults,3874754002,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=19/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7054068437,,cpu_core/L1-dcache-loads/,3872837810,99.00,,
+81063139,,cpu_core/L1-dcache-load-misses/,3872837810,99.00,1.15,of all L1-dcache accesses
+4941666375,,cpu_core/branch-instructions/,3872837810,99.00,,
+136240474,,cpu_core/branch-misses/,3872837810,99.00,,
+34397224265,,cpu_core/instructions/,3872837810,99.00,,
+14666700272,,cpu_core/cpu-cycles/,3872837810,99.00,,
+26,,context-switches,3873447990,100.00,,
+786630,,page-faults,3873447990,100.00,,
+
+----- [reorder_base] H=16384 W=16384 K=3 seed=1234 rep=20/20 exit=0 -----
+PROFILING reorder variant=default H=16384 W=16384 K=3 seed=1234
+checksum 0.112685
+--- perf stat -x, ---
+7053250247,,cpu_core/L1-dcache-loads/,3877584544,100.00,,
+80277066,,cpu_core/L1-dcache-load-misses/,3877584544,100.00,1.14,of all L1-dcache accesses
+4941111418,,cpu_core/branch-instructions/,3877584544,100.00,,
+136214940,,cpu_core/branch-misses/,3877584544,100.00,,
+34393062319,,cpu_core/instructions/,3877584544,100.00,,
+14690588208,,cpu_core/cpu-cycles/,3877584544,100.00,,
+19,,context-switches,3877584544,100.00,,
+786627,,page-faults,3877584544,100.00,,
+# finished : 2026-09-06T17:31:17+05:30

@@ -1,0 +1,20 @@
+run_perf_profile.sh manifest
+started      : 2026-09-06T17:26:32+05:30
+host         : advay-Victus
+kernel       : Linux 6.8.0-138-generic x86_64
+cpu          : 13th Gen Intel(R) Core(TM) i7-13620H
+compiler     : g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+cxxflags     : -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST
+perf         : perf version 6.8.12
+paranoid     : 4
+governor     : powersave
+turbo(no_turbo): 0
+smt          : 1
+events       : cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/instructions/,cpu_core/cpu-cycles/,context-switches,page-faults
+sizes        : 64,128,256,512,1024,2048,4096,8192,16384
+K            : 3
+seed         : 1234
+reps         : 20
+pinned cpu   : 0
+runs         : calibration|default|calibration naive|default|naive reorder|default|reorder_base unroll|conv_unroll_v4|unroll_v4 unroll|conv_unroll_v5|unroll_v5 simd|conv_simd128_v2|simd128_v2 simd|conv_simd128_v3|simd128_v3 simd|conv_simd128_v4|simd128_v4 simd|conv_simd256_v1|simd256_v1 simd|conv_simd256_v2|simd256_v2 simd|conv_simd256_v3|simd256_v3 tile|8|tile_8 tile|16|tile_16 tile|32|tile_32 tile|64|tile_64 tile|128|tile_128 tile|256|tile_256 tile|512|tile_512 tile|1024|tile_1024
+finished     : 2026-09-06T17:57:11+05:30

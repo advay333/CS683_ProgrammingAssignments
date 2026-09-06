@@ -1,0 +1,12 @@
+### calibration
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/perf_caliberation.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/perf_caliberation
+### naive
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_naive.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/conv_prof_naive
+### reorder
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_reorder.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/conv_prof_reorder
+### unroll
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_unroll.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/conv_prof_unroll
+### simd
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_simd.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/conv_prof_simd
+### tile
+$ g++ -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST -I/home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/include /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/src/conv_tile.cpp -o /home/advay/CS683_ProgrammingAssignments/pa1-dhurandhar-microarchitecture/task1/bin/conv_prof_tile
