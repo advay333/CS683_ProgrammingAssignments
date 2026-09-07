@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Achieved throughput in GFLOP/s (median of 20 runs).}
+\label{tab:simd-gflops}
+\begin{tabular}{lrrrrrr}
+\toprule
+Size & SSE-128 v2 & SSE-128 v3 & SSE-128 v4 & AVX2-256 v1 & AVX2-256 v2 & AVX2-256 v3 \\
+\midrule
+64$\times$64 & 6.6 & 11.7 & 18.4 & 7.1 & 14.3 & 16.3 \\
+128$\times$128 & 11.2 & 23.5 & 30.4 & 21.8 & 28.5 & 28.5 \\
+256$\times$256 & 17.5 & 33.0 & 45.2 & 34.4 & 52.0 & 56.6 \\
+512$\times$512 & 17.8 & 34.4 & 45.5 & 36.4 & 53.9 & 57.1 \\
+1024$\times$1024 & 17.9 & 34.6 & 45.3 & 33.4 & 55.0 & 57.6 \\
+2048$\times$2048 & 17.0 & 31.1 & 38.5 & 29.5 & 42.3 & 44.7 \\
+4096$\times$4096 & 16.8 & 29.0 & 34.0 & 27.9 & 36.1 & 36.4 \\
+8192$\times$8192 & 16.6 & 28.5 & 33.1 & 21.2 & 30.2 & 31.0 \\
+16384$\times$16384 & 16.5 & 27.5 & 31.5 & 20.8 & 29.1 & 28.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

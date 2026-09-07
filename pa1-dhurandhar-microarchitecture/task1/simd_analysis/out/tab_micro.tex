@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Micro-architectural behaviour. L1D and Br. are L1 data-cache misses and branch mispredictions per thousand instructions (MPKI).}
+\label{tab:simd-micro}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Size & \multicolumn{3}{c}{naive} & \multicolumn{3}{c}{SSE-128 v4} & \multicolumn{3}{c}{AVX2-256 v3} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+ & IPC & L1D & Br. & IPC & L1D & Br. & IPC & L1D & Br. \\
+\midrule
+64$\times$64 & 1.23 & 5.44 & 5.53 & 1.11 & 6.22 & 6.47 & 1.11 & 6.03 & 6.52 \\
+128$\times$128 & 1.68 & 2.81 & 4.45 & 1.40 & 3.56 & 6.02 & 1.37 & 3.78 & 6.37 \\
+256$\times$256 & 2.37 & 1.12 & 3.93 & 1.66 & 1.93 & 6.80 & 1.63 & 2.27 & 7.11 \\
+512$\times$512 & 2.71 & 0.64 & 3.72 & 1.84 & 1.29 & 7.21 & 1.81 & 1.66 & 7.46 \\
+1024$\times$1024 & 2.78 & 0.40 & 3.58 & 1.86 & 0.82 & 7.23 & 1.81 & 1.24 & 7.52 \\
+2048$\times$2048 & 2.82 & 0.37 & 3.54 & 1.85 & 0.78 & 7.25 & 1.80 & 1.32 & 7.53 \\
+4096$\times$4096 & 2.83 & 0.36 & 3.53 & 1.83 & 0.86 & 7.23 & 1.78 & 1.82 & 7.51 \\
+8192$\times$8192 & 2.84 & 0.40 & 3.52 & 1.84 & 0.95 & 7.22 & 1.77 & 1.86 & 7.50 \\
+16384$\times$16384 & 2.86 & 0.76 & 3.52 & 1.84 & 1.94 & 7.21 & 1.79 & 2.53 & 7.49 \\
+\bottomrule
+\end{tabular}
+\end{table}

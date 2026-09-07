@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Baseline profiling of the naive 2D convolution ($3\times3$ kernel, median of 20 runs). \emph{Process} is the raw \texttt{perf} instruction count for the whole binary; \emph{Harness} is the same binary with the convolution removed; \emph{Kernel} is the difference.}
+\label{tab:simd-baseline}
+\begin{tabular}{lrrrrr}
+\toprule
+Size & MACs (M) & Process (M) & Harness (M) & Kernel (M) & Instr./MAC \\
+\midrule
+64$\times$64 & 0.037 & 3.0 & 2.5 & 0.6 & 15.10 \\
+128$\times$128 & 0.147 & 5.5 & 3.3 & 2.1 & 14.54 \\
+256$\times$256 & 0.590 & 13.1 & 6.9 & 6.2 & 10.46 \\
+512$\times$512 & 2.359 & 41.9 & 18.9 & 23.0 & 9.73 \\
+1024$\times$1024 & 9.437 & 156.5 & 66.9 & 89.7 & 9.50 \\
+2048$\times$2048 & 37.749 & 610.3 & 258.4 & 351.8 & 9.32 \\
+4096$\times$4096 & 150.995 & 2,421.6 & 1,019.1 & 1,402.5 & 9.29 \\
+8192$\times$8192 & 603.980 & 9,672.3 & 4,066.9 & 5,605.4 & 9.28 \\
+16384$\times$16384 & 2,415.919 & 38,687.0 & 16,262.2 & 22,424.9 & 9.28 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize All counts in millions of retired instructions.\end{minipage}
+\end{table}

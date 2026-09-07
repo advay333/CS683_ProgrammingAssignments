@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Median wall-clock speedup over the naive implementation (20 repetitions per configuration).}
+\label{tab:simd-speedup}
+\begin{tabular}{lrrrrrr}
+\toprule
+Size & SSE-128 v2 & SSE-128 v3 & SSE-128 v4 & AVX2-256 v1 & AVX2-256 v2 & AVX2-256 v3 \\
+\midrule
+64$\times$64 & 3.67 & 6.72 & 9.53 & 5.10 & 7.44 & 9.66 \\
+128$\times$128 & 4.17 & 8.02 & 11.63 & 5.99 & 8.79 & 11.04 \\
+256$\times$256 & 4.13 & 8.82 & 11.00 & 7.81 & 13.07 & 13.82 \\
+512$\times$512 & 4.38 & 8.90 & 11.30 & 8.20 & 13.48 & 14.59 \\
+1024$\times$1024 & 4.53 & 8.82 & 11.36 & 8.21 & 14.09 & 14.65 \\
+2048$\times$2048 & 4.33 & 7.90 & 9.48 & 7.44 & 10.62 & 10.89 \\
+4096$\times$4096 & 4.29 & 7.36 & 8.48 & 7.03 & 9.13 & 9.27 \\
+8192$\times$8192 & 4.23 & 6.91 & 8.23 & 5.43 & 7.61 & 7.73 \\
+16384$\times$16384 & 4.12 & 6.81 & 7.79 & 5.21 & 7.23 & 7.09 \\
+\bottomrule
+\end{tabular}
+\end{table}

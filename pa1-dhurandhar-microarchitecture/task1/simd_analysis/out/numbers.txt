@@ -1,0 +1,97 @@
+worst-case perf counter multiplexing (min pct_enabled) : 42%
+
+--- naive baseline -------------------------------------------------
+  N=   64: process=       3.0M  harness=       2.5M  kernel=       0.6M  instr/MAC=15.10
+  N=  128: process=       5.5M  harness=       3.3M  kernel=       2.1M  instr/MAC=14.54
+  N=  256: process=      13.1M  harness=       6.9M  kernel=       6.2M  instr/MAC=10.46
+  N=  512: process=      41.9M  harness=      18.9M  kernel=      23.0M  instr/MAC=9.73
+  N= 1024: process=     156.5M  harness=      66.9M  kernel=      89.7M  instr/MAC=9.50
+  N= 2048: process=     610.3M  harness=     258.4M  kernel=     351.8M  instr/MAC=9.32
+  N= 4096: process=    2421.6M  harness=    1019.1M  kernel=    1402.5M  instr/MAC=9.29
+  N= 8192: process=    9672.3M  harness=    4066.9M  kernel=    5605.4M  instr/MAC=9.28
+  N=16384: process=   38687.0M  harness=   16262.2M  kernel=   22424.9M  instr/MAC=9.28
+  mean instr/MAC over N>=512 : 9.40
+
+--- instructions per MAC, kernel only ------------------------------
+  naive        large-N mean instr/MAC = 9.400
+  simd128_v2   large-N mean instr/MAC = 2.737
+  simd128_v3   large-N mean instr/MAC = 1.969
+  simd128_v4   large-N mean instr/MAC = 1.090
+  simd256_v1   large-N mean instr/MAC = 1.622
+  simd256_v2   large-N mean instr/MAC = 1.231
+  simd256_v3   large-N mean instr/MAC = 0.803
+
+--- instruction reduction vs naive (kernel only) -------------------
+  simd128_v2   min=1.51 max=3.45 large-N mean=3.44
+  simd128_v3   min=1.77 max=4.81 large-N mean=4.77
+  simd128_v4   min=1.90 max=8.82 large-N mean=8.63
+  simd256_v1   min=2.16 max=6.08 large-N mean=5.80
+  simd256_v2   min=1.89 max=7.78 large-N mean=7.63
+  simd256_v3   min=2.98 max=12.48 large-N mean=11.71
+
+--- reduction using RAW process counts (uncorrected) ---------------
+  simd128_v2   at N=16384 raw ratio = 1.70
+  simd128_v3   at N=16384 raw ratio = 1.85
+  simd128_v4   at N=16384 raw ratio = 2.05
+  simd256_v1   at N=16384 raw ratio = 1.92
+  simd256_v2   at N=16384 raw ratio = 2.01
+  simd256_v3   at N=16384 raw ratio = 2.13
+
+--- wall-clock speedup --------------------------------------------
+  simd128_v2   peak 4.53x @ N=1024 (MAD 0.15); N=16384 4.12x; N=64 3.67x
+  simd128_v3   peak 8.90x @ N=512 (MAD 0.41); N=16384 6.81x; N=64 6.72x
+  simd128_v4   peak 11.63x @ N=128 (MAD 1.29); N=16384 7.79x; N=64 9.53x
+  simd256_v1   peak 8.21x @ N=1024 (MAD 0.86); N=16384 5.21x; N=64 5.10x
+  simd256_v2   peak 14.09x @ N=1024 (MAD 0.38); N=16384 7.23x; N=64 7.44x
+  simd256_v3   peak 14.65x @ N=1024 (MAD 0.38); N=16384 7.09x; N=64 9.66x
+
+--- 256 vs 128 (best of each) --------------------------------------
+  N=   64: v3_256/v4_128 = 1.01x
+  N=  128: v3_256/v4_128 = 0.95x
+  N=  256: v3_256/v4_128 = 1.26x
+  N=  512: v3_256/v4_128 = 1.29x
+  N= 1024: v3_256/v4_128 = 1.29x
+  N= 2048: v3_256/v4_128 = 1.15x
+  N= 4096: v3_256/v4_128 = 1.09x
+  N= 8192: v3_256/v4_128 = 0.94x
+  N=16384: v3_256/v4_128 = 0.91x
+
+--- GFLOP/s --------------------------------------------------------
+  N=   64: naive=  1.84  best= 18.36 (simd128_v4)
+  N=  128: naive=  3.12  best= 30.41 (simd128_v4)
+  N=  256: naive=  3.99  best= 56.63 (simd256_v3)
+  N=  512: naive=  3.94  best= 57.14 (simd256_v3)
+  N= 1024: naive=  3.92  best= 57.62 (simd256_v3)
+  N= 2048: naive=  3.96  best= 44.74 (simd256_v3)
+  N= 4096: naive=  3.96  best= 36.38 (simd256_v3)
+  N= 8192: naive=  3.98  best= 33.15 (simd128_v4)
+  N=16384: naive=  4.00  best= 31.50 (simd128_v4)
+
+--- IPC ------------------------------------------------------------
+  naive        N=1024 IPC=2.78  N=16384 IPC=2.86
+  simd128_v2   N=1024 IPC=2.12  N=16384 IPC=2.12
+  simd128_v3   N=1024 IPC=2.04  N=16384 IPC=2.03
+  simd128_v4   N=1024 IPC=1.86  N=16384 IPC=1.84
+  simd256_v1   N=1024 IPC=1.96  N=16384 IPC=1.95
+  simd256_v2   N=1024 IPC=1.91  N=16384 IPC=1.89
+  simd256_v3   N=1024 IPC=1.81  N=16384 IPC=1.79
+
+--- L1D MPKI / branch MPKI at N=16384 ------------------------------
+  naive        L1D_MPKI=0.76  branch_MPKI=3.52
+  simd128_v2   L1D_MPKI=1.49  branch_MPKI=5.98
+  simd128_v3   L1D_MPKI=1.54  branch_MPKI=6.50
+  simd128_v4   L1D_MPKI=1.94  branch_MPKI=7.21
+  simd256_v1   L1D_MPKI=1.80  branch_MPKI=6.76
+  simd256_v2   L1D_MPKI=1.71  branch_MPKI=7.09
+  simd256_v3   L1D_MPKI=2.53  branch_MPKI=7.49
+
+--- working set (float32, 3 arrays) --------------------------------
+  N=   64:      0.05 MiB
+  N=  128:      0.19 MiB
+  N=  256:      0.75 MiB
+  N=  512:      3.00 MiB
+  N= 1024:     12.00 MiB
+  N= 2048:     48.00 MiB
+  N= 4096:    192.00 MiB
+  N= 8192:    768.00 MiB
+  N=16384:   3072.00 MiB
