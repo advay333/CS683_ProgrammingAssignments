@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering\small
+\caption{The combined kernel against the best single technique at each size.}
+\label{tab:combined-synergy}
+\begin{tabular}{lrlrr}
+\toprule
+Size & Best single & (variant) & Combined & Gain \\
+\midrule
+512$\times$512 & 14.48$\times$ & \texttt{simd256_v3} & 17.39$\times$ & 1.20$\times$ \\
+1024$\times$1024 & 14.52$\times$ & \texttt{simd256_v3} & 18.10$\times$ & 1.25$\times$ \\
+2048$\times$2048 & 10.98$\times$ & \texttt{simd256_v3} & 15.33$\times$ & 1.40$\times$ \\
+4096$\times$4096 & 9.13$\times$ & \texttt{simd256_v3} & 14.18$\times$ & 1.55$\times$ \\
+8192$\times$8192 & 8.14$\times$ & \texttt{simd128_v4} & 14.01$\times$ & 1.72$\times$ \\
+16384$\times$16384 & 7.73$\times$ & \texttt{simd128_v4} & 8.11$\times$ & 1.05$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}

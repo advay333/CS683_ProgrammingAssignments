@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Harness-corrected, kernel-only L1-D MPKI. Only $N \geq 2048$ is shown: below that the kernel's own miss count is smaller than the run-to-run spread of the measurement.}
+\label{tab:tile-mpki-kernel}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Size & naive & 8 & 16 & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+2048$\times$2048 & 0.146 & 0.356 & 1.157 & 0.622 & 0.340 & 0.205 & 0.151 & 0.157 & 0.173 \\
+4096$\times$4096 & 0.154 & 0.342 & 1.166 & 0.622 & 0.345 & 0.210 & 0.162 & 0.162 & 0.195 \\
+8192$\times$8192 & 0.222 & 0.384 & 1.227 & 0.672 & 0.380 & 0.237 & 0.180 & 0.177 & 0.209 \\
+16384$\times$16384 & 0.842 & 0.526 & 1.579 & 1.160 & 0.632 & 0.344 & 0.251 & 0.257 & 0.308 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize Computed as $1000\,(\text{miss}_{\text{tiled}} - \text{miss}_{\text{harness}}) / (\text{instr}_{\text{tiled}} - \text{instr}_{\text{harness}})$ -- the raw counters are differenced before the ratio is formed.\end{minipage}
+\end{table}

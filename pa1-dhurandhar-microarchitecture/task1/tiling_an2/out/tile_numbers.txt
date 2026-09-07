@@ -1,0 +1,109 @@
+worst-case perf counter enable fraction: 42%
+
+--- noise floor check (tile_256 minus calibration, L1D misses) ------
+  ratio < ~3 means the harness-corrected MPKI is not trustworthy
+  N=   64: diff=        1,930  noise=     1,368  ratio=    1.4  NOISE
+  N=  128: diff=         -412  noise=       780  ratio=   -0.5  NOISE
+  N=  256: diff=          626  noise=     2,177  ratio=    0.3  NOISE
+  N=  512: diff=        2,488  noise=     2,452  ratio=    1.0  NOISE
+  N= 1024: diff=        8,812  noise=     4,846  ratio=    1.8  NOISE
+  N= 2048: diff=       51,711  noise=     5,516  ratio=    9.4  OK
+  N= 4096: diff=      221,248  noise=     9,754  ratio=   22.7  OK
+  N= 8192: diff=      983,798  noise=    33,992  ratio=   28.9  OK
+  N=16384: diff=    5,500,234  noise=   138,206  ratio=   39.8  OK
+
+--- kernel L1-D MPKI (reliable sizes only) -------------------------
+  N=2048:  naive=0.146
+      tile     8: 0.356   (0.41x vs naive)
+      tile    16: 1.157   (0.13x vs naive)
+      tile    32: 0.622   (0.24x vs naive)
+      tile    64: 0.340   (0.43x vs naive)
+      tile   128: 0.205   (0.71x vs naive)
+      tile   256: 0.151   (0.97x vs naive)
+      tile   512: 0.157   (0.93x vs naive)
+      tile  1024: 0.173   (0.85x vs naive)
+  N=4096:  naive=0.154
+      tile     8: 0.342   (0.45x vs naive)
+      tile    16: 1.166   (0.13x vs naive)
+      tile    32: 0.622   (0.25x vs naive)
+      tile    64: 0.345   (0.45x vs naive)
+      tile   128: 0.210   (0.74x vs naive)
+      tile   256: 0.162   (0.96x vs naive)
+      tile   512: 0.162   (0.95x vs naive)
+      tile  1024: 0.195   (0.79x vs naive)
+  N=8192:  naive=0.222
+      tile     8: 0.384   (0.58x vs naive)
+      tile    16: 1.227   (0.18x vs naive)
+      tile    32: 0.672   (0.33x vs naive)
+      tile    64: 0.380   (0.58x vs naive)
+      tile   128: 0.237   (0.93x vs naive)
+      tile   256: 0.180   (1.23x vs naive)
+      tile   512: 0.177   (1.25x vs naive)
+      tile  1024: 0.209   (1.06x vs naive)
+  N=16384:  naive=0.842
+      tile     8: 0.526   (1.60x vs naive)
+      tile    16: 1.579   (0.53x vs naive)
+      tile    32: 1.160   (0.73x vs naive)
+      tile    64: 0.632   (1.33x vs naive)
+      tile   128: 0.344   (2.45x vs naive)
+      tile   256: 0.251   (3.35x vs naive)
+      tile   512: 0.257   (3.28x vs naive)
+      tile  1024: 0.308   (2.74x vs naive)
+
+--- best MPKI reduction -------------------------------------------
+  N= 2048: best tile=  256 MPKI=0.151 vs naive 0.146 -> 0.97x fewer misses/kinstr
+  N= 4096: best tile=  256 MPKI=0.162 vs naive 0.154 -> 0.96x fewer misses/kinstr
+  N= 8192: best tile=  512 MPKI=0.177 vs naive 0.222 -> 1.25x fewer misses/kinstr
+  N=16384: best tile=  256 MPKI=0.251 vs naive 0.842 -> 3.35x fewer misses/kinstr
+
+--- cycle ratio (tiled/naive, harness-corrected; >1 = slower) ------
+  N= 2048: 8:1.262  16:1.129  32:1.084  64:1.045  128:1.040  256:1.042  512:1.054  1024:1.017
+  N= 4096: 8:1.286  16:1.158  32:1.110  64:1.076  128:1.093  256:1.080  512:1.100  1024:1.103
+  N= 8192: 8:1.287  16:1.167  32:1.142  64:1.114  128:1.113  256:1.088  512:1.114  1024:1.142
+  N=16384: 8:1.301  16:1.176  32:1.152  64:1.123  128:1.111  256:1.112  512:1.119  1024:1.171
+
+--- wall-clock speedup summary ------------------------------------
+  global max speedup      : 1.39
+  global min speedup      : 0.82
+  N>=512 max              : 1.03
+  N>=512 mean             : 0.953
+  tile     8: N>=512 mean speedup 0.838  (min 0.82, max 0.85)
+  tile    16: N>=512 mean speedup 0.923  (min 0.91, max 0.94)
+  tile    32: N>=512 mean speedup 0.908  (min 0.89, max 0.93)
+  tile    64: N>=512 mean speedup 0.965  (min 0.95, max 0.99)
+  tile   128: N>=512 mean speedup 0.983  (min 0.96, max 1.03)
+  tile   256: N>=512 mean speedup 1.000  (min 0.95, max 1.03)
+  tile   512: N>=512 mean speedup 0.993  (min 0.97, max 1.02)
+  tile  1024: N>=512 mean speedup 1.015  (min 1.00, max 1.02)
+
+--- how many (N,tile) cells are more than 1 sigma above 1.0? -------
+  8 of 72 cells
+    N=256: tiles [8, 16, 32, 64, 128, 256, 512, 1024]
+
+--- N=256 anomaly --------------------------------------------------
+  tile >= 256 at N=256 means the tile covers the whole matrix, i.e. no
+  tiling happens at all, yet speedup is still well above 1:
+    tile   256: speedup 1.38 +/- 0.13
+    tile   512: speedup 1.39 +/- 0.10
+    tile  1024: speedup 1.28 +/- 0.12
+  -> this is a baseline artifact at N=256, not a tiling effect.
+
+--- working sets ---------------------------------------------------
+  N=   64: in_stride=     264B  2 padded rows=     0.5 KiB  3 rows=     0.8 KiB  stride mod 4096=264
+  N=  128: in_stride=     520B  2 padded rows=     1.0 KiB  3 rows=     1.5 KiB  stride mod 4096=520
+  N=  256: in_stride=    1032B  2 padded rows=     2.0 KiB  3 rows=     3.0 KiB  stride mod 4096=1032
+  N=  512: in_stride=    2056B  2 padded rows=     4.0 KiB  3 rows=     6.0 KiB  stride mod 4096=2056
+  N= 1024: in_stride=    4104B  2 padded rows=     8.0 KiB  3 rows=    12.0 KiB  stride mod 4096=8
+  N= 2048: in_stride=    8200B  2 padded rows=    16.0 KiB  3 rows=    24.0 KiB  stride mod 4096=8
+  N= 4096: in_stride=   16392B  2 padded rows=    32.0 KiB  3 rows=    48.0 KiB  stride mod 4096=8
+  N= 8192: in_stride=   32776B  2 padded rows=    64.0 KiB  3 rows=    96.0 KiB  stride mod 4096=8
+  N=16384: in_stride=   65544B  2 padded rows=   128.0 KiB  3 rows=   192.0 KiB  stride mod 4096=8
+
+  tile     8: 3 tile-rows live =   0.12 KiB
+  tile    16: 3 tile-rows live =   0.21 KiB
+  tile    32: 3 tile-rows live =   0.40 KiB
+  tile    64: 3 tile-rows live =   0.77 KiB
+  tile   128: 3 tile-rows live =   1.52 KiB
+  tile   256: 3 tile-rows live =   3.02 KiB
+  tile   512: 3 tile-rows live =   6.02 KiB
+  tile  1024: 3 tile-rows live =  12.02 KiB

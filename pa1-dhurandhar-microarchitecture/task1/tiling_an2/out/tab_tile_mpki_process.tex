@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Process-level L1-D MPKI for every tile size (columns, in elements) and matrix size (rows). Median of 20 runs.}
+\label{tab:tile-mpki-process}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Size & naive & 8 & 16 & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+64$\times$64 & 5.44 & 5.05 & 5.13 & 5.09 & 5.11 & 5.10 & 4.95 & 5.17 & 5.06 \\
+128$\times$128 & 2.81 & 2.46 & 2.44 & 2.48 & 2.53 & 2.48 & 2.50 & 2.48 & 2.51 \\
+256$\times$256 & 1.12 & 1.14 & 1.23 & 1.24 & 1.23 & 1.17 & 1.24 & 1.22 & 1.19 \\
+512$\times$512 & 0.64 & 0.77 & 0.77 & 0.93 & 0.78 & 0.72 & 0.68 & 0.75 & 0.77 \\
+1024$\times$1024 & 0.40 & 0.53 & 0.94 & 0.65 & 0.52 & 0.45 & 0.42 & 0.44 & 0.51 \\
+2048$\times$2048 & 0.37 & 0.48 & 0.95 & 0.64 & 0.48 & 0.40 & 0.37 & 0.37 & 0.38 \\
+4096$\times$4096 & 0.36 & 0.47 & 0.95 & 0.63 & 0.47 & 0.40 & 0.37 & 0.37 & 0.39 \\
+8192$\times$8192 & 0.40 & 0.50 & 0.99 & 0.66 & 0.50 & 0.42 & 0.38 & 0.38 & 0.40 \\
+16384$\times$16384 & 0.76 & 0.57 & 1.18 & 0.94 & 0.64 & 0.47 & 0.42 & 0.42 & 0.45 \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\begin{minipage}{\linewidth}\footnotesize Includes the allocate/initialise harness, which dominates the miss count at small $N$.\end{minipage}
+\end{table}
