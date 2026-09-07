@@ -1,0 +1,30 @@
+==============================================================
+variant     : tiled_simd   (function matmul_prefetch_tiled_simd)
+a_degree    : 5
+b_degree    : 64
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:13+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/os.py", line 46, in _get_exports_list
+    return list(module.__all__)
+AttributeError: module 'posix' has no attribute '__all__'. Did you mean: '__name__'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 79, in <module>
+    import os
+  File "/usr/lib/python3.10/os.py", line 69, in <module>
+    __all__.extend(_get_exports_list(posix))
+  File "/usr/lib/python3.10/os.py", line 48, in _get_exports_list
+    return [n for n in dir(module) if n[0] != '_']
+  File "/usr/lib/python3.10/os.py", line 48, in <listcomp>
+    return [n for n in dir(module) if n[0] != '_']
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

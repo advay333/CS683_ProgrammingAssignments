@@ -1,0 +1,32 @@
+==============================================================
+variant     : v1   (function matmul_prefetch_v1)
+a_degree    : 3
+b_degree    : 112
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:09+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/genericpath.py", line 30, in isfile
+    st = os.stat(path)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/bin/pyvenv.cfg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 636, in <module>
+    main()
+  File "/usr/lib/python3.10/site.py", line 619, in main
+    known_paths = venv(known_paths)
+  File "/usr/lib/python3.10/site.py", line 524, in venv
+    candidate_confs = [
+  File "/usr/lib/python3.10/site.py", line 529, in <listcomp>
+    if os.path.isfile(conffile)
+  File "/usr/lib/python3.10/genericpath.py", line 30, in isfile
+    st = os.stat(path)
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

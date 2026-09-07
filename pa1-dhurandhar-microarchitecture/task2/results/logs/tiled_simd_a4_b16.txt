@@ -1,0 +1,32 @@
+==============================================================
+variant     : tiled_simd   (function matmul_prefetch_tiled_simd)
+a_degree    : 4
+b_degree    : 16
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:12+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 636, in <module>
+    main()
+  File "/usr/lib/python3.10/site.py", line 623, in main
+    known_paths = addsitepackages(known_paths)
+  File "/usr/lib/python3.10/site.py", line 406, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/usr/lib/python3.10/site.py", line 232, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/usr/lib/python3.10/site.py", line 192, in addpackage
+    exec(line)
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.10/importlib/util.py", line 14, in <module>
+    from contextlib import contextmanager
+  File "/usr/lib/python3.10/contextlib.py", line 37, in <module>
+    class AbstractAsyncContextManager(abc.ABC):
+  File "/usr/lib/python3.10/abc.py", line 106, in __new__
+    cls = super().__new__(mcls, name, bases, namespace, **kwargs)
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

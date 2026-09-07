@@ -1,0 +1,81 @@
+==============================================================
+variant     : tiled_simd   (function matmul_prefetch_tiled_simd)
+a_degree    : 3
+b_degree    : 16
+hw request  : off
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+pinned to   : cpu 0
+host        : advay-Victus
+date        : 2026-09-07T15:35:53+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+hw prefetch : off  (MSR 0x1a4 on cpu 0 = 0xf, verified)
+build       : ok
+binary md5  : ab96d27c0f4c9932ef3bdd6e71636b3d
+==============================================================
+
+--- M=N=K=256  (verify=1, hw=off, naive baseline 12.665585 ms) ---
+variant=tiled_simd M=256 N=256 K=256 seed=1234 samples=5 verify=yes correct=yes
+baseline_ms=12.665585
+sample        time(ms)     GFLOP/s    speedup
+----------------------------------------------
+1               0.9641       34.80     13.14x
+CSV,tiled_simd,256,256,256,1234,1,0.964113,34.8034,12.665585,13.137034,yes
+2               0.9490       35.36     13.35x
+CSV,tiled_simd,256,256,256,1234,2,0.949041,35.3561,12.665585,13.345667,yes
+3               1.0307       32.56     12.29x
+CSV,tiled_simd,256,256,256,1234,3,1.030680,32.5556,12.665585,12.288572,yes
+4               0.9264       36.22     13.67x
+CSV,tiled_simd,256,256,256,1234,4,0.926361,36.2218,12.665585,13.672407,yes
+5               0.9102       36.87     13.92x
+CSV,tiled_simd,256,256,256,1234,5,0.910158,36.8666,12.665585,13.915809,yes
+
+--- M=N=K=512  (verify=1, hw=off, naive baseline 120.973697 ms) ---
+variant=tiled_simd M=512 N=512 K=512 seed=1234 samples=5 verify=yes correct=yes
+baseline_ms=120.973697
+sample        time(ms)     GFLOP/s    speedup
+----------------------------------------------
+1               8.0670       33.28     15.00x
+CSV,tiled_simd,512,512,512,1234,1,8.067047,33.2756,120.973697,14.996032,yes
+2               8.5752       31.30     14.11x
+CSV,tiled_simd,512,512,512,1234,2,8.575179,31.3038,120.973697,14.107425,yes
+3               9.3098       28.83     12.99x
+CSV,tiled_simd,512,512,512,1234,3,9.309842,28.8335,120.973697,12.994173,yes
+4               8.5102       31.54     14.22x
+CSV,tiled_simd,512,512,512,1234,4,8.510193,31.5428,120.973697,14.215153,yes
+5               7.9642       33.71     15.19x
+CSV,tiled_simd,512,512,512,1234,5,7.964243,33.7051,120.973697,15.189604,yes
+
+--- M=N=K=1024  (verify=0, hw=off, naive baseline 1052.510469 ms) ---
+variant=tiled_simd M=1024 N=1024 K=1024 seed=1234 samples=5 verify=no correct=n/a
+baseline_ms=1052.510469
+sample        time(ms)     GFLOP/s    speedup
+----------------------------------------------
+1              68.3246       31.43     15.40x
+CSV,tiled_simd,1024,1024,1024,1234,1,68.324609,31.4306,1052.510469,15.404559,na
+2              68.4416       31.38     15.38x
+CSV,tiled_simd,1024,1024,1024,1234,2,68.441586,31.3769,1052.510469,15.378230,na
+3              66.5206       32.28     15.82x
+CSV,tiled_simd,1024,1024,1024,1234,3,66.520578,32.2830,1052.510469,15.822329,na
+4              66.2102       32.43     15.90x
+CSV,tiled_simd,1024,1024,1024,1234,4,66.210157,32.4344,1052.510469,15.896511,na
+5              74.6161       28.78     14.11x
+CSV,tiled_simd,1024,1024,1024,1234,5,74.616053,28.7805,1052.510469,14.105684,na
+
+--- M=N=K=2048  (verify=0, hw=off, naive baseline 9075.974621 ms) ---
+variant=tiled_simd M=2048 N=2048 K=2048 seed=1234 samples=5 verify=no correct=n/a
+baseline_ms=9075.974621
+sample        time(ms)     GFLOP/s    speedup
+----------------------------------------------
+1             618.2040       27.79     14.68x
+CSV,tiled_simd,2048,2048,2048,1234,1,618.203962,27.7900,9075.974621,14.681198,na
+2             622.5102       27.60     14.58x
+CSV,tiled_simd,2048,2048,2048,1234,2,622.510232,27.5977,9075.974621,14.579639,na
+3             616.4776       27.87     14.72x
+CSV,tiled_simd,2048,2048,2048,1234,3,616.477633,27.8678,9075.974621,14.722310,na
+4             612.2493       28.06     14.82x
+CSV,tiled_simd,2048,2048,2048,1234,4,612.249257,28.0603,9075.974621,14.823986,na
+5             608.4339       28.24     14.92x
+CSV,tiled_simd,2048,2048,2048,1234,5,608.433874,28.2362,9075.974621,14.916945,na
+SWEEP_CONFIG_COMPLETE

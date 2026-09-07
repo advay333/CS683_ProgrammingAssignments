@@ -1,0 +1,28 @@
+==============================================================
+variant     : tiled_simd   (function matmul_prefetch_tiled_simd)
+a_degree    : 6
+b_degree    : 96
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:13+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 79, in <module>
+    import os
+  File "/usr/lib/python3.10/os.py", line 61, in <module>
+    import posixpath as path
+  File "/usr/lib/python3.10/posixpath.py", line 28, in <module>
+    import genericpath
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1002, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 945, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1439, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1411, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1575, in find_spec
+  File "<frozen importlib._bootstrap>", line 246, in _verbose_message
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

@@ -49,3 +49,11 @@ llama-demo:
 
 clean:
 	rm -rf $(BIN)
+
+# --- added by sweep_prefetch.sh: profiling driver, same CXXFLAGS as bin/matmul ---
+PROFILE_MAIN := src/profile_main.cpp
+
+.PHONY: profile
+profile: $(BIN)/matmul_profile
+$(BIN)/matmul_profile: $(STUDENT_SRC) $(PROFILE_MAIN) | $(BIN)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)

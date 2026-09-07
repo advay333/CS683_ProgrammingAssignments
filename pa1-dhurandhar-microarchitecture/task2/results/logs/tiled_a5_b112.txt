@@ -1,0 +1,30 @@
+==============================================================
+variant     : tiled   (function matmul_prefetch_tiled)
+a_degree    : 5
+b_degree    : 112
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:11+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 636, in <module>
+    main()
+  File "/usr/lib/python3.10/site.py", line 629, in main
+    execsitecustomize()
+  File "/usr/lib/python3.10/site.py", line 568, in execsitecustomize
+    import sitecustomize
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 674, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 577, in module_from_spec
+  File "<frozen importlib._bootstrap>", line 556, in _init_module_attrs
+  File "<frozen importlib._bootstrap>", line 397, in cached
+  File "<frozen importlib._bootstrap_external>", line 513, in _get_cached
+  File "<frozen importlib._bootstrap_external>", line 406, in cache_from_source
+  File "<frozen importlib._bootstrap_external>", line 134, in _path_split
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

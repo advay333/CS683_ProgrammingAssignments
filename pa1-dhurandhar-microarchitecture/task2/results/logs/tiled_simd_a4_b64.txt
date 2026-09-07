@@ -1,0 +1,23 @@
+==============================================================
+variant     : tiled_simd   (function matmul_prefetch_tiled_simd)
+a_degree    : 4
+b_degree    : 64
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:12+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 79, in <module>
+    import os
+  File "/usr/lib/python3.10/os.py", line 29, in <module>
+    from _collections_abc import _check_methods
+  File "/usr/lib/python3.10/_collections_abc.py", line 90, in <module>
+    class Hashable(metaclass=ABCMeta):
+  File "/usr/lib/python3.10/_collections_abc.py", line 99, in Hashable
+    def __subclasshook__(cls, C):
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch
