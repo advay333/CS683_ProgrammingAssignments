@@ -332,7 +332,7 @@ void conv_unroll_v5(const float* in, float* out, const float* ker,
 void conv_unroll(const float* in, float* out, const float* ker,
                  int H, int W, int K) {
     // TODO(student): replace this placeholder with your unrolled implementation.
-    conv_unroll_v4(in, out, ker, H, W, K);
+    conv_unroll_v5(in, out, ker, H, W, K);
 }
 
 // This main function is only used for profiling and is done so with the same 
