@@ -1,0 +1,21 @@
+==============================================================
+variant     : v1   (function matmul_prefetch_v1)
+a_degree    : 4
+b_degree    : 128
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:09+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/site.py", line 79, in <module>
+    import os
+  File "/usr/lib/python3.10/os.py", line 1071, in <module>
+    class PathLike(abc.ABC):
+  File "/usr/lib/python3.10/os.py", line 1086, in PathLike
+    __class_getitem__ = classmethod(GenericAlias)
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

@@ -1,0 +1,19 @@
+==============================================================
+variant     : tiled   (function matmul_prefetch_tiled)
+a_degree    : 3
+b_degree    : 112
+seed        : 1234
+samples     : 5 per size (no averaging - see results.csv)
+sizes       : 256 512 1024 2048
+host        : advay-Victus
+date        : 2026-09-07T14:30:10+05:30
+compiled declarations actually in src/matmul_prefetch.cpp:
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
+Python runtime state: core initialized
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/io.py", line 106, in <module>
+    TextIOBase.register(klass)
+  File "/usr/lib/python3.10/abc.py", line 115, in register
+    return _abc_register(cls, subclass)
+KeyboardInterrupt
+SWEEP_CONFIG_FAILED patch

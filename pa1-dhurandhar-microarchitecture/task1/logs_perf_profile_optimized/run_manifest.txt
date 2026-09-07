@@ -1,0 +1,20 @@
+run_perf_profile.sh manifest
+started      : 2026-09-07T14:58:29+05:30
+host         : advay-Victus
+kernel       : Linux 6.8.0-138-generic x86_64
+cpu          : 13th Gen Intel(R) Core(TM) i7-13620H
+compiler     : g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+cxxflags     : -std=c++17 -O2 -fno-tree-vectorize -mavx2 -mfma -Wall -DSTANDALONE_TEST
+perf         : perf version 6.8.12
+paranoid     : 4
+governor     : powersave
+turbo(no_turbo): 0
+smt          : 1
+events       : cpu_core/L1-dcache-loads/,cpu_core/L1-dcache-load-misses/,cpu_core/branch-instructions/,cpu_core/branch-misses/,cpu_core/instructions/,cpu_core/cpu-cycles/,context-switches,page-faults
+sizes        : 64,128,256,512,1024,2048,4096,8192,16384
+K            : 3
+seed         : 1234
+reps         : 20
+pinned cpu   : 1
+runs         : optimized|default|optimized
+finished     : 2026-09-07T15:00:15+05:30
