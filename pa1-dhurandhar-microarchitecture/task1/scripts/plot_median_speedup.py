@@ -125,7 +125,10 @@ def _plot_one_series(ax, g: pd.DataFrame, name: str, color: str, marker: str):
 def _finish_axes(ax, xticklabels: List[str], title: str,
                  ylabel: str = "Median Speedup over naive (x)"):
     ax.set_xticks(range(len(xticklabels)))
-    ax.set_xticklabels(xticklabels)
+    
+    # FIX: Rotated the labels 45 degrees and aligned them to the right
+    ax.set_xticklabels(xticklabels, rotation=45, ha="right", rotation_mode="anchor")
+    
     ax.set_xlabel("Matrix size (H x W)")
     ax.set_ylabel(ylabel)
     ax.set_title(title, pad=12)
