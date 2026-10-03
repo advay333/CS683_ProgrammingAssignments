@@ -421,7 +421,7 @@ uint64_t PAGE_TABLE_WALKER::handle_page_fault(PAGE_TABLE_PAGE* page, PACKET *pac
         stall_cycle[cpu] = current_core_cycle[cpu] + SWAP_LATENCY;
     else
         stall_cycle[cpu] = current_core_cycle[cpu] + PAGE_TABLE_LATENCY; 
-
+    return 0;
 }
 
 uint64_t PAGE_TABLE_WALKER :: va_to_pa_ptw(uint8_t cpu, uint64_t instr_id, bool translation_page, uint64_t va, uint64_t unique_vpage, bool *page_swap)
