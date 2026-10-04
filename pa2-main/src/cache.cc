@@ -138,7 +138,6 @@ void CACHE::handle_fill()
 
             // update replacement policy
             (this->*update_replacement_state)(fill_cpu, set, way, MSHR.entry[mshr_index].full_addr, MSHR.entry[mshr_index].ip, 0, MSHR.entry[mshr_index].type, 0, MSHR.entry[mshr_index].instruction);
-            //Added the isInstruction field in accordance with the encoding of fill_packet_type done above
             // COLLECT STATS
             sim_miss[fill_cpu][MSHR.entry[mshr_index].type]++;
             sim_access[fill_cpu][MSHR.entry[mshr_index].type]++;

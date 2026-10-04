@@ -429,7 +429,7 @@ void O3_CPU::read_from_trace()
 						{
 								BTB.sim_hit[cpu][ arch_instr. branch_type - 1]++;
 								BTB.sim_access[cpu][ arch_instr.branch_type - 1]++;
-								(BTB.*BTB.update_replacement_state)(cpu, btb_set, btb_way, arch_instr.ip, arch_instr.ip, 0, 0, 1, arch_instr.instruction_pa);
+								(BTB.*BTB.update_replacement_state)(cpu, btb_set, btb_way, arch_instr.ip, arch_instr.ip, 0, 0, 1, 1); //BTB blocks are always instructions
 						}
 						else
 						{
@@ -453,7 +453,7 @@ void O3_CPU::read_from_trace()
 				{
 					BTB.sim_hit[cpu][ arch_instr. branch_type - 1]++;
                     BTB.sim_access[cpu][ arch_instr.branch_type - 1]++;
-                    (BTB.*BTB.update_replacement_state)(cpu, btb_set, btb_way, arch_instr.ip, arch_instr.ip, 0, 0, 1, arch_instr.instruction_pa);
+                    (BTB.*BTB.update_replacement_state)(cpu, btb_set, btb_way, arch_instr.ip, arch_instr.ip, 0, 0, 1, 1); // BTB blocks are always instructions
 				}
 			}
 
