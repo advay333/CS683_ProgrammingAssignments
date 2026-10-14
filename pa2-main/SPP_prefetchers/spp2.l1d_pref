@@ -1,0 +1,257 @@
+#include "cache.h"
+#define MASK_IP 0xFF
+#define PREFETCH_DEGREE 4
+// length of history to be stored
+#define K 3
+// Number patterns to be stored at a time per IP
+#define N 24
+
+// Number of Ips to be stored at a time
+#define IP_TRACKER_COUNT 24
+
+class TableEntry{
+    public:
+        int64_t last_strides[K];
+        int64_t pred_stride;
+        uint64_t valid;
+        uint64_t lru;
+        TableEntry(){
+            for(int i = 0; i < K; ++i){
+                last_strides[i] = 0;
+            }
+            pred_stride = 0;
+            valid = 0;
+            lru = 0;
+        }
+};
+void cleanTableEntry(TableEntry &a){
+    // takes a table entry and cleans it
+    for(int i = 0; i < K; ++i){
+        a.last_strides[i] = 0;
+    }
+    a.pred_stride = 0;
+    a.valid = 0;
+    a.lru = 0;
+    return;
+}
+class Table{
+    public:
+        TableEntry Enteries[N];
+
+        Table(){
+            for(int i = 0; i < N; ++i){
+                Enteries[i] = TableEntry();
+            }
+        }
+};
+void cleanTable(Table &a){
+    // takes a table and cleans it up
+    for(int i = 0; i < N; ++i){
+        cleanTableEntry(a.Enteries[i]);
+    }
+    for(int i = 0; i < N; ++i){
+        a.Enteries[i].lru = i;
+    
+    }
+    return;
+}
+class SPP_TRACKER{
+    public:
+        uint64_t ip;
+
+        uint64_t last_cl_addr;
+        int64_t lastKstrides[K];
+        uint32_t lru;
+
+        Table patTable;
+
+        SPP_TRACKER(){
+            ip = 0;
+            last_cl_addr = 0;
+            for(int i = 0; i < K; ++i){
+                lastKstrides[i] = 0;
+            }
+            lru = 0;
+            patTable = Table();
+        }
+};
+
+SPP_TRACKER trackers[IP_TRACKER_COUNT];
+
+TableEntry* matchHistory(SPP_TRACKER &tracker, int64_t strides[K]){
+
+    // Returns pointer to table entry if match found else return null
+    for(int i = 0; i < N; ++i){
+        TableEntry* entry = &(tracker.patTable.Enteries[i]);
+        if(entry->valid == 0) continue;
+        uint32_t match = 1;
+        for(int j = 0; j < K; ++j){
+            if(entry->last_strides[j] != strides[j]){
+                match = 0;
+                break;
+            }
+        }
+        if(match){
+            return entry;
+        }
+    }
+    return nullptr;
+}
+
+void CACHE::l1d_prefetcher_initialize() 
+{
+    std::cout << "------------------------------------------------" << std::endl;
+    std::cout << "        Stride Pattern Prefetcher (SPP)         " << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
+    for(int i = 0; i < IP_TRACKER_COUNT; ++i){
+        trackers[i].lru = i;
+        trackers[i].ip = 0;
+        cleanTable(trackers[i].patTable);
+    }
+}
+
+void AllocatePatternMRU(Table &table, int64_t strides[K], int64_t pred_stride){
+    // Allocate a new entry in the pattern table
+    // and set it to the given strides and pred_stride
+    // find the LRU entry
+    int lru_index = -1;
+    for(int i = 0; i < N; ++i){
+        if(table.Enteries[i].lru == (N-1)){
+            lru_index = i;
+            break;
+        }
+    }
+    if(lru_index == -1){
+        std::cerr << "Error: No LRU entry found in pattern table" << std::endl;
+        return;
+    }
+    TableEntry &entry = table.Enteries[lru_index];
+    for(int i = 0; i < K; ++i){
+        entry.last_strides[i] = strides[i];
+    }
+    entry.pred_stride = pred_stride;
+    entry.valid = 1;
+
+    // Update LRU of all entries
+    for(int i = 0; i < N; ++i){
+        if(i != lru_index && table.Enteries[i].lru < entry.lru){
+            table.Enteries[i].lru++;
+        }
+    }
+    entry.lru = 0;
+
+    return;
+}
+void ShiftStride(int64_t *strides, int64_t pred_stride, int64_t *new_strides){
+    // Shift the strides to the left and add new_stride at the end
+    for(int i = 0; i < K-1; ++i){
+        new_strides[i] = strides[i+1];
+    }
+    new_strides[K-1] = pred_stride;
+    return;
+}
+void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit, uint8_t type, uint8_t critical_ip_flag)
+{
+   uint64_t cl_addr = addr >> LOG2_BLOCK_SIZE;
+
+   ip = ip & MASK_IP;
+
+   int index = -1;
+   for(index = 0; index < IP_TRACKER_COUNT; ++index){
+        if(trackers[index].ip == ip){
+            break;
+        }
+   }
+
+   // No such IP in the table, allocate
+   // an entry, deallocate the LRU entry
+   // Update recency
+
+   if(index == IP_TRACKER_COUNT){
+        for(index = 0; index < IP_TRACKER_COUNT; ++index){
+            if(trackers[index].lru == (IP_TRACKER_COUNT -1))
+                break;
+        }
+        trackers[index].ip = ip;
+        trackers[index].last_cl_addr = cl_addr;
+        cleanTable(trackers[index].patTable);
+        for(int i = 0; i < K; ++i){
+            trackers[index].lastKstrides[i] = 0;
+        }
+        for (int i=0; i<IP_TRACKER_COUNT; i++) {
+            if (trackers[i].lru < trackers[index].lru)
+                trackers[i].lru++;
+        }
+        trackers[index].lru = 0;
+        return;
+   }
+    int64_t stride = 0;
+    if (cl_addr > trackers[index].last_cl_addr)
+        stride = cl_addr - trackers[index].last_cl_addr;
+    else {
+        stride = trackers[index].last_cl_addr - cl_addr;
+        stride *= -1;
+    }
+
+    if(stride == 0){
+        return;
+    }
+    TableEntry* entry_curr = matchHistory(trackers[index], trackers[index].lastKstrides);
+    if(entry_curr == nullptr){
+        AllocatePatternMRU(trackers[index].patTable, trackers[index].lastKstrides, stride);
+    }
+    else{
+        entry_curr->pred_stride =stride;
+        uint64_t this_lru = entry_curr->lru;
+        for(int i = 0; i < N; ++i){
+            if(trackers[index].patTable.Enteries[i].lru < this_lru){
+                trackers[index].patTable.Enteries[i].lru++;
+            }
+        }
+        entry_curr->lru = 0;
+    }
+    int64_t pattern[K];
+    
+    ShiftStride(trackers[index].lastKstrides, stride, pattern);
+    uint64_t tmp_cl_addr = cl_addr;
+    for(int p = 0; p < PREFETCH_DEGREE; ++p){
+        TableEntry* entry = matchHistory(trackers[index], pattern);
+        if(entry == nullptr){
+            break;
+        }
+        uint64_t pf_address = (tmp_cl_addr + (entry->pred_stride)) << LOG2_BLOCK_SIZE;
+        tmp_cl_addr = pf_address >> LOG2_BLOCK_SIZE;
+        if ((pf_address >> LOG2_PAGE_SIZE) != (addr >> LOG2_PAGE_SIZE))
+            break;
+        if (MSHR.occupancy < (MSHR.SIZE>>1))
+            prefetch_line(ip, addr, pf_address, FILL_L1, 0);
+        else
+            prefetch_line(ip, addr, pf_address, FILL_L2, 0);
+        // Shift the pattern to the left and add the new stride
+        ShiftStride(pattern, entry->pred_stride, pattern);
+    }
+
+
+
+    for(int i = 0; i < K -1; ++i){
+        trackers[index].lastKstrides[i] = trackers[index].lastKstrides[i+1];
+    }
+    trackers[index].lastKstrides[K-1] = stride;
+    trackers[index].last_cl_addr = cl_addr;
+    for (int i=0; i<IP_TRACKER_COUNT; i++) {
+        if (trackers[i].lru < trackers[index].lru)
+            trackers[i].lru++;
+    }
+    trackers[index].lru = 0;
+    return;
+}
+
+void CACHE::l1d_prefetcher_cache_fill(uint64_t v_addr, uint64_t addr, uint32_t set, uint32_t way, uint8_t prefetch, uint64_t v_evicted_addr, uint64_t evicted_addr, uint32_t metadata_in)
+{
+	return; //metadata_in;
+}
+
+void CACHE::l1d_prefetcher_final_stats()
+{
+    return;
+}
