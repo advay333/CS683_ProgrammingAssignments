@@ -1,74 +1,78 @@
 #include "cache.h"
 
 #define IP_TRACKER_COUNT 24
+#define MASK_IP 0xFF
 #define MAX_PERIOD 5
 #define PREFETCH_DEGREE 3
 
 class IP_TRACKER {
   public:
-    uint64_t ip = 0;
-    uint64_t last_cl_addr = 0;
-    int64_t strides[MAX_PERIOD] = {}; // newest stride at index 0
-    uint8_t matches[MAX_PERIOD] = {};
-    uint8_t history_size = 0;
-    uint8_t period = 0; // 0 means no confirmed pattern
-    uint32_t lru = 0;
-    bool valid = false;
+    uint8_t ip;
+    uint64_t last_cl_addr;
+    int64_t strides[MAX_PERIOD]; // newest stride at index 0
+    uint8_t matches[MAX_PERIOD];
+    uint8_t period; // 0 means no confirmed pattern
+    uint32_t lru;
+
+    IP_TRACKER() {
+        ip = 0;
+        last_cl_addr = 0;
+        period = 0;
+        lru = 0;
+        for (int i = 0; i < MAX_PERIOD; ++i) {
+            strides[i] = 0;
+            matches[i] = 0;
+        }
+    }
 };
 
-// Separate histories for each core; full PC tags avoid unrelated-PC aliasing.
-IP_TRACKER trackers[NUM_CPUS][IP_TRACKER_COUNT];
+// Shared tracker table with low-eight-bit PC tags, as in IP-stride.
+IP_TRACKER trackers[IP_TRACKER_COUNT];
 
 void CACHE::l1d_prefetcher_initialize()
 {
-    cout << "CPU " << cpu << " L1D stride-pattern prefetcher" << endl;
+    cout << "L1D stride-pattern prefetcher" << endl;
     for (int i = 0; i < IP_TRACKER_COUNT; ++i) {
-        trackers[cpu][i] = IP_TRACKER{};
-        trackers[cpu][i].lru = i;
+        trackers[i] = IP_TRACKER{};
+        trackers[i].lru = i;
     }
 }
 
-void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit,
-                                 uint8_t type, uint8_t critical_ip_flag)
+void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit, uint8_t type, uint8_t critical_ip_flag)
 {
-    (void)cache_hit; // Train on both demand hits and misses.
-    (void)critical_ip_flag;
-    if (type != LOAD) return;
-    const uint64_t cl_addr = addr >> LOG2_BLOCK_SIZE;
+    uint64_t cl_addr = addr >> LOG2_BLOCK_SIZE;
+    ip &= MASK_IP;
 
     int index;
     for (index = 0; index < IP_TRACKER_COUNT; ++index)
-        if (trackers[cpu][index].valid && trackers[cpu][index].ip == ip) break;
+        if (trackers[index].ip == ip) break;
 
-    const bool allocated = index == IP_TRACKER_COUNT;
-    if (allocated) {
-        // Use an empty entry first, otherwise replace the oldest PC.
+    if (index == IP_TRACKER_COUNT) {
+        // Replace the least recently used tracker, as in IP-stride.
         for (index = 0; index < IP_TRACKER_COUNT; ++index)
-            if (!trackers[cpu][index].valid) break;
-        if (index == IP_TRACKER_COUNT)
-            for (index = 0; index < IP_TRACKER_COUNT; ++index)
-                if (trackers[cpu][index].lru == IP_TRACKER_COUNT - 1) break;
-        const uint32_t rank = trackers[cpu][index].lru;
-        trackers[cpu][index] = IP_TRACKER{}; // Clear the previous PC's learning.
-        trackers[cpu][index].valid = true;
-        trackers[cpu][index].ip = ip;
-        trackers[cpu][index].last_cl_addr = cl_addr;
-        trackers[cpu][index].lru = rank;
+            if (trackers[index].lru == IP_TRACKER_COUNT - 1) break;
+        trackers[index] = IP_TRACKER{}; // Clear the previous PC's learning.
+        trackers[index].ip = ip;
+        trackers[index].lru = IP_TRACKER_COUNT - 1;
     }
 
-    IP_TRACKER &tracker = trackers[cpu][index];
+    IP_TRACKER &tracker = trackers[index];
     for (int i = 0; i < IP_TRACKER_COUNT; ++i)
-        if (trackers[cpu][i].lru < tracker.lru) ++trackers[cpu][i].lru;
+        if (trackers[i].lru < tracker.lru) ++trackers[i].lru;
     tracker.lru = 0;
-    if (allocated) return; // The first address does not establish a stride.
+    // Establish the starting address before learning strides.
+    if (tracker.last_cl_addr == 0) {
+        tracker.last_cl_addr = cl_addr;
+        return; // The first address does not establish a stride.
+    }
 
-    const int64_t stride = static_cast<int64_t>(cl_addr) -
+    int64_t stride = static_cast<int64_t>(cl_addr) -
                            static_cast<int64_t>(tracker.last_cl_addr);
     tracker.last_cl_addr = cl_addr;
 
     // Compare against OLD history, before inserting the observed stride.
     for (int p = 1; p <= MAX_PERIOD; ++p) {
-        if (tracker.history_size >= p && stride == tracker.strides[p - 1]) {
+        if (stride == tracker.strides[p - 1]) {
             if (tracker.matches[p - 1] < p) ++tracker.matches[p - 1];
         } else {
             tracker.matches[p - 1] = 0;
@@ -86,18 +90,14 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
 
     for (int i = MAX_PERIOD - 1; i > 0; --i) tracker.strides[i] = tracker.strides[i - 1];
     tracker.strides[0] = stride;
-    if (tracker.history_size < MAX_PERIOD) ++tracker.history_size;
     if (!tracker.period) return;
 
     // The oldest of the newest p strides is next; repeat the cycle for lookahead.
     uint64_t pf_line = cl_addr;
     for (int i = 0; i < PREFETCH_DEGREE; ++i) {
-        const int64_t next_stride = tracker.strides[tracker.period - 1 - (i % tracker.period)];
-        const uint64_t max_line = UINT64_MAX >> LOG2_BLOCK_SIZE;
-        if ((next_stride < 0 && pf_line < static_cast<uint64_t>(-next_stride)) ||
-            (next_stride > 0 && pf_line > max_line - static_cast<uint64_t>(next_stride))) break;
-        pf_line = static_cast<uint64_t>(static_cast<int64_t>(pf_line) + next_stride);
-        const uint64_t pf_address = pf_line << LOG2_BLOCK_SIZE;
+        int64_t next_stride = tracker.strides[tracker.period - 1 - (i % tracker.period)];
+        pf_line += next_stride;
+        uint64_t pf_address = pf_line << LOG2_BLOCK_SIZE;
         if ((pf_address >> LOG2_PAGE_SIZE) != (addr >> LOG2_PAGE_SIZE)) break;
         if (next_stride == 0) continue; // Learn zero strides without requesting the same line.
         if (MSHR.occupancy < (MSHR.SIZE >> 1))
@@ -107,18 +107,12 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
     }
 }
 
-void CACHE::l1d_prefetcher_cache_fill(uint64_t, uint64_t, uint32_t, uint32_t,
-                                    uint8_t, uint64_t, uint64_t, uint32_t)
-{
-}
-
-void CACHE::l1d_prefetcher_notify_about_dtlb_eviction(uint64_t, uint32_t, uint32_t,
-                                                   uint8_t, uint64_t, uint32_t)
+void CACHE::l1d_prefetcher_cache_fill(uint64_t, uint64_t, uint32_t, uint32_t, uint8_t, uint64_t, uint64_t, uint32_t)
 {
 }
 
 void CACHE::l1d_prefetcher_final_stats()
 {
-    cout << "CPU " << cpu << " L1D stride-pattern prefetcher degree: " << PREFETCH_DEGREE
-         << " max period: " << MAX_PERIOD << " state bytes/core: " << sizeof(trackers[cpu]) << endl;
+    cout << "L1D stride-pattern prefetcher degree: " << PREFETCH_DEGREE
+         << " max period: " << MAX_PERIOD << " state bytes: " << sizeof(trackers) << endl;
 }
