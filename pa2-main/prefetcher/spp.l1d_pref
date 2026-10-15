@@ -1,27 +1,39 @@
 #include "cache.h"
 
-
 #define MASK_IP 0xFF
-#define PREFETCH_DEGREE 8
+//accuracy-based throttling
+#define INIT_DEGREE 8          // degree used until we have enough info
+#define MAX_DEGREE 16
+#define THROTTLE_WINDOW 256    // epoch length, in prefetches fetched from L2
+// accuracy bands (percent) and the degree chosen in each band
+#define ACC_BAND_1 1000         
+#define ACC_BAND_2 1000         
+#define ACC_BAND_3 30          
+#define ACC_BAND_4 15          
+#define DEG_BAND_1 16          
+#define DEG_BAND_2 12
+#define DEG_BAND_3 8
+#define DEG_BAND_4 4
+#define DEG_BAND_5 2
 
 // history lengths of the two predictors
 #define K_SHORT 1
 #define K_LONG 3
 
-// pattern-table entries per IP for each predictor
-#define N_SHORT 24
-#define N_LONG 64
+// pattern table entries per IP for each predictor
+#define N_SHORT 8
+#define N_LONG 8
 #define N_MAX (N_SHORT > N_LONG ? N_SHORT : N_LONG)
 
 // Number of Ips to be stored at a time
-#define IP_TRACKER_COUNT 256
+#define IP_TRACKER_COUNT 128
 
-// tournament chooser (2 bits)
+// tournament chooser
 #define CHOOSER_MAX 3
 #define CHOOSER_THRESHOLD 2
 
 // 1 = try the other table when the chosen one has no match
-#define USE_FALLBACK 0
+#define USE_FALLBACK 1
 
 class TableEntry{
     public:
@@ -103,15 +115,52 @@ class SPP_TRACKER{
 
 SPP_TRACKER trackers[IP_TRACKER_COUNT];
 
-// ---- statistics printed at the end of simulation----
-uint64_t stat_walks_short = 0;      //  prefetches that started with  short table
-uint64_t stat_walks_long = 0;       // prefetches  that started with  long table
-uint64_t stat_fallback_steps = 0;   // how many fallbacks
-uint64_t stat_flips_to_long = 0;    // 
-uint64_t stat_flips_to_short = 0;   //
-uint64_t stat_graded = 0;           // accesses where both predictors were graded
+// statistics printed at the end 
+uint64_t stat_walks_short = 0;      // started with the short table
+uint64_t stat_walks_long = 0;       // started with the long table
+uint64_t stat_fallback_steps = 0;   // how many fallbacks to other table
+uint64_t stat_flips_to_long = 0;    
+uint64_t stat_flips_to_short = 0;   
+uint64_t stat_graded = 0;           
 uint64_t stat_short_correct = 0;
 uint64_t stat_long_correct = 0;
+
+//  throttling condn
+int cur_degree = INIT_DEGREE;
+uint64_t snap_useful = 0;           // pf_useful at the start of the epoch
+uint64_t snap_fetched = 0;          // pf_lower_level at the start of the epoch
+uint64_t stat_epochs = 0;
+uint64_t stat_epochs_at_degree[MAX_DEGREE + 1] = {0};
+uint64_t stat_epoch_acc_sum = 0;    // sum of accuracies (percent)
+
+void updateThrottle(uint64_t useful_now, uint64_t fetched_now){
+    // ChampSim resets the cache stats at the end of warmup
+    if(fetched_now < snap_fetched || useful_now < snap_useful){
+        snap_fetched = fetched_now;
+        snap_useful = useful_now;
+        return;
+    }
+    uint64_t d_fetched = fetched_now - snap_fetched;
+    if(d_fetched < THROTTLE_WINDOW){
+        return;                     
+    }
+    uint64_t d_useful = useful_now - snap_useful;
+    uint64_t acc = (d_useful * 100) / d_fetched;   
+
+    if(acc >= ACC_BAND_1)      cur_degree = DEG_BAND_1;
+    else if(acc >= ACC_BAND_2) cur_degree = DEG_BAND_2;
+    else if(acc >= ACC_BAND_3) cur_degree = DEG_BAND_3;
+    else if(acc >= ACC_BAND_4) cur_degree = DEG_BAND_4;
+    else                       cur_degree = DEG_BAND_5;
+
+    stat_epochs++;
+    stat_epochs_at_degree[cur_degree]++;
+    stat_epoch_acc_sum += (acc > 100 ? 100 : acc);
+
+    snap_fetched = fetched_now;
+    snap_useful = useful_now;
+    return;
+}
 
 TableEntry* matchHistory(Table &table, int64_t strides[K_LONG]){
 
@@ -134,13 +183,16 @@ TableEntry* matchHistory(Table &table, int64_t strides[K_LONG]){
     return nullptr;
 }
 
-void CACHE::l1d_prefetcher_initialize() 
+void CACHE::l1d_prefetcher_initialize()
 {
     std::cout << "------------------------------------------------" << std::endl;
     std::cout << "   Stride Pattern Prefetcher (SPP) - tournament " << std::endl;
     std::cout << "   K_SHORT=" << K_SHORT << " K_LONG=" << K_LONG
               << " N_SHORT=" << N_SHORT << " N_LONG=" << N_LONG
-              << " degree=" << PREFETCH_DEGREE << " fallback=" << USE_FALLBACK << std::endl;
+              << " fallback=" << USE_FALLBACK << std::endl;
+    std::cout << "   throttling: init degree=" << INIT_DEGREE << " window=" << THROTTLE_WINDOW
+              << " bands(%)=" << ACC_BAND_1 << "/" << ACC_BAND_2 << "/" << ACC_BAND_3 << "/" << ACC_BAND_4
+              << " degrees=" << DEG_BAND_1 << "/" << DEG_BAND_2 << "/" << DEG_BAND_3 << "/" << DEG_BAND_4 << "/" << DEG_BAND_5 << std::endl;
     std::cout << "------------------------------------------------" << std::endl;
     for(int i = 0; i < IP_TRACKER_COUNT; ++i){
         trackers[i].lru = i;
@@ -192,7 +244,7 @@ void AllocatePatternMRU(Table &table, int64_t strides[K_LONG], int64_t pred_stri
 }
 
 void trainTable(Table &table, TableEntry *entry, int64_t strides[K_LONG], int64_t stride){
-    // spp8 training rule: overwrite the prediction of an existing entry,
+    //  training rule: overwrite the prediction of an existing entry,
     // otherwise allocate the LRU entry. LRU is only updated on training.
     if(entry == nullptr){
         AllocatePatternMRU(table, strides, stride);
@@ -265,8 +317,8 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
         return;
     }
 
-    
-    // the entries that predicted THIS access are the ones matching the old history
+    // grade both predictors on this access 
+   
     bool long_ready = (t.strides_seen >= K_LONG);   // long table needs a full history
     TableEntry* entry_short = matchHistory(t.shortTable, t.lastKstrides);
     TableEntry* entry_long = long_ready ? matchHistory(t.longTable, t.lastKstrides) : nullptr;
@@ -280,7 +332,7 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
         if(long_correct) stat_long_correct++;
     }
 
-    //  update the tournament
+    // update the tournament -
     bool was_long = (t.chooser >= CHOOSER_THRESHOLD);
     if(long_correct && !short_correct){
         if(t.chooser < CHOOSER_MAX) t.chooser++;
@@ -292,18 +344,21 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
     if(!was_long && is_long) stat_flips_to_long++;
     if(was_long && !is_long) stat_flips_to_short++;
 
-    //  train both tables with the old history
+    //  train both tables with the old history 
     trainTable(t.shortTable, entry_short, t.lastKstrides, stride);
     if(long_ready){
         trainTable(t.longTable, entry_long, t.lastKstrides, stride);
     }
 
-    //shift the new stride into the history
+    // shift the new stride into the history 
     ShiftStride(t.lastKstrides, stride, t.lastKstrides);
     if(t.strides_seen < K_LONG) t.strides_seen++;
     t.last_cl_addr = cl_addr;
 
-    // choose the predictor for this prefetch walk
+    //  accuracy-based throttling
+    updateThrottle(pf_useful, pf_lower_level);
+
+    //  choose the predictor for this prefetch seq 
     bool long_usable = (t.strides_seen >= K_LONG);
     bool use_long = is_long && long_usable;
     Table &chosen = use_long ? t.longTable : t.shortTable;
@@ -312,13 +367,12 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
     if(use_long) stat_walks_long++;
     else stat_walks_short++;
 
-    // prefetch block
     int64_t pattern[K_LONG];
     for(int i = 0; i < K_LONG; ++i){
         pattern[i] = t.lastKstrides[i];
     }
     uint64_t tmp_cl_addr = cl_addr;
-    for(int p = 0; p < PREFETCH_DEGREE; ++p){
+    for(int p = 0; p < cur_degree; ++p){
         TableEntry* entry = matchHistory(chosen, pattern);
         if(entry == nullptr && USE_FALLBACK && other_usable){
             entry = matchHistory(other, pattern);
@@ -369,5 +423,14 @@ void CACHE::l1d_prefetcher_final_stats()
     std::cout << "SPP graded accesses: " << stat_graded
               << " short correct: " << (stat_graded ? 100.0 * stat_short_correct / stat_graded : 0.0) << "%"
               << " long correct: " << (stat_graded ? 100.0 * stat_long_correct / stat_graded : 0.0) << "%" << std::endl;
+    std::cout << "SPP throttling epochs: " << stat_epochs
+              << " avg epoch accuracy: " << (stat_epochs ? 1.0 * stat_epoch_acc_sum / stat_epochs : 0.0) << "%" << std::endl;
+    std::cout << "SPP epochs at degree:";
+    for(int d = 1; d <= MAX_DEGREE; ++d){
+        if(stat_epochs_at_degree[d] > 0){
+            std::cout << " " << d << ":" << (100.0 * stat_epochs_at_degree[d] / stat_epochs) << "%";
+        }
+    }
+    std::cout << std::endl;
     return;
 }

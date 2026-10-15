@@ -1,0 +1,436 @@
+#include "cache.h"
+
+#define MASK_IP 0xFF
+//accuracy-based throttling
+#define INIT_DEGREE 8          // degree used until we have enough info
+#define MAX_DEGREE 16
+#define THROTTLE_WINDOW 256    // epoch length, in prefetches fetched from L2
+// accuracy bands (percent) and the degree chosen in each band
+#define ACC_BAND_1 101         
+#define ACC_BAND_2 101          
+#define ACC_BAND_3 30          
+#define ACC_BAND_4 15          
+#define DEG_BAND_1 16          
+#define DEG_BAND_2 12
+#define DEG_BAND_3 8
+#define DEG_BAND_4 4
+#define DEG_BAND_5 2
+
+// history lengths of the two predictors
+#define K_SHORT 1
+#define K_LONG 3
+
+// pattern table entries per IP for each predictor
+#define N_SHORT 24
+#define N_LONG 64
+#define N_MAX (N_SHORT > N_LONG ? N_SHORT : N_LONG)
+
+// Number of Ips to be stored at a time
+#define IP_TRACKER_COUNT 256
+
+// tournament chooser
+#define CHOOSER_MAX 3
+#define CHOOSER_THRESHOLD 2
+
+// 1 = try the other table when the chosen one has no match
+#define USE_FALLBACK 1
+
+class TableEntry{
+    public:
+        // stores K_LONG strides, newest at index K_LONG-1;
+        // a table of history length k only compares the last k of them
+        int64_t last_strides[K_LONG];
+        int64_t pred_stride;
+        uint64_t valid;
+        uint64_t lru;
+        TableEntry(){
+            for(int i = 0; i < K_LONG; ++i){
+                last_strides[i] = 0;
+            }
+            pred_stride = 0;
+            valid = 0;
+            lru = 0;
+        }
+};
+void cleanTableEntry(TableEntry &a){
+    // takes a table entry and cleans it
+    for(int i = 0; i < K_LONG; ++i){
+        a.last_strides[i] = 0;
+    }
+    a.pred_stride = 0;
+    a.valid = 0;
+    a.lru = 0;
+    return;
+}
+class Table{
+    public:
+        int size;     // number of entries actually used (N_SHORT or N_LONG)
+        int k;        // history length this table matches on
+        TableEntry Enteries[N_MAX];
+
+        Table(){
+            size = N_MAX;
+            k = 1;
+            for(int i = 0; i < N_MAX; ++i){
+                Enteries[i] = TableEntry();
+            }
+        }
+};
+void cleanTable(Table &a){
+    // takes a table and cleans it up
+    for(int i = 0; i < a.size; ++i){
+        cleanTableEntry(a.Enteries[i]);
+    }
+    for(int i = 0; i < a.size; ++i){
+        a.Enteries[i].lru = i;
+    }
+    return;
+}
+class SPP_TRACKER{
+    public:
+        uint64_t ip;
+
+        uint64_t last_cl_addr;
+        int64_t lastKstrides[K_LONG];   // newest stride at index K_LONG-1
+        uint32_t lru;
+        uint32_t strides_seen;          // saturates at K_LONG
+        uint32_t chooser;               // 0..CHOOSER_MAX
+
+        Table shortTable;
+        Table longTable;
+
+        SPP_TRACKER(){
+            ip = 0;
+            last_cl_addr = 0;
+            for(int i = 0; i < K_LONG; ++i){
+                lastKstrides[i] = 0;
+            }
+            lru = 0;
+            strides_seen = 0;
+            chooser = 0;
+            shortTable = Table();
+            longTable = Table();
+        }
+};
+
+SPP_TRACKER trackers[IP_TRACKER_COUNT];
+
+// statistics printed at the end 
+uint64_t stat_walks_short = 0;      // started with the short table
+uint64_t stat_walks_long = 0;       // started with the long table
+uint64_t stat_fallback_steps = 0;   // how many fallbacks to other table
+uint64_t stat_flips_to_long = 0;    
+uint64_t stat_flips_to_short = 0;   
+uint64_t stat_graded = 0;           
+uint64_t stat_short_correct = 0;
+uint64_t stat_long_correct = 0;
+
+//  throttling condn
+int cur_degree = INIT_DEGREE;
+uint64_t snap_useful = 0;           // pf_useful at the start of the epoch
+uint64_t snap_fetched = 0;          // pf_lower_level at the start of the epoch
+uint64_t stat_epochs = 0;
+uint64_t stat_epochs_at_degree[MAX_DEGREE + 1] = {0};
+uint64_t stat_epoch_acc_sum = 0;    // sum of accuracies (percent)
+
+void updateThrottle(uint64_t useful_now, uint64_t fetched_now){
+    // ChampSim resets the cache stats at the end of warmup
+    if(fetched_now < snap_fetched || useful_now < snap_useful){
+        snap_fetched = fetched_now;
+        snap_useful = useful_now;
+        return;
+    }
+    uint64_t d_fetched = fetched_now - snap_fetched;
+    if(d_fetched < THROTTLE_WINDOW){
+        return;                     
+    }
+    uint64_t d_useful = useful_now - snap_useful;
+    uint64_t acc = (d_useful * 100) / d_fetched;   
+
+    if(acc >= ACC_BAND_1)      cur_degree = DEG_BAND_1;
+    else if(acc >= ACC_BAND_2) cur_degree = DEG_BAND_2;
+    else if(acc >= ACC_BAND_3) cur_degree = DEG_BAND_3;
+    else if(acc >= ACC_BAND_4) cur_degree = DEG_BAND_4;
+    else                       cur_degree = DEG_BAND_5;
+
+    stat_epochs++;
+    stat_epochs_at_degree[cur_degree]++;
+    stat_epoch_acc_sum += (acc > 100 ? 100 : acc);
+
+    snap_fetched = fetched_now;
+    snap_useful = useful_now;
+    return;
+}
+
+TableEntry* matchHistory(Table &table, int64_t strides[K_LONG]){
+
+    // Returns pointer to table entry if match found else return null
+    // Only the last table.k strides are compared.
+    for(int i = 0; i < table.size; ++i){
+        TableEntry* entry = &(table.Enteries[i]);
+        if(entry->valid == 0) continue;
+        uint32_t match = 1;
+        for(int j = K_LONG - table.k; j < K_LONG; ++j){
+            if(entry->last_strides[j] != strides[j]){
+                match = 0;
+                break;
+            }
+        }
+        if(match){
+            return entry;
+        }
+    }
+    return nullptr;
+}
+
+void CACHE::l1d_prefetcher_initialize()
+{
+    std::cout << "------------------------------------------------" << std::endl;
+    std::cout << "   Stride Pattern Prefetcher (SPP) - tournament " << std::endl;
+    std::cout << "   K_SHORT=" << K_SHORT << " K_LONG=" << K_LONG
+              << " N_SHORT=" << N_SHORT << " N_LONG=" << N_LONG
+              << " fallback=" << USE_FALLBACK << std::endl;
+    std::cout << "   throttling: init degree=" << INIT_DEGREE << " window=" << THROTTLE_WINDOW
+              << " bands(%)=" << ACC_BAND_1 << "/" << ACC_BAND_2 << "/" << ACC_BAND_3 << "/" << ACC_BAND_4
+              << " degrees=" << DEG_BAND_1 << "/" << DEG_BAND_2 << "/" << DEG_BAND_3 << "/" << DEG_BAND_4 << "/" << DEG_BAND_5 << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
+    for(int i = 0; i < IP_TRACKER_COUNT; ++i){
+        trackers[i].lru = i;
+        trackers[i].ip = 0;
+        trackers[i].shortTable.size = N_SHORT;
+        trackers[i].shortTable.k = K_SHORT;
+        trackers[i].longTable.size = N_LONG;
+        trackers[i].longTable.k = K_LONG;
+        cleanTable(trackers[i].shortTable);
+        cleanTable(trackers[i].longTable);
+    }
+}
+
+void touchMRU(Table &table, TableEntry *entry){
+    // make entry the most recently used one in its table
+    uint64_t this_lru = entry->lru;
+    for(int i = 0; i < table.size; ++i){
+        if(table.Enteries[i].lru < this_lru){
+            table.Enteries[i].lru++;
+        }
+    }
+    entry->lru = 0;
+    return;
+}
+
+void AllocatePatternMRU(Table &table, int64_t strides[K_LONG], int64_t pred_stride){
+    // Allocate a new entry in the pattern table
+    // and set it to the given strides and pred_stride
+    // find the LRU entry
+    int lru_index = -1;
+    for(int i = 0; i < table.size; ++i){
+        if(table.Enteries[i].lru == (uint64_t)(table.size-1)){
+            lru_index = i;
+            break;
+        }
+    }
+    if(lru_index == -1){
+        std::cerr << "Error: No LRU entry found in pattern table" << std::endl;
+        return;
+    }
+    TableEntry &entry = table.Enteries[lru_index];
+    for(int i = 0; i < K_LONG; ++i){
+        entry.last_strides[i] = strides[i];
+    }
+    entry.pred_stride = pred_stride;
+    entry.valid = 1;
+    touchMRU(table, &entry);
+    return;
+}
+
+void trainTable(Table &table, TableEntry *entry, int64_t strides[K_LONG], int64_t stride){
+    //  training rule: overwrite the prediction of an existing entry,
+    // otherwise allocate the LRU entry. LRU is only updated on training.
+    if(entry == nullptr){
+        AllocatePatternMRU(table, strides, stride);
+    }
+    else{
+        entry->pred_stride = stride;
+        touchMRU(table, entry);
+    }
+    return;
+}
+
+void ShiftStride(int64_t *strides, int64_t pred_stride, int64_t *new_strides){
+    // Shift the strides to the left and add new_stride at the end
+    for(int i = 0; i < K_LONG-1; ++i){
+        new_strides[i] = strides[i+1];
+    }
+    new_strides[K_LONG-1] = pred_stride;
+    return;
+}
+
+void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit, uint8_t type, uint8_t critical_ip_flag)
+{
+   uint64_t cl_addr = addr >> LOG2_BLOCK_SIZE;
+
+   ip = ip & MASK_IP;
+
+   int index = -1;
+   for(index = 0; index < IP_TRACKER_COUNT; ++index){
+        if(trackers[index].ip == ip){
+            break;
+        }
+   }
+
+   // No such IP in the table, allocate
+   // an entry, deallocate the LRU entry
+   // Update recency
+
+   if(index == IP_TRACKER_COUNT){
+        for(index = 0; index < IP_TRACKER_COUNT; ++index){
+            if(trackers[index].lru == (IP_TRACKER_COUNT -1))
+                break;
+        }
+        trackers[index].ip = ip;
+        trackers[index].last_cl_addr = cl_addr;
+        trackers[index].strides_seen = 0;
+        trackers[index].chooser = 0;          // new IPs start with the short history
+        cleanTable(trackers[index].shortTable);
+        cleanTable(trackers[index].longTable);
+        for(int i = 0; i < K_LONG; ++i){
+            trackers[index].lastKstrides[i] = 0;
+        }
+        for (int i=0; i<IP_TRACKER_COUNT; i++) {
+            if (trackers[i].lru < trackers[index].lru)
+                trackers[i].lru++;
+        }
+        trackers[index].lru = 0;
+        return;
+   }
+    SPP_TRACKER &t = trackers[index];
+
+    int64_t stride = 0;
+    if (cl_addr > t.last_cl_addr)
+        stride = cl_addr - t.last_cl_addr;
+    else {
+        stride = t.last_cl_addr - cl_addr;
+        stride *= -1;
+    }
+
+    if(stride == 0){
+        return;
+    }
+
+    // grade both predictors on this access 
+   
+    bool long_ready = (t.strides_seen >= K_LONG);   // long table needs a full history
+    TableEntry* entry_short = matchHistory(t.shortTable, t.lastKstrides);
+    TableEntry* entry_long = long_ready ? matchHistory(t.longTable, t.lastKstrides) : nullptr;
+
+    bool short_correct = (entry_short != nullptr && entry_short->pred_stride == stride);
+    bool long_correct = (entry_long != nullptr && entry_long->pred_stride == stride);
+
+    if(long_ready){
+        stat_graded++;
+        if(short_correct) stat_short_correct++;
+        if(long_correct) stat_long_correct++;
+    }
+
+    // update the tournament -
+    bool was_long = (t.chooser >= CHOOSER_THRESHOLD);
+    if(long_correct && !short_correct){
+        if(t.chooser < CHOOSER_MAX) t.chooser++;
+    }
+    else if(short_correct && !long_correct){
+        if(t.chooser > 0) t.chooser--;
+    }
+    bool is_long = (t.chooser >= CHOOSER_THRESHOLD);
+    if(!was_long && is_long) stat_flips_to_long++;
+    if(was_long && !is_long) stat_flips_to_short++;
+
+    //  train both tables with the old history 
+    trainTable(t.shortTable, entry_short, t.lastKstrides, stride);
+    if(long_ready){
+        trainTable(t.longTable, entry_long, t.lastKstrides, stride);
+    }
+
+    // shift the new stride into the history 
+    ShiftStride(t.lastKstrides, stride, t.lastKstrides);
+    if(t.strides_seen < K_LONG) t.strides_seen++;
+    t.last_cl_addr = cl_addr;
+
+    //  accuracy-based throttling
+    updateThrottle(pf_useful, pf_lower_level);
+
+    //  choose the predictor for this prefetch seq 
+    bool long_usable = (t.strides_seen >= K_LONG);
+    bool use_long = is_long && long_usable;
+    Table &chosen = use_long ? t.longTable : t.shortTable;
+    Table &other  = use_long ? t.shortTable : t.longTable;
+    bool other_usable = use_long ? true : long_usable;
+    if(use_long) stat_walks_long++;
+    else stat_walks_short++;
+
+    int64_t pattern[K_LONG];
+    for(int i = 0; i < K_LONG; ++i){
+        pattern[i] = t.lastKstrides[i];
+    }
+    uint64_t tmp_cl_addr = cl_addr;
+    for(int p = 0; p < cur_degree; ++p){
+        TableEntry* entry = matchHistory(chosen, pattern);
+        if(entry == nullptr && USE_FALLBACK && other_usable){
+            entry = matchHistory(other, pattern);
+            if(entry != nullptr) stat_fallback_steps++;
+        }
+        if(entry == nullptr){
+            break;
+        }
+        uint64_t pf_address = (tmp_cl_addr + (entry->pred_stride)) << LOG2_BLOCK_SIZE;
+        tmp_cl_addr = pf_address >> LOG2_BLOCK_SIZE;
+        if ((pf_address >> LOG2_PAGE_SIZE) != (addr >> LOG2_PAGE_SIZE))
+            break;
+        if (MSHR.occupancy < (MSHR.SIZE>>1))
+            prefetch_line(ip, addr, pf_address, FILL_L1, 0);
+        else
+            prefetch_line(ip, addr, pf_address, FILL_L2, 0);
+        // Shift the pattern to the left and add the new stride
+        ShiftStride(pattern, entry->pred_stride, pattern);
+    }
+
+    for (int i=0; i<IP_TRACKER_COUNT; i++) {
+        if (trackers[i].lru < trackers[index].lru)
+            trackers[i].lru++;
+    }
+    trackers[index].lru = 0;
+    return;
+}
+
+void CACHE::l1d_prefetcher_cache_fill(uint64_t v_addr, uint64_t addr, uint32_t set, uint32_t way, uint8_t prefetch, uint64_t v_evicted_addr, uint64_t evicted_addr, uint32_t metadata_in)
+{
+	return; //metadata_in;
+}
+
+void CACHE::l1d_prefetcher_final_stats()
+{
+    uint64_t walks = stat_walks_short + stat_walks_long;
+    int ips_on_long = 0;
+    for(int i = 0; i < IP_TRACKER_COUNT; ++i){
+        if(trackers[i].chooser >= CHOOSER_THRESHOLD) ips_on_long++;
+    }
+    std::cout << "SPP tournament stats" << std::endl;
+    std::cout << "SPP walks short: " << stat_walks_short << " long: " << stat_walks_long
+              << " long fraction: " << (walks ? 100.0 * stat_walks_long / walks : 0.0) << "%" << std::endl;
+    std::cout << "SPP fallback steps: " << stat_fallback_steps << std::endl;
+    std::cout << "SPP chooser flips to long: " << stat_flips_to_long
+              << " to short: " << stat_flips_to_short << std::endl;
+    std::cout << "SPP trackers ending on long: " << ips_on_long << " / " << IP_TRACKER_COUNT << std::endl;
+    std::cout << "SPP graded accesses: " << stat_graded
+              << " short correct: " << (stat_graded ? 100.0 * stat_short_correct / stat_graded : 0.0) << "%"
+              << " long correct: " << (stat_graded ? 100.0 * stat_long_correct / stat_graded : 0.0) << "%" << std::endl;
+    std::cout << "SPP throttling epochs: " << stat_epochs
+              << " avg epoch accuracy: " << (stat_epochs ? 1.0 * stat_epoch_acc_sum / stat_epochs : 0.0) << "%" << std::endl;
+    std::cout << "SPP epochs at degree:";
+    for(int d = 1; d <= MAX_DEGREE; ++d){
+        if(stat_epochs_at_degree[d] > 0){
+            std::cout << " " << d << ":" << (100.0 * stat_epochs_at_degree[d] / stat_epochs) << "%";
+        }
+    }
+    std::cout << std::endl;
+    return;
+}

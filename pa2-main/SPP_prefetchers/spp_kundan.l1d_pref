@@ -1,0 +1,165 @@
+#include "cache.h"
+
+#define IP_TRACKER_COUNT 24
+#define MASK_IP 0xFF
+#define MAX_PERIOD 5
+#define PREFETCH_DEGREE 3
+#define MAX_DEGREE 6
+#define ACCURACY_INTERVAL 256
+#define MIN_PREFETCHES 64
+
+class IP_TRACKER {
+  public:
+    uint8_t ip;
+    uint64_t last_cl_addr;
+    int64_t strides[MAX_PERIOD]; // newest stride at index 0
+    uint8_t matches[MAX_PERIOD];
+    uint8_t period; // 0 means no confirmed pattern
+    uint32_t lru;
+
+    IP_TRACKER() {
+        ip = 0;
+        last_cl_addr = 0;
+        period = 0;
+        lru = 0;
+        for (int i = 0; i < MAX_PERIOD; ++i) {
+            strides[i] = 0;
+            matches[i] = 0;
+        }
+    }
+};
+
+// Shared tracker table with low-eight-bit PC tags, as in IP-stride.
+IP_TRACKER trackers[IP_TRACKER_COUNT];
+
+int prefetch_degree = PREFETCH_DEGREE;
+uint64_t total_issued = 0;
+uint64_t window_issued = 0;
+uint64_t useful_at_start = 0;
+unsigned window_loads = 0;
+bool simulation_started = false;
+
+void update_degree(uint64_t useful)
+{
+    ++window_loads;
+    if (window_loads < ACCURACY_INTERVAL || window_issued < MIN_PREFETCHES) return;
+
+    double accuracy = double(useful - useful_at_start) / window_issued;
+    if (accuracy >= 0.75 && prefetch_degree < MAX_DEGREE) ++prefetch_degree;
+    else if (accuracy < 0.40 && prefetch_degree > 1) --prefetch_degree;
+
+    useful_at_start = useful;
+    window_issued = 0;
+    window_loads = 0;
+}
+
+void CACHE::l1d_prefetcher_initialize()
+{
+    cout << "L1D stride-pattern prefetcher" << endl;
+    prefetch_degree = PREFETCH_DEGREE;
+    total_issued = window_issued = useful_at_start = window_loads = 0;
+    simulation_started = false;
+    for (int i = 0; i < IP_TRACKER_COUNT; ++i) {
+        trackers[i] = IP_TRACKER{};
+        trackers[i].lru = i;
+    }
+}
+
+void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t, uint8_t type, uint8_t)
+{
+    if (type != LOAD) return;
+    // Cache counters reset after warmup; keep learned patterns and current degree.
+    if (!simulation_started && all_warmup_complete > NUM_CPUS) {
+        simulation_started = true;
+        total_issued = window_issued = window_loads = 0;
+        useful_at_start = pf_useful;
+    }
+    update_degree(pf_useful);
+
+    uint64_t cl_addr = addr >> LOG2_BLOCK_SIZE;
+    ip &= MASK_IP;
+
+    int index;
+    for (index = 0; index < IP_TRACKER_COUNT; ++index)
+        if (trackers[index].ip == ip) break;
+
+    if (index == IP_TRACKER_COUNT) {
+        // Replace the least recently used tracker, as in IP-stride.
+        for (index = 0; index < IP_TRACKER_COUNT; ++index)
+            if (trackers[index].lru == IP_TRACKER_COUNT - 1) break;
+        trackers[index] = IP_TRACKER{}; // Clear the previous PC's learning.
+        trackers[index].ip = ip;
+        trackers[index].lru = IP_TRACKER_COUNT - 1;
+    }
+
+    IP_TRACKER &tracker = trackers[index];
+    for (int i = 0; i < IP_TRACKER_COUNT; ++i)
+        if (trackers[i].lru < tracker.lru) ++trackers[i].lru;
+    tracker.lru = 0;
+    // Establish the starting address before learning strides.
+    if (tracker.last_cl_addr == 0) {
+        tracker.last_cl_addr = cl_addr;
+        return; // The first address does not establish a stride.
+    }
+
+    int64_t stride = static_cast<int64_t>(cl_addr) -
+                           static_cast<int64_t>(tracker.last_cl_addr);
+    tracker.last_cl_addr = cl_addr;
+
+    // Compare against OLD history, before inserting the observed stride.
+    for (int p = 1; p <= MAX_PERIOD; ++p) {
+        if (stride == tracker.strides[p - 1]) {
+            if (tracker.matches[p - 1] < p) ++tracker.matches[p - 1];
+        } else {
+            tracker.matches[p - 1] = 0;
+        }
+    }
+    // Keep an established period even if a smaller period briefly matches.
+    if (tracker.period && tracker.matches[tracker.period - 1] == 0)
+        tracker.period = 0;
+    if (!tracker.period)
+        for (int p = 1; p <= MAX_PERIOD; ++p)
+            if (tracker.matches[p - 1] == p) {
+                tracker.period = p;
+                break;
+            }
+
+    for (int i = MAX_PERIOD - 1; i > 0; --i) tracker.strides[i] = tracker.strides[i - 1];
+    tracker.strides[0] = stride;
+    if (!tracker.period) return;
+
+    // The oldest of the newest p strides is next; repeat the cycle for lookahead.
+    uint64_t pf_line = cl_addr;
+    for (int i = 0; i < prefetch_degree; ++i) {
+        int64_t next_stride = tracker.strides[tracker.period - 1 - (i % tracker.period)];
+        pf_line += next_stride;
+        uint64_t pf_address = pf_line << LOG2_BLOCK_SIZE;
+        if ((pf_address >> LOG2_PAGE_SIZE) != (addr >> LOG2_PAGE_SIZE)) break;
+        if (next_stride == 0) continue; // Learn zero strides without requesting the same line.
+        // The API can return success even when translation rejects the request.
+        uint64_t accepted_before = PQ.ACCESS - PQ.MERGED;
+        prefetch_line(ip, addr, pf_address, FILL_L1, 0);
+        if (PQ.ACCESS - PQ.MERGED > accepted_before) {
+            ++total_issued;
+            ++window_issued;
+        }
+    }
+}
+
+void CACHE::l1d_prefetcher_cache_fill(uint64_t, uint64_t, uint32_t, uint32_t, uint8_t, uint64_t, uint64_t, uint32_t)
+{
+}
+
+void CACHE::l1d_prefetcher_notify_about_dtlb_eviction(uint64_t, uint32_t, uint32_t,
+                                                   uint8_t, uint64_t, uint32_t)
+{
+}
+
+void CACHE::l1d_prefetcher_final_stats()
+{
+    cout << "L1D stride-pattern prefetcher degree: " << prefetch_degree
+         << " max period: " << MAX_PERIOD << " state bytes: " << sizeof(trackers) << endl;
+    cout << "SPP issued: " << total_issued << " useful: " << pf_useful << " accuracy: ";
+    if (total_issued) cout << 100.0 * pf_useful / total_issued << "%" << endl;
+    else cout << "N/A" << endl;
+}
