@@ -1843,6 +1843,8 @@ int main(int argc, char** argv)
 #endif
 
 #ifndef CRC2_COMPILE
+    if (NUM_CPUS == 1) // multi-core runs already print this with the per-CPU stats above
+        ooo_cpu[0].L2C.l2c_replacement_final_stats();
     uncore.LLC.llc_replacement_final_stats();
     print_dram_stats();
     print_branch_stats();

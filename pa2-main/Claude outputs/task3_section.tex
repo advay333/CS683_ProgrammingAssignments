@@ -1,0 +1,231 @@
+% ==========================================
+% TASK 3
+% ==========================================
+\section{Task 3: SPP with Prefetch-Aware Dynamic I-RRIP}\label{sec:task3}
+
+Task~3 runs the final Task~1 prefetcher (SPP, \texttt{prefetcher/spp.l1d\_pref}, unchanged) at the L1D
+together with the dynamic I-RRIP policy of Task~2B at the L2, and makes that policy aware of the
+lines SPP brings in. All prefetch handling lives in \texttt{replacement/dyn\_irrip.l2c\_repl} behind one
+switch, \texttt{PF\_AWARE}. With no prefetcher none of the new code runs, so the Task~2B results are
+unchanged.
+
+\subsection{What the L2 sees from SPP}\label{sec:task3-l2view}
+
+Every SPP prefetch is issued at the L1D and, when it misses there, travels to the L2 as a
+\texttt{PREFETCH} request. SPP chooses its fill level from the L1D MSHR occupancy (Task~1):
+\begin{itemize}[nosep]
+  \item \textbf{FILL\_L1} (L1D MSHR less than half full): the line is filled into the L2 \emph{and} the L1D.
+        The demand that follows hits in the L1D, so the L2 copy is a duplicate that the L2 will
+        rarely be asked for again.
+  \item \textbf{FILL\_L2} (L1D MSHR at least half full): the line is filled into the L2 \emph{only}.
+        It is not in the L1D, so its demand access has to come to the L2.
+\end{itemize}
+The two kinds of prefetch therefore have very different value \emph{to the L2}, even though both
+arrive with the same packet type. We measured this directly (\cref{tab:task3-firstuse},
+\cref{fig:t3-firstuse}): only 0.15--0.72\% of FILL\_L1 prefetch fills ever get a demand hit in the L2,
+while 13--19\% of FILL\_L2 prefetch fills do. FILL\_L2 prefetches are only 1.5--4\% of the prefetch fills,
+yet they account for about half or more of all L2 demand hits on prefetched lines.
+
+\begin{table}[htbp]
+\centering
+\caption{Prefetch fills into the L2 and their first demand use, split by fill level
+(SPP + prefetch-aware Dyn.\ I-RRIP, whole run including warm-up).}\label{tab:task3-firstuse}
+\tablesetup
+\begin{tabular}{lrrrrrr}
+\toprule
+ & \multicolumn{3}{c}{\colhead{FILL\_L1 (L1D + L2)}} & \multicolumn{3}{c}{\colhead{FILL\_L2 (L2 only)}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\colhead{Trace} & \colhead{Fills} & \colhead{First use} & \colhead{Used (\%)} & \colhead{Fills} & \colhead{First use} & \colhead{Used (\%)} \\
+\midrule
+Trace 1 & 143403 & 1028 & 0.72 & 5455 & 1062 & 19.47 \\
+Trace 2 &  94376 &  232 & 0.25 & 1421 &  230 & 16.19 \\
+Trace 3 & 106602 &  158 & 0.15 & 3220 &  423 & 13.14 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\resultfig[0.72\linewidth]{task3_pf_first_use}{Share of prefetched L2 lines that receive a demand
+hit in the L2, by fill level. L2-only prefetches are 25--90$\times$ more likely to be used in the L2.}{fig:t3-firstuse}
+
+\subsection{Design: fill-level-aware prefetch handling}\label{sec:task3-design}
+
+The L2 fill path in \texttt{src/cache.cc} stores the fill level of the MSHR entry in a new
+\texttt{CACHE} member, \texttt{repl\_fill\_level}, just before it calls
+\texttt{update\_replacement\_state()} (one line in \texttt{cache.cc}, one in \texttt{inc/cache.h}).
+The replacement interface is otherwise unchanged. The policy then applies these rules in both
+follower modes (I-RRIP and RRIP) and in the leader sets:
+
+\begin{enumerate}[nosep]
+  \item \textbf{FILL\_L1 prefetch fill} $\rightarrow$ RRPV 7 (\texttt{PF\_L1\_INSERT}), the most distant
+        position. The line is a duplicate of an L1D copy and is the first candidate for eviction, so it
+        cannot push out instruction lines or demand data.
+  \item \textbf{FILL\_L2 prefetch fill} $\rightarrow$ inserted like a demand data miss of the current mode:
+        RRPV 4 in I-RRIP mode, RRPV 6 in RRIP mode. The line has to survive in the L2 until its demand arrives.
+  \item \textbf{Prefetch hit in the L2} $\rightarrow$ RRPV unchanged. The request only copies the line up
+        to the L1D, which says nothing about future L2 reuse (the Task~2B policy decremented the RRPV here).
+  \item \textbf{First demand hit on a prefetched line} $\rightarrow$ promoted by the normal LOAD-hit rule of
+        the mode (to RRPV $\le 2$ for data in I-RRIP mode, to RRPV 4 in RRIP mode). The prefetch has
+        proved useful, so the line is treated like any reused line.
+  \item \textbf{Set dueling sees demand traffic only.} \texttt{PREFETCH} requests are not counted in the
+        leader-set access/miss counters or in the epoch length. Prefetch traffic depends on the
+        prefetcher, not on how well the policy keeps instruction or data lines, so counting it would
+        dilute the instruction ratio that the duel uses to choose the mode.
+\end{enumerate}
+No per-line state is added for the policy itself: the RRPV array and the existing
+\texttt{BLOCK::\allowbreak prefetch} bit are enough (a 2-bit per-line tag is kept only for the statistics of
+\cref{tab:task3-firstuse}). \Cref{tab:task3-policy} summarises how each class of line is treated.
+
+\begin{table}[htbp]
+\centering
+\caption{Treatment of each line class (RRPV range 0--7) in the prefetch-aware policy.}\label{tab:task3-policy}
+\tablesetup
+\begin{tabularx}{\linewidth}{lLLL}
+\toprule
+\colhead{Line class} & \colhead{Insertion (I-RRIP / RRIP mode)} & \colhead{Promotion on hit} & \colhead{Eviction priority} \\
+\midrule
+Instruction (demand)     & 1 / 6 & to 0 / to 4 & last: among RRPV-7 lines, data is evicted first in I-RRIP mode \\
+Data (demand)            & 4 / 6 & to $\le 2$ / to 4 & normal \\
+Prefetch, FILL\_L1       & 7 / 7 & prefetch hit: none; first demand hit: as data & first (inserted at the eviction position) \\
+Prefetch, FILL\_L2       & 4 / 6 & prefetch hit: none; first demand hit: as data & as demand data \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Rationale for Handling Prefetched Lines}\label{sec:task3-rationale}
+
+\begin{itemize}
+  \item \textbf{Most prefetched L2 lines are dead on arrival.} SPP is an L1D prefetcher: a useful prefetch
+        is consumed in the L1D, and the L2 copy is not asked for again unless the L1D evicts it first.
+        Under 1\% of FILL\_L1 prefetch fills are ever used in the L2 (\cref{tab:task3-firstuse}).
+        Inserting them at the eviction position means that inaccurate or duplicate prefetches never
+        displace the instruction lines that I-RRIP is protecting.
+  \item \textbf{The useful L2 prefetches must not be thrown away.} A FILL\_L2 prefetch is the only copy
+        above the LLC. Inserting it at the distant position would evict it before its demand arrives and
+        waste the DRAM access. Giving it the same position as demand data keeps it as long as any
+        other data line. The 25--90$\times$ difference in L2 use between the two kinds of prefetch is the
+        measured reason for treating them differently instead of treating ``prefetch'' as one class.
+  \item \textbf{A prefetch hit is not reuse.} A prefetch request that hits in the L2 is about to copy
+        the line into the L1D; promoting the L2 copy would keep a line that the L1D now serves.
+        Only a demand hit is evidence of L2 reuse.
+  \item \textbf{The duel must judge the policy, not the prefetcher.} Prefetch misses are data misses
+        that both leader groups would suffer whatever the mode. Keeping them out of the counters makes
+        the I-RRIP/RRIP decision depend only on demand behaviour, the same signal as in Task~2B.
+\end{itemize}
+
+\subsection{Results}\label{sec:task3-results}
+
+We compare four configurations, all built from the same code base and run with 25M warm-up and 25M
+simulated instructions: the baseline (no prefetcher, LRU at the L2), SPP with LRU (Task~1 final),
+dynamic I-RRIP without a prefetcher (Task~2B), and SPP with the prefetch-aware dynamic I-RRIP
+(Task~3, written SPP + Dyn.\ I-RRIP-PF in the tables). Speedup is over the baseline. Accuracy and coverage are defined as in Task~1
+(coverage = baseline L1D load misses removed). Means are geometric for IPC and speedup and
+arithmetic otherwise.
+
+\begin{table}[htbp]
+\centering
+\caption{Task 3: IPC, speedup and L1D prefetch metrics.}\label{tab:task3-perf}
+\tablesetup
+\begin{tabular}{llrrrr}
+\toprule
+\colhead{Trace} & \colhead{Configuration} & \colhead{IPC} & \colhead{Speedup} & \colhead{Accuracy (\%)} & \colhead{Coverage (\%)} \\
+\midrule
+\multirow{4}{*}{Trace 1} & Baseline (no pf, LRU)    & 0.2320 & 1.0000 & --   & --    \\
+                         & SPP + LRU                & 0.2339 & 1.0080 & 47.6 & 10.87 \\
+                         & Dyn.\ I-RRIP (no pf)     & 0.2320 & 1.0000 & --   & --    \\
+                         & SPP + Dyn.\ I-RRIP-PF & 0.2338 & 1.0077 & 47.4 & 10.90 \\
+\midrule
+\multirow{4}{*}{Trace 2} & Baseline (no pf, LRU)    & 0.2506 & 1.0000 & --   & --    \\
+                         & SPP + LRU                & 0.2541 & 1.0141 & 51.6 & 4.64  \\
+                         & Dyn.\ I-RRIP (no pf)     & 0.2547 & 1.0165 & --   & --    \\
+                         & SPP + Dyn.\ I-RRIP-PF & \textbf{0.2586} & \textbf{1.0322} & 52.0 & 4.61 \\
+\midrule
+\multirow{4}{*}{Trace 3} & Baseline (no pf, LRU)    & 0.3819 & 1.0000 & --   & --    \\
+                         & SPP + LRU                & 0.3882 & 1.0165 & 33.4 & 15.28 \\
+                         & Dyn.\ I-RRIP (no pf)     & 0.3817 & 0.9996 & --   & --    \\
+                         & SPP + Dyn.\ I-RRIP-PF & 0.3880 & 1.0161 & 33.4 & 15.37 \\
+\midrule
+\multirow{4}{*}{Mean}    & Baseline (no pf, LRU)    & 0.2811 & 1.0000 & --   & --    \\
+                         & SPP + LRU                & 0.2847 & 1.0129 & 44.2 & 10.26 \\
+                         & Dyn.\ I-RRIP (no pf)     & 0.2826 & 1.0053 & --   & --    \\
+                         & SPP + Dyn.\ I-RRIP-PF & \textbf{0.2863} & \textbf{1.0186} & 44.3 & 10.29 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Task 3: load MPKI of the L1D, the L2C, and the L2 split into instruction and data loads.}\label{tab:task3-mpki}
+\tablesetup
+\begin{tabular}{llrrrr}
+\toprule
+\colhead{Trace} & \colhead{Configuration} & \colhead{L1D load} & \colhead{L2C load} & \colhead{L2 instr.} & \colhead{L2 data} \\
+\midrule
+\multirow{4}{*}{Trace 1} & Baseline (no pf, LRU)    & 10.68 & 17.72 & 10.37 & 7.35 \\
+                         & SPP + LRU                &  9.52 & 16.75 & 10.41 & 6.35 \\
+                         & Dyn.\ I-RRIP (no pf)     & 10.68 & 17.63 &  9.97 & 7.67 \\
+                         & SPP + Dyn.\ I-RRIP-PF &  9.51 & 16.52 &  9.94 & 6.59 \\
+\midrule
+\multirow{4}{*}{Trace 2} & Baseline (no pf, LRU)    & 13.54 & 28.19 & 19.58 & 8.61 \\
+                         & SPP + LRU                & 12.91 & 27.70 & 19.66 & 8.04 \\
+                         & Dyn.\ I-RRIP (no pf)     & 13.54 & 24.16 & 15.10 & 9.05 \\
+                         & SPP + Dyn.\ I-RRIP-PF & 12.91 & 23.40 & 14.95 & 8.44 \\
+\midrule
+\multirow{4}{*}{Trace 3} & Baseline (no pf, LRU)    &  3.40 &  3.96 &  1.13 & 2.84 \\
+                         & SPP + LRU                &  2.88 &  3.34 &  1.16 & 2.18 \\
+                         & Dyn.\ I-RRIP (no pf)     &  3.40 &  3.98 &  1.10 & 2.87 \\
+                         & SPP + Dyn.\ I-RRIP-PF &  2.88 &  3.32 &  1.11 & 2.20 \\
+\midrule
+\multirow{4}{*}{Mean}    & Baseline (no pf, LRU)    &  9.21 & 16.63 & 10.36 & 6.26 \\
+                         & SPP + LRU                &  8.44 & 15.93 & 10.41 & 5.52 \\
+                         & Dyn.\ I-RRIP (no pf)     &  9.21 & 15.26 &  8.72 & 6.53 \\
+                         & SPP + Dyn.\ I-RRIP-PF &  \textbf{8.44} & \textbf{14.41} &  \textbf{8.67} & 5.75 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\resultfig{task3_ipc}{Task 3: IPC of each configuration.}{fig:t3-ipc}
+\resultfig{task3_speedup}{Task 3: speedup over the baseline (no prefetcher, LRU). Bar labels are the speedup.}{fig:t3-speedup}
+\resultfig[0.95\linewidth]{task3_mpki}{Task 3: load MPKI of the L1D, the L2C, L2 instruction and L2 data loads.}{fig:t3-mpki}
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/task3_accuracy.png}{\includegraphics[width=0.49\linewidth]{figures/task3_accuracy.png}}{}%
+\hfill
+\IfFileExists{figures/task3_coverage.png}{\includegraphics[width=0.49\linewidth]{figures/task3_coverage.png}}{}
+\caption{Task 3: L1D prefetch accuracy (left) and coverage (right) of SPP with LRU and with the
+prefetch-aware Dyn.\ I-RRIP at the L2.}\label{fig:t3-acccov}
+\end{figure}
+
+\subsection{Discussion}\label{sec:task3-discussion}
+
+\paragraph{Outcome.} SPP with the prefetch-aware dynamic I-RRIP reaches a geometric-mean speedup of
+\textbf{1.0186} (+1.86\%), against 1.0129 for SPP alone and 1.0053 for dynamic I-RRIP alone, so it
+outperforms both on average. It beats dynamic I-RRIP on every trace.
+
+\paragraph{Why the gains add up.} The two mechanisms remove different misses. SPP removes L1D data
+misses (mean L1D load MPKI 9.21 $\rightarrow$ 8.44, coverage about 10\%), which an L2 policy cannot touch.
+Dynamic I-RRIP removes L2 instruction misses (mean 10.36 $\rightarrow$ 8.67), which SPP cannot touch.
+On Trace~2, the most instruction-bound trace, SPP gives +1.41\% and dynamic I-RRIP +1.65\%; together
+they give +3.22\%, slightly more than the product of the two (1.0308). The L2 instruction MPKI drops from
+19.66 to 14.95 while the L1D load MPKI stays at the SPP level (12.91).
+
+\paragraph{SPP is not disturbed.} Accuracy and coverage are the same with LRU and with the new policy
+(mean accuracy 44.2\% vs 44.3\%, coverage 10.26\% vs 10.29\%). The L2 policy changes how long the L2 keeps
+lines, not what SPP predicts. Because FILL\_L1 prefetches are inserted at the eviction position, the
+extra prefetch traffic does not cost I-RRIP its instruction-miss savings: the L2 instruction MPKI with
+SPP (8.67) is as low as without a prefetcher (8.72).
+
+\paragraph{Trace 1 and Trace 3.} On these traces dynamic I-RRIP alone gains nothing (1.0000 and 0.9996):
+Trace~3 has almost no L2 instruction misses (1.13 MPKI), and on Trace~1 the instruction misses saved
+(10.37 $\rightarrow$ 9.97) are paid back in data misses (7.35 $\rightarrow$ 7.67). With no instruction-miss
+saving to add, the combination can only match SPP, and it does so to within 0.04\%
+(1.0077 vs 1.0080 and 1.0161 vs 1.0165, a difference of about 30k cycles in 107M on Trace~1).
+The set-dueling threshold of Task~2B still selects I-RRIP for most epochs on these traces
+(97\% on Trace~1, 75\% on Trace~3); a stricter mode decision is the natural next step for these
+workloads.
+
+\paragraph{Cost of distant insertion.} Inserting FILL\_L1 prefetches at RRPV 7 lowers the L2 hit rate of
+\emph{prefetch requests}: when SPP re-prefetches a line that the L1D has already evicted, the L2 copy has
+often gone too (Trace~1: prefetch-request hit rate 27\% with LRU vs 18\%). These re-prefetches go to
+the LLC instead. The effect on IPC is small, since the demand hit rate of the L2 rises at the same
+time (Trace~1 L2 load MPKI 16.75 $\rightarrow$ 16.52).

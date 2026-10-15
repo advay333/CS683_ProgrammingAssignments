@@ -1,0 +1,407 @@
+#include "cache.h"
+
+// Measurement-only copy of irrip.l2c_repl.
+// Replacement decisions are identical to irrip; this file only adds statistics
+// (counted after warmup) that are printed by l2c_replacement_final_stats().
+
+#define maxRRPV 7
+uint32_t l2_rrpv[L2C_SET][L2C_WAY];
+
+// ---------------- statistics state ----------------
+
+// line classes (what a resident line holds)
+#define CLS_CODE  0
+#define CLS_DATA  1
+#define CLS_TRANS 2
+#define NUM_CLS   3
+const char *CLS_NAME[NUM_CLS] = {"CODE", "DATA", "TRANS"};
+
+// request classes (who is asking)
+#define REQ_CODE_LOAD   0
+#define REQ_DATA_LOAD   1
+#define REQ_RFO         2
+#define REQ_PREFETCH    3
+#define REQ_WRITEBACK   4
+#define REQ_TRANS_ITLB  5
+#define REQ_TRANS_DTLB  6
+#define REQ_OTHER       7
+#define NUM_REQ         8
+const char *REQ_NAME[NUM_REQ] = {"CODE_LOAD", "DATA_LOAD", "RFO", "PREFETCH", "WRITEBACK", "TRANS_ITLB", "TRANS_DTLB", "OTHER"};
+
+// per-line bookkeeping (does not affect replacement)
+uint8_t l2s_reused[L2C_SET][L2C_WAY];     // demand hit since insertion
+
+// ghost tags: last GHOST_WAYS evicted lines per set, used to detect lines that come back soon after eviction
+#define GHOST_WAYS 8
+uint64_t l2s_ghost_addr[L2C_SET][GHOST_WAYS];
+uint8_t  l2s_ghost_cls[L2C_SET][GHOST_WAYS];
+uint8_t  l2s_ghost_valid[L2C_SET][GHOST_WAYS];
+uint32_t l2s_ghost_next[L2C_SET];
+
+// access counters
+uint64_t l2s_hits[NUM_REQ], l2s_fills[NUM_REQ];
+
+// evictions
+uint64_t l2s_evict[NUM_CLS], l2s_evict_dirty[NUM_CLS], l2s_evict_dead[NUM_CLS];
+uint64_t l2s_evict_matrix[NUM_REQ][NUM_CLS];   // [incoming request][victim class]
+uint64_t l2s_ghost_hit[NUM_REQ];               // fills whose line was evicted from this set recently
+
+// find_victim behaviour
+uint64_t l2s_fv_calls, l2s_fv_invalid, l2s_fv_aging_rounds;
+uint64_t l2s_fv_code_saved;    // max-RRPV candidates had both code and non-code: code protected by tie-break
+uint64_t l2s_fv_code_forced;   // all max-RRPV candidates were code: code evicted
+uint64_t l2s_fv_victim[NUM_CLS];
+
+// occupancy sampled at every find_victim on a full set
+uint64_t l2s_occ_samples, l2s_occ_sum[NUM_CLS], l2s_occ_dirty_sum;
+uint64_t l2s_code_ways_hist[L2C_WAY + 1];
+
+// instruction-fraction formula from the dyn_irrip hint, (instr acc + instr miss) / (total acc + total miss)
+// writebacks are excluded because they are not loads
+#define FRAC_WINDOW 100000
+#define FRAC_BUCKETS 20
+uint64_t l2s_frac_iacc, l2s_frac_imiss, l2s_frac_tacc, l2s_frac_tmiss;   // whole run
+uint64_t l2s_win_iacc, l2s_win_imiss, l2s_win_tacc, l2s_win_tmiss;       // current window
+uint64_t l2s_win_count, l2s_win_hist[FRAC_BUCKETS];
+double   l2s_win_min = 1.0, l2s_win_max = 0.0;
+
+static int l2s_req_class(uint32_t type, uint8_t isInstruction)
+{
+    if (type == LOAD)
+        return isInstruction ? REQ_CODE_LOAD : REQ_DATA_LOAD;
+    if (type == RFO)
+        return REQ_RFO;
+    if (type == PREFETCH)
+        return isInstruction ? REQ_CODE_LOAD : REQ_PREFETCH;
+    if (type == WRITEBACK)
+        return REQ_WRITEBACK;
+    if (type == LOAD_TRANSLATION)
+        return isInstruction ? REQ_TRANS_ITLB : REQ_TRANS_DTLB;
+    return REQ_OTHER;
+}
+
+static int l2s_line_class(const BLOCK &b)
+{
+    if (b.instruction)
+        return CLS_CODE;
+    if (b.translation)
+        return CLS_TRANS;
+    return CLS_DATA;
+}
+
+static int l2s_req_to_line_class(int req)
+{
+    if (req == REQ_CODE_LOAD)
+        return CLS_CODE;
+    if (req == REQ_TRANS_ITLB || req == REQ_TRANS_DTLB)
+        return CLS_TRANS;
+    return CLS_DATA;
+}
+
+static void l2s_window_close()
+{
+    uint64_t denom = l2s_win_tacc + l2s_win_tmiss;
+    if (denom) {
+        double frac = (double)(l2s_win_iacc + l2s_win_imiss) / denom;
+        int bucket = (int)(frac * FRAC_BUCKETS);
+        if (bucket >= FRAC_BUCKETS)
+            bucket = FRAC_BUCKETS - 1;
+        l2s_win_hist[bucket]++;
+        l2s_win_count++;
+        if (frac < l2s_win_min) l2s_win_min = frac;
+        if (frac > l2s_win_max) l2s_win_max = frac;
+    }
+    l2s_win_iacc = l2s_win_imiss = l2s_win_tacc = l2s_win_tmiss = 0;
+}
+
+// initialize replacement state
+void CACHE::l2c_initialize_replacement()
+{
+    cout << "Initialize I-RRIP (stats build) state for L2C" << endl;
+
+    for (int i=0; i<L2C_SET; i++) {
+        for (int j=0; j<L2C_WAY; j++) {
+            l2_rrpv[i][j] = maxRRPV;
+            l2s_reused[i][j] = 0;
+        }
+        for (int g=0; g<GHOST_WAYS; g++)
+            l2s_ghost_valid[i][g] = 0;
+        l2s_ghost_next[i] = 0;
+    }
+}
+
+// find replacement victim
+uint32_t CACHE::l2c_find_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type)
+{
+    bool roi = warmup_complete[cpu];
+    if (roi)
+        l2s_fv_calls++;
+
+    // look for the maxRRPV line
+    bool is_max_way[L2C_WAY] = {false};
+    for(int i=0;i<L2C_WAY;i++){
+        if(!current_set[i].valid){
+            if (roi)
+                l2s_fv_invalid++;
+            return i;
+        }
+    }
+
+    if (roi) {
+        uint32_t occ[NUM_CLS] = {0}, dirty = 0;
+        for (int i=0; i<L2C_WAY; i++) {
+            occ[l2s_line_class(current_set[i])]++;
+            dirty += current_set[i].dirty ? 1 : 0;
+        }
+        l2s_occ_samples++;
+        for (int c=0; c<NUM_CLS; c++)
+            l2s_occ_sum[c] += occ[c];
+        l2s_occ_dirty_sum += dirty;
+        l2s_code_ways_hist[occ[CLS_CODE]]++;
+    }
+
+    bool max_found=false;
+    while (1)
+    {
+        for (int i=0; i<L2C_WAY; i++)
+            if (l2_rrpv[set][i] == maxRRPV){
+                is_max_way[i]=true;
+                max_found=true;
+            }
+        if(max_found){
+            bool any_code = false;
+            for(int i=0;i<L2C_WAY;i++)
+                if(is_max_way[i] && current_set[i].instruction)
+                    any_code = true;
+
+            for(int i=0;i<L2C_WAY;i++){
+                if(is_max_way[i] && !current_set[i].instruction){
+                    if (roi) {
+                        if (any_code)
+                            l2s_fv_code_saved++;
+                        l2s_fv_victim[l2s_line_class(current_set[i])]++;
+                    }
+                    return i;
+                }
+            }
+            for(int i=0;i<L2C_WAY;i++){
+                if(is_max_way[i]){
+                    if (roi) {
+                        l2s_fv_code_forced++;
+                        l2s_fv_victim[CLS_CODE]++;
+                    }
+                    return i;
+                }
+            }
+        }
+        if (roi)
+            l2s_fv_aging_rounds++;
+        for (int i=0; i<L2C_WAY; i++)
+            l2_rrpv[set][i]++;
+    }
+
+    // WE SHOULD NOT REACH HERE
+    assert(0);
+    return 0;
+}
+
+// statistics only; called before the replacement state is changed
+static void l2s_record(BLOCK **block, uint32_t cpu, uint32_t set, uint32_t way, uint64_t full_addr, uint32_t type, uint8_t hit, uint8_t isInstruction)
+{
+    int req = l2s_req_class(type, isInstruction);
+    bool demand = (type == LOAD || type == RFO || type == LOAD_TRANSLATION);
+
+    if (hit) {
+        if (demand)
+            l2s_reused[set][way] = 1;
+    } else {
+        // the victim is still in block[set][way]; fill_cache runs after this call
+        BLOCK &victim = block[set][way];
+        if (victim.valid) {
+            int vcls = l2s_line_class(victim);
+            if (warmup_complete[cpu]) {
+                l2s_evict[vcls]++;
+                if (victim.dirty)
+                    l2s_evict_dirty[vcls]++;
+                if (!l2s_reused[set][way])
+                    l2s_evict_dead[vcls]++;
+                l2s_evict_matrix[req][vcls]++;
+            }
+            l2s_ghost_addr[set][l2s_ghost_next[set]] = victim.address;
+            l2s_ghost_cls[set][l2s_ghost_next[set]] = vcls;
+            l2s_ghost_valid[set][l2s_ghost_next[set]] = 1;
+            l2s_ghost_next[set] = (l2s_ghost_next[set] + 1) % GHOST_WAYS;
+        }
+
+        // did this incoming line get evicted from this set recently?
+        uint64_t line = full_addr >> LOG2_BLOCK_SIZE;
+        for (int g=0; g<GHOST_WAYS; g++) {
+            if (l2s_ghost_valid[set][g] && l2s_ghost_addr[set][g] == line) {
+                if (warmup_complete[cpu])
+                    l2s_ghost_hit[req]++;
+                l2s_ghost_valid[set][g] = 0;
+                break;
+            }
+        }
+        l2s_reused[set][way] = 0;
+    }
+
+    if (!warmup_complete[cpu])
+        return;
+
+    if (hit)
+        l2s_hits[req]++;
+    else
+        l2s_fills[req]++;
+
+    if (type != WRITEBACK) {
+        bool instr = (req == REQ_CODE_LOAD);
+        l2s_frac_tacc++;
+        l2s_win_tacc++;
+        if (instr) {
+            l2s_frac_iacc++;
+            l2s_win_iacc++;
+        }
+        if (!hit) {
+            l2s_frac_tmiss++;
+            l2s_win_tmiss++;
+            if (instr) {
+                l2s_frac_imiss++;
+                l2s_win_imiss++;
+            }
+        }
+        if (l2s_win_tacc >= FRAC_WINDOW)
+            l2s_window_close();
+    }
+}
+
+// called on every cache hit and cache fill
+void CACHE::l2c_update_replacement_state(uint32_t cpu, uint32_t set, uint32_t way, uint64_t full_addr, uint64_t ip, uint64_t victim_addr, uint32_t type, uint8_t hit, uint8_t isInstruction)
+{
+    if ((type == WRITEBACK) && ip)
+        assert(0);
+
+    l2s_record(block, cpu, set, way, full_addr, type, hit, isInstruction);
+
+    if(type==LOAD){
+        if(hit){
+            l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],block[set][way].instruction ? 0 : 2);
+        }
+        else{
+            l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+        }
+    }
+    else if(type==LOAD_TRANSLATION){
+        if(hit){
+            l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],isInstruction ? 0 : 2);
+        }
+        else{
+            l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+        }
+    }
+    else if(type==RFO){
+        if(hit){
+            l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],4);
+        }
+        else{
+            l2_rrpv[set][way]=5;
+        }
+    }
+    else{
+        if(!hit){
+            l2_rrpv[set][way]=6;
+        }
+        else{
+            if(l2_rrpv[set][way]>0){l2_rrpv[set][way]--;}
+        }
+    }
+}
+
+static double l2s_pct(uint64_t num, uint64_t den)
+{
+    return den ? 100.0 * num / den : 0.0;
+}
+
+// use this function to print out your own stats at the end of simulation
+void CACHE::l2c_replacement_final_stats()
+{
+    cout << endl << "L2C_STATS ===== I-RRIP replacement statistics (simulation phase only) =====" << endl;
+
+    cout << "L2C_STATS ACCESSES  request        hits      fills(misses)  hit%" << endl;
+    for (int r=0; r<NUM_REQ; r++) {
+        uint64_t total = l2s_hits[r] + l2s_fills[r];
+        if (!total)
+            continue;
+        cout << "L2C_STATS ACCESSES  " << setw(11) << left << REQ_NAME[r] << right
+             << setw(12) << l2s_hits[r] << setw(14) << l2s_fills[r]
+             << setw(10) << fixed << setprecision(2) << l2s_pct(l2s_hits[r], total) << endl;
+    }
+
+    cout << "L2C_STATS EVICTIONS class      evicted      dirty%   dead%(no demand hit before eviction)" << endl;
+    for (int c=0; c<NUM_CLS; c++) {
+        cout << "L2C_STATS EVICTIONS " << setw(6) << left << CLS_NAME[c] << right
+             << setw(14) << l2s_evict[c]
+             << setw(10) << l2s_pct(l2s_evict_dirty[c], l2s_evict[c])
+             << setw(10) << l2s_pct(l2s_evict_dead[c], l2s_evict[c]) << endl;
+    }
+
+    cout << "L2C_STATS EVICT_MATRIX incoming\\victim        CODE        DATA       TRANS" << endl;
+    for (int r=0; r<NUM_REQ; r++) {
+        uint64_t total = 0;
+        for (int c=0; c<NUM_CLS; c++)
+            total += l2s_evict_matrix[r][c];
+        if (!total)
+            continue;
+        cout << "L2C_STATS EVICT_MATRIX " << setw(20) << left << REQ_NAME[r] << right;
+        for (int c=0; c<NUM_CLS; c++)
+            cout << setw(12) << l2s_evict_matrix[r][c];
+        cout << endl;
+    }
+
+    cout << "L2C_STATS GHOST_HITS (fill of a line evicted from the same set within the last " << GHOST_WAYS << " evictions)" << endl;
+    for (int r=0; r<NUM_REQ; r++) {
+        if (!l2s_fills[r])
+            continue;
+        cout << "L2C_STATS GHOST_HITS " << setw(11) << left << REQ_NAME[r] << right
+             << setw(12) << l2s_ghost_hit[r]
+             << "  (" << l2s_pct(l2s_ghost_hit[r], l2s_fills[r]) << "% of its fills)" << endl;
+    }
+
+    uint64_t full_calls = l2s_fv_calls - l2s_fv_invalid;
+    cout << "L2C_STATS FIND_VICTIM calls: " << l2s_fv_calls << " invalid_way_used: " << l2s_fv_invalid
+         << " avg_aging_rounds: " << (full_calls ? (double)l2s_fv_aging_rounds / full_calls : 0.0) << endl;
+    cout << "L2C_STATS FIND_VICTIM victim CODE: " << l2s_fv_victim[CLS_CODE]
+         << " DATA: " << l2s_fv_victim[CLS_DATA] << " TRANS: " << l2s_fv_victim[CLS_TRANS] << endl;
+    cout << "L2C_STATS FIND_VICTIM code_saved_by_tiebreak: " << l2s_fv_code_saved
+         << " (" << l2s_pct(l2s_fv_code_saved, full_calls) << "%)"
+         << " code_evicted_all_candidates_code: " << l2s_fv_code_forced
+         << " (" << l2s_pct(l2s_fv_code_forced, full_calls) << "%)" << endl;
+
+    if (l2s_occ_samples) {
+        cout << "L2C_STATS OCCUPANCY avg ways per set (of " << L2C_WAY << ") CODE: " << (double)l2s_occ_sum[CLS_CODE] / l2s_occ_samples
+             << " DATA: " << (double)l2s_occ_sum[CLS_DATA] / l2s_occ_samples
+             << " TRANS: " << (double)l2s_occ_sum[CLS_TRANS] / l2s_occ_samples
+             << " DIRTY: " << (double)l2s_occ_dirty_sum / l2s_occ_samples << endl;
+        cout << "L2C_STATS CODE_WAYS_HIST";
+        for (int w=0; w<=L2C_WAY; w++)
+            cout << " " << w << ":" << l2s_pct(l2s_code_ways_hist[w], l2s_occ_samples) << "%";
+        cout << endl;
+    }
+
+    uint64_t den = l2s_frac_tacc + l2s_frac_tmiss;
+    cout << "L2C_STATS INSTR_FRACTION overall (instr_acc + instr_miss) / (total_acc + total_miss): "
+         << (den ? (double)(l2s_frac_iacc + l2s_frac_imiss) / den : 0.0)
+         << "  [instr_acc " << l2s_frac_iacc << " instr_miss " << l2s_frac_imiss
+         << " total_acc " << l2s_frac_tacc << " total_miss " << l2s_frac_tmiss << "]" << endl;
+    cout << "L2C_STATS INSTR_FRACTION windows of " << FRAC_WINDOW << " accesses: " << l2s_win_count
+         << " min: " << (l2s_win_count ? l2s_win_min : 0.0) << " max: " << (l2s_win_count ? l2s_win_max : 0.0) << endl;
+    cout << "L2C_STATS INSTR_FRACTION_HIST";
+    for (int b=0; b<FRAC_BUCKETS; b++) {
+        if (!l2s_win_hist[b])
+            continue;
+        cout << " [" << (double)b / FRAC_BUCKETS << "-" << (double)(b + 1) / FRAC_BUCKETS << "):"
+             << l2s_pct(l2s_win_hist[b], l2s_win_count) << "%";
+    }
+    cout << endl;
+    cout << resetiosflags(ios::fixed) << setprecision(6);
+}
