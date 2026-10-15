@@ -1,0 +1,287 @@
+#include "cache.h"
+
+// Measurement-only copy of dyn_rrip.l2c_repl.
+// Replacement decisions are identical to dyn_rrip; this file only adds statistics
+// (counted after warmup) that are printed by l2c_replacement_final_stats().
+
+#define maxRRPV 7
+uint32_t l2_rrpv[L2C_SET][L2C_WAY];
+
+uint32_t inst_accesses = 0;
+uint32_t inst_misses = 0;
+uint32_t total_accesses = 0;
+uint32_t total_misses = 0;
+
+// the mode is re-decided every EPOCH_LENGTH L2C accesses (all sets), so the
+// decision rate does not depend on the number of leader sets
+#define EPOCH_LENGTH 8192
+uint32_t epoch_accesses = 0;
+
+uint32_t num_decision_sets = 64;
+float code_scaling = 1.0;
+float threshold = 0.15;
+bool is_irrip_latent = false;
+
+// called once per epoch, from the RRIP-leader counting in l2c_update_replacement_state
+void decide_mode(){
+    float frac = float(code_scaling*(inst_accesses + inst_misses)) / float( (code_scaling-1)*(inst_accesses + inst_misses) + (total_accesses + total_misses) + 1 );
+    is_irrip_latent = (frac > threshold) ? true : false;
+    total_accesses=0;
+    total_misses=0;
+    inst_accesses=0;
+    inst_misses=0;
+}
+
+// current mode for follower sets; only decide_mode() changes it
+bool check_dominant(){
+    return is_irrip_latent;
+}
+
+uint32_t stride = L2C_SET / num_decision_sets;
+bool is_irrip_leader(uint32_t set){
+    return (set % stride) == 0;
+}
+bool is_rrip_leader(uint32_t set){
+    return (set % stride) == stride / 2;
+}
+
+// ---------------- statistics state (simulation phase only) ----------------
+
+#define GRP_RRIP_LEADER    0
+#define GRP_IRRIP_LEADER   1
+#define GRP_FOLLOWER_RRIP  2   // follower set while the global mode is RRIP
+#define GRP_FOLLOWER_IRRIP 3   // follower set while the global mode is I-RRIP
+#define NUM_GRP            4
+const char *GRP_NAME[NUM_GRP] = {"RRIP_LEADERS", "IRRIP_LEADERS", "FOLLOWERS_IN_RRIP", "FOLLOWERS_IN_IRRIP"};
+
+// non-writeback accesses / misses per group, split into code and all
+uint64_t ds_acc[NUM_GRP], ds_miss[NUM_GRP], ds_iacc[NUM_GRP], ds_imiss[NUM_GRP];
+
+uint64_t ds_decisions, ds_decisions_irrip, ds_switches;
+double   ds_frac_sum, ds_frac_min = 1e9, ds_frac_max = -1.0;
+#define DS_FRAC_BUCKETS 20
+uint64_t ds_frac_hist[DS_FRAC_BUCKETS];
+
+// initialize replacement state
+void CACHE::l2c_initialize_replacement()
+{
+    cout << "Initialize Dynamic-RRIP (stats build) state for L2C" << endl;
+    cout << "DYN_PARAMS threshold: " << threshold << " decision_sets: " << num_decision_sets
+         << " code_scaling: " << code_scaling << " stride: " << stride << " epoch: " << EPOCH_LENGTH << endl;
+
+    for (int i=0; i<L2C_SET; i++) {
+        for (int j=0; j<L2C_WAY; j++) {
+            l2_rrpv[i][j] = maxRRPV;
+        }
+    }
+}
+
+// find replacement victim
+uint32_t CACHE::l2c_find_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type)
+{
+    // IRRIP set
+    bool is_decision = (is_irrip_leader(set)) || (is_rrip_leader(set));
+    bool is_irrip=check_dominant();
+    if(is_irrip_leader(set) || (!is_decision && is_irrip)){
+        bool is_max_way[L2C_WAY] = {false};
+        for(int i=0;i<L2C_WAY;i++){
+            if(!current_set[i].valid){
+                return i;
+            }
+        }
+        bool max_found=false;
+        while (1)
+        {
+            for (int i=0; i<L2C_WAY; i++)
+                if (l2_rrpv[set][i] == maxRRPV){
+                    is_max_way[i]=true;
+                    max_found=true;
+                }
+            if(max_found){
+                for(int i=0;i<L2C_WAY;i++){
+                    if(is_max_way[i] && !current_set[i].instruction){
+                        return i;
+                    }
+                }
+                for(int i=0;i<L2C_WAY;i++){
+                    if(is_max_way[i]){
+                        return i;
+                    }
+                }
+            }
+            for (int i=0; i<L2C_WAY; i++)
+                l2_rrpv[set][i]++;
+        }
+    }
+    else if(is_rrip_leader(set) || (!is_decision && !is_irrip)){
+        while (1)
+            {
+                for (int i=0; i<L2C_WAY; i++)
+                    if (l2_rrpv[set][i] == maxRRPV)
+                        return i;
+
+                for (int i=0; i<L2C_WAY; i++)
+                    l2_rrpv[set][i]++;
+            }
+    }
+    else{
+        assert(0);
+    }
+
+    // WE SHOULD NOT REACH HERE
+    assert(0);
+    return 0;
+}
+
+// called on every cache hit and cache fill
+void CACHE::l2c_update_replacement_state(uint32_t cpu, uint32_t set, uint32_t way, uint64_t full_addr, uint64_t ip, uint64_t victim_addr, uint32_t type, uint8_t hit, uint8_t isInstruction)
+{
+    if ((type == WRITEBACK) && ip)
+        assert(0);
+
+    bool roi = warmup_complete[cpu];
+
+    // stats: which group this access belongs to, using the mode in force for this access
+    if (roi && type != WRITEBACK) {
+        int grp;
+        if (is_rrip_leader(set))
+            grp = GRP_RRIP_LEADER;
+        else if (is_irrip_leader(set))
+            grp = GRP_IRRIP_LEADER;
+        else
+            grp = check_dominant() ? GRP_FOLLOWER_IRRIP : GRP_FOLLOWER_RRIP;
+        bool code = isInstruction && (type == LOAD || type == PREFETCH);
+        ds_acc[grp]++;
+        if (!hit)
+            ds_miss[grp]++;
+        if (code) {
+            ds_iacc[grp]++;
+            if (!hit)
+                ds_imiss[grp]++;
+        }
+    }
+
+    if(is_rrip_leader(set)){
+        if(type!=WRITEBACK){
+            total_accesses++;
+            if(!hit){
+                total_misses++;
+            }
+        }
+        if(isInstruction && (type == LOAD || type == PREFETCH)){
+            inst_accesses++;
+            if(!hit){
+                inst_misses++;
+            }
+        }
+    }
+
+    epoch_accesses++;
+    if(epoch_accesses >= EPOCH_LENGTH){
+        if (roi) {
+            // same expression as decide_mode(), evaluated before it resets the counters
+            float frac = float(code_scaling*(inst_accesses + inst_misses)) / float( (code_scaling-1)*(inst_accesses + inst_misses) + (total_accesses + total_misses) + 1 );
+            bool prev = is_irrip_latent;
+            bool next = (frac > threshold);
+            ds_decisions++;
+            if (next)
+                ds_decisions_irrip++;
+            if (next != prev)
+                ds_switches++;
+            ds_frac_sum += frac;
+            if (frac < ds_frac_min) ds_frac_min = frac;
+            if (frac > ds_frac_max) ds_frac_max = frac;
+            int bucket = (int)(frac * DS_FRAC_BUCKETS);
+            if (bucket < 0) bucket = 0;
+            if (bucket >= DS_FRAC_BUCKETS) bucket = DS_FRAC_BUCKETS - 1;
+            ds_frac_hist[bucket]++;
+        }
+        decide_mode();
+        epoch_accesses = 0;
+    }
+
+    bool is_decision = (is_irrip_leader(set)) || (is_rrip_leader(set));
+    bool is_irrip=check_dominant();
+    if(is_irrip_leader(set) || (!is_decision && is_irrip)){
+        if(type==LOAD){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],block[set][way].instruction ? 0 : 2);
+            }
+            else{
+                l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+            }
+        }
+        else if(type==LOAD_TRANSLATION){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],isInstruction ? 0 : 2);
+            }
+            else{
+                l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+            }
+        }
+        else if(type==RFO){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],4);
+            }
+            else{
+                l2_rrpv[set][way]=5;
+            }
+        }
+        else{
+            if(!hit){
+                l2_rrpv[set][way]=6;
+            }
+            else{
+                if(l2_rrpv[set][way]>0){l2_rrpv[set][way]--;}
+            }
+        }
+    }
+    else if(is_rrip_leader(set) || (!is_decision && !is_irrip)){
+        if (hit)
+            l2_rrpv[set][way] = maxRRPV-3;
+        else
+            l2_rrpv[set][way] = maxRRPV-1;  //insert with RRPV2
+    }
+    else{
+        assert(0);
+    }
+}
+
+static double ds_pct(uint64_t num, uint64_t den)
+{
+    return den ? 100.0 * num / den : 0.0;
+}
+
+// use this function to print out your own stats at the end of simulation
+void CACHE::l2c_replacement_final_stats()
+{
+    cout << endl << "L2C_DYN ===== Dynamic I-RRIP statistics (simulation phase only) =====" << endl;
+    cout << "L2C_DYN PARAMS threshold: " << threshold << " decision_sets: " << num_decision_sets
+         << " code_scaling: " << code_scaling << " stride: " << stride << " epoch: " << EPOCH_LENGTH << endl;
+
+    cout << fixed << setprecision(4);
+    cout << "L2C_DYN DECISIONS total: " << ds_decisions << " chose_IRRIP: " << ds_decisions_irrip
+         << " (" << ds_pct(ds_decisions_irrip, ds_decisions) << "%) mode_switches: " << ds_switches << endl;
+    if (ds_decisions) {
+        cout << "L2C_DYN FRAC mean: " << ds_frac_sum / ds_decisions << " min: " << ds_frac_min
+             << " max: " << ds_frac_max << endl;
+        cout << "L2C_DYN FRAC_HIST";
+        for (int b=0; b<DS_FRAC_BUCKETS; b++) {
+            if (!ds_frac_hist[b])
+                continue;
+            cout << " [" << (double)b / DS_FRAC_BUCKETS << "-" << (double)(b + 1) / DS_FRAC_BUCKETS << "):"
+                 << ds_pct(ds_frac_hist[b], ds_decisions) << "%";
+        }
+        cout << endl;
+    }
+
+    cout << "L2C_DYN GROUPS group                 accesses      misses   miss%   code_acc   code_miss  code_miss%" << endl;
+    for (int g=0; g<NUM_GRP; g++) {
+        cout << "L2C_DYN GROUPS " << setw(20) << left << GRP_NAME[g] << right
+             << setw(12) << ds_acc[g] << setw(12) << ds_miss[g]
+             << setw(8) << ds_pct(ds_miss[g], ds_acc[g])
+             << setw(11) << ds_iacc[g] << setw(12) << ds_imiss[g]
+             << setw(12) << ds_pct(ds_imiss[g], ds_iacc[g]) << endl;
+    }
+    cout << resetiosflags(ios::fixed) << setprecision(6);
+}

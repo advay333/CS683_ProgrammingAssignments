@@ -1,0 +1,217 @@
+#include "cache.h"
+
+#define maxRRPV 7
+uint32_t l2_rrpv[L2C_SET][L2C_WAY];
+
+uint32_t inst_accesses = 0;
+uint32_t inst_misses = 0;
+uint32_t total_accesses = 0;
+uint32_t total_misses = 0;
+
+// the mode is re-decided every EPOCH_LENGTH L2C accesses (all sets), so the
+// decision rate does not depend on the number of leader sets
+#define EPOCH_LENGTH 8192
+uint32_t epoch_accesses = 0;
+
+uint32_t num_decision_sets = 64;
+float code_scaling = 1.0;
+float threshold = 0.15;
+bool is_irrip_latent = false;
+
+// called once per epoch, from the RRIP-leader counting in l2c_update_replacement_state
+void decide_mode(){
+    float frac = float(code_scaling*(inst_accesses + inst_misses)) / float( (code_scaling-1)*(inst_accesses + inst_misses) + (total_accesses + total_misses) + 1 );
+    is_irrip_latent = (frac > threshold) ? true : false;
+    total_accesses=0;
+    total_misses=0;
+    inst_accesses=0;
+    inst_misses=0;
+}
+
+// current mode for follower sets; only decide_mode() changes it
+bool check_dominant(){
+    return is_irrip_latent;
+}
+
+uint32_t stride = L2C_SET / num_decision_sets;
+bool is_irrip_leader(uint32_t set){
+    return (set % stride) == 0;
+}
+bool is_rrip_leader(uint32_t set){
+    return (set % stride) == stride / 2;
+}
+
+// initialize replacement state
+void CACHE::l2c_initialize_replacement()
+{
+    cout << "Initialize Dynamic-RRIP state for L2C" << endl;
+
+    for (int i=0; i<L2C_SET; i++) {
+        for (int j=0; j<L2C_WAY; j++) {
+            l2_rrpv[i][j] = maxRRPV;
+        }
+    }
+}
+
+// find replacement victim
+uint32_t CACHE::l2c_find_victim(uint32_t cpu, uint64_t instr_id, uint32_t set, const BLOCK *current_set, uint64_t ip, uint64_t full_addr, uint32_t type)
+{
+    // IRRIP set
+    bool is_decision = (is_irrip_leader(set)) || (is_rrip_leader(set));
+    bool is_irrip=check_dominant();
+    if(is_irrip_leader(set) || (!is_decision && is_irrip)){
+        bool is_max_way[L2C_WAY] = {false};
+        for(int i=0;i<L2C_WAY;i++){
+            if(!current_set[i].valid){
+                return i;
+            }
+        }
+        bool max_found=false;
+        while (1)
+        {
+            for (int i=0; i<L2C_WAY; i++)
+                if (l2_rrpv[set][i] == maxRRPV){
+                    is_max_way[i]=true;
+                    max_found=true;
+                }
+            if(max_found){
+                for(int i=0;i<L2C_WAY;i++){
+                    if(is_max_way[i] && !current_set[i].instruction){
+                        return i;
+                    }
+                }
+                for(int i=0;i<L2C_WAY;i++){
+                    if(is_max_way[i]){
+                        return i;
+                    }
+                }
+            }
+            for (int i=0; i<L2C_WAY; i++)
+                l2_rrpv[set][i]++;
+        }
+    }
+    else if(is_rrip_leader(set) || (!is_decision && !is_irrip)){
+        while (1)
+            {
+                for (int i=0; i<L2C_WAY; i++)
+                    if (l2_rrpv[set][i] == maxRRPV)
+                        return i;
+
+                for (int i=0; i<L2C_WAY; i++)
+                    l2_rrpv[set][i]++;
+            }
+    }
+    else{
+        assert(0);
+    }
+
+    // WE SHOULD NOT REACH HERE
+    assert(0);
+    return 0;
+}
+
+// called on every cache hit and cache fill
+void CACHE::l2c_update_replacement_state(uint32_t cpu, uint32_t set, uint32_t way, uint64_t full_addr, uint64_t ip, uint64_t victim_addr, uint32_t type, uint8_t hit, uint8_t isInstruction)
+{
+    string TYPE_NAME;
+    if (type == LOAD)
+        TYPE_NAME = "LOAD";
+    else if (type == RFO)
+        TYPE_NAME = "RFO";
+    else if (type == PREFETCH)
+        TYPE_NAME = "PF";
+    else if (type == WRITEBACK)
+        TYPE_NAME = "WB";
+    else if (type == LOAD_TRANSLATION)
+	TYPE_NAME = "L_TN";
+    else if (type == PREFETCH_TRANSLATION)
+	TYPE_NAME = "P_TN";
+    else if (type == TRANSLATION_FROM_L1D)
+	TYPE_NAME = "TN_L1D";
+    else
+        assert(0);
+
+    if (hit)
+        TYPE_NAME += "_HIT";
+    else
+        TYPE_NAME += "_MISS";
+
+    if ((type == WRITEBACK) && ip)
+        assert(0);
+
+    // uncomment this line to see the L2C accesses
+    // cout << "CPU: " << cpu << "  L2C " << setw(9) << TYPE_NAME << " set: " << setw(5) << set << " way: " << setw(2) << way;
+    // cout << hex << " paddr: " << setw(12) << paddr << " ip: " << setw(8) << ip << " victim_addr: " << victim_addr << dec << endl;
+    if(is_rrip_leader(set)){
+        if(type!=WRITEBACK){
+            total_accesses++;
+            if(!hit){
+                total_misses++;
+            }
+        }
+        if(isInstruction && (type == LOAD || type == PREFETCH)){
+            inst_accesses++;
+            if(!hit){
+                inst_misses++;
+            }
+        }
+    }
+
+    epoch_accesses++;
+    if(epoch_accesses >= EPOCH_LENGTH){
+        decide_mode();
+        epoch_accesses = 0;
+    }
+
+    bool is_decision = (is_irrip_leader(set)) || (is_rrip_leader(set));
+    bool is_irrip=check_dominant();
+    if(is_irrip_leader(set) || (!is_decision && is_irrip)){
+        if(type==LOAD){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],block[set][way].instruction ? 0 : 2);
+            }
+            else{
+                l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+            }
+        }
+        else if(type==LOAD_TRANSLATION){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],isInstruction ? 0 : 2);
+            }
+            else{
+                l2_rrpv[set][way]=1+(isInstruction ? 0 : 3);
+            }
+        }
+        else if(type==RFO){
+            if(hit){
+                l2_rrpv[set][way]=min<uint32_t>(l2_rrpv[set][way],4);
+            }
+            else{
+                l2_rrpv[set][way]=5;
+            }  
+        }
+        else{
+            if(!hit){
+                l2_rrpv[set][way]=6;
+            }
+            else{
+                if(l2_rrpv[set][way]>0){l2_rrpv[set][way]--;}
+            }
+        }
+    }
+    else if(is_rrip_leader(set) || (!is_decision && !is_irrip)){
+        if (hit)
+            l2_rrpv[set][way] = maxRRPV-3;
+        else
+            l2_rrpv[set][way] = maxRRPV-1;  //insert with RRPV2
+    }
+    else{
+        assert(0);
+    }
+}
+
+// use this function to print out your own stats at the end of simulation
+void CACHE::l2c_replacement_final_stats()
+{
+
+}
