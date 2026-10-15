@@ -2,12 +2,12 @@
 #define MASK_IP 0xFF
 #define PREFETCH_DEGREE 4
 // length of history to be stored
-#define MAX_K 8
+#define MAX_K 10
 // Number patterns to be stored at a time per IP
 #define N 24
 
 // Number of Ips to be stored at a time
-#define IP_TRACKER_COUNT 256
+#define IP_TRACKER_COUNT 24
 
 class TableEntry{
     public:
@@ -186,7 +186,7 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
         trackers[index].ip = ip;
         trackers[index].last_cl_addr = cl_addr;
         trackers[index].K = 1;
-        trackers[index].off_flag = 0;  
+        trackers[index].off_flag = 0;   // fix 5: new IP starts switched on
         trackers[index].off_ctr = 0;
         cleanTable(trackers[index].patTable);
         for(int i = 0; i < MAX_K; ++i){
@@ -229,7 +229,8 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
                 entry_curr->pred_stride = stride;
                 entry_curr->confidence = 1;
             }
-
+            // fix 1: count EVERY misprediction, not only when confidence was 0
+            // fix 3: saturate err at 15 and escalate at >= 15
             entry_curr->err += 8;
             if(entry_curr->err > 15) entry_curr->err = 15;
             if(trackers[index].off_ctr < 3) trackers[index].off_ctr++;
@@ -237,14 +238,14 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
                 trackers[index].K++;
                 cleanTable(trackers[index].patTable);
                 trackers[index].off_ctr = 0;
-                entry_curr = nullptr;   
+                entry_curr = nullptr;   // fix 4: table was cleared, entry is gone
             }
             else if(trackers[index].K == MAX_K && trackers[index].off_ctr >= 3){
                 trackers[index].off_flag = 1;
             }
         }
-        
-        if(entry_curr != nullptr){   
+        // fix 2: removed the unconditional "entry_curr->pred_stride = stride;"
+        if(entry_curr != nullptr){   // fix 4: skip LRU update after escalation
             uint64_t this_lru = entry_curr->lru;
             for(int i = 0; i < N; ++i){
                 if(trackers[index].patTable.Enteries[i].lru < this_lru){
@@ -258,7 +259,7 @@ void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit
     
     ShiftStride(trackers[index].lastKstrides, stride, pattern);
     uint64_t tmp_cl_addr = cl_addr;
-    for(int p = 0; p < PREFETCH_DEGREE && trackers[index].off_flag == 0; ++p){   
+    for(int p = 0; p < PREFETCH_DEGREE && trackers[index].off_flag == 0; ++p){   // fix 5: no prefetch when off
         TableEntry* entry = matchHistory(trackers[index], pattern, trackers[index].K);
         if(entry == nullptr){
             break;
